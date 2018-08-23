@@ -12,6 +12,16 @@ repositories {
     google()
 }
 
+// Create the "fat" JAR-package with all dependencies
+jar {
+    manifest {
+        attributes 'Main-Class': 'ru.exlmoto.jiconcreator.JIconCreator'
+    }
+    from {
+        configurations.compile.collect { it.isDirectory() ? it : zipTree(it) }
+    }
+}
+
 dependencies {
     // testCompile group: 'junit', name: 'junit', version: '4.12'
 }
