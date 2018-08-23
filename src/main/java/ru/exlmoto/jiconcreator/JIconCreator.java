@@ -228,6 +228,7 @@ public class JIconCreator {
         // Generate the custom icons
         Map<String, Map<String, BufferedImage>> categories = generateImages(values,
                 false /*previewOnly*/);
+        int cnt = 0;
         for (Map<String, BufferedImage> previews : categories.values()) {
             for (Map.Entry<String, BufferedImage> entry : previews.entrySet()) {
                 String relativePath = entry.getKey();
@@ -235,7 +236,8 @@ public class JIconCreator {
                 //IPath dest = new Path(relativePath);
                 //IFile file = newProject.getFile(dest);
 
-                File file = new File(DEFAULT_LAUNCHER_ICON);
+                File file = new File("image_" + String.valueOf(cnt) + "_" + DEFAULT_LAUNCHER_ICON);
+                cnt++;
 
                 // In case template already created icons (should remove that)
                 // remove them first

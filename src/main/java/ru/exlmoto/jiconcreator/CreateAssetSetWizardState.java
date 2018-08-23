@@ -64,13 +64,13 @@ public class CreateAssetSetWizardState implements GraphicGeneratorContext {
     public boolean trim = true;
 
     /** The type of source the icon is being created from */
-    public SourceType sourceType = SourceType.TEXT;
+    public SourceType sourceType = SourceType.CLIPART;
 
     /** If {@link #sourceType} is a {@link SourceType#CLIPART}, the name of the clipart image */
-    public String clipartName;
+    public String clipartName = "android.png";
 
     /** If {@link #sourceType} is a {@link SourceType#IMAGE}, the path to the input image */
-    public File imagePath;
+    public File imagePath = new File("test.png");
 
     /** If {@link #sourceType} is a {@link SourceType#TEXT}, the text to render */
     public String text = "aA";
