@@ -16,6 +16,10 @@ public class JIconCreatorForm {
     private JSlider paddingSlider;
     private JButton squareButton;
     private JButton circleButton;
+    private JPanel mdpiPane;
+    private JPanel hdpiPane;
+    private JPanel xhdpiPane;
+    private JPanel xxhdpiPane;
 
     private void createUIComponents() {
         // TODO: place custom component creation code here
