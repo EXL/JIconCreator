@@ -6,13 +6,16 @@ public class JIconCreatorForm {
     private JPanel mainPanel;
     private JTabbedPane tabbedPane;
     private JButton saveButton;
-    private JTextField textFieldImage;
-    private JButton browseButton;
     private JCheckBox trimSurroundingBlankSpaceCheckBox;
-    private JSlider sliderPadding;
-    private JButton button1;
-    private JButton button2;
-    private JButton button3;
+    private JButton chooseColorButton;
+    private JButton cropButton;
+    private JButton centerButton;
+    private JButton noneButton;
+    private JTextField imageTextField;
+    private JButton browseImageButton;
+    private JSlider paddingSlider;
+    private JButton squareButton;
+    private JButton circleButton;
 
     private void createUIComponents() {
         // TODO: place custom component creation code here
