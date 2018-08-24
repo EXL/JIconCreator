@@ -3,15 +3,17 @@ package ru.exlmoto.jiconcreator;
 import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 import java.util.Map;
+import java.util.Random;
 
 public class JIconCreatorForm {
     private JPanel mainPanel;
     private JTabbedPane tabbedPane;
-    private JButton saveButton;
     private JCheckBox trimSurroundingBlankSpaceCheckBox;
     private JButton chooseColorButton;
     private JButton cropButton;
@@ -26,11 +28,29 @@ public class JIconCreatorForm {
     private JLabel hdpiLabel;
     private JLabel xhdpiLabel;
     private JLabel xxhdpiLabel;
+    private JButton randomColorButton;
 
     private CreateAssetSetWizardState createAssetSetWizardState = null;
 
-    private void createUIComponents() {
+    public JIconCreatorForm() {
         createAssetSetWizardState = new CreateAssetSetWizardState();
+
+        randomColorButton.addActionListener(new ActionListener() {
+
+            @Override
+            public void actionPerformed(ActionEvent actionEvent) {
+                System.out.println("Clicked!");
+                createAssetSetWizardState.background = new RGB(
+                        new Random().nextInt(255 + 1),
+                        new Random().nextInt(255 + 1),
+                        new Random().nextInt(255 + 1));
+                updatePreviewIcons();
+            }
+        });
+    }
+
+    private void createUIComponents() {
+
 
         // TODO: place custom component creation code here
 /*
@@ -70,7 +90,7 @@ public class JIconCreatorForm {
     // public???
     public void updatePreviewIcons() {
         int cnt = 0;
-        Map<String, Map<String, BufferedImage>> categories = JIconCreator.generateImages(createAssetSetWizardState, false);
+        Map<String, Map<String, BufferedImage>> categories = JIconCreator.generateImages(createAssetSetWizardState, true);
         for (Map<String, BufferedImage> previews : categories.values()) {
             for (Map.Entry<String, BufferedImage> entry : previews.entrySet()) {
                 BufferedImage image = entry.getValue();
@@ -98,6 +118,8 @@ public class JIconCreatorForm {
                 }
             }
         }
+
+        System.gc();
     }
 
     public JPanel getMainPane() {
