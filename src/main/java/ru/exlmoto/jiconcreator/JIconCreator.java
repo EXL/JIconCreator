@@ -6,6 +6,7 @@ import com.android.assetstudiolib.*;
 import com.android.utils.Pair;
 
 import javax.imageio.ImageIO;
+import javax.swing.*;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.*;
@@ -20,11 +21,19 @@ public class JIconCreator {
 
     private final static String DEFAULT_LAUNCHER_ICON = "test.png";
 
-    public static void main(String[] args) {
-        System.out.println(42);
-        CreateAssetSetWizardState createAssetSetWizardState = new CreateAssetSetWizardState();
 
-        generateIcons(createAssetSetWizardState,false);
+    public static void main(String[] args) {
+
+        JFrame jFrame = new JFrame("JIconCreator");
+        jFrame.setContentPane(new JIconCreatorForm().getMainPane());
+        jFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        jFrame.setSize(new Dimension(800, 480));
+        //jFrame.pack();
+        jFrame.setVisible(true);
+
+        System.out.println(42);
+        //CreateAssetSetWizardState createAssetSetWizardState = new CreateAssetSetWizardState();
+        //generateIcons(createAssetSetWizardState,false);
     }
 
     /**
