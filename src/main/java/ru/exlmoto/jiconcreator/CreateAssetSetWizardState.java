@@ -28,6 +28,7 @@ import java.io.File;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Objects;
 
 import javax.imageio.ImageIO;
 
@@ -64,13 +65,13 @@ public class CreateAssetSetWizardState implements GraphicGeneratorContext {
     public boolean trim = true;
 
     /** The type of source the icon is being created from */
-    public SourceType sourceType = SourceType.CLIPART;
+    public SourceType sourceType = SourceType.IMAGE;
 
     /** If {@link #sourceType} is a {@link SourceType#CLIPART}, the name of the clipart image */
     public String clipartName = "android.png";
 
     /** If {@link #sourceType} is a {@link SourceType#IMAGE}, the path to the input image */
-    public File imagePath = new File("test.png");
+    public File imagePath;
 
     /** If {@link #sourceType} is a {@link SourceType#TEXT}, the text to render */
     public String text = "aA";

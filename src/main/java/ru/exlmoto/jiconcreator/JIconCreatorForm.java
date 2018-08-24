@@ -47,6 +47,28 @@ public class JIconCreatorForm {
                 updatePreviewIcons();
             }
         });
+
+        browseImageButton.addActionListener(new ActionListener() {
+
+            @Override
+            public void actionPerformed(ActionEvent actionEvent) {
+                JFileChooser fc = new JFileChooser();
+                int returnVal = fc.showOpenDialog(mainPanel);
+
+                if (returnVal == JFileChooser.APPROVE_OPTION) {
+                    File file = fc.getSelectedFile();
+                    //This is where a real application would open the file.
+                    //log.append("Opening: " + file.getName() + "." + newline);
+
+                    imageTextField.setText(file.getAbsolutePath());
+
+                    createAssetSetWizardState.imagePath = file;
+                    updatePreviewIcons();
+                } else {
+                    //log.append("Open command cancelled by user." + newline);
+                }
+            }
+        });
     }
 
     private void createUIComponents() {

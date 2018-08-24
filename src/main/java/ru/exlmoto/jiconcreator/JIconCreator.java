@@ -216,6 +216,7 @@ public class JIconCreator {
         */
 
         String baseName = mValues.outputName;
+        //if (baseName != null) //baseName = "android.png";
         generator.generate(null, categoryMap, mValues, options, baseName);
 
         return categoryMap;
