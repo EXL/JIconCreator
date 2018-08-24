@@ -9,6 +9,7 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 import java.util.Map;
+import java.util.Objects;
 import java.util.Random;
 
 public class JIconCreatorForm {
@@ -34,6 +35,10 @@ public class JIconCreatorForm {
 
     public JIconCreatorForm() {
         createAssetSetWizardState = new CreateAssetSetWizardState();
+        // TODO: TODO: TODO: First settings
+
+        createAssetSetWizardState.imagePath =
+                new File(Objects.requireNonNull(getClass().getClassLoader().getResource("images/clipart/big/android.png")).getFile());
 
         randomColorButton.addActionListener(new ActionListener() {
 
@@ -72,8 +77,6 @@ public class JIconCreatorForm {
     }
 
     private void createUIComponents() {
-
-
         // TODO: place custom component creation code here
 /*
         BufferedImage image = null;
