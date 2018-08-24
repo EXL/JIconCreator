@@ -25,8 +25,3 @@ jar {
 dependencies {
     compile group: 'com.google.guava', name: 'guava', version: '15.0'
 }
-
-sourceSets {
-    main.resources.srcDir 'src/main/java'
-    test.resources.srcDir 'src/test/java'
-}
