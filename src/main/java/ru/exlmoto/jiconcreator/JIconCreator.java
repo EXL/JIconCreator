@@ -27,7 +27,7 @@ public class JIconCreator {
         JFrame jFrame = new JFrame("JIconCreator");
         jFrame.setContentPane(new JIconCreatorForm().getMainPane());
         jFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        jFrame.setSize(new Dimension(800, 480));
+        jFrame.setSize(new Dimension(800, 600));
         //jFrame.pack();
         jFrame.setVisible(true);
 
