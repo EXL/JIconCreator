@@ -11,14 +11,16 @@ new FormModel {
 		} ) {
 			name: "this"
 			"name": "frame"
+			"title": "JIconCreator"
+			"defaultCloseOperation": 3
 			add( new FormContainer( "javax.swing.JSplitPane", new FormLayoutManager( class javax.swing.JSplitPane ) ) {
 				name: "splitPane"
-				"dividerLocation": 500
+				"dividerLocation": 550
 				add( new FormContainer( "javax.swing.JTabbedPane", new FormLayoutManager( class javax.swing.JTabbedPane ) ) {
 					name: "tabbedPane"
 					add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
-						"$horizontalGroup": "par l {seq l {space :::p, par t {comp labelImageColor:::p::p, comp labelImageShape:::p::p, comp labelImageScaling:::p::p, comp labelImagePadding:::p::p, comp labelImageOptions:::p::p, comp labelImageFile:::p::p}, space :::p, par l {comp checkBoxImageTrim:::p::p, seq l {par t:::p {comp sliderImagePadding::l::250:x, comp textFieldImageFile::l::250:x}, space :::p, par l {seq {comp buttonImageBrowse:::p::p, space :::p, comp buttonImageReset:::p::p}, comp labelImagePaddingPercent:::p::p}}, seq l {par l {comp radioButtonImageCrop::l:p::p, comp radioButtonImageNone::l:p::p}, space :::p, par l {seq {comp radioButtonImageSquare:::p::p, space :::p, comp radioButtonImageCircle:::p::p}, comp radioButtonImageCenter:::p::p}}, seq {comp buttonImageColorChoose:::p::p, space :::p, comp buttonImageColorRandom:::p::p}}, space ::7:x}, seq t {space ::238:x, comp buttonImageSave:::p::p, space :::p, comp buttonImageSaveTo:::p::p, space :::p, comp buttonImagePreview:::p::p, space :::p}}"
-						"$verticalGroup": "par l {seq l {space :::p, par b {comp labelImageFile::b:p::p, comp textFieldImageFile::b:p::p, comp buttonImageBrowse::b:p::p, comp buttonImageReset::b:p::p}, space u:::p, par t {seq {par b {comp labelImageOptions::b:p::p, comp checkBoxImageTrim::b:p::p}, space u:::p, par t {comp labelImagePadding:::p::p, comp sliderImagePadding:::p::p}}, comp labelImagePaddingPercent:::p::p}, space u:::p, par b {comp labelImageScaling::b:p::p, comp radioButtonImageCrop::b:p::p, comp radioButtonImageCenter::b:p::p}, space u:::p, par b {comp labelImageShape::b:p::p, comp radioButtonImageNone::b:p::p, comp radioButtonImageSquare::b:p::p, comp radioButtonImageCircle::b:p::p}, space u:::p, par b {comp labelImageColor::b:p::p, comp buttonImageColorChoose::b:p::p, comp buttonImageColorRandom::b:p::p}, space ::135:x, par b {comp buttonImagePreview::b:p::p, comp buttonImageSaveTo::b:p::p, comp buttonImageSave::b:p::p}, space :::p}}"
+						"$horizontalGroup": "par l {seq {space :::p, par t {comp labelImageColor:::p::p, comp labelImageShape:::p::p, comp labelImageScaling:::p::p, comp labelImagePadding:::p::p, comp labelImageOptions:::p::p, comp labelImageFile:::p::p}, space :::p, par l {seq l {par t:::p {comp sliderImagePadding::l::250:x, comp textFieldImageFile::l::250:x}, space :::p, par l {seq {comp buttonImageBrowse:::p::p, space :::p, comp buttonImageReset:::p::p}, comp labelImagePaddingPercent:::p::p}}, seq l {comp radioButtonImageNone:::p::p, space :::p, comp radioButtonImageSquare:::p::p, space :::p, comp radioButtonImageCircle:::p::p}, seq {comp buttonImageColorChoose:::p::p, space :::p, comp buttonImageColorRandom:::p::p}, seq l {comp radioButtonImageCrop:::p::p, space :::p, comp radioButtonImageCenter:::p::p}, comp checkBoxImageTrim::l:p::p}, space ::57:x}, seq t {space ::288:x, comp buttonImageSave:::p::p, space :::p, comp buttonImageSaveTo:::p::p, space :::p, comp buttonImagePreview:::p::p, space :::p}}"
+						"$verticalGroup": "par l {seq l {space :::p, par b {comp labelImageFile::b:p::p, comp textFieldImageFile::b:p::p, comp buttonImageBrowse::b:p::p, comp buttonImageReset::b:p::p}, space :p:22:p, par t {seq {par b {comp labelImageOptions::b:p::p, comp checkBoxImageTrim::b:p::p}, space u:::p, par t {comp labelImagePadding:::p::p, comp sliderImagePadding:::p::p}}, comp labelImagePaddingPercent:::p::p}, space u:::p, par b {comp labelImageScaling::b:p::p, comp radioButtonImageCrop::b:p::p, comp radioButtonImageCenter::b:p::p}, space u:::p, par b {comp labelImageShape::b:p::p, comp radioButtonImageNone::b:p::p, comp radioButtonImageSquare::b:p::p, comp radioButtonImageCircle::b:p::p}, par b {comp labelImageColor::b:p::p, comp buttonImageColorChoose::b:p::p, comp buttonImageColorRandom::b:p::p}, space ::137:x, par b {comp buttonImagePreview::b:p::p, comp buttonImageSaveTo::b:p::p, comp buttonImageSave::b:p::p}, space :::p}}"
 					} ) {
 						name: "panelImage"
 						add( new FormComponent( "javax.swing.JLabel" ) {
@@ -94,6 +96,7 @@ new FormModel {
 						add( new FormComponent( "javax.swing.JButton" ) {
 							name: "buttonImageColorRandom"
 							"text": new FormMessage( null, "JIconCreatorFrame.buttonImageColorRandom.text" )
+							addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "buttonImageColorRandomActionPerformed", true ) )
 						} )
 						add( new FormComponent( "javax.swing.JButton" ) {
 							name: "buttonImagePreview"
@@ -111,18 +114,220 @@ new FormModel {
 						"title": new FormMessage( null, "JIconCreatorFrame.panelImage.tab.title" )
 					} )
 					add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
-						"$horizontalGroup": "par l {space :0:499:x}"
-						"$verticalGroup": "par l {space :0:371:x}"
+						"$horizontalGroup": "par l {seq l {space :::p, par t {comp labelClipartColorF:::p::p, comp labelClipartColor:::p::p, comp labelClipartShape:::p::p, comp labelClipartScaling:::p::p, comp labelClipartPadding:::p::p, comp labelClipartOptions:::p::p, comp labelClipartText:::p::p}, space :::p, par l {seq {comp buttonClipartChoose:::p::p, par l {seq {space :p:44:p, comp labelClipartPreview:::p::p}, seq l {space :::p, comp buttonClipartReset:::p::p}}}, comp checkBoxClipartTrim:::p::p, seq l {comp sliderClipartPadding:::p:250:p, space :::p, comp labelClipartPaddingPercent:::p::p}, seq l {par l {comp radioButtonClipartCrop::l:p::p, comp radioButtonClipartNone::l:p::p}, space :::p, par l {seq {comp radioButtonClipartSquare:::p::p, space :::p, comp radioButtonClipartCircle:::p::p}, comp radioButtonClipartCenter::l:p::p}}, seq {comp buttonClipartColorChoose:::p::p, space :::p, comp buttonClipartColorRandom:::p::p}, seq {comp buttonClipartColorChooseF:::p::p, space :::p, comp buttonClipartColorRandomF:::p::p}}, space ::207:x}, seq t {space ::288:x, comp buttonClipartSave:::p::p, space :::p, comp buttonClipartSaveTo:::p::p, space :::p, comp buttonClipartPreview:::p::p, space :::p}}"
+						"$verticalGroup": "par l {seq l {space :::p, par t {comp labelClipartPaddingPercent:::p::p, seq {par b {comp labelClipartText::b:p::p, comp labelClipartPreview::b:p::p, comp buttonClipartChoose::b:p::p, comp buttonClipartReset::b:p::p}, space u:::p, par b {comp labelClipartOptions::b:p::p, comp checkBoxClipartTrim::b:p::p}, space u:::p, par t {comp labelClipartPadding:::p::p, comp sliderClipartPadding:::p::p}}}, space u:::p, par b {comp labelClipartScaling::b:p::p, comp radioButtonClipartCrop::b:p::p, comp radioButtonClipartCenter::b:p::p}, space u:::p, par b {comp labelClipartShape::b:p::p, comp radioButtonClipartNone::b:p::p, comp radioButtonClipartSquare::b:p::p, comp radioButtonClipartCircle::b:p::p}, space u:::p, par b {comp labelClipartColor::b:p::p, comp buttonClipartColorChoose::b:p::p, comp buttonClipartColorRandom::b:p::p}, space u:::p, par b {comp labelClipartColorF::b:p::p, comp buttonClipartColorChooseF::b:p::p, comp buttonClipartColorRandomF::b:p::p}, space ::94:x, par b {comp buttonClipartPreview::b:p::p, comp buttonClipartSaveTo::b:p::p, comp buttonClipartSave::b:p::p}, space :::p}}"
 					} ) {
 						name: "panelClipart"
+						add( new FormComponent( "javax.swing.JLabel" ) {
+							name: "labelClipartText"
+							"text": new FormMessage( null, "JIconCreatorFrame.labelClipartText.text" )
+						} )
+						add( new FormComponent( "javax.swing.JLabel" ) {
+							name: "labelClipartPreview"
+							"maximumSize": new java.awt.Dimension( 32, 32 )
+							"minimumSize": new java.awt.Dimension( 32, 32 )
+						} )
+						add( new FormComponent( "javax.swing.JButton" ) {
+							name: "buttonClipartChoose"
+							"text": new FormMessage( null, "JIconCreatorFrame.buttonClipartChoose.text" )
+						} )
+						add( new FormComponent( "javax.swing.JButton" ) {
+							name: "buttonClipartReset"
+							"text": new FormMessage( null, "JIconCreatorFrame.buttonClipartReset.text" )
+						} )
+						add( new FormComponent( "javax.swing.JLabel" ) {
+							name: "labelClipartOptions"
+							"text": new FormMessage( null, "JIconCreatorFrame.labelClipartOptions.text" )
+						} )
+						add( new FormComponent( "javax.swing.JCheckBox" ) {
+							name: "checkBoxClipartTrim"
+							"text": new FormMessage( null, "JIconCreatorFrame.checkBoxClipartTrim.text" )
+						} )
+						add( new FormComponent( "javax.swing.JLabel" ) {
+							name: "labelClipartPadding"
+							"text": new FormMessage( null, "JIconCreatorFrame.labelClipartPadding.text" )
+						} )
+						add( new FormComponent( "javax.swing.JSlider" ) {
+							name: "sliderClipartPadding"
+						} )
+						add( new FormComponent( "javax.swing.JLabel" ) {
+							name: "labelClipartPaddingPercent"
+							"text": new FormMessage( null, "JIconCreatorFrame.labelClipartPaddingPercent.text" )
+						} )
+						add( new FormComponent( "javax.swing.JLabel" ) {
+							name: "labelClipartScaling"
+							"text": new FormMessage( null, "JIconCreatorFrame.labelClipartScaling.text" )
+						} )
+						add( new FormComponent( "javax.swing.JLabel" ) {
+							name: "labelClipartShape"
+							"text": new FormMessage( null, "JIconCreatorFrame.labelClipartShape.text" )
+						} )
+						add( new FormComponent( "javax.swing.JRadioButton" ) {
+							name: "radioButtonClipartCrop"
+							"text": new FormMessage( null, "JIconCreatorFrame.radioButtonClipartCrop.text" )
+						} )
+						add( new FormComponent( "javax.swing.JRadioButton" ) {
+							name: "radioButtonClipartNone"
+							"text": new FormMessage( null, "JIconCreatorFrame.radioButtonClipartNone.text" )
+						} )
+						add( new FormComponent( "javax.swing.JRadioButton" ) {
+							name: "radioButtonClipartCenter"
+							"text": new FormMessage( null, "JIconCreatorFrame.radioButtonClipartCenter.text" )
+						} )
+						add( new FormComponent( "javax.swing.JRadioButton" ) {
+							name: "radioButtonClipartSquare"
+							"text": new FormMessage( null, "JIconCreatorFrame.radioButtonClipartSquare.text" )
+						} )
+						add( new FormComponent( "javax.swing.JRadioButton" ) {
+							name: "radioButtonClipartCircle"
+							"text": new FormMessage( null, "JIconCreatorFrame.radioButtonClipartCircle.text" )
+						} )
+						add( new FormComponent( "javax.swing.JLabel" ) {
+							name: "labelClipartColor"
+							"text": new FormMessage( null, "JIconCreatorFrame.labelClipartColor.text" )
+						} )
+						add( new FormComponent( "javax.swing.JButton" ) {
+							name: "buttonClipartColorChoose"
+							"text": new FormMessage( null, "JIconCreatorFrame.buttonClipartColorChoose.text" )
+						} )
+						add( new FormComponent( "javax.swing.JLabel" ) {
+							name: "labelClipartColorF"
+							"text": new FormMessage( null, "JIconCreatorFrame.labelClipartColorF.text" )
+						} )
+						add( new FormComponent( "javax.swing.JButton" ) {
+							name: "buttonClipartColorChooseF"
+							"text": new FormMessage( null, "JIconCreatorFrame.buttonClipartColorChooseF.text" )
+						} )
+						add( new FormComponent( "javax.swing.JButton" ) {
+							name: "buttonClipartPreview"
+							"text": new FormMessage( null, "JIconCreatorFrame.buttonClipartPreview.text" )
+						} )
+						add( new FormComponent( "javax.swing.JButton" ) {
+							name: "buttonClipartSaveTo"
+							"text": new FormMessage( null, "JIconCreatorFrame.buttonClipartSaveTo.text" )
+						} )
+						add( new FormComponent( "javax.swing.JButton" ) {
+							name: "buttonClipartSave"
+							"text": new FormMessage( null, "JIconCreatorFrame.buttonClipartSave.text" )
+						} )
+						add( new FormComponent( "javax.swing.JButton" ) {
+							name: "buttonClipartColorRandom"
+							"text": new FormMessage( null, "JIconCreatorFrame.buttonClipartColorRandom.text" )
+						} )
+						add( new FormComponent( "javax.swing.JButton" ) {
+							name: "buttonClipartColorRandomF"
+							"text": new FormMessage( null, "JIconCreatorFrame.buttonClipartColorRandomF.text" )
+						} )
 					}, new FormLayoutConstraints( null ) {
 						"title": new FormMessage( null, "JIconCreatorFrame.panelClipart.tab.title" )
 					} )
 					add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
-						"$horizontalGroup": "par l {space :0:499:x}"
-						"$verticalGroup": "par l {space :0:371:x}"
+						"$horizontalGroup": "par l {seq l {space :::p, par t {comp labelTextColorF:::p::p, comp labelTextColor:::p::p, comp labelTextShape:::p::p, comp labelTextScaling:::p::p, comp labelTextOptions:::p::p, comp labelTextFont:::p::p, comp labelText:::p::p, comp labelTextPadding::t:p::p}, space :::p, par l {comp buttonTextFontChoose:::p::p, comp checkBoxTextTrim:::p::p, seq l {par t:::p {comp sliderTextPadding::l::250:x, comp textFieldText::l::250:x}, space :::p, par l {comp buttonTextReset:::p::p, comp labelTextPaddingPercent:::p::p}}, seq l {par l {comp radioButtonTextCrop::l:p::p, comp radioButtonTextNone::l:p::p}, space :::p, par l {seq {comp radioButtonTextSquare:::p::p, space :::p, comp radioButtonTextCircle:::p::p}, comp radioButtonTextCenter:::p::p}}, seq {comp buttonTextColorChoose:::p::p, space :::p, comp buttonTextColorRandom:::p::p}, seq {comp buttonTextColorChooseF:::p::p, space :::p, comp buttonTextColorRandomF:::p::p}}, space ::146:x}, seq t {space ::288:x, comp buttonTextSave:::p::p, space :::p, comp buttonTextSaveTo:::p::p, space :::p, comp buttonTextPreview:::p::p, space :::p}}"
+						"$verticalGroup": "par l {seq l {space :::p, par b {comp labelText::b:p::p, comp textFieldText::b:p::p, comp buttonTextReset::b:p::p}, space u:::p, par t {seq {par b {comp labelTextFont::b:p::p, comp buttonTextFontChoose::b:p::p}, space u:::p, par b {comp labelTextOptions::b:p::p, comp checkBoxTextTrim::b:p::p}, space u:::p, par t {comp labelTextPadding:::p::p, comp sliderTextPadding:::p::p}}, comp labelTextPaddingPercent:::p::p}, space u:::p, par b {comp labelTextScaling::b:p::p, comp radioButtonTextCrop::b:p::p, comp radioButtonTextCenter::b:p::p}, space u:::p, par b {comp labelTextShape::b:p::p, comp radioButtonTextNone::b:p::p, comp radioButtonTextSquare::b:p::p, comp radioButtonTextCircle::b:p::p}, space u:::p, par b {comp labelTextColor::b:p::p, comp buttonTextColorChoose::b:p::p, comp buttonTextColorRandom::b:p::p}, space u:::p, par b {comp labelTextColorF::b:p::p, comp buttonTextColorChooseF::b:p::p, comp buttonTextColorRandomF::b:p::p}, space ::51:x, par b {comp buttonTextPreview::b:p::p, comp buttonTextSaveTo::b:p::p, comp buttonTextSave::b:p::p}, space :::p}}"
 					} ) {
 						name: "panelText"
+						add( new FormComponent( "javax.swing.JLabel" ) {
+							name: "labelText"
+							"text": new FormMessage( null, "JIconCreatorFrame.labelText.text" )
+						} )
+						add( new FormComponent( "javax.swing.JTextField" ) {
+							name: "textFieldText"
+						} )
+						add( new FormComponent( "javax.swing.JButton" ) {
+							name: "buttonTextReset"
+							"text": new FormMessage( null, "JIconCreatorFrame.buttonTextReset.text" )
+						} )
+						add( new FormComponent( "javax.swing.JLabel" ) {
+							name: "labelTextFont"
+							"text": new FormMessage( null, "JIconCreatorFrame.labelTextFont.text" )
+						} )
+						add( new FormComponent( "javax.swing.JButton" ) {
+							name: "buttonTextFontChoose"
+							"text": new FormMessage( null, "JIconCreatorFrame.buttonTextFontChoose.text" )
+						} )
+						add( new FormComponent( "javax.swing.JLabel" ) {
+							name: "labelTextOptions"
+							"text": new FormMessage( null, "JIconCreatorFrame.labelTextOptions.text" )
+						} )
+						add( new FormComponent( "javax.swing.JCheckBox" ) {
+							name: "checkBoxTextTrim"
+							"text": new FormMessage( null, "JIconCreatorFrame.checkBoxTextTrim.text" )
+						} )
+						add( new FormComponent( "javax.swing.JLabel" ) {
+							name: "labelTextPadding"
+							"text": new FormMessage( null, "JIconCreatorFrame.labelTextPadding.text" )
+						} )
+						add( new FormComponent( "javax.swing.JSlider" ) {
+							name: "sliderTextPadding"
+						} )
+						add( new FormComponent( "javax.swing.JLabel" ) {
+							name: "labelTextPaddingPercent"
+							"text": new FormMessage( null, "JIconCreatorFrame.labelTextPaddingPercent.text" )
+						} )
+						add( new FormComponent( "javax.swing.JLabel" ) {
+							name: "labelTextScaling"
+							"text": new FormMessage( null, "JIconCreatorFrame.labelTextScaling.text" )
+						} )
+						add( new FormComponent( "javax.swing.JLabel" ) {
+							name: "labelTextShape"
+							"text": new FormMessage( null, "JIconCreatorFrame.labelTextShape.text" )
+						} )
+						add( new FormComponent( "javax.swing.JRadioButton" ) {
+							name: "radioButtonTextCrop"
+							"text": new FormMessage( null, "JIconCreatorFrame.radioButtonTextCrop.text" )
+						} )
+						add( new FormComponent( "javax.swing.JRadioButton" ) {
+							name: "radioButtonTextCenter"
+							"text": new FormMessage( null, "JIconCreatorFrame.radioButtonTextCenter.text" )
+						} )
+						add( new FormComponent( "javax.swing.JRadioButton" ) {
+							name: "radioButtonTextNone"
+							"text": new FormMessage( null, "JIconCreatorFrame.radioButtonTextNone.text" )
+						} )
+						add( new FormComponent( "javax.swing.JRadioButton" ) {
+							name: "radioButtonTextSquare"
+							"text": new FormMessage( null, "JIconCreatorFrame.radioButtonTextSquare.text" )
+						} )
+						add( new FormComponent( "javax.swing.JRadioButton" ) {
+							name: "radioButtonTextCircle"
+							"text": new FormMessage( null, "JIconCreatorFrame.radioButtonTextCircle.text" )
+						} )
+						add( new FormComponent( "javax.swing.JLabel" ) {
+							name: "labelTextColor"
+							"text": new FormMessage( null, "JIconCreatorFrame.labelTextColor.text" )
+						} )
+						add( new FormComponent( "javax.swing.JLabel" ) {
+							name: "labelTextColorF"
+							"text": new FormMessage( null, "JIconCreatorFrame.labelTextColorF.text" )
+						} )
+						add( new FormComponent( "javax.swing.JButton" ) {
+							name: "buttonTextColorChoose"
+							"text": new FormMessage( null, "JIconCreatorFrame.buttonTextColorChoose.text" )
+						} )
+						add( new FormComponent( "javax.swing.JButton" ) {
+							name: "buttonTextColorChooseF"
+							"text": new FormMessage( null, "JIconCreatorFrame.buttonTextColorChooseF.text" )
+						} )
+						add( new FormComponent( "javax.swing.JButton" ) {
+							name: "buttonTextPreview"
+							"text": new FormMessage( null, "JIconCreatorFrame.buttonTextPreview.text" )
+						} )
+						add( new FormComponent( "javax.swing.JButton" ) {
+							name: "buttonTextSaveTo"
+							"text": new FormMessage( null, "JIconCreatorFrame.buttonTextSaveTo.text" )
+						} )
+						add( new FormComponent( "javax.swing.JButton" ) {
+							name: "buttonTextSave"
+							"text": new FormMessage( null, "JIconCreatorFrame.buttonTextSave.text" )
+						} )
+						add( new FormComponent( "javax.swing.JButton" ) {
+							name: "buttonTextColorRandom"
+							"text": new FormMessage( null, "JIconCreatorFrame.buttonTextColorRandom.text" )
+						} )
+						add( new FormComponent( "javax.swing.JButton" ) {
+							name: "buttonTextColorRandomF"
+							"text": new FormMessage( null, "JIconCreatorFrame.buttonTextColorRandomF.text" )
+						} )
 					}, new FormLayoutConstraints( null ) {
 						"title": new FormMessage( null, "JIconCreatorFrame.panelText.tab.title" )
 					} )

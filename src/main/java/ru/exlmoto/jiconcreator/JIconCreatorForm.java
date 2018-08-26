@@ -116,33 +116,7 @@ public class JIconCreatorForm {
     public void updatePreviewIcons() {
         int cnt = 0;
         Map<String, Map<String, BufferedImage>> categories = JIconCreator.generateImages(createAssetSetWizardState, true);
-        for (Map<String, BufferedImage> previews : categories.values()) {
-            for (Map.Entry<String, BufferedImage> entry : previews.entrySet()) {
-                BufferedImage image = entry.getValue();
-
-                if (image != null) {
-                    switch (cnt) {
-                        default:
-                            return;
-                        case 0:
-                            mdpiLabel.setIcon(new ImageIcon(image));
-                            break;
-                        case 1:
-                            hdpiLabel.setIcon(new ImageIcon(image));
-                            break;
-                        case 2:
-                            xhdpiLabel.setIcon(new ImageIcon(image));
-                            break;
-                        case 3:
-                            xxhdpiLabel.setIcon(new ImageIcon(image));
-                            break;
-                    }
-                    cnt++;
-                } else {
-                    return;
-                }
-            }
-        }
+        if (JIconCreatorFrame.wtf(cnt, categories, mdpiLabel, hdpiLabel, xhdpiLabel, xxhdpiLabel)) return;
 
         System.gc();
     }
