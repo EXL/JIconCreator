@@ -1,0 +1,214 @@
+JFDML JFormDesigner: "6.0.4.0.167" Java: "1.8.0_152-release" encoding: "UTF-8"
+
+new FormModel {
+	"i18n.autoExternalize": true
+	"i18n.bundleName": "Language"
+	"i18n.keyPrefix": "JIconCreatorFrame"
+	contentType: "form/swing"
+	root: new FormRoot {
+		add( new FormWindow( "javax.swing.JFrame", new FormLayoutManager( class javax.swing.BoxLayout ) {
+			"axis": 2
+		} ) {
+			name: "this"
+			"name": "frame"
+			add( new FormContainer( "javax.swing.JSplitPane", new FormLayoutManager( class javax.swing.JSplitPane ) ) {
+				name: "splitPane"
+				"dividerLocation": 500
+				add( new FormContainer( "javax.swing.JTabbedPane", new FormLayoutManager( class javax.swing.JTabbedPane ) ) {
+					name: "tabbedPane"
+					add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
+						"$horizontalGroup": "par l {seq l {space :::p, par t {comp labelImageColor:::p::p, comp labelImageShape:::p::p, comp labelImageScaling:::p::p, comp labelImagePadding:::p::p, comp labelImageOptions:::p::p, comp labelImageFile:::p::p}, space :::p, par l {comp checkBoxImageTrim:::p::p, seq l {par t:::p {comp sliderImagePadding::l::250:x, comp textFieldImageFile::l::250:x}, space :::p, par l {seq {comp buttonImageBrowse:::p::p, space :::p, comp buttonImageReset:::p::p}, comp labelImagePaddingPercent:::p::p}}, seq l {par l {comp radioButtonImageCrop::l:p::p, comp radioButtonImageNone::l:p::p}, space :::p, par l {seq {comp radioButtonImageSquare:::p::p, space :::p, comp radioButtonImageCircle:::p::p}, comp radioButtonImageCenter:::p::p}}, seq {comp buttonImageColorChoose:::p::p, space :::p, comp buttonImageColorRandom:::p::p}}, space ::7:x}, seq t {space ::238:x, comp buttonImageSave:::p::p, space :::p, comp buttonImageSaveTo:::p::p, space :::p, comp buttonImagePreview:::p::p, space :::p}}"
+						"$verticalGroup": "par l {seq l {space :::p, par b {comp labelImageFile::b:p::p, comp textFieldImageFile::b:p::p, comp buttonImageBrowse::b:p::p, comp buttonImageReset::b:p::p}, space u:::p, par t {seq {par b {comp labelImageOptions::b:p::p, comp checkBoxImageTrim::b:p::p}, space u:::p, par t {comp labelImagePadding:::p::p, comp sliderImagePadding:::p::p}}, comp labelImagePaddingPercent:::p::p}, space u:::p, par b {comp labelImageScaling::b:p::p, comp radioButtonImageCrop::b:p::p, comp radioButtonImageCenter::b:p::p}, space u:::p, par b {comp labelImageShape::b:p::p, comp radioButtonImageNone::b:p::p, comp radioButtonImageSquare::b:p::p, comp radioButtonImageCircle::b:p::p}, space u:::p, par b {comp labelImageColor::b:p::p, comp buttonImageColorChoose::b:p::p, comp buttonImageColorRandom::b:p::p}, space ::135:x, par b {comp buttonImagePreview::b:p::p, comp buttonImageSaveTo::b:p::p, comp buttonImageSave::b:p::p}, space :::p}}"
+					} ) {
+						name: "panelImage"
+						add( new FormComponent( "javax.swing.JLabel" ) {
+							name: "labelImageFile"
+							"text": new FormMessage( null, "JIconCreatorFrame.labelImageFile.text" )
+						} )
+						add( new FormComponent( "javax.swing.JTextField" ) {
+							name: "textFieldImageFile"
+						} )
+						add( new FormComponent( "javax.swing.JButton" ) {
+							name: "buttonImageBrowse"
+							"text": new FormMessage( null, "JIconCreatorFrame.buttonImageBrowse.text" )
+						} )
+						add( new FormComponent( "javax.swing.JButton" ) {
+							name: "buttonImageReset"
+							"text": new FormMessage( null, "JIconCreatorFrame.buttonImageReset.text" )
+						} )
+						add( new FormComponent( "javax.swing.JLabel" ) {
+							name: "labelImageOptions"
+							"text": new FormMessage( null, "JIconCreatorFrame.labelImageOptions.text" )
+						} )
+						add( new FormComponent( "javax.swing.JCheckBox" ) {
+							name: "checkBoxImageTrim"
+							"text": new FormMessage( null, "JIconCreatorFrame.checkBoxImageTrim.text" )
+						} )
+						add( new FormComponent( "javax.swing.JLabel" ) {
+							name: "labelImagePadding"
+							"text": new FormMessage( null, "JIconCreatorFrame.labelImagePadding.text" )
+						} )
+						add( new FormComponent( "javax.swing.JSlider" ) {
+							name: "sliderImagePadding"
+						} )
+						add( new FormComponent( "javax.swing.JLabel" ) {
+							name: "labelImagePaddingPercent"
+							"text": new FormMessage( null, "JIconCreatorFrame.labelImagePaddingPercent.text" )
+						} )
+						add( new FormComponent( "javax.swing.JLabel" ) {
+							name: "labelImageScaling"
+							"text": new FormMessage( null, "JIconCreatorFrame.labelImageScaling.text" )
+						} )
+						add( new FormComponent( "javax.swing.JRadioButton" ) {
+							name: "radioButtonImageCrop"
+							"text": new FormMessage( null, "JIconCreatorFrame.radioButtonImageCrop.text" )
+						} )
+						add( new FormComponent( "javax.swing.JRadioButton" ) {
+							name: "radioButtonImageCenter"
+							"text": new FormMessage( null, "JIconCreatorFrame.radioButtonImageCenter.text" )
+						} )
+						add( new FormComponent( "javax.swing.JLabel" ) {
+							name: "labelImageShape"
+							"text": new FormMessage( null, "JIconCreatorFrame.labelImageShape.text" )
+						} )
+						add( new FormComponent( "javax.swing.JRadioButton" ) {
+							name: "radioButtonImageNone"
+							"text": new FormMessage( null, "JIconCreatorFrame.radioButtonImageNone.text" )
+						} )
+						add( new FormComponent( "javax.swing.JRadioButton" ) {
+							name: "radioButtonImageSquare"
+							"text": new FormMessage( null, "JIconCreatorFrame.radioButtonImageSquare.text" )
+						} )
+						add( new FormComponent( "javax.swing.JRadioButton" ) {
+							name: "radioButtonImageCircle"
+							"text": new FormMessage( null, "JIconCreatorFrame.radioButtonImageCircle.text" )
+						} )
+						add( new FormComponent( "javax.swing.JLabel" ) {
+							name: "labelImageColor"
+							"text": new FormMessage( null, "JIconCreatorFrame.labelImageColor.text" )
+						} )
+						add( new FormComponent( "javax.swing.JButton" ) {
+							name: "buttonImageColorChoose"
+							"text": new FormMessage( null, "JIconCreatorFrame.buttonImageColorChoose.text" )
+						} )
+						add( new FormComponent( "javax.swing.JButton" ) {
+							name: "buttonImageColorRandom"
+							"text": new FormMessage( null, "JIconCreatorFrame.buttonImageColorRandom.text" )
+						} )
+						add( new FormComponent( "javax.swing.JButton" ) {
+							name: "buttonImagePreview"
+							"text": new FormMessage( null, "JIconCreatorFrame.buttonImagePreview.text" )
+						} )
+						add( new FormComponent( "javax.swing.JButton" ) {
+							name: "buttonImageSaveTo"
+							"text": new FormMessage( null, "JIconCreatorFrame.buttonImageSaveTo.text" )
+						} )
+						add( new FormComponent( "javax.swing.JButton" ) {
+							name: "buttonImageSave"
+							"text": new FormMessage( null, "JIconCreatorFrame.buttonImageSave.text" )
+						} )
+					}, new FormLayoutConstraints( null ) {
+						"title": new FormMessage( null, "JIconCreatorFrame.panelImage.tab.title" )
+					} )
+					add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
+						"$horizontalGroup": "par l {space :0:499:x}"
+						"$verticalGroup": "par l {space :0:371:x}"
+					} ) {
+						name: "panelClipart"
+					}, new FormLayoutConstraints( null ) {
+						"title": new FormMessage( null, "JIconCreatorFrame.panelClipart.tab.title" )
+					} )
+					add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
+						"$horizontalGroup": "par l {space :0:499:x}"
+						"$verticalGroup": "par l {space :0:371:x}"
+					} ) {
+						name: "panelText"
+					}, new FormLayoutConstraints( null ) {
+						"title": new FormMessage( null, "JIconCreatorFrame.panelText.tab.title" )
+					} )
+				}, new FormLayoutConstraints( class java.lang.String ) {
+					"value": "left"
+				} )
+				add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class javax.swing.BoxLayout ) {
+					"axis": 3
+				} ) {
+					name: "panelPreview"
+					add( new FormComponent( "javax.swing.JLabel" ) {
+						name: "labelMdpiText"
+						"text": new FormMessage( null, "JIconCreatorFrame.labelMdpiText.text" )
+					} )
+					add( new FormComponent( "javax.swing.JLabel" ) {
+						name: "labelMdpiImage"
+					} )
+					add( new FormComponent( "javax.swing.JLabel" ) {
+						name: "labelHdpiText"
+						"text": new FormMessage( null, "JIconCreatorFrame.labelHdpiText.text" )
+					} )
+					add( new FormComponent( "javax.swing.JLabel" ) {
+						name: "labelHpdiImage"
+					} )
+					add( new FormComponent( "javax.swing.JLabel" ) {
+						name: "labelXhdpiText"
+						"text": new FormMessage( null, "JIconCreatorFrame.labelXhdpiText.text" )
+					} )
+					add( new FormComponent( "javax.swing.JLabel" ) {
+						name: "labelXhdpiImage"
+					} )
+					add( new FormComponent( "javax.swing.JLabel" ) {
+						name: "labelXxhdpiText"
+						"text": new FormMessage( null, "JIconCreatorFrame.labelXxhdpiText.text" )
+					} )
+					add( new FormComponent( "javax.swing.JLabel" ) {
+						name: "labelXxhdpiImage"
+					} )
+				}, new FormLayoutConstraints( class java.lang.String ) {
+					"value": "right"
+				} )
+			} )
+			menuBar: new FormContainer( "javax.swing.JMenuBar", new FormLayoutManager( class javax.swing.JMenuBar ) ) {
+				name: "menuBar"
+				add( new FormContainer( "javax.swing.JMenu", new FormLayoutManager( class javax.swing.JMenu ) ) {
+					name: "menuFile"
+					"text": new FormMessage( null, "JIconCreatorFrame.menuFile.text" )
+					add( new FormComponent( "javax.swing.JMenuItem" ) {
+						name: "menuItemPreview"
+						"text": new FormMessage( null, "JIconCreatorFrame.menuItemPreview.text" )
+					} )
+					add( new FormComponent( "javax.swing.JPopupMenu$Separator" ) {
+						name: "separatorA"
+					} )
+					add( new FormComponent( "javax.swing.JMenuItem" ) {
+						name: "menuItemSave"
+						"text": new FormMessage( null, "JIconCreatorFrame.menuItemSave.text" )
+					} )
+					add( new FormComponent( "javax.swing.JMenuItem" ) {
+						name: "menuItemSaveTo"
+						"text": new FormMessage( null, "JIconCreatorFrame.menuItemSaveTo.text" )
+					} )
+					add( new FormComponent( "javax.swing.JPopupMenu$Separator" ) {
+						name: "separatorB"
+					} )
+					add( new FormComponent( "javax.swing.JMenuItem" ) {
+						name: "menuItemExit"
+						"text": new FormMessage( null, "JIconCreatorFrame.menuItemExit.text" )
+					} )
+				} )
+				add( new FormContainer( "javax.swing.JMenu", new FormLayoutManager( class javax.swing.JMenu ) ) {
+					name: "menuStyle"
+					"text": new FormMessage( null, "JIconCreatorFrame.menuStyle.text" )
+				} )
+				add( new FormContainer( "javax.swing.JMenu", new FormLayoutManager( class javax.swing.JMenu ) ) {
+					name: "menuHelp"
+					"text": new FormMessage( null, "JIconCreatorFrame.menuHelp.text" )
+					add( new FormComponent( "javax.swing.JMenuItem" ) {
+						name: "menuItem4"
+						"text": new FormMessage( null, "JIconCreatorFrame.menuItem4.text" )
+					} )
+				} )
+			}
+		}, new FormLayoutConstraints( null ) {
+			"location": new java.awt.Point( 0, 0 )
+			"size": new java.awt.Dimension( 815, 455 )
+		} )
+	}
+}
