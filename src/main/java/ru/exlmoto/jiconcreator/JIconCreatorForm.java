@@ -37,8 +37,8 @@ public class JIconCreatorForm {
         createAssetSetWizardState = new CreateAssetSetWizardState();
         // TODO: TODO: TODO: First settings
 
-        createAssetSetWizardState.imagePath =
-                new File(Objects.requireNonNull(getClass().getClassLoader().getResource("images/clipart/big/android.png")).getFile());
+        //createAssetSetWizardState.imagePath =
+          //      new File(Objects.requireNonNull(getClass().getClassLoader().getResource("images/clipart/big/android.png")).getFile());
 
         randomColorButton.addActionListener(new ActionListener() {
 

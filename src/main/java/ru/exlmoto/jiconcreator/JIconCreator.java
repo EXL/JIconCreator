@@ -59,6 +59,7 @@ public class JIconCreator {
                 // Load the image
                 // TODO: Only do this when the source image type is image
                 String path = mValues.imagePath != null ? mValues.imagePath.getPath() : "";
+                /*
                 if (path.length() == 0) {
                     //if (page != null) {
                         System.out.println("Enter a filename");
@@ -66,6 +67,7 @@ public class JIconCreator {
                     //}
                     return Collections.emptyMap();
                 }
+
                 if (!path.equals(DEFAULT_LAUNCHER_ICON)) {
                     File file = new File(path);
                     if (!file.isFile()) {
@@ -75,7 +77,7 @@ public class JIconCreator {
                         //}
                         return Collections.emptyMap();
                     }
-                }
+                }*/
 
                 //if (page != null) {
                     // page.setErrorMessage(null);
@@ -95,6 +97,11 @@ public class JIconCreator {
                     //if (page != null) {
                         System.out.println("IOE Error");
                         // page.setErrorMessage(ioe.getLocalizedMessage());
+                    try {
+                        sourceImage = GraphicGenerator.getClipartImage("android.png");
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
                     //}
                 }
                 break;
