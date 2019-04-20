@@ -202,6 +202,9 @@ public class JIconCreator extends javax.swing.JFrame {
         jButtonChooseTextH = new javax.swing.JButton();
         jButtonRandomTextH = new javax.swing.JButton();
         jLabelColorShowTextH = new javax.swing.JLabel();
+        jLabelFontText = new javax.swing.JLabel();
+        jButtonChooseFontText = new javax.swing.JButton();
+        jLabelFontNameText = new javax.swing.JLabel();
         jPanelStatusBar = new javax.swing.JPanel();
         fillerSmallH1 = new javax.swing.Box.Filler(new java.awt.Dimension(3, 0), new java.awt.Dimension(3, 0), new java.awt.Dimension(3, 32767));
         jLabelStatusBar = new javax.swing.JLabel();
@@ -666,6 +669,12 @@ public class JIconCreator extends javax.swing.JFrame {
         jLabelColorShowTextH.setOpaque(true);
         jLabelColorShowTextH.setPreferredSize(new java.awt.Dimension(25, 25));
 
+        jLabelFontText.setText(bundle.getString("JIconCreator.jLabelFontText.text")); // NOI18N
+
+        jButtonChooseFontText.setText(bundle.getString("JIconCreator.jButtonChooseFontText.text")); // NOI18N
+
+        jLabelFontNameText.setText(bundle.getString("JIconCreator.jLabelFontNameText.text")); // NOI18N
+
         javax.swing.GroupLayout jPanelTextLayout = new javax.swing.GroupLayout(jPanelText);
         jPanelText.setLayout(jPanelTextLayout);
         jPanelTextLayout.setHorizontalGroup(
@@ -673,6 +682,7 @@ public class JIconCreator extends javax.swing.JFrame {
             .addGroup(jPanelTextLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanelTextLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabelFontText)
                     .addComponent(jLabelColorTextH)
                     .addComponent(jLabelColorTextL)
                     .addComponent(jLabelPaddingText)
@@ -708,9 +718,16 @@ public class JIconCreator extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jButtonRandomTextL))
                             .addGroup(jPanelTextLayout.createSequentialGroup()
-                                .addComponent(jButtonChooseTextH)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jButtonRandomTextH)))
+                                .addGroup(jPanelTextLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jButtonChooseTextH)
+                                    .addComponent(jButtonChooseFontText))
+                                .addGroup(jPanelTextLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPanelTextLayout.createSequentialGroup()
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jButtonRandomTextH))
+                                    .addGroup(jPanelTextLayout.createSequentialGroup()
+                                        .addGap(6, 6, 6)
+                                        .addComponent(jLabelFontNameText)))))
                         .addGap(4, 4, 4)
                         .addGroup(jPanelTextLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabelColorShowTextH, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -759,7 +776,12 @@ public class JIconCreator extends javax.swing.JFrame {
                         .addComponent(jLabelColorTextH)
                         .addComponent(jButtonChooseTextH)
                         .addComponent(jButtonRandomTextH)))
-                .addContainerGap(240, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanelTextLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabelFontText)
+                    .addComponent(jButtonChooseFontText)
+                    .addComponent(jLabelFontNameText))
+                .addContainerGap(197, Short.MAX_VALUE))
         );
 
         jTabbedPane.addTab(bundle.getString("JIconCreator.jPanelText.TabConstraints.tabTitle"), jPanelText); // NOI18N
@@ -865,6 +887,7 @@ public class JIconCreator extends javax.swing.JFrame {
     private javax.swing.JButton jButtonChooseClipart;
     private javax.swing.JButton jButtonChooseClipartH;
     private javax.swing.JButton jButtonChooseClipartL;
+    private javax.swing.JButton jButtonChooseFontText;
     private javax.swing.JButton jButtonChooseImageL;
     private javax.swing.JButton jButtonChooseTextH;
     private javax.swing.JButton jButtonChooseTextL;
@@ -893,6 +916,8 @@ public class JIconCreator extends javax.swing.JFrame {
     private javax.swing.JLabel jLabelColorShowTextL;
     private javax.swing.JLabel jLabelColorTextH;
     private javax.swing.JLabel jLabelColorTextL;
+    private javax.swing.JLabel jLabelFontNameText;
+    private javax.swing.JLabel jLabelFontText;
     private javax.swing.JLabel jLabelHdpiI;
     private javax.swing.JLabel jLabelHdpiL;
     private javax.swing.JLabel jLabelImage;
