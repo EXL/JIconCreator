@@ -191,6 +191,7 @@ public class JIconCreator extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         java.util.ResourceBundle bundle = java.util.ResourceBundle.getBundle("Bundle"); // NOI18N
         setTitle(bundle.getString("JIconCreator.title")); // NOI18N
+        setMaximizedBounds(new java.awt.Rectangle(0, 0, 1024, 768));
         setMaximumSize(new java.awt.Dimension(1024, 768));
         setMinimumSize(new java.awt.Dimension(725, 550));
         setPreferredSize(new java.awt.Dimension(800, 600));
