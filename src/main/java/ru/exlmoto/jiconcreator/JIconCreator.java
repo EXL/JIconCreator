@@ -29,6 +29,8 @@ public class JIconCreator extends javax.swing.JFrame {
 
         buttonGroupScalingImage = new javax.swing.ButtonGroup();
         buttonGroupShapeImage = new javax.swing.ButtonGroup();
+        buttonGroupScalingClipart = new javax.swing.ButtonGroup();
+        buttonGroupShapeClipart = new javax.swing.ButtonGroup();
         jSplitPane = new javax.swing.JSplitPane();
         jPanelPreview = new javax.swing.JPanel();
         jLabelMdpiL = new javax.swing.JLabel();
@@ -46,7 +48,7 @@ public class JIconCreator extends javax.swing.JFrame {
         fillerLargeH3 = new javax.swing.Box.Filler(new java.awt.Dimension(0, 0), new java.awt.Dimension(0, 0), new java.awt.Dimension(32767, 0));
         jPanelGeneral = new javax.swing.JPanel();
         jTabbedPane = new javax.swing.JTabbedPane();
-        jPanel1 = new javax.swing.JPanel();
+        jPanelImage = new javax.swing.JPanel();
         jLabelFileImage = new javax.swing.JLabel();
         jTextFieldPathImage = new javax.swing.JTextField();
         jButtonBrowseImage = new javax.swing.JButton();
@@ -67,8 +69,32 @@ public class JIconCreator extends javax.swing.JFrame {
         jButtonColorImage = new javax.swing.JButton();
         jButtonRandomImage = new javax.swing.JButton();
         jLabelColorImage = new javax.swing.JLabel();
-        jPanel2 = new javax.swing.JPanel();
-        jPanel3 = new javax.swing.JPanel();
+        jPanelText = new javax.swing.JPanel();
+        jLabelClipart = new javax.swing.JLabel();
+        jLabelOptionsClipart = new javax.swing.JLabel();
+        jCheckBox1 = new javax.swing.JCheckBox();
+        jLabelPaddingClipart = new javax.swing.JLabel();
+        jSliderPaddingClipart = new javax.swing.JSlider();
+        jLabelPercentsClipart = new javax.swing.JLabel();
+        jLabelNameClipart = new javax.swing.JLabel();
+        jLabelScalingClipart = new javax.swing.JLabel();
+        jRadioButtonCropClipart = new javax.swing.JRadioButton();
+        jRadioButtonCenterClipart = new javax.swing.JRadioButton();
+        jLabelShapeClipart = new javax.swing.JLabel();
+        jRadioButtonNoneClipart = new javax.swing.JRadioButton();
+        jRadioButtonSquareClipart = new javax.swing.JRadioButton();
+        jRadioButtonCircleClipart = new javax.swing.JRadioButton();
+        jLabelColorClipartL = new javax.swing.JLabel();
+        jButtonChooseClipartL = new javax.swing.JButton();
+        jButtonRandomClipartL = new javax.swing.JButton();
+        jLabelColorShowClipartL = new javax.swing.JLabel();
+        jButtonChooseClipart = new javax.swing.JButton();
+        jButtonResetClipart = new javax.swing.JButton();
+        jLabelColorClipartH = new javax.swing.JLabel();
+        jButtonChooseClipartH = new javax.swing.JButton();
+        jButtonRandomClipartH = new javax.swing.JButton();
+        jLabelColorShowClipartH = new javax.swing.JLabel();
+        jPanelClipart = new javax.swing.JPanel();
         jPanelStatusBar = new javax.swing.JPanel();
         fillerSmallH1 = new javax.swing.Box.Filler(new java.awt.Dimension(3, 0), new java.awt.Dimension(3, 0), new java.awt.Dimension(3, 32767));
         jLabelStatusBar = new javax.swing.JLabel();
@@ -142,6 +168,9 @@ public class JIconCreator extends javax.swing.JFrame {
 
         jLabelFileImage.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabelFileImage.setText(bundle.getString("JIconCreator.jLabelFileImage.text")); // NOI18N
+        jLabelFileImage.setMaximumSize(new java.awt.Dimension(78, 15));
+        jLabelFileImage.setMinimumSize(new java.awt.Dimension(78, 15));
+        jLabelFileImage.setPreferredSize(new java.awt.Dimension(78, 15));
 
         jTextFieldPathImage.setText(bundle.getString("JIconCreator.jTextFieldPathImage.text")); // NOI18N
         jTextFieldPathImage.setMinimumSize(new java.awt.Dimension(237, 25));
@@ -153,25 +182,25 @@ public class JIconCreator extends javax.swing.JFrame {
 
         jLabelOptionsImage.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabelOptionsImage.setText(bundle.getString("JIconCreator.jLabelOptionsImage.text")); // NOI18N
-        jLabelOptionsImage.setMaximumSize(new java.awt.Dimension(77, 15));
-        jLabelOptionsImage.setMinimumSize(new java.awt.Dimension(77, 15));
-        jLabelOptionsImage.setPreferredSize(new java.awt.Dimension(77, 15));
+        jLabelOptionsImage.setMaximumSize(new java.awt.Dimension(78, 15));
+        jLabelOptionsImage.setMinimumSize(new java.awt.Dimension(78, 15));
+        jLabelOptionsImage.setPreferredSize(new java.awt.Dimension(78, 15));
 
         jCheckBoxTrimImage.setText(bundle.getString("JIconCreator.jCheckBoxTrimImage.text")); // NOI18N
 
         jLabelPaddingImage.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabelPaddingImage.setText(bundle.getString("JIconCreator.jLabelPaddingImage.text")); // NOI18N
-        jLabelPaddingImage.setMaximumSize(new java.awt.Dimension(77, 15));
-        jLabelPaddingImage.setMinimumSize(new java.awt.Dimension(77, 15));
-        jLabelPaddingImage.setPreferredSize(new java.awt.Dimension(77, 15));
+        jLabelPaddingImage.setMaximumSize(new java.awt.Dimension(78, 15));
+        jLabelPaddingImage.setMinimumSize(new java.awt.Dimension(78, 15));
+        jLabelPaddingImage.setPreferredSize(new java.awt.Dimension(78, 15));
 
         jLabelPercentsImage.setText(bundle.getString("JIconCreator.jLabelPercentsImage.text")); // NOI18N
 
         jLabelScalingImage.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabelScalingImage.setText(bundle.getString("JIconCreator.jLabelScalingImage.text")); // NOI18N
-        jLabelScalingImage.setMaximumSize(new java.awt.Dimension(77, 15));
-        jLabelScalingImage.setMinimumSize(new java.awt.Dimension(77, 15));
-        jLabelScalingImage.setPreferredSize(new java.awt.Dimension(77, 15));
+        jLabelScalingImage.setMaximumSize(new java.awt.Dimension(78, 15));
+        jLabelScalingImage.setMinimumSize(new java.awt.Dimension(78, 15));
+        jLabelScalingImage.setPreferredSize(new java.awt.Dimension(78, 15));
 
         buttonGroupScalingImage.add(jRadioButtonCropImage);
         jRadioButtonCropImage.setText(bundle.getString("JIconCreator.jRadioButtonCropImage.text")); // NOI18N
@@ -181,9 +210,9 @@ public class JIconCreator extends javax.swing.JFrame {
 
         jLabelShapeImage.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabelShapeImage.setText(bundle.getString("JIconCreator.jLabelShapeImage.text")); // NOI18N
-        jLabelShapeImage.setMaximumSize(new java.awt.Dimension(77, 15));
-        jLabelShapeImage.setMinimumSize(new java.awt.Dimension(77, 15));
-        jLabelShapeImage.setPreferredSize(new java.awt.Dimension(77, 15));
+        jLabelShapeImage.setMaximumSize(new java.awt.Dimension(78, 15));
+        jLabelShapeImage.setMinimumSize(new java.awt.Dimension(78, 15));
+        jLabelShapeImage.setPreferredSize(new java.awt.Dimension(78, 15));
 
         buttonGroupShapeImage.add(jRadioButtonNoneImage);
         jRadioButtonNoneImage.setText(bundle.getString("JIconCreator.jRadioButtonNoneImage.text")); // NOI18N
@@ -201,9 +230,9 @@ public class JIconCreator extends javax.swing.JFrame {
 
         jLabelBackgroundImage.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabelBackgroundImage.setText(bundle.getString("JIconCreator.jLabelBackgroundImage.text")); // NOI18N
-        jLabelBackgroundImage.setMaximumSize(new java.awt.Dimension(77, 15));
-        jLabelBackgroundImage.setMinimumSize(new java.awt.Dimension(77, 15));
-        jLabelBackgroundImage.setPreferredSize(new java.awt.Dimension(77, 15));
+        jLabelBackgroundImage.setMaximumSize(new java.awt.Dimension(78, 15));
+        jLabelBackgroundImage.setMinimumSize(new java.awt.Dimension(78, 15));
+        jLabelBackgroundImage.setPreferredSize(new java.awt.Dimension(78, 15));
 
         jButtonColorImage.setText(bundle.getString("JIconCreator.jButtonColorImage.text")); // NOI18N
 
@@ -221,120 +250,282 @@ public class JIconCreator extends javax.swing.JFrame {
         jLabelColorImage.setOpaque(true);
         jLabelColorImage.setPreferredSize(new java.awt.Dimension(25, 25));
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
+        javax.swing.GroupLayout jPanelImageLayout = new javax.swing.GroupLayout(jPanelImage);
+        jPanelImage.setLayout(jPanelImageLayout);
+        jPanelImageLayout.setHorizontalGroup(
+            jPanelImageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelImageLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabelFileImage)
+                .addGroup(jPanelImageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabelFileImage, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabelOptionsImage, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabelPaddingImage, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabelScalingImage, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabelShapeImage, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabelBackgroundImage, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabelBackgroundImage, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabelScalingImage, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanelImageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanelImageLayout.createSequentialGroup()
+                        .addGroup(jPanelImageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jRadioButtonCropImage)
                             .addComponent(jRadioButtonNoneImage))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanelImageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanelImageLayout.createSequentialGroup()
                                 .addComponent(jRadioButtonSquareImage)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jRadioButtonCircleImage))
                             .addComponent(jRadioButtonCenterImage)))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextFieldPathImage, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(jSliderPaddingImage, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jCheckBoxTrimImage, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addGroup(jPanelImageLayout.createSequentialGroup()
+                        .addComponent(jTextFieldPathImage, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jButtonBrowseImage)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jButtonResetImage))
-                            .addComponent(jLabelPercentsImage)))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jButtonBrowseImage)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jButtonResetImage))
+                    .addGroup(jPanelImageLayout.createSequentialGroup()
                         .addComponent(jButtonColorImage)
-                        .addGap(12, 12, 12)
-                        .addComponent(jButtonRandomImage)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabelColorImage, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jButtonRandomImage)
+                        .addGap(4, 4, 4)
+                        .addComponent(jLabelColorImage, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanelImageLayout.createSequentialGroup()
+                        .addGroup(jPanelImageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(jSliderPaddingImage, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jCheckBoxTrimImage, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jLabelPercentsImage)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
+        jPanelImageLayout.setVerticalGroup(
+            jPanelImageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelImageLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabelFileImage)
+                .addGroup(jPanelImageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabelFileImage, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jTextFieldPathImage, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButtonBrowseImage)
                     .addComponent(jButtonResetImage))
                 .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabelOptionsImage, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jCheckBoxTrimImage))
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabelPaddingImage, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jSliderPaddingImage, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addComponent(jLabelPercentsImage))
+                .addGroup(jPanelImageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabelOptionsImage, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jCheckBoxTrimImage))
                 .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabelScalingImage, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanelImageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabelPaddingImage, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jSliderPaddingImage, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabelPercentsImage, javax.swing.GroupLayout.Alignment.LEADING))
+                .addGap(18, 18, 18)
+                .addGroup(jPanelImageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jRadioButtonCropImage)
-                    .addComponent(jRadioButtonCenterImage))
+                    .addComponent(jRadioButtonCenterImage)
+                    .addComponent(jLabelScalingImage, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(jPanelImageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabelShapeImage, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jRadioButtonNoneImage)
                     .addComponent(jRadioButtonSquareImage)
                     .addComponent(jRadioButtonCircleImage))
                 .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabelBackgroundImage, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButtonColorImage)
-                    .addComponent(jButtonRandomImage)
-                    .addComponent(jLabelColorImage, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanelImageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabelColorImage, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanelImageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabelBackgroundImage, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jButtonColorImage)
+                        .addComponent(jButtonRandomImage)))
                 .addContainerGap(283, Short.MAX_VALUE))
         );
 
-        jTabbedPane.addTab(bundle.getString("JIconCreator.jPanel1.TabConstraints.tabTitle"), jPanel1); // NOI18N
+        jTabbedPane.addTab(bundle.getString("JIconCreator.jPanelImage.TabConstraints.tabTitle"), jPanelImage); // NOI18N
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 545, Short.MAX_VALUE)
+        jLabelClipart.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jLabelClipart.setText(bundle.getString("JIconCreator.jLabelClipart.text")); // NOI18N
+        jLabelClipart.setMaximumSize(new java.awt.Dimension(78, 15));
+        jLabelClipart.setMinimumSize(new java.awt.Dimension(78, 15));
+        jLabelClipart.setPreferredSize(new java.awt.Dimension(78, 15));
+
+        jLabelOptionsClipart.setText(bundle.getString("JIconCreator.jLabelOptionsClipart.text")); // NOI18N
+
+        jCheckBox1.setText(bundle.getString("JIconCreator.jCheckBox1.text")); // NOI18N
+        jCheckBox1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCheckBox1ActionPerformed(evt);
+            }
+        });
+
+        jLabelPaddingClipart.setText(bundle.getString("JIconCreator.jLabelPaddingClipart.text")); // NOI18N
+
+        jSliderPaddingClipart.setMinimumSize(new java.awt.Dimension(237, 16));
+        jSliderPaddingClipart.setPreferredSize(new java.awt.Dimension(237, 16));
+
+        jLabelPercentsClipart.setText(bundle.getString("JIconCreator.jLabelPercentsClipart.text")); // NOI18N
+
+        jLabelNameClipart.setText(bundle.getString("JIconCreator.jLabelNameClipart.text")); // NOI18N
+
+        jLabelScalingClipart.setText(bundle.getString("JIconCreator.jLabelScalingClipart.text")); // NOI18N
+
+        buttonGroupScalingClipart.add(jRadioButtonCropClipart);
+        jRadioButtonCropClipart.setText(bundle.getString("JIconCreator.jRadioButtonCropClipart.text")); // NOI18N
+
+        buttonGroupScalingClipart.add(jRadioButtonCenterClipart);
+        jRadioButtonCenterClipart.setText(bundle.getString("JIconCreator.jRadioButtonCenterClipart.text")); // NOI18N
+
+        jLabelShapeClipart.setText(bundle.getString("JIconCreator.jLabelShapeClipart.text")); // NOI18N
+
+        buttonGroupShapeClipart.add(jRadioButtonNoneClipart);
+        jRadioButtonNoneClipart.setText(bundle.getString("JIconCreator.jRadioButtonNoneClipart.text")); // NOI18N
+
+        buttonGroupShapeClipart.add(jRadioButtonSquareClipart);
+        jRadioButtonSquareClipart.setText(bundle.getString("JIconCreator.jRadioButtonSquareClipart.text")); // NOI18N
+
+        buttonGroupShapeClipart.add(jRadioButtonCircleClipart);
+        jRadioButtonCircleClipart.setText(bundle.getString("JIconCreator.jRadioButtonCircleClipart.text")); // NOI18N
+
+        jLabelColorClipartL.setText(bundle.getString("JIconCreator.jLabelColorClipartL.text")); // NOI18N
+
+        jButtonChooseClipartL.setText(bundle.getString("JIconCreator.jButtonChooseClipartL.text")); // NOI18N
+
+        jButtonRandomClipartL.setText(bundle.getString("JIconCreator.jButtonRandomClipartL.text")); // NOI18N
+
+        jLabelColorShowClipartL.setBackground(new java.awt.Color(255, 204, 0));
+        jLabelColorShowClipartL.setText(bundle.getString("JIconCreator.jLabelColorShowClipartL.text")); // NOI18N
+        jLabelColorShowClipartL.setMaximumSize(new java.awt.Dimension(25, 25));
+        jLabelColorShowClipartL.setMinimumSize(new java.awt.Dimension(25, 25));
+        jLabelColorShowClipartL.setOpaque(true);
+        jLabelColorShowClipartL.setPreferredSize(new java.awt.Dimension(25, 25));
+
+        jButtonChooseClipart.setText(bundle.getString("JIconCreator.jButtonChooseClipart.text")); // NOI18N
+
+        jButtonResetClipart.setText(bundle.getString("JIconCreator.jButtonResetClipart.text")); // NOI18N
+
+        jLabelColorClipartH.setText(bundle.getString("JIconCreator.jLabelColorClipartH.text")); // NOI18N
+
+        jButtonChooseClipartH.setText(bundle.getString("JIconCreator.jButtonChooseClipartH.text")); // NOI18N
+
+        jButtonRandomClipartH.setText(bundle.getString("JIconCreator.jButtonRandomClipartH.text")); // NOI18N
+
+        jLabelColorShowClipartH.setBackground(new java.awt.Color(255, 204, 0));
+        jLabelColorShowClipartH.setText(bundle.getString("JIconCreator.jLabelColorShowClipartH.text")); // NOI18N
+        jLabelColorShowClipartH.setMaximumSize(new java.awt.Dimension(25, 25));
+        jLabelColorShowClipartH.setMinimumSize(new java.awt.Dimension(25, 25));
+        jLabelColorShowClipartH.setOpaque(true);
+        jLabelColorShowClipartH.setPreferredSize(new java.awt.Dimension(25, 25));
+
+        javax.swing.GroupLayout jPanelTextLayout = new javax.swing.GroupLayout(jPanelText);
+        jPanelText.setLayout(jPanelTextLayout);
+        jPanelTextLayout.setHorizontalGroup(
+            jPanelTextLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelTextLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanelTextLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabelColorClipartH)
+                    .addComponent(jLabelColorClipartL)
+                    .addComponent(jLabelShapeClipart)
+                    .addComponent(jLabelScalingClipart)
+                    .addComponent(jLabelPaddingClipart)
+                    .addComponent(jLabelOptionsClipart)
+                    .addComponent(jLabelClipart, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanelTextLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanelTextLayout.createSequentialGroup()
+                        .addComponent(jLabelNameClipart)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jButtonChooseClipart)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jButtonResetClipart))
+                    .addComponent(jCheckBox1)
+                    .addGroup(jPanelTextLayout.createSequentialGroup()
+                        .addComponent(jSliderPaddingClipart, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jLabelPercentsClipart))
+                    .addGroup(jPanelTextLayout.createSequentialGroup()
+                        .addComponent(jRadioButtonCropClipart)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jRadioButtonCenterClipart))
+                    .addGroup(jPanelTextLayout.createSequentialGroup()
+                        .addComponent(jRadioButtonNoneClipart)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jRadioButtonSquareClipart)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jRadioButtonCircleClipart))
+                    .addGroup(jPanelTextLayout.createSequentialGroup()
+                        .addGroup(jPanelTextLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanelTextLayout.createSequentialGroup()
+                                .addComponent(jButtonChooseClipartL)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jButtonRandomClipartL))
+                            .addGroup(jPanelTextLayout.createSequentialGroup()
+                                .addComponent(jButtonChooseClipartH)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jButtonRandomClipartH)))
+                        .addGap(4, 4, 4)
+                        .addGroup(jPanelTextLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabelColorShowClipartH, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabelColorShowClipartL, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(148, Short.MAX_VALUE))
         );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        jPanelTextLayout.setVerticalGroup(
+            jPanelTextLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelTextLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanelTextLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabelClipart, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabelNameClipart)
+                    .addComponent(jButtonChooseClipart)
+                    .addComponent(jButtonResetClipart))
+                .addGap(18, 18, 18)
+                .addGroup(jPanelTextLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabelOptionsClipart)
+                    .addComponent(jCheckBox1))
+                .addGroup(jPanelTextLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelTextLayout.createSequentialGroup()
+                        .addGap(19, 19, 19)
+                        .addComponent(jLabelPaddingClipart))
+                    .addGroup(jPanelTextLayout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanelTextLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jSliderPaddingClipart, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabelPercentsClipart))))
+                .addGap(18, 18, 18)
+                .addGroup(jPanelTextLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabelScalingClipart)
+                    .addComponent(jRadioButtonCropClipart)
+                    .addComponent(jRadioButtonCenterClipart))
+                .addGap(18, 18, 18)
+                .addGroup(jPanelTextLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabelShapeClipart)
+                    .addComponent(jRadioButtonNoneClipart)
+                    .addComponent(jRadioButtonSquareClipart)
+                    .addComponent(jRadioButtonCircleClipart))
+                .addGap(18, 18, 18)
+                .addGroup(jPanelTextLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabelColorShowClipartL, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanelTextLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabelColorClipartL)
+                        .addComponent(jButtonChooseClipartL)
+                        .addComponent(jButtonRandomClipartL)))
+                .addGap(18, 18, 18)
+                .addGroup(jPanelTextLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabelColorClipartH)
+                    .addComponent(jButtonChooseClipartH)
+                    .addComponent(jButtonRandomClipartH)
+                    .addComponent(jLabelColorShowClipartH, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(240, Short.MAX_VALUE))
+        );
+
+        jTabbedPane.addTab(bundle.getString("JIconCreator.jPanelText.TabConstraints.tabTitle"), jPanelText); // NOI18N
+
+        javax.swing.GroupLayout jPanelClipartLayout = new javax.swing.GroupLayout(jPanelClipart);
+        jPanelClipart.setLayout(jPanelClipartLayout);
+        jPanelClipartLayout.setHorizontalGroup(
+            jPanelClipartLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 540, Short.MAX_VALUE)
+        );
+        jPanelClipartLayout.setVerticalGroup(
+            jPanelClipartLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 520, Short.MAX_VALUE)
         );
 
-        jTabbedPane.addTab(bundle.getString("JIconCreator.jPanel2.TabConstraints.tabTitle"), jPanel2); // NOI18N
-
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 545, Short.MAX_VALUE)
-        );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 520, Short.MAX_VALUE)
-        );
-
-        jTabbedPane.addTab(bundle.getString("JIconCreator.jPanel3.TabConstraints.tabTitle"), jPanel3); // NOI18N
+        jTabbedPane.addTab(bundle.getString("JIconCreator.jPanelClipart.TabConstraints.tabTitle"), jPanelClipart); // NOI18N
 
         jPanelGeneral.add(jTabbedPane);
 
@@ -397,6 +588,10 @@ public class JIconCreator extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jCheckBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jCheckBox1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -433,7 +628,9 @@ public class JIconCreator extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.ButtonGroup buttonGroupScalingClipart;
     private javax.swing.ButtonGroup buttonGroupScalingImage;
+    private javax.swing.ButtonGroup buttonGroupShapeClipart;
     private javax.swing.ButtonGroup buttonGroupShapeImage;
     private javax.swing.Box.Filler fillerLargeH1;
     private javax.swing.Box.Filler fillerLargeH2;
@@ -442,24 +639,42 @@ public class JIconCreator extends javax.swing.JFrame {
     private javax.swing.Box.Filler fillerSmallH1;
     private javax.swing.Box.Filler fillerSmallH2;
     private javax.swing.JButton jButtonBrowseImage;
+    private javax.swing.JButton jButtonChooseClipart;
+    private javax.swing.JButton jButtonChooseClipartH;
+    private javax.swing.JButton jButtonChooseClipartL;
     private javax.swing.JButton jButtonColorImage;
     private javax.swing.JButton jButtonPreview;
+    private javax.swing.JButton jButtonRandomClipartH;
+    private javax.swing.JButton jButtonRandomClipartL;
     private javax.swing.JButton jButtonRandomImage;
+    private javax.swing.JButton jButtonResetClipart;
     private javax.swing.JButton jButtonResetImage;
     private javax.swing.JButton jButtonSave;
     private javax.swing.JButton jButtonSaveAs;
+    private javax.swing.JCheckBox jCheckBox1;
     private javax.swing.JCheckBox jCheckBoxTrimImage;
     private javax.swing.JLabel jLabelBackgroundImage;
+    private javax.swing.JLabel jLabelClipart;
+    private javax.swing.JLabel jLabelColorClipartH;
+    private javax.swing.JLabel jLabelColorClipartL;
     private javax.swing.JLabel jLabelColorImage;
+    private javax.swing.JLabel jLabelColorShowClipartH;
+    private javax.swing.JLabel jLabelColorShowClipartL;
     private javax.swing.JLabel jLabelFileImage;
     private javax.swing.JLabel jLabelHdpiI;
     private javax.swing.JLabel jLabelHdpiL;
     private javax.swing.JLabel jLabelMdpiI;
     private javax.swing.JLabel jLabelMdpiL;
+    private javax.swing.JLabel jLabelNameClipart;
+    private javax.swing.JLabel jLabelOptionsClipart;
     private javax.swing.JLabel jLabelOptionsImage;
+    private javax.swing.JLabel jLabelPaddingClipart;
     private javax.swing.JLabel jLabelPaddingImage;
+    private javax.swing.JLabel jLabelPercentsClipart;
     private javax.swing.JLabel jLabelPercentsImage;
+    private javax.swing.JLabel jLabelScalingClipart;
     private javax.swing.JLabel jLabelScalingImage;
+    private javax.swing.JLabel jLabelShapeClipart;
     private javax.swing.JLabel jLabelShapeImage;
     private javax.swing.JLabel jLabelStatusBar;
     private javax.swing.JLabel jLabelXhdpiI;
@@ -475,20 +690,26 @@ public class JIconCreator extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItemSave;
     private javax.swing.JMenuItem jMenuItemSaveAs;
     private javax.swing.JMenu jMenuStyle;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanelClipart;
     private javax.swing.JPanel jPanelGeneral;
+    private javax.swing.JPanel jPanelImage;
     private javax.swing.JPanel jPanelPreview;
     private javax.swing.JPanel jPanelPreviewButton;
     private javax.swing.JPanel jPanelStatusBar;
+    private javax.swing.JPanel jPanelText;
+    private javax.swing.JRadioButton jRadioButtonCenterClipart;
     private javax.swing.JRadioButton jRadioButtonCenterImage;
+    private javax.swing.JRadioButton jRadioButtonCircleClipart;
     private javax.swing.JRadioButton jRadioButtonCircleImage;
+    private javax.swing.JRadioButton jRadioButtonCropClipart;
     private javax.swing.JRadioButton jRadioButtonCropImage;
+    private javax.swing.JRadioButton jRadioButtonNoneClipart;
     private javax.swing.JRadioButton jRadioButtonNoneImage;
+    private javax.swing.JRadioButton jRadioButtonSquareClipart;
     private javax.swing.JRadioButton jRadioButtonSquareImage;
     private javax.swing.JPopupMenu.Separator jSeparator1;
     private javax.swing.JPopupMenu.Separator jSeparator2;
+    private javax.swing.JSlider jSliderPaddingClipart;
     private javax.swing.JSlider jSliderPaddingImage;
     private javax.swing.JSplitPane jSplitPane;
     private javax.swing.JTabbedPane jTabbedPane;
