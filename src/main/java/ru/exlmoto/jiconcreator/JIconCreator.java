@@ -37,6 +37,11 @@ public class JIconCreator extends javax.swing.JFrame {
         jLabelXhdpiI = new javax.swing.JLabel();
         jLabelXxhdpiL = new javax.swing.JLabel();
         jLabelXxhdpiI = new javax.swing.JLabel();
+        fillerLargeV1 = new javax.swing.Box.Filler(new java.awt.Dimension(0, 0), new java.awt.Dimension(0, 0), new java.awt.Dimension(0, 32767));
+        jPanelPreviewButton = new javax.swing.JPanel();
+        fillerLargeH2 = new javax.swing.Box.Filler(new java.awt.Dimension(0, 0), new java.awt.Dimension(0, 0), new java.awt.Dimension(32767, 0));
+        jButtonPreview = new javax.swing.JButton();
+        fillerLargeH3 = new javax.swing.Box.Filler(new java.awt.Dimension(0, 0), new java.awt.Dimension(0, 0), new java.awt.Dimension(32767, 0));
         jPanelGeneral = new javax.swing.JPanel();
         jTabbedPane = new javax.swing.JTabbedPane();
         jPanel1 = new javax.swing.JPanel();
@@ -49,8 +54,6 @@ public class JIconCreator extends javax.swing.JFrame {
         jButtonSave = new javax.swing.JButton();
         fillerSmallH2 = new javax.swing.Box.Filler(new java.awt.Dimension(3, 0), new java.awt.Dimension(3, 0), new java.awt.Dimension(3, 32767));
         jButtonSaveAs = new javax.swing.JButton();
-        fillerSmallH3 = new javax.swing.Box.Filler(new java.awt.Dimension(3, 0), new java.awt.Dimension(3, 0), new java.awt.Dimension(3, 32767));
-        jButtonPreview = new javax.swing.JButton();
         jMenuBar = new javax.swing.JMenuBar();
         jMenuFile = new javax.swing.JMenu();
         jMenuItemPreview = new javax.swing.JMenuItem();
@@ -97,6 +100,19 @@ public class JIconCreator extends javax.swing.JFrame {
 
         jLabelXxhdpiI.setText(bundle.getString("JIconCreator.jLabelXxhdpiI.text")); // NOI18N
         jPanelPreview.add(jLabelXxhdpiI);
+        jPanelPreview.add(fillerLargeV1);
+
+        jPanelPreviewButton.setMaximumSize(new java.awt.Dimension(32767, 25));
+        jPanelPreviewButton.setMinimumSize(new java.awt.Dimension(0, 0));
+        jPanelPreviewButton.setPreferredSize(new java.awt.Dimension(0, 30));
+        jPanelPreviewButton.setLayout(new javax.swing.BoxLayout(jPanelPreviewButton, javax.swing.BoxLayout.LINE_AXIS));
+        jPanelPreviewButton.add(fillerLargeH2);
+
+        jButtonPreview.setText(bundle.getString("JIconCreator.jButtonPreview.text")); // NOI18N
+        jPanelPreviewButton.add(jButtonPreview);
+        jPanelPreviewButton.add(fillerLargeH3);
+
+        jPanelPreview.add(jPanelPreviewButton);
 
         jSplitPane.setRightComponent(jPanelPreview);
 
@@ -159,10 +175,6 @@ public class JIconCreator extends javax.swing.JFrame {
 
         jButtonSaveAs.setText(bundle.getString("JIconCreator.jButtonSaveAs.text")); // NOI18N
         jPanelStatusBar.add(jButtonSaveAs);
-        jPanelStatusBar.add(fillerSmallH3);
-
-        jButtonPreview.setText(bundle.getString("JIconCreator.jButtonPreview.text")); // NOI18N
-        jPanelStatusBar.add(jButtonPreview);
 
         jPanelGeneral.add(jPanelStatusBar);
 
@@ -243,9 +255,11 @@ public class JIconCreator extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.Box.Filler fillerLargeH1;
+    private javax.swing.Box.Filler fillerLargeH2;
+    private javax.swing.Box.Filler fillerLargeH3;
+    private javax.swing.Box.Filler fillerLargeV1;
     private javax.swing.Box.Filler fillerSmallH1;
     private javax.swing.Box.Filler fillerSmallH2;
-    private javax.swing.Box.Filler fillerSmallH3;
     private javax.swing.JButton jButtonPreview;
     private javax.swing.JButton jButtonSave;
     private javax.swing.JButton jButtonSaveAs;
@@ -272,6 +286,7 @@ public class JIconCreator extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanelGeneral;
     private javax.swing.JPanel jPanelPreview;
+    private javax.swing.JPanel jPanelPreviewButton;
     private javax.swing.JPanel jPanelStatusBar;
     private javax.swing.JPopupMenu.Separator jSeparator1;
     private javax.swing.JPopupMenu.Separator jSeparator2;
