@@ -6,6 +6,10 @@
 package ru.exlmoto.jiconcreator;
 
 import javax.swing.*;
+import java.awt.event.ActionEvent;
+import java.awt.image.BufferedImage;
+import java.util.Map;
+import java.util.Random;
 
 /**
  *
@@ -13,11 +17,64 @@ import javax.swing.*;
  */
 public class JIconCreator extends javax.swing.JFrame {
 
+    private CreateAssetSetWizardState createAssetSetWizardState = null;
+
     /**
      * Creates new form JIconCreator
      */
     public JIconCreator() {
         initComponents();
+
+        createAssetSetWizardState = new CreateAssetSetWizardState();
+        updatePreviewIcons();
+    }
+
+    private void buttonImageColorRandomActionPerformed(ActionEvent e) {
+        System.out.println("Clicked!");
+        createAssetSetWizardState.background = new RGB(
+                new Random().nextInt(255 + 1),
+                new Random().nextInt(255 + 1),
+                new Random().nextInt(255 + 1));
+        updatePreviewIcons();
+    }
+
+    public void updatePreviewIcons() {
+        int cnt = 0;
+        Map<String, Map<String, BufferedImage>> categories = JIconCreatorExtrasLibraryHere.generateImages(createAssetSetWizardState, true);
+        if (wtf(cnt, categories, jLabelMdpiI, jLabelHdpiI, jLabelXhdpiI, jLabelXxhdpiI)) return;
+
+        System.gc();
+    }
+
+    static boolean wtf(int cnt, Map<String, Map<String, BufferedImage>> categories, JLabel labelMdpiImage, JLabel labelHpdiImage, JLabel labelXhdpiImage, JLabel labelXxhdpiImage) {
+        for (Map<String, BufferedImage> previews : categories.values()) {
+            for (Map.Entry<String, BufferedImage> entry : previews.entrySet()) {
+                BufferedImage image = entry.getValue();
+
+                if (image != null) {
+                    switch (cnt) {
+                        default:
+                            return true;
+                        case 0:
+                            labelMdpiImage.setIcon(new ImageIcon(image));
+                            break;
+                        case 1:
+                            labelHpdiImage.setIcon(new ImageIcon(image));
+                            break;
+                        case 2:
+                            labelXhdpiImage.setIcon(new ImageIcon(image));
+                            break;
+                        case 3:
+                            labelXxhdpiImage.setIcon(new ImageIcon(image));
+                            break;
+                    }
+                    cnt++;
+                } else {
+                    return true;
+                }
+            }
+        }
+        return false;
     }
 
     /**
@@ -768,7 +825,7 @@ public class JIconCreator extends javax.swing.JFrame {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html
          */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
