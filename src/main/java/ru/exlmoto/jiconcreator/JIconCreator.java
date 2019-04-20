@@ -29,6 +29,14 @@ public class JIconCreator extends javax.swing.JFrame {
 
         jSplitPane = new javax.swing.JSplitPane();
         jPanelPreview = new javax.swing.JPanel();
+        jLabelMdpiL = new javax.swing.JLabel();
+        jLabelMdpiI = new javax.swing.JLabel();
+        jLabelHdpiL = new javax.swing.JLabel();
+        jLabelHdpiI = new javax.swing.JLabel();
+        jLabelXhdpiL = new javax.swing.JLabel();
+        jLabelXhdpiI = new javax.swing.JLabel();
+        jLabelXxhdpiL = new javax.swing.JLabel();
+        jLabelXxhdpiI = new javax.swing.JLabel();
         jTabbedPane = new javax.swing.JTabbedPane();
         jMenuBar = new javax.swing.JMenuBar();
         jMenuFile = new javax.swing.JMenu();
@@ -51,6 +59,31 @@ public class JIconCreator extends javax.swing.JFrame {
         jSplitPane.setDividerLocation(550);
 
         jPanelPreview.setLayout(new javax.swing.BoxLayout(jPanelPreview, javax.swing.BoxLayout.PAGE_AXIS));
+
+        jLabelMdpiL.setText(bundle.getString("JIconCreator.jLabelMdpiL.text")); // NOI18N
+        jPanelPreview.add(jLabelMdpiL);
+
+        jLabelMdpiI.setText(bundle.getString("JIconCreator.jLabelMdpiI.text")); // NOI18N
+        jPanelPreview.add(jLabelMdpiI);
+
+        jLabelHdpiL.setText(bundle.getString("JIconCreator.jLabelHdpiL.text")); // NOI18N
+        jPanelPreview.add(jLabelHdpiL);
+
+        jLabelHdpiI.setText(bundle.getString("JIconCreator.jLabelHdpiI.text")); // NOI18N
+        jPanelPreview.add(jLabelHdpiI);
+
+        jLabelXhdpiL.setText(bundle.getString("JIconCreator.jLabelXhdpiL.text")); // NOI18N
+        jPanelPreview.add(jLabelXhdpiL);
+
+        jLabelXhdpiI.setText(bundle.getString("JIconCreator.jLabelXhdpiI.text")); // NOI18N
+        jPanelPreview.add(jLabelXhdpiI);
+
+        jLabelXxhdpiL.setText(bundle.getString("JIconCreator.jLabelXxhdpiL.text")); // NOI18N
+        jPanelPreview.add(jLabelXxhdpiL);
+
+        jLabelXxhdpiI.setText(bundle.getString("JIconCreator.jLabelXxhdpiI.text")); // NOI18N
+        jPanelPreview.add(jLabelXxhdpiI);
+
         jSplitPane.setRightComponent(jPanelPreview);
         jSplitPane.setLeftComponent(jTabbedPane);
 
@@ -128,6 +161,14 @@ public class JIconCreator extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel jLabelHdpiI;
+    private javax.swing.JLabel jLabelHdpiL;
+    private javax.swing.JLabel jLabelMdpiI;
+    private javax.swing.JLabel jLabelMdpiL;
+    private javax.swing.JLabel jLabelXhdpiI;
+    private javax.swing.JLabel jLabelXhdpiL;
+    private javax.swing.JLabel jLabelXxhdpiI;
+    private javax.swing.JLabel jLabelXxhdpiL;
     private javax.swing.JMenuBar jMenuBar;
     private javax.swing.JMenu jMenuFile;
     private javax.swing.JMenu jMenuHelp;
