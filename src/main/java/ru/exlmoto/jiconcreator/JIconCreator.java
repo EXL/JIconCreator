@@ -37,7 +37,17 @@ public class JIconCreator extends javax.swing.JFrame {
         jLabelXhdpiI = new javax.swing.JLabel();
         jLabelXxhdpiL = new javax.swing.JLabel();
         jLabelXxhdpiI = new javax.swing.JLabel();
+        jPanelGeneral = new javax.swing.JPanel();
         jTabbedPane = new javax.swing.JTabbedPane();
+        jPanelStatusBar = new javax.swing.JPanel();
+        fillerSmallH1 = new javax.swing.Box.Filler(new java.awt.Dimension(3, 0), new java.awt.Dimension(3, 0), new java.awt.Dimension(3, 32767));
+        jLabelStatusBar = new javax.swing.JLabel();
+        fillerLargeH1 = new javax.swing.Box.Filler(new java.awt.Dimension(0, 0), new java.awt.Dimension(0, 0), new java.awt.Dimension(32767, 0));
+        jButtonSave = new javax.swing.JButton();
+        fillerSmallH2 = new javax.swing.Box.Filler(new java.awt.Dimension(3, 0), new java.awt.Dimension(3, 0), new java.awt.Dimension(3, 32767));
+        jButtonSaveAs = new javax.swing.JButton();
+        fillerSmallH3 = new javax.swing.Box.Filler(new java.awt.Dimension(3, 0), new java.awt.Dimension(3, 0), new java.awt.Dimension(3, 32767));
+        jButtonPreview = new javax.swing.JButton();
         jMenuBar = new javax.swing.JMenuBar();
         jMenuFile = new javax.swing.JMenu();
         jMenuItemPreview = new javax.swing.JMenuItem();
@@ -85,7 +95,34 @@ public class JIconCreator extends javax.swing.JFrame {
         jPanelPreview.add(jLabelXxhdpiI);
 
         jSplitPane.setRightComponent(jPanelPreview);
-        jSplitPane.setLeftComponent(jTabbedPane);
+
+        jPanelGeneral.setLayout(new javax.swing.BoxLayout(jPanelGeneral, javax.swing.BoxLayout.PAGE_AXIS));
+        jPanelGeneral.add(jTabbedPane);
+
+        jPanelStatusBar.setMaximumSize(new java.awt.Dimension(800, 30));
+        jPanelStatusBar.setMinimumSize(new java.awt.Dimension(400, 30));
+        jPanelStatusBar.setPreferredSize(new java.awt.Dimension(550, 30));
+        jPanelStatusBar.setLayout(new javax.swing.BoxLayout(jPanelStatusBar, javax.swing.BoxLayout.LINE_AXIS));
+        jPanelStatusBar.add(fillerSmallH1);
+
+        jLabelStatusBar.setText(bundle.getString("JIconCreator.jLabelStatusBar.text")); // NOI18N
+        jPanelStatusBar.add(jLabelStatusBar);
+        jPanelStatusBar.add(fillerLargeH1);
+
+        jButtonSave.setText(bundle.getString("JIconCreator.jButtonSave.text")); // NOI18N
+        jPanelStatusBar.add(jButtonSave);
+        jPanelStatusBar.add(fillerSmallH2);
+
+        jButtonSaveAs.setText(bundle.getString("JIconCreator.jButtonSaveAs.text")); // NOI18N
+        jPanelStatusBar.add(jButtonSaveAs);
+        jPanelStatusBar.add(fillerSmallH3);
+
+        jButtonPreview.setText(bundle.getString("JIconCreator.jButtonPreview.text")); // NOI18N
+        jPanelStatusBar.add(jButtonPreview);
+
+        jPanelGeneral.add(jPanelStatusBar);
+
+        jSplitPane.setLeftComponent(jPanelGeneral);
 
         getContentPane().add(jSplitPane);
 
@@ -161,10 +198,18 @@ public class JIconCreator extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.Box.Filler fillerLargeH1;
+    private javax.swing.Box.Filler fillerSmallH1;
+    private javax.swing.Box.Filler fillerSmallH2;
+    private javax.swing.Box.Filler fillerSmallH3;
+    private javax.swing.JButton jButtonPreview;
+    private javax.swing.JButton jButtonSave;
+    private javax.swing.JButton jButtonSaveAs;
     private javax.swing.JLabel jLabelHdpiI;
     private javax.swing.JLabel jLabelHdpiL;
     private javax.swing.JLabel jLabelMdpiI;
     private javax.swing.JLabel jLabelMdpiL;
+    private javax.swing.JLabel jLabelStatusBar;
     private javax.swing.JLabel jLabelXhdpiI;
     private javax.swing.JLabel jLabelXhdpiL;
     private javax.swing.JLabel jLabelXxhdpiI;
@@ -178,7 +223,9 @@ public class JIconCreator extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItemSave;
     private javax.swing.JMenuItem jMenuItemSaveAs;
     private javax.swing.JMenu jMenuStyle;
+    private javax.swing.JPanel jPanelGeneral;
     private javax.swing.JPanel jPanelPreview;
+    private javax.swing.JPanel jPanelStatusBar;
     private javax.swing.JPopupMenu.Separator jSeparator1;
     private javax.swing.JPopupMenu.Separator jSeparator2;
     private javax.swing.JSplitPane jSplitPane;
