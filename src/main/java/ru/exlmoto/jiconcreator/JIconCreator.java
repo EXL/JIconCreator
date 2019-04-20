@@ -154,24 +154,36 @@ public class JIconCreator extends javax.swing.JFrame {
         jPanelPreview.add(jLabelMdpiL);
 
         jLabelMdpiI.setText(bundle.getString("JIconCreator.jLabelMdpiI.text")); // NOI18N
+        jLabelMdpiI.setMaximumSize(new java.awt.Dimension(48, 48));
+        jLabelMdpiI.setMinimumSize(new java.awt.Dimension(48, 48));
+        jLabelMdpiI.setPreferredSize(new java.awt.Dimension(48, 48));
         jPanelPreview.add(jLabelMdpiI);
 
         jLabelHdpiL.setText(bundle.getString("JIconCreator.jLabelHdpiL.text")); // NOI18N
         jPanelPreview.add(jLabelHdpiL);
 
         jLabelHdpiI.setText(bundle.getString("JIconCreator.jLabelHdpiI.text")); // NOI18N
+        jLabelHdpiI.setMaximumSize(new java.awt.Dimension(72, 72));
+        jLabelHdpiI.setMinimumSize(new java.awt.Dimension(72, 72));
+        jLabelHdpiI.setPreferredSize(new java.awt.Dimension(72, 72));
         jPanelPreview.add(jLabelHdpiI);
 
         jLabelXhdpiL.setText(bundle.getString("JIconCreator.jLabelXhdpiL.text")); // NOI18N
         jPanelPreview.add(jLabelXhdpiL);
 
         jLabelXhdpiI.setText(bundle.getString("JIconCreator.jLabelXhdpiI.text")); // NOI18N
+        jLabelXhdpiI.setMaximumSize(new java.awt.Dimension(96, 96));
+        jLabelXhdpiI.setMinimumSize(new java.awt.Dimension(96, 96));
+        jLabelXhdpiI.setPreferredSize(new java.awt.Dimension(96, 96));
         jPanelPreview.add(jLabelXhdpiI);
 
         jLabelXxhdpiL.setText(bundle.getString("JIconCreator.jLabelXxhdpiL.text")); // NOI18N
         jPanelPreview.add(jLabelXxhdpiL);
 
         jLabelXxhdpiI.setText(bundle.getString("JIconCreator.jLabelXxhdpiI.text")); // NOI18N
+        jLabelXxhdpiI.setMaximumSize(new java.awt.Dimension(144, 144));
+        jLabelXxhdpiI.setMinimumSize(new java.awt.Dimension(144, 144));
+        jLabelXxhdpiI.setPreferredSize(new java.awt.Dimension(144, 144));
         jPanelPreview.add(jLabelXxhdpiI);
         jPanelPreview.add(fillerLargeV1);
 
