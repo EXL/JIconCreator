@@ -194,7 +194,7 @@ public class JIconCreator extends javax.swing.JFrame {
         setPreferredSize(new java.awt.Dimension(800, 600));
         getContentPane().setLayout(new javax.swing.BoxLayout(getContentPane(), javax.swing.BoxLayout.LINE_AXIS));
 
-        jSplitPane.setDividerLocation(550);
+        jSplitPane.setDividerLocation(580);
 
         jPanelPreview.setMinimumSize(new java.awt.Dimension(150, 500));
         jPanelPreview.setLayout(new javax.swing.BoxLayout(jPanelPreview, javax.swing.BoxLayout.PAGE_AXIS));
@@ -537,7 +537,7 @@ public class JIconCreator extends javax.swing.JFrame {
                         .addGroup(jPanelClipartLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabelColorShowClipartH, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabelColorShowClipartL, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(148, Short.MAX_VALUE))
+                .addContainerGap(182, Short.MAX_VALUE))
         );
         jPanelClipartLayout.setVerticalGroup(
             jPanelClipartLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -704,7 +704,7 @@ public class JIconCreator extends javax.swing.JFrame {
                         .addGroup(jPanelTextLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabelColorShowTextH, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabelColorShowTextL, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(120, Short.MAX_VALUE))
+                .addContainerGap(154, Short.MAX_VALUE))
         );
         jPanelTextLayout.setVerticalGroup(
             jPanelTextLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -815,13 +815,12 @@ public class JIconCreator extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButtonRandomImageLActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRandomImageLActionPerformed
-        System.out.println("Clicked!");
-        Random random = new Random();
-        Color randomColor = new Color(random.nextInt(256), random.nextInt(256), random.nextInt(256));
-        createAssetSetWizardState.background = new RGB(randomColor.getRed(),
-                                                       randomColor.getGreen(),
-                                                       randomColor.getBlue());
-        jLabelColorShowImageL.setBackground(randomColor);
+        int red = new Random().nextInt(255 + 1);
+        int green = new Random().nextInt(255 + 1);
+        int blue = new Random().nextInt(255 + 1);
+        System.out.println("Clicked Random button: " + red + " " + green + " " + blue);
+        createAssetSetWizardState.background = new RGB(red, green, blue);
+        jLabelColorShowImageL.setBackground(new Color(red, green, blue));
         updatePreviewIcons();
     }//GEN-LAST:event_jButtonRandomImageLActionPerformed
 
