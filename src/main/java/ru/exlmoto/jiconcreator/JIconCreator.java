@@ -68,6 +68,7 @@ public class JIconCreator extends javax.swing.JFrame {
 
         jSplitPane.setDividerLocation(550);
 
+        jPanelPreview.setMinimumSize(new java.awt.Dimension(150, 600));
         jPanelPreview.setLayout(new javax.swing.BoxLayout(jPanelPreview, javax.swing.BoxLayout.PAGE_AXIS));
 
         jLabelMdpiL.setText(bundle.getString("JIconCreator.jLabelMdpiL.text")); // NOI18N
