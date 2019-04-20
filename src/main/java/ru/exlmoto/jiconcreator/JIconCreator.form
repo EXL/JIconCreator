@@ -403,7 +403,7 @@
                               <Group type="103" groupAlignment="1" attributes="0">
                                   <Component id="jSliderPaddingImage" min="-2" max="-2" attributes="0"/>
                                   <Component id="jLabelPercentsImage" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabelPaddingImage" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jLabelPaddingImage" alignment="0" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
@@ -427,7 +427,7 @@
                                       <Component id="jLabelColorImageL" alignment="3" min="-2" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
-                              <EmptySpace pref="283" max="32767" attributes="0"/>
+                              <EmptySpace pref="282" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
@@ -636,9 +636,9 @@
                                   <Component id="jLabelColorClipartL" min="-2" max="-2" attributes="0"/>
                                   <Component id="jLabelShapeClipart" min="-2" max="-2" attributes="0"/>
                                   <Component id="jLabelScalingClipart" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabelPaddingClipart" min="-2" max="-2" attributes="0"/>
                                   <Component id="jLabelOptionsClipart" min="-2" max="-2" attributes="0"/>
                                   <Component id="jLabelClipart" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jLabelPaddingClipart" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace min="-2" pref="4" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
@@ -706,18 +706,11 @@
                                   <Component id="jLabelOptionsClipart" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="jCheckBoxTrimClipart" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="102" alignment="1" attributes="0">
-                                      <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
-                                      <Component id="jLabelPaddingClipart" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="jSliderPaddingClipart" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jLabelPercentsClipart" min="-2" max="-2" attributes="0"/>
-                                      </Group>
-                                  </Group>
+                                  <Component id="jLabelPaddingClipart" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jSliderPaddingClipart" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jLabelPercentsClipart" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
@@ -750,7 +743,7 @@
                                       <Component id="jButtonRandomClipartH" alignment="3" min="-2" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
-                              <EmptySpace pref="240" max="32767" attributes="0"/>
+                              <EmptySpace pref="239" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
@@ -1060,7 +1053,7 @@
                                       <Component id="jRadioButtonCircle" min="-2" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
-                              <EmptySpace pref="120" max="32767" attributes="0"/>
+                              <EmptySpace pref="201" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
@@ -1082,7 +1075,7 @@
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Component id="jSliderPaddingText" min="-2" max="-2" attributes="0"/>
                                   <Component id="jLabelPercentsText" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabelPaddingText" alignment="1" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jLabelPaddingText" alignment="0" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
@@ -1121,7 +1114,7 @@
                                   <Component id="jButtonChooseFontText" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="jLabelFontNameText" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace pref="197" max="32767" attributes="0"/>
+                              <EmptySpace pref="198" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>

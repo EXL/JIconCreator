@@ -35,22 +35,22 @@ public class JIconCreator extends javax.swing.JFrame {
     }
 
     public void generateStyleMenuItems() {
+        boolean isWindows = false;
         installedStyles = new HashMap<String, String>();
         ArrayList<JRadioButtonMenuItem> styleMenuItems = new ArrayList<JRadioButtonMenuItem>();
         for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-            styleMenuItems.add(new JRadioButtonMenuItem(info.getName()));
-            installedStyles.put(info.getName(), info.getClassName());
-            if (info.getName().equals("Windows")) {
-                try {
-                    UIManager.setLookAndFeel(info.getClassName());
-                    SwingUtilities.updateComponentTreeUI(getRootPane());
-                } catch (ClassNotFoundException | IllegalAccessException | InstantiationException | UnsupportedLookAndFeelException e) {
-                    e.printStackTrace();
-                }
+            String styleName = info.getName();
+            styleMenuItems.add(new JRadioButtonMenuItem(styleName));
+            installedStyles.put(styleName, info.getClassName());
+            if (styleName.startsWith("Windows")) {
+                isWindows = true;
             }
         }
-        for (JRadioButtonMenuItem menuItem : styleMenuItems) {
-            if (UIManager.getLookAndFeel().getName().equals(menuItem.getText())) {
+        for (final JRadioButtonMenuItem menuItem : styleMenuItems) {
+            if (UIManager.getLookAndFeel().getName().equals(menuItem.getText()) && !isWindows) {
+                menuItem.setSelected(true);
+            }
+            if (menuItem.getText().equals("Windows") && isWindows) {
                 menuItem.setSelected(true);
             }
             menuItem.addActionListener(new java.awt.event.ActionListener() {
@@ -65,6 +65,14 @@ public class JIconCreator extends javax.swing.JFrame {
             });
             buttonGroupStyles.add(menuItem);
             jMenuStyle.add(menuItem);
+        }
+        if (isWindows) {
+            try {
+                UIManager.setLookAndFeel(installedStyles.get("Windows"));
+                SwingUtilities.updateComponentTreeUI(getRootPane());
+            } catch (ClassNotFoundException | IllegalAccessException | InstantiationException | UnsupportedLookAndFeelException e) {
+                e.printStackTrace();
+            }
         }
     }
 
@@ -418,7 +426,7 @@ public class JIconCreator extends javax.swing.JFrame {
                 .addGroup(jPanelImageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jSliderPaddingImage, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabelPercentsImage, javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabelPaddingImage))
+                    .addComponent(jLabelPaddingImage, javax.swing.GroupLayout.Alignment.LEADING))
                 .addGap(18, 18, 18)
                 .addGroup(jPanelImageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jRadioButtonCropImage)
@@ -437,7 +445,7 @@ public class JIconCreator extends javax.swing.JFrame {
                         .addComponent(jButtonChooseImageL)
                         .addComponent(jButtonRandomImageL)
                         .addComponent(jLabelColorImageL)))
-                .addContainerGap(283, Short.MAX_VALUE))
+                .addContainerGap(282, Short.MAX_VALUE))
         );
 
         jTabbedPane.addTab(bundle.getString("JIconCreator.jPanelImage.TabConstraints.tabTitle"), jPanelImage); // NOI18N
@@ -520,9 +528,9 @@ public class JIconCreator extends javax.swing.JFrame {
                     .addComponent(jLabelColorClipartL)
                     .addComponent(jLabelShapeClipart)
                     .addComponent(jLabelScalingClipart)
-                    .addComponent(jLabelPaddingClipart)
                     .addComponent(jLabelOptionsClipart)
-                    .addComponent(jLabelClipart))
+                    .addComponent(jLabelClipart)
+                    .addComponent(jLabelPaddingClipart))
                 .addGap(4, 4, 4)
                 .addGroup(jPanelClipartLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanelClipartLayout.createSequentialGroup()
@@ -575,15 +583,11 @@ public class JIconCreator extends javax.swing.JFrame {
                 .addGroup(jPanelClipartLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabelOptionsClipart)
                     .addComponent(jCheckBoxTrimClipart))
+                .addGap(18, 18, 18)
                 .addGroup(jPanelClipartLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelClipartLayout.createSequentialGroup()
-                        .addGap(19, 19, 19)
-                        .addComponent(jLabelPaddingClipart))
-                    .addGroup(jPanelClipartLayout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanelClipartLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jSliderPaddingClipart, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabelPercentsClipart))))
+                    .addComponent(jLabelPaddingClipart)
+                    .addComponent(jSliderPaddingClipart, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabelPercentsClipart))
                 .addGap(18, 18, 18)
                 .addGroup(jPanelClipartLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabelScalingClipart)
@@ -609,7 +613,7 @@ public class JIconCreator extends javax.swing.JFrame {
                         .addComponent(jLabelColorClipartH)
                         .addComponent(jButtonChooseClipartH)
                         .addComponent(jButtonRandomClipartH)))
-                .addContainerGap(240, Short.MAX_VALUE))
+                .addContainerGap(239, Short.MAX_VALUE))
         );
 
         jTabbedPane.addTab(bundle.getString("JIconCreator.jPanelClipart.TabConstraints.tabTitle"), jPanelClipart); // NOI18N
@@ -741,7 +745,7 @@ public class JIconCreator extends javax.swing.JFrame {
                                 .addComponent(jRadioButtonSquareText)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jRadioButtonCircle)))
-                .addContainerGap(120, Short.MAX_VALUE))
+                .addContainerGap(201, Short.MAX_VALUE))
         );
         jPanelTextLayout.setVerticalGroup(
             jPanelTextLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -759,7 +763,7 @@ public class JIconCreator extends javax.swing.JFrame {
                 .addGroup(jPanelTextLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jSliderPaddingText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabelPercentsText)
-                    .addComponent(jLabelPaddingText, javax.swing.GroupLayout.Alignment.TRAILING))
+                    .addComponent(jLabelPaddingText))
                 .addGap(18, 18, 18)
                 .addGroup(jPanelTextLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabelScalingText)
@@ -790,7 +794,7 @@ public class JIconCreator extends javax.swing.JFrame {
                     .addComponent(jLabelFontText)
                     .addComponent(jButtonChooseFontText)
                     .addComponent(jLabelFontNameText))
-                .addContainerGap(197, Short.MAX_VALUE))
+                .addContainerGap(198, Short.MAX_VALUE))
         );
 
         jTabbedPane.addTab(bundle.getString("JIconCreator.jPanelText.TabConstraints.tabTitle"), jPanelText); // NOI18N
