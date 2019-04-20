@@ -7,7 +7,10 @@ package ru.exlmoto.jiconcreator;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
 import java.awt.image.BufferedImage;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Map;
 import java.util.Random;
 
@@ -18,15 +21,44 @@ import java.util.Random;
 public class JIconCreator extends javax.swing.JFrame {
 
     private CreateAssetSetWizardState createAssetSetWizardState = null;
+    private HashMap<String, String> installedStyles = null;
 
     /**
      * Creates new form JIconCreator
      */
     public JIconCreator() {
         initComponents();
+        generateStyleMenuItems();
 
         createAssetSetWizardState = new CreateAssetSetWizardState();
         updatePreviewIcons();
+    }
+
+    public void generateStyleMenuItems() {
+        installedStyles = new HashMap<String, String>();
+        ArrayList<JRadioButtonMenuItem> styleMenuItems = new ArrayList<JRadioButtonMenuItem>();
+        for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+            styleMenuItems.add(new JRadioButtonMenuItem(info.getName()));
+            installedStyles.put(info.getName(), info.getClassName());
+        }
+
+        for (JRadioButtonMenuItem menuItem : styleMenuItems) {
+            if (UIManager.getLookAndFeel().getName().equals(menuItem.getText())) {
+                menuItem.setSelected(true);
+            }
+            menuItem.addActionListener(new java.awt.event.ActionListener() {
+                public void actionPerformed(java.awt.event.ActionEvent evt) {
+                    try {
+                        UIManager.setLookAndFeel(installedStyles.get(menuItem.getText()));
+                        SwingUtilities.updateComponentTreeUI(getRootPane());
+                    } catch (ClassNotFoundException | IllegalAccessException | InstantiationException | UnsupportedLookAndFeelException e) {
+                        e.printStackTrace();
+                    }
+                }
+            });
+            buttonGroupStyles.add(menuItem);
+            jMenuStyle.add(menuItem);
+        }
     }
 
     public void updatePreviewIcons() {
@@ -82,6 +114,7 @@ public class JIconCreator extends javax.swing.JFrame {
         buttonGroupShapeClipart = new javax.swing.ButtonGroup();
         buttonGroupScalingText = new javax.swing.ButtonGroup();
         buttonGroupShapeText = new javax.swing.ButtonGroup();
+        buttonGroupStyles = new javax.swing.ButtonGroup();
         jSplitPane = new javax.swing.JSplitPane();
         jPanelPreview = new javax.swing.JPanel();
         jLabelMdpiL = new javax.swing.JLabel();
@@ -834,23 +867,6 @@ public class JIconCreator extends javax.swing.JFrame {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Metal".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(JIconCreator.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
@@ -866,6 +882,7 @@ public class JIconCreator extends javax.swing.JFrame {
     private javax.swing.ButtonGroup buttonGroupShapeClipart;
     private javax.swing.ButtonGroup buttonGroupShapeImage;
     private javax.swing.ButtonGroup buttonGroupShapeText;
+    private javax.swing.ButtonGroup buttonGroupStyles;
     private javax.swing.Box.Filler fillerLargeH1;
     private javax.swing.Box.Filler fillerLargeH2;
     private javax.swing.Box.Filler fillerLargeH3;
