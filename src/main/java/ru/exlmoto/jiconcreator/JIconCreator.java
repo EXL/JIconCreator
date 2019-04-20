@@ -191,6 +191,8 @@ public class JIconCreator extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         java.util.ResourceBundle bundle = java.util.ResourceBundle.getBundle("Bundle"); // NOI18N
         setTitle(bundle.getString("JIconCreator.title")); // NOI18N
+        setMaximumSize(new java.awt.Dimension(1024, 768));
+        setMinimumSize(new java.awt.Dimension(725, 550));
         setPreferredSize(new java.awt.Dimension(800, 600));
         getContentPane().setLayout(new javax.swing.BoxLayout(getContentPane(), javax.swing.BoxLayout.LINE_AXIS));
 
@@ -279,6 +281,9 @@ public class JIconCreator extends javax.swing.JFrame {
         jLabelPaddingImage.setMaximumSize(new java.awt.Dimension(78, 15));
         jLabelPaddingImage.setMinimumSize(new java.awt.Dimension(78, 15));
         jLabelPaddingImage.setPreferredSize(new java.awt.Dimension(78, 15));
+
+        jSliderPaddingImage.setMinimumSize(new java.awt.Dimension(237, 16));
+        jSliderPaddingImage.setPreferredSize(new java.awt.Dimension(237, 16));
 
         jLabelPercentsImage.setText(bundle.getString("JIconCreator.jLabelPercentsImage.text")); // NOI18N
 
