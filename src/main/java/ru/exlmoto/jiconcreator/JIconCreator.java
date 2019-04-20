@@ -27,11 +27,27 @@ public class JIconCreator extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jMenuBar = new javax.swing.JMenuBar();
+        jMenuFile = new javax.swing.JMenu();
+        jMenuStyle = new javax.swing.JMenu();
+        jMenuHelp = new javax.swing.JMenu();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         java.util.ResourceBundle bundle = java.util.ResourceBundle.getBundle("Bundle"); // NOI18N
         setTitle(bundle.getString("JIconCreator.title")); // NOI18N
         setPreferredSize(new java.awt.Dimension(800, 600));
         getContentPane().setLayout(new javax.swing.BoxLayout(getContentPane(), javax.swing.BoxLayout.LINE_AXIS));
+
+        jMenuFile.setText(bundle.getString("JIconCreator.jMenuFile.text")); // NOI18N
+        jMenuBar.add(jMenuFile);
+
+        jMenuStyle.setText(bundle.getString("JIconCreator.jMenuStyle.text")); // NOI18N
+        jMenuBar.add(jMenuStyle);
+
+        jMenuHelp.setText(bundle.getString("JIconCreator.jMenuHelp.text")); // NOI18N
+        jMenuBar.add(jMenuHelp);
+
+        setJMenuBar(jMenuBar);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -72,5 +88,9 @@ public class JIconCreator extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenuBar jMenuBar;
+    private javax.swing.JMenu jMenuFile;
+    private javax.swing.JMenu jMenuHelp;
+    private javax.swing.JMenu jMenuStyle;
     // End of variables declaration//GEN-END:variables
 }
