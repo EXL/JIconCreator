@@ -582,9 +582,6 @@
                           <ResourceString bundle="Bundle.properties" key="JIconCreator.jRadioButtonNoneImage.text" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
                         </Property>
                       </Properties>
-                      <Events>
-                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jRadioButtonNoneImageActionPerformed"/>
-                      </Events>
                     </Component>
                     <Component class="javax.swing.JRadioButton" name="jRadioButtonSquareImage">
                       <Properties>
@@ -636,9 +633,6 @@
                           <ResourceString bundle="Bundle.properties" key="JIconCreator.jButtonRandomImageL.text" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
                         </Property>
                       </Properties>
-                      <Events>
-                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonRandomImageLActionPerformed"/>
-                      </Events>
                     </Component>
                     <Component class="javax.swing.JLabel" name="jLabelColorShowImageL">
                       <Properties>
@@ -833,9 +827,6 @@
                           <ResourceString bundle="Bundle.properties" key="JIconCreator.jCheckBoxTrimClipart.text" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
                         </Property>
                       </Properties>
-                      <Events>
-                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jCheckBoxTrimClipartActionPerformed"/>
-                      </Events>
                     </Component>
                     <Component class="javax.swing.JLabel" name="jLabelPaddingClipart">
                       <Properties>
