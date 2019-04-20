@@ -30,8 +30,10 @@ public class JIconCreator extends javax.swing.JFrame {
         jMenuBar = new javax.swing.JMenuBar();
         jMenuFile = new javax.swing.JMenu();
         jMenuItemPreview = new javax.swing.JMenuItem();
+        jSeparator1 = new javax.swing.JPopupMenu.Separator();
         jMenuItemSave = new javax.swing.JMenuItem();
         jMenuItemSaveAs = new javax.swing.JMenuItem();
+        jSeparator2 = new javax.swing.JPopupMenu.Separator();
         jMenuItemExit = new javax.swing.JMenuItem();
         jMenuStyle = new javax.swing.JMenu();
         jMenuHelp = new javax.swing.JMenu();
@@ -48,6 +50,7 @@ public class JIconCreator extends javax.swing.JFrame {
         jMenuItemPreview.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_P, java.awt.event.InputEvent.CTRL_MASK));
         jMenuItemPreview.setText(bundle.getString("JIconCreator.jMenuItemPreview.text")); // NOI18N
         jMenuFile.add(jMenuItemPreview);
+        jMenuFile.add(jSeparator1);
 
         jMenuItemSave.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_S, java.awt.event.InputEvent.SHIFT_MASK | java.awt.event.InputEvent.CTRL_MASK));
         jMenuItemSave.setText(bundle.getString("JIconCreator.jMenuItemSave.text")); // NOI18N
@@ -56,6 +59,7 @@ public class JIconCreator extends javax.swing.JFrame {
         jMenuItemSaveAs.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_S, java.awt.event.InputEvent.CTRL_MASK));
         jMenuItemSaveAs.setText(bundle.getString("JIconCreator.jMenuItemSaveAs.text")); // NOI18N
         jMenuFile.add(jMenuItemSaveAs);
+        jMenuFile.add(jSeparator2);
 
         jMenuItemExit.setText(bundle.getString("JIconCreator.jMenuItemExit.text")); // NOI18N
         jMenuFile.add(jMenuItemExit);
@@ -122,5 +126,7 @@ public class JIconCreator extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItemSave;
     private javax.swing.JMenuItem jMenuItemSaveAs;
     private javax.swing.JMenu jMenuStyle;
+    private javax.swing.JPopupMenu.Separator jSeparator1;
+    private javax.swing.JPopupMenu.Separator jSeparator2;
     // End of variables declaration//GEN-END:variables
 }
