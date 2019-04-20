@@ -40,8 +40,15 @@ public class JIconCreator extends javax.swing.JFrame {
         for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
             styleMenuItems.add(new JRadioButtonMenuItem(info.getName()));
             installedStyles.put(info.getName(), info.getClassName());
+            if (info.getName().equals("Windows")) {
+                try {
+                    UIManager.setLookAndFeel(info.getClassName());
+                    SwingUtilities.updateComponentTreeUI(getRootPane());
+                } catch (ClassNotFoundException | IllegalAccessException | InstantiationException | UnsupportedLookAndFeelException e) {
+                    e.printStackTrace();
+                }
+            }
         }
-
         for (JRadioButtonMenuItem menuItem : styleMenuItems) {
             if (UIManager.getLookAndFeel().getName().equals(menuItem.getText())) {
                 menuItem.setSelected(true);
