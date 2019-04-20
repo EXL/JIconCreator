@@ -6,7 +6,7 @@
 package ru.exlmoto.jiconcreator;
 
 import javax.swing.*;
-import java.awt.event.ActionEvent;
+import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.util.Map;
 import java.util.Random;
@@ -26,15 +26,6 @@ public class JIconCreator extends javax.swing.JFrame {
         initComponents();
 
         createAssetSetWizardState = new CreateAssetSetWizardState();
-        updatePreviewIcons();
-    }
-
-    private void buttonImageColorRandomActionPerformed(ActionEvent e) {
-        System.out.println("Clicked!");
-        createAssetSetWizardState.background = new RGB(
-                new Random().nextInt(255 + 1),
-                new Random().nextInt(255 + 1),
-                new Random().nextInt(255 + 1));
         updatePreviewIcons();
     }
 
@@ -327,6 +318,11 @@ public class JIconCreator extends javax.swing.JFrame {
         jButtonChooseImageL.setText(bundle.getString("JIconCreator.jButtonChooseImageL.text")); // NOI18N
 
         jButtonRandomImageL.setText(bundle.getString("JIconCreator.jButtonRandomImageL.text")); // NOI18N
+        jButtonRandomImageL.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonRandomImageLActionPerformed(evt);
+            }
+        });
 
         jLabelColorShowImageL.setBackground(new java.awt.Color(255, 204, 0));
         jLabelColorShowImageL.setText(bundle.getString("JIconCreator.jLabelColorShowImageL.text")); // NOI18N
@@ -817,6 +813,17 @@ public class JIconCreator extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButtonRandomImageLActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRandomImageLActionPerformed
+        System.out.println("Clicked!");
+        Random random = new Random();
+        Color randomColor = new Color(random.nextInt(256), random.nextInt(256), random.nextInt(256));
+        createAssetSetWizardState.background = new RGB(randomColor.getRed(),
+                                                       randomColor.getGreen(),
+                                                       randomColor.getBlue());
+        jLabelColorShowImageL.setBackground(randomColor);
+        updatePreviewIcons();
+    }//GEN-LAST:event_jButtonRandomImageLActionPerformed
 
     /**
      * @param args the command line arguments
