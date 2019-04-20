@@ -27,6 +27,9 @@ public class JIconCreator extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jSplitPane = new javax.swing.JSplitPane();
+        jPanelPreview = new javax.swing.JPanel();
+        jTabbedPane = new javax.swing.JTabbedPane();
         jMenuBar = new javax.swing.JMenuBar();
         jMenuFile = new javax.swing.JMenu();
         jMenuItemPreview = new javax.swing.JMenuItem();
@@ -44,6 +47,14 @@ public class JIconCreator extends javax.swing.JFrame {
         setTitle(bundle.getString("JIconCreator.title")); // NOI18N
         setPreferredSize(new java.awt.Dimension(800, 600));
         getContentPane().setLayout(new javax.swing.BoxLayout(getContentPane(), javax.swing.BoxLayout.LINE_AXIS));
+
+        jSplitPane.setDividerLocation(550);
+
+        jPanelPreview.setLayout(new javax.swing.BoxLayout(jPanelPreview, javax.swing.BoxLayout.PAGE_AXIS));
+        jSplitPane.setRightComponent(jPanelPreview);
+        jSplitPane.setLeftComponent(jTabbedPane);
+
+        getContentPane().add(jSplitPane);
 
         jMenuFile.setText(bundle.getString("JIconCreator.jMenuFile.text")); // NOI18N
 
@@ -126,7 +137,10 @@ public class JIconCreator extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItemSave;
     private javax.swing.JMenuItem jMenuItemSaveAs;
     private javax.swing.JMenu jMenuStyle;
+    private javax.swing.JPanel jPanelPreview;
     private javax.swing.JPopupMenu.Separator jSeparator1;
     private javax.swing.JPopupMenu.Separator jSeparator2;
+    private javax.swing.JSplitPane jSplitPane;
+    private javax.swing.JTabbedPane jTabbedPane;
     // End of variables declaration//GEN-END:variables
 }
