@@ -343,7 +343,7 @@
                                   <Component id="jLabelOptionsImage" min="-2" max="-2" attributes="0"/>
                                   <Component id="jLabelImage" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="4" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="102" alignment="0" attributes="0">
                                       <Component id="jRadioButtonNoneImage" min="-2" max="-2" attributes="0"/>
@@ -640,7 +640,7 @@
                                   <Component id="jLabelOptionsClipart" min="-2" max="-2" attributes="0"/>
                                   <Component id="jLabelClipart" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="4" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="102" attributes="0">
                                       <Component id="jLabelNameClipart" min="-2" max="-2" attributes="0"/>
@@ -687,7 +687,7 @@
                                       </Group>
                                   </Group>
                               </Group>
-                              <EmptySpace pref="148" max="32767" attributes="0"/>
+                              <EmptySpace pref="241" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
@@ -1005,7 +1005,7 @@
                                   <Component id="jLabelScalingText" alignment="1" min="-2" max="-2" attributes="0"/>
                                   <Component id="jLabelShapeText" alignment="1" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="4" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="102" attributes="0">
                                       <Component id="jTextFieldText" min="-2" max="-2" attributes="0"/>
