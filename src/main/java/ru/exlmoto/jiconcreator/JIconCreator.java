@@ -541,11 +541,12 @@ public class JIconCreator extends javax.swing.JFrame {
                         .addComponent(jButtonChooseClipartL)
                         .addComponent(jButtonRandomClipartL)))
                 .addGap(18, 18, 18)
-                .addGroup(jPanelClipartLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabelColorClipartH)
-                    .addComponent(jButtonChooseClipartH)
-                    .addComponent(jButtonRandomClipartH)
-                    .addComponent(jLabelColorShowClipartH, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanelClipartLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabelColorShowClipartH, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanelClipartLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabelColorClipartH)
+                        .addComponent(jButtonChooseClipartH)
+                        .addComponent(jButtonRandomClipartH)))
                 .addContainerGap(240, Short.MAX_VALUE))
         );
 
@@ -695,17 +696,19 @@ public class JIconCreator extends javax.swing.JFrame {
                     .addComponent(jRadioButtonCircle)
                     .addComponent(jLabelShapeText))
                 .addGap(18, 18, 18)
-                .addGroup(jPanelTextLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabelColorTextL)
-                    .addComponent(jButtonChooseTextL)
-                    .addComponent(jButtonRandomTextL)
-                    .addComponent(jLabelColorShowTextL, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanelTextLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabelColorShowTextL, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanelTextLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabelColorTextL)
+                        .addComponent(jButtonChooseTextL)
+                        .addComponent(jButtonRandomTextL)))
                 .addGap(18, 18, 18)
-                .addGroup(jPanelTextLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabelColorTextH)
-                    .addComponent(jButtonChooseTextH)
-                    .addComponent(jButtonRandomTextH)
-                    .addComponent(jLabelColorShowTextH, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanelTextLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabelColorShowTextH, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanelTextLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabelColorTextH)
+                        .addComponent(jButtonChooseTextH)
+                        .addComponent(jButtonRandomTextH)))
                 .addContainerGap(240, Short.MAX_VALUE))
         );
 
@@ -772,10 +775,6 @@ public class JIconCreator extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jCheckBoxTrimClipartActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBoxTrimClipartActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckBoxTrimClipartActionPerformed
-
     /**
      * @param args the command line arguments
      */
@@ -787,7 +786,7 @@ public class JIconCreator extends javax.swing.JFrame {
          */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
+                if ("Metal".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
                 }

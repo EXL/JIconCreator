@@ -789,11 +789,13 @@
                                   </Group>
                               </Group>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="jLabelColorClipartH" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jButtonChooseClipartH" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jButtonRandomClipartH" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
                                   <Component id="jLabelColorShowClipartH" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="3" attributes="0">
+                                      <Component id="jLabelColorClipartH" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jButtonChooseClipartH" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jButtonRandomClipartH" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  </Group>
                               </Group>
                               <EmptySpace pref="240" max="32767" attributes="0"/>
                           </Group>
@@ -1136,18 +1138,22 @@
                                   <Component id="jLabelShapeText" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="jLabelColorTextL" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jButtonChooseTextL" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jButtonRandomTextL" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
                                   <Component id="jLabelColorShowTextL" alignment="1" min="-2" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="3" attributes="0">
+                                      <Component id="jLabelColorTextL" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jButtonChooseTextL" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jButtonRandomTextL" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  </Group>
                               </Group>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="jLabelColorTextH" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jButtonChooseTextH" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jButtonRandomTextH" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
                                   <Component id="jLabelColorShowTextH" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="3" attributes="0">
+                                      <Component id="jLabelColorTextH" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jButtonChooseTextH" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jButtonRandomTextH" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  </Group>
                               </Group>
                               <EmptySpace pref="240" max="32767" attributes="0"/>
                           </Group>
