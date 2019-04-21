@@ -48,16 +48,19 @@ public class ImageFilter extends FileFilter {
             return true;
         }
 
+        return isImageFile(f);
+    }
+
+    public static boolean isImageFile(File f) {
         String extension = getExtension(f);
         if (extension != null) {
             return extension.equals(GIF) || extension.equals(JPEG) ||
                     extension.equals(JPG) || extension.equals(PNG);
         }
-
         return false;
     }
 
-    public String getExtension(File f) {
+    private static String getExtension(File f) {
         String ext = null;
         String s = f.getName();
         int i = s.lastIndexOf('.');

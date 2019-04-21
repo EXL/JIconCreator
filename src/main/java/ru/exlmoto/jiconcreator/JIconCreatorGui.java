@@ -5,6 +5,13 @@ import com.oracle.docs.ImagePreview;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.datatransfer.DataFlavor;
+import java.awt.dnd.DnDConstants;
+import java.awt.dnd.DropTarget;
+import java.awt.dnd.DropTargetDropEvent;
+import java.io.File;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -70,6 +77,33 @@ public class JIconCreatorGui extends javax.swing.JFrame {
         jIconCreatorOptions.setBackColor(jLabelColorShowImageL.getBackground());
     }
 
+    // https://stackoverflow.com/a/9111327
+    // https://stackoverflow.com/a/13387897
+    public void registerDropOnTextField() {
+        jTextFieldPathImage.setDropTarget(new DropTarget() {
+            public synchronized void drop(DropTargetDropEvent event) {
+                try {
+                    event.acceptDrop(DnDConstants.ACTION_COPY);
+                    Object data = event.getTransferable().getTransferData(DataFlavor.javaFileListFlavor);
+                    if (data instanceof ArrayList) {
+                        List<?> droppedFiles = (List<?>) data;
+
+                        File droppedFile = (File) droppedFiles.get(droppedFiles.size() - 1);
+                        boolean isImageFile = ImageFilter.isImageFile(droppedFile);
+                        if (isImageFile) {
+                            jTextFieldPathImage.setText(droppedFile.getAbsolutePath());
+                            jIconCreatorOptions.setImageFilePath(jTextFieldPathImage.getText());
+                            jIconCreatorGuiHelper.updatePreviewIcons();
+                        }
+                    }
+                } catch (Exception ex) {
+                    ex.printStackTrace();
+                }
+                event.dropComplete(true);
+            }
+        });
+    }
+
     /**
      * Creates new form JIconCreator
      */
@@ -77,6 +111,7 @@ public class JIconCreatorGui extends javax.swing.JFrame {
         jIconCreatorOptions = new JIconCreatorOptions();
 
         initComponents();
+        registerDropOnTextField();
 
         jIconCreatorGuiHelper = new JIconCreatorGuiHelper(jIconCreatorOptions,this);
         jIconCreatorGuiHelper.generateStyleMenuItems();
