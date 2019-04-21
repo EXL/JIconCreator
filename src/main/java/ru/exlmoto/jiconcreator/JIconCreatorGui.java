@@ -890,6 +890,11 @@ public class JIconCreatorGui extends javax.swing.JFrame {
         jPanelStatusBar.add(fillerLargeH1);
 
         jButtonSave.setText(bundle.getString("JIconCreator.jButtonSave.text")); // NOI18N
+        jButtonSave.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonSaveActionPerformed(evt);
+            }
+        });
         jPanelStatusBar.add(jButtonSave);
         jPanelStatusBar.add(fillerSmallH2);
 
@@ -1031,6 +1036,12 @@ public class JIconCreatorGui extends javax.swing.JFrame {
         jIconCreatorOptions.setPadding(percent);
         jIconCreatorGuiHelper.updatePreviewIcons();
     }//GEN-LAST:event_jSliderPaddingImageStateChanged
+
+    private void jButtonSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSaveActionPerformed
+        String status = java.util.ResourceBundle.getBundle("Bundle").getString("JIconCreator.saveImageStatusBar.text"); // NOI18N
+        jIconCreatorGuiHelper.saveImages();
+        jLabelStatusBar.setText(status);
+    }//GEN-LAST:event_jButtonSaveActionPerformed
 
     /**
      * @param args the command line arguments

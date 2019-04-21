@@ -73,6 +73,12 @@ public class JIconCreatorGuiHelper {
         System.gc();
     }
 
+    public void saveImages() {
+        JIconCreatorExtrasLibraryHere.generateIcons(createAssetSetWizardState, jIconCreatorOptions, false);
+
+        System.gc();
+    }
+
     /************/
 
     public void generateStyleMenuItems() {

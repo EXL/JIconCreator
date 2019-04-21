@@ -299,8 +299,7 @@ public class JIconCreatorExtrasLibraryHere {
                                      boolean previewOnly//,
                                      /*@Nullable WizardPage page*/) {
         // Generate the custom icons
-        Map<String, Map<String, BufferedImage>> categories = generateImages(values, jIconCreatorOptions,
-                false /*previewOnly*/);
+        Map<String, Map<String, BufferedImage>> categories = generateImages(values, jIconCreatorOptions, previewOnly);
         int cnt = 0;
         for (Map<String, BufferedImage> previews : categories.values()) {
             for (Map.Entry<String, BufferedImage> entry : previews.entrySet()) {

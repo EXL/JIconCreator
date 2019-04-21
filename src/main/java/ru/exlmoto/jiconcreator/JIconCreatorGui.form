@@ -1464,6 +1464,9 @@
                       <ResourceString bundle="Bundle.properties" key="JIconCreator.jButtonSave.text" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
                     </Property>
                   </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonSaveActionPerformed"/>
+                  </Events>
                 </Component>
                 <Component class="javax.swing.Box$Filler" name="fillerSmallH2">
                   <Properties>
