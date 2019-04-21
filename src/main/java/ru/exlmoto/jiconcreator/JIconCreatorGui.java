@@ -345,8 +345,15 @@ public class JIconCreatorGui extends javax.swing.JFrame {
             }
         });
 
+        jSliderPaddingImage.setMinimum(-100);
+        jSliderPaddingImage.setValue(15);
         jSliderPaddingImage.setMinimumSize(new java.awt.Dimension(237, 16));
         jSliderPaddingImage.setPreferredSize(new java.awt.Dimension(237, 16));
+        jSliderPaddingImage.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                jSliderPaddingImageStateChanged(evt);
+            }
+        });
 
         jLabelPercentsImage.setText(bundle.getString("JIconCreator.jLabelPercentsImage.text")); // NOI18N
 
@@ -518,6 +525,8 @@ public class JIconCreatorGui extends javax.swing.JFrame {
 
         jLabelPaddingClipart.setText(bundle.getString("JIconCreator.jLabelPaddingClipart.text")); // NOI18N
 
+        jSliderPaddingClipart.setMinimum(-100);
+        jSliderPaddingClipart.setValue(15);
         jSliderPaddingClipart.setMinimumSize(new java.awt.Dimension(237, 16));
         jSliderPaddingClipart.setPreferredSize(new java.awt.Dimension(237, 16));
 
@@ -697,6 +706,8 @@ public class JIconCreatorGui extends javax.swing.JFrame {
 
         jLabelPaddingText.setText(bundle.getString("JIconCreator.jLabelPaddingText.text")); // NOI18N
 
+        jSliderPaddingText.setMinimum(-100);
+        jSliderPaddingText.setValue(15);
         jSliderPaddingText.setMinimumSize(new java.awt.Dimension(237, 16));
         jSliderPaddingText.setPreferredSize(new java.awt.Dimension(237, 16));
 
@@ -1013,6 +1024,13 @@ public class JIconCreatorGui extends javax.swing.JFrame {
         jIconCreatorOptions.setImageFilePath(jTextFieldPathImage.getText());
         jIconCreatorGuiHelper.updatePreviewIcons();
     }//GEN-LAST:event_jTextFieldPathImageActionPerformed
+
+    private void jSliderPaddingImageStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jSliderPaddingImageStateChanged
+        int percent = jSliderPaddingImage.getValue();
+        jLabelPercentsImage.setText(percent + "%");
+        jIconCreatorOptions.setPadding(percent);
+        jIconCreatorGuiHelper.updatePreviewIcons();
+    }//GEN-LAST:event_jSliderPaddingImageStateChanged
 
     /**
      * @param args the command line arguments

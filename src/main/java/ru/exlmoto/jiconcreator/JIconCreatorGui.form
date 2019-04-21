@@ -488,6 +488,8 @@
                     </Component>
                     <Component class="javax.swing.JSlider" name="jSliderPaddingImage">
                       <Properties>
+                        <Property name="minimum" type="int" value="-100"/>
+                        <Property name="value" type="int" value="15"/>
                         <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
                           <Dimension value="[237, 16]"/>
                         </Property>
@@ -495,6 +497,9 @@
                           <Dimension value="[237, 16]"/>
                         </Property>
                       </Properties>
+                      <Events>
+                        <EventHandler event="stateChanged" listener="javax.swing.event.ChangeListener" parameters="javax.swing.event.ChangeEvent" handler="jSliderPaddingImageStateChanged"/>
+                      </Events>
                     </Component>
                     <Component class="javax.swing.JLabel" name="jLabelPercentsImage">
                       <Properties>
@@ -812,6 +817,8 @@
                     </Component>
                     <Component class="javax.swing.JSlider" name="jSliderPaddingClipart">
                       <Properties>
+                        <Property name="minimum" type="int" value="-100"/>
+                        <Property name="value" type="int" value="15"/>
                         <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
                           <Dimension value="[237, 16]"/>
                         </Property>
@@ -1213,6 +1220,8 @@
                     </Component>
                     <Component class="javax.swing.JSlider" name="jSliderPaddingText">
                       <Properties>
+                        <Property name="minimum" type="int" value="-100"/>
+                        <Property name="value" type="int" value="15"/>
                         <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
                           <Dimension value="[237, 16]"/>
                         </Property>
