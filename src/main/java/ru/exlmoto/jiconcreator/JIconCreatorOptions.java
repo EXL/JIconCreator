@@ -19,14 +19,16 @@ public class JIconCreatorOptions {
 
     private int iconType = ICON_IMAGE;
 
-    private String imageFilePath = "";
+    /// Todo: ??????????
     private String clipartName = "android.png";
+    /// TODO: ????
+    private String imageFilePath = "";
+
     private String textString = "aA";
 
     private boolean trim = true;
     private int padding = 15;
 
-    /// TODO: What default ???
     private boolean crop = false;
     private int shapeType = SHAPE_SQUARE;
 

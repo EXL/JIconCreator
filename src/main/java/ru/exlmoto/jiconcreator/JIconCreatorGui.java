@@ -284,7 +284,13 @@ public class JIconCreatorGui extends javax.swing.JFrame {
 
         jButtonResetImage.setText(bundle.getString("JIconCreator.jButtonResetImage.text")); // NOI18N
 
+        jCheckBoxTrimImage.setSelected(true);
         jCheckBoxTrimImage.setText(bundle.getString("JIconCreator.jCheckBoxTrimImage.text")); // NOI18N
+        jCheckBoxTrimImage.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCheckBoxTrimImageActionPerformed(evt);
+            }
+        });
 
         jSliderPaddingImage.setMinimumSize(new java.awt.Dimension(237, 16));
         jSliderPaddingImage.setPreferredSize(new java.awt.Dimension(237, 16));
@@ -292,6 +298,7 @@ public class JIconCreatorGui extends javax.swing.JFrame {
         jLabelPercentsImage.setText(bundle.getString("JIconCreator.jLabelPercentsImage.text")); // NOI18N
 
         buttonGroupScalingImage.add(jRadioButtonCropImage);
+        jRadioButtonCropImage.setSelected(true);
         jRadioButtonCropImage.setText(bundle.getString("JIconCreator.jRadioButtonCropImage.text")); // NOI18N
         jRadioButtonCropImage.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -453,6 +460,7 @@ public class JIconCreatorGui extends javax.swing.JFrame {
 
         jLabelOptionsClipart.setText(bundle.getString("JIconCreator.jLabelOptionsClipart.text")); // NOI18N
 
+        jCheckBoxTrimClipart.setSelected(true);
         jCheckBoxTrimClipart.setText(bundle.getString("JIconCreator.jCheckBoxTrimClipart.text")); // NOI18N
 
         jLabelPaddingClipart.setText(bundle.getString("JIconCreator.jLabelPaddingClipart.text")); // NOI18N
@@ -470,6 +478,7 @@ public class JIconCreatorGui extends javax.swing.JFrame {
         jLabelScalingClipart.setText(bundle.getString("JIconCreator.jLabelScalingClipart.text")); // NOI18N
 
         buttonGroupScalingClipart.add(jRadioButtonCropClipart);
+        jRadioButtonCropClipart.setSelected(true);
         jRadioButtonCropClipart.setText(bundle.getString("JIconCreator.jRadioButtonCropClipart.text")); // NOI18N
 
         buttonGroupScalingClipart.add(jRadioButtonCenterClipart);
@@ -630,6 +639,7 @@ public class JIconCreatorGui extends javax.swing.JFrame {
 
         jLabelOptionsText.setText(bundle.getString("JIconCreator.jLabelOptionsText.text")); // NOI18N
 
+        jCheckBoxTrimText.setSelected(true);
         jCheckBoxTrimText.setText(bundle.getString("JIconCreator.jCheckBoxTrimText.text")); // NOI18N
 
         jLabelPaddingText.setText(bundle.getString("JIconCreator.jLabelPaddingText.text")); // NOI18N
@@ -642,6 +652,7 @@ public class JIconCreatorGui extends javax.swing.JFrame {
         jLabelScalingText.setText(bundle.getString("JIconCreator.jLabelScalingText.text")); // NOI18N
 
         buttonGroupScalingText.add(jRadioButtonCropText);
+        jRadioButtonCropText.setSelected(true);
         jRadioButtonCropText.setText(bundle.getString("JIconCreator.jRadioButtonCropText.text")); // NOI18N
 
         buttonGroupScalingText.add(jRadioButtonCenterText);
@@ -919,6 +930,11 @@ public class JIconCreatorGui extends javax.swing.JFrame {
         jIconCreatorOptions.setCrop(true);
         jIconCreatorGuiHelper.updatePreviewIcons();
     }//GEN-LAST:event_jRadioButtonCenterImageActionPerformed
+
+    private void jCheckBoxTrimImageActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBoxTrimImageActionPerformed
+        jIconCreatorOptions.setTrim(jCheckBoxTrimImage.isSelected());
+        jIconCreatorGuiHelper.updatePreviewIcons();
+    }//GEN-LAST:event_jCheckBoxTrimImageActionPerformed
 
     /**
      * @param args the command line arguments
