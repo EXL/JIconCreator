@@ -1,4 +1,4 @@
-package ru.exlmoto.jiconcreator;
+package ru.exlmoto.jiconcreator.unsorted;
 
 /*
  * Copyright (C) 2012 The Android Open Source Project

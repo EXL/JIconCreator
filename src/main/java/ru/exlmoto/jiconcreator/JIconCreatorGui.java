@@ -1,118 +1,25 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package ru.exlmoto.jiconcreator;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.image.BufferedImage;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Random;
 
 /**
  *
  * @author exl
  */
-public class JIconCreator extends javax.swing.JFrame {
+public class JIconCreatorGui extends javax.swing.JFrame {
 
-    private CreateAssetSetWizardState createAssetSetWizardState = null;
-    private HashMap<String, String> installedStyles = null;
+    JIconCreatorGuiHelper jIconCreatorGuiHelper = null;
 
     /**
      * Creates new form JIconCreator
      */
-    public JIconCreator() {
+    public JIconCreatorGui() {
         initComponents();
-        generateStyleMenuItems();
 
-        createAssetSetWizardState = new CreateAssetSetWizardState();
-        updatePreviewIcons();
-    }
-
-    public void generateStyleMenuItems() {
-        boolean isWindows = false;
-        installedStyles = new HashMap<String, String>();
-        ArrayList<JRadioButtonMenuItem> styleMenuItems = new ArrayList<JRadioButtonMenuItem>();
-        for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-            String styleName = info.getName();
-            styleMenuItems.add(new JRadioButtonMenuItem(styleName));
-            installedStyles.put(styleName, info.getClassName());
-            if (styleName.startsWith("Windows")) {
-                isWindows = true;
-            }
-        }
-        for (final JRadioButtonMenuItem menuItem : styleMenuItems) {
-            if (UIManager.getLookAndFeel().getName().equals(menuItem.getText()) && !isWindows) {
-                menuItem.setSelected(true);
-            }
-            if (menuItem.getText().equals("Windows") && isWindows) {
-                menuItem.setSelected(true);
-            }
-            menuItem.addActionListener(new java.awt.event.ActionListener() {
-                public void actionPerformed(java.awt.event.ActionEvent evt) {
-                    try {
-                        UIManager.setLookAndFeel(installedStyles.get(menuItem.getText()));
-                        SwingUtilities.updateComponentTreeUI(getRootPane());
-                    } catch (ClassNotFoundException | IllegalAccessException | InstantiationException | UnsupportedLookAndFeelException e) {
-                        e.printStackTrace();
-                    }
-                }
-            });
-            buttonGroupStyles.add(menuItem);
-            jMenuStyle.add(menuItem);
-        }
-        if (isWindows) {
-            try {
-                UIManager.setLookAndFeel(installedStyles.get("Windows"));
-                SwingUtilities.updateComponentTreeUI(getRootPane());
-            } catch (ClassNotFoundException | IllegalAccessException | InstantiationException | UnsupportedLookAndFeelException e) {
-                e.printStackTrace();
-            }
-        }
-    }
-
-    public void updatePreviewIcons() {
-        int cnt = 0;
-        Map<String, Map<String, BufferedImage>> categories = JIconCreatorExtrasLibraryHere.generateImages(createAssetSetWizardState, true);
-        if (wtf(cnt, categories, jLabelMdpiI, jLabelHdpiI, jLabelXhdpiI, jLabelXxhdpiI)) return;
-
-        System.gc();
-    }
-
-    static boolean wtf(int cnt, Map<String, Map<String, BufferedImage>> categories, JLabel labelMdpiImage, JLabel labelHpdiImage, JLabel labelXhdpiImage, JLabel labelXxhdpiImage) {
-        for (Map<String, BufferedImage> previews : categories.values()) {
-            for (Map.Entry<String, BufferedImage> entry : previews.entrySet()) {
-                BufferedImage image = entry.getValue();
-
-                if (image != null) {
-                    switch (cnt) {
-                        default:
-                            return true;
-                        case 0:
-                            labelMdpiImage.setIcon(new ImageIcon(image));
-                            break;
-                        case 1:
-                            labelHpdiImage.setIcon(new ImageIcon(image));
-                            break;
-                        case 2:
-                            labelXhdpiImage.setIcon(new ImageIcon(image));
-                            break;
-                        case 3:
-                            labelXxhdpiImage.setIcon(new ImageIcon(image));
-                            break;
-                    }
-                    cnt++;
-                } else {
-                    return true;
-                }
-            }
-        }
-        return false;
+        jIconCreatorGuiHelper = new JIconCreatorGuiHelper(this);
+        jIconCreatorGuiHelper.generateStyleMenuItems();
+        jIconCreatorGuiHelper.updatePreviewIcons();
     }
 
     /**
@@ -861,13 +768,7 @@ public class JIconCreator extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButtonRandomImageLActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRandomImageLActionPerformed
-        int red = new Random().nextInt(255 + 1);
-        int green = new Random().nextInt(255 + 1);
-        int blue = new Random().nextInt(255 + 1);
-        System.out.println("Clicked Random button: " + red + " " + green + " " + blue);
-        createAssetSetWizardState.background = new RGB(red, green, blue);
-        jLabelColorShowImageL.setBackground(new Color(red, green, blue));
-        updatePreviewIcons();
+        jIconCreatorGuiHelper.imageTabBackColorRandomButton();
     }//GEN-LAST:event_jButtonRandomImageLActionPerformed
 
     /**
@@ -877,7 +778,7 @@ public class JIconCreator extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new JIconCreator().setVisible(true);
+                new JIconCreatorGui().setVisible(true);
             }
         });
     }
@@ -999,4 +900,32 @@ public class JIconCreator extends javax.swing.JFrame {
     private javax.swing.JTextField jTextFieldPathImage;
     private javax.swing.JTextField jTextFieldText;
     // End of variables declaration//GEN-END:variables
+
+    public ButtonGroup getButtonGroupStyles() {
+        return buttonGroupStyles;
+    }
+
+    public JMenu getMenuStyle() {
+        return jMenuStyle;
+    }
+
+    public JLabel getLabelColorShowImageL() {
+        return jLabelColorShowImageL;
+    }
+
+    public JLabel getLabelMdpiI() {
+        return jLabelMdpiI;
+    }
+
+    public JLabel getLabelHdpiI() {
+        return jLabelHdpiI;
+    }
+
+    public JLabel getLabelXhdpiI() {
+        return jLabelXhdpiI;
+    }
+
+    public JLabel getLabelXxhdpiI() {
+        return jLabelXxhdpiI;
+    }
 }

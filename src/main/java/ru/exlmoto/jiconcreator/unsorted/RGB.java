@@ -1,4 +1,4 @@
-package ru.exlmoto.jiconcreator;
+package ru.exlmoto.jiconcreator.unsorted;
 
 public class RGB {
     /**

@@ -8,7 +8,7 @@
  * Contributors:
  *     IBM Corporation - initial API and implementation
  *******************************************************************************/
-package ru.exlmoto.jiconcreator;
+package ru.exlmoto.jiconcreator.unsorted;
 
 // Note: This is a verbatim copy of SWT, thus no reformatting was done.
 

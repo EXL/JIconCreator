@@ -1,4 +1,4 @@
-package ru.exlmoto.jiconcreator;
+package ru.exlmoto.jiconcreator.unsorted;
 
 import com.android.annotations.NonNull;
 import com.android.annotations.Nullable;

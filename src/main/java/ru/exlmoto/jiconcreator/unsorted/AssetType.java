@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package ru.exlmoto.jiconcreator;
+package ru.exlmoto.jiconcreator.unsorted;
 
 /**
  * The type of asset to create: launcher icon, menu icon, etc.

@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package ru.exlmoto.jiconcreator;
+package ru.exlmoto.jiconcreator.unsorted;
 
 import static com.android.SdkConstants.DOT_9PNG;
 import static com.android.SdkConstants.DOT_BMP;
