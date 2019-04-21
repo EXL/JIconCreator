@@ -1,5 +1,7 @@
 package ru.exlmoto.jiconcreator;
 
+import javax.swing.*;
+
 /**
  *
  * @author exl
@@ -7,16 +9,76 @@ package ru.exlmoto.jiconcreator;
 public class JIconCreatorGui extends javax.swing.JFrame {
 
     JIconCreatorGuiHelper jIconCreatorGuiHelper = null;
+    JIconCreatorOptions jIconCreatorOptions = null;
+
+    private void updateOptionsFromForm() {
+        System.out.println("Im Here!");
+
+        int currentShape = JIconCreatorOptions.SHAPE_SQUARE;
+
+        switch (jTabbedPane.getSelectedIndex()) {
+            default:
+            case JIconCreatorOptions.ICON_IMAGE: {
+                jIconCreatorOptions.setIconType(JIconCreatorOptions.ICON_IMAGE);
+                jIconCreatorOptions.setImageFilePath(jTextFieldPathImage.getText());
+                updateOptionsFromFormAux(currentShape, jCheckBoxTrimImage, jSliderPaddingImage,
+                        jRadioButtonCenterImage, jRadioButtonNoneImage, jRadioButtonCircleImage, jLabelColorShowImageL);
+                break;
+            }
+            case JIconCreatorOptions.ICON_CLIPART: {
+                jIconCreatorOptions.setIconType(JIconCreatorOptions.ICON_CLIPART);
+                jIconCreatorOptions.setClipartName(jLabelNameClipart.getText());
+                updateOptionsFromFormAux(currentShape, jCheckBoxTrimClipart, jSliderPaddingClipart,
+                        jRadioButtonCenterClipart, jRadioButtonNoneClipart, jRadioButtonCircleClipart, jLabelColorShowClipartL);
+                jIconCreatorOptions.setForeColor(jLabelColorShowClipartH.getBackground());
+                break;
+            }
+            case JIconCreatorOptions.ICON_TEXT: {
+                jIconCreatorOptions.setIconType(JIconCreatorOptions.ICON_TEXT);
+                jIconCreatorOptions.setTextString(jTextFieldText.getText());
+                updateOptionsFromFormAux(currentShape, jCheckBoxTrimText, jSliderPaddingText,
+                        jRadioButtonCenterText, jRadioButtonNoneText, jRadioButtonCircleText, jLabelColorShowTextL);
+                jIconCreatorOptions.setForeColor(jLabelColorShowTextH.getBackground());
+                
+                jIconCreatorOptions.setFont(jLabelFontNameText.getText());
+                break;
+            }
+        }
+    }
+
+    private void updateOptionsFromFormAux(int currentShape,
+                                          JCheckBox jCheckBoxTrimImage,
+                                          JSlider jSliderPaddingImage,
+                                          JRadioButton jRadioButtonCenterImage,
+                                          JRadioButton jRadioButtonNoneImage,
+                                          JRadioButton jRadioButtonCircleImage,
+                                          JLabel jLabelColorShowImageL) {
+        boolean currentScaling = false;
+        jIconCreatorOptions.setTrim(jCheckBoxTrimImage.isSelected());
+        jIconCreatorOptions.setPadding(jSliderPaddingImage.getValue());
+
+        currentScaling = jRadioButtonCenterImage.isSelected();
+        if (jRadioButtonNoneImage.isSelected()) {
+            currentShape = JIconCreatorOptions.SHAPE_NONE;
+        } else if (jRadioButtonCircleImage.isSelected()) {
+            currentShape = JIconCreatorOptions.SHAPE_CIRCLE;
+        }
+        jIconCreatorOptions.setCrop(currentScaling);
+        jIconCreatorOptions.setShapeType(currentShape);
+
+        jIconCreatorOptions.setBackColor(jLabelColorShowImageL.getBackground());
+    }
 
     /**
      * Creates new form JIconCreator
      */
     public JIconCreatorGui() {
+        jIconCreatorOptions = new JIconCreatorOptions();
+
         initComponents();
 
-        jIconCreatorGuiHelper = new JIconCreatorGuiHelper(this);
+        jIconCreatorGuiHelper = new JIconCreatorGuiHelper(jIconCreatorOptions,this);
         jIconCreatorGuiHelper.generateStyleMenuItems();
-        jIconCreatorGuiHelper.updatePreviewIcons();
     }
 
     /**
@@ -110,9 +172,9 @@ public class JIconCreatorGui extends javax.swing.JFrame {
         jRadioButtonCropText = new javax.swing.JRadioButton();
         jRadioButtonCenterText = new javax.swing.JRadioButton();
         jLabelShapeText = new javax.swing.JLabel();
-        jRadioNoneText = new javax.swing.JRadioButton();
+        jRadioButtonNoneText = new javax.swing.JRadioButton();
         jRadioButtonSquareText = new javax.swing.JRadioButton();
-        jRadioButtonCircle = new javax.swing.JRadioButton();
+        jRadioButtonCircleText = new javax.swing.JRadioButton();
         jLabelColorTextL = new javax.swing.JLabel();
         jButtonChooseTextL = new javax.swing.JButton();
         jButtonRandomTextL = new javax.swing.JButton();
@@ -209,6 +271,12 @@ public class JIconCreatorGui extends javax.swing.JFrame {
         jSplitPane.setRightComponent(jPanelPreview);
 
         jPanelGeneral.setLayout(new javax.swing.BoxLayout(jPanelGeneral, javax.swing.BoxLayout.PAGE_AXIS));
+
+        jTabbedPane.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                jTabbedPaneStateChanged(evt);
+            }
+        });
 
         jTextFieldPathImage.setText(bundle.getString("JIconCreator.jTextFieldPathImage.text")); // NOI18N
         jTextFieldPathImage.setMinimumSize(new java.awt.Dimension(237, 25));
@@ -551,14 +619,14 @@ public class JIconCreatorGui extends javax.swing.JFrame {
 
         jLabelShapeText.setText(bundle.getString("JIconCreator.jLabelShapeText.text")); // NOI18N
 
-        buttonGroupShapeText.add(jRadioNoneText);
-        jRadioNoneText.setText(bundle.getString("JIconCreator.jRadioNoneText.text")); // NOI18N
+        buttonGroupShapeText.add(jRadioButtonNoneText);
+        jRadioButtonNoneText.setText(bundle.getString("JIconCreator.jRadioNoneText.text")); // NOI18N
 
         buttonGroupShapeText.add(jRadioButtonSquareText);
         jRadioButtonSquareText.setText(bundle.getString("JIconCreator.jRadioButtonSquareText.text")); // NOI18N
 
-        buttonGroupShapeText.add(jRadioButtonCircle);
-        jRadioButtonCircle.setText(bundle.getString("JIconCreator.jRadioButtonCircle.text")); // NOI18N
+        buttonGroupShapeText.add(jRadioButtonCircleText);
+        jRadioButtonCircleText.setText(bundle.getString("JIconCreator.jRadioButtonCircle.text")); // NOI18N
 
         jLabelColorTextL.setText(bundle.getString("JIconCreator.jLabelColorTextL.text")); // NOI18N
 
@@ -644,11 +712,11 @@ public class JIconCreatorGui extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(jRadioButtonCenterText))
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanelTextLayout.createSequentialGroup()
-                                .addComponent(jRadioNoneText)
+                                .addComponent(jRadioButtonNoneText)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(jRadioButtonSquareText)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jRadioButtonCircle)))
+                        .addComponent(jRadioButtonCircleText)))
                 .addContainerGap(201, Short.MAX_VALUE))
         );
         jPanelTextLayout.setVerticalGroup(
@@ -675,9 +743,9 @@ public class JIconCreatorGui extends javax.swing.JFrame {
                     .addComponent(jRadioButtonCenterText))
                 .addGap(18, 18, 18)
                 .addGroup(jPanelTextLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jRadioNoneText)
+                    .addComponent(jRadioButtonNoneText)
                     .addComponent(jRadioButtonSquareText)
-                    .addComponent(jRadioButtonCircle)
+                    .addComponent(jRadioButtonCircleText)
                     .addComponent(jLabelShapeText))
                 .addGap(18, 18, 18)
                 .addGroup(jPanelTextLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -777,6 +845,15 @@ public class JIconCreatorGui extends javax.swing.JFrame {
         JIconCreatorGui.this.processWindowEvent(
                 new java.awt.event.WindowEvent(JIconCreatorGui.this,java.awt.event.WindowEvent.WINDOW_CLOSING));
     }//GEN-LAST:event_jMenuItemExitActionPerformed
+
+    private void jTabbedPaneStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jTabbedPaneStateChanged
+        updateOptionsFromForm();
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                jIconCreatorGuiHelper.updatePreviewIcons();
+            }
+        });
+    }//GEN-LAST:event_jTabbedPaneStateChanged
 
     /**
      * @param args the command line arguments
@@ -885,18 +962,18 @@ public class JIconCreatorGui extends javax.swing.JFrame {
     private javax.swing.JRadioButton jRadioButtonCenterClipart;
     private javax.swing.JRadioButton jRadioButtonCenterImage;
     private javax.swing.JRadioButton jRadioButtonCenterText;
-    private javax.swing.JRadioButton jRadioButtonCircle;
     private javax.swing.JRadioButton jRadioButtonCircleClipart;
     private javax.swing.JRadioButton jRadioButtonCircleImage;
+    private javax.swing.JRadioButton jRadioButtonCircleText;
     private javax.swing.JRadioButton jRadioButtonCropClipart;
     private javax.swing.JRadioButton jRadioButtonCropImage;
     private javax.swing.JRadioButton jRadioButtonCropText;
     private javax.swing.JRadioButton jRadioButtonNoneClipart;
     private javax.swing.JRadioButton jRadioButtonNoneImage;
+    private javax.swing.JRadioButton jRadioButtonNoneText;
     private javax.swing.JRadioButton jRadioButtonSquareClipart;
     private javax.swing.JRadioButton jRadioButtonSquareImage;
     private javax.swing.JRadioButton jRadioButtonSquareText;
-    private javax.swing.JRadioButton jRadioNoneText;
     private javax.swing.JPopupMenu.Separator jSeparator1;
     private javax.swing.JPopupMenu.Separator jSeparator2;
     private javax.swing.JSlider jSliderPaddingClipart;

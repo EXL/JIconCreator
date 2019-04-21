@@ -89,7 +89,7 @@ public class CreateAssetSetWizardState implements GraphicGeneratorContext {
     public boolean holoDark;
 
     /** The background color to use for the shape (unless the shape is {@link Shape#NONE} */
-    public RGB background = new RGB(0xff, 0x00, 0x00);
+    public RGB background = new RGB(0xff, 0xff, 0xff);
 
     /** The background color to use for the text or clipart (unless shape is {@link Shape#NONE} */
     public RGB foreground = new RGB(0x00, 0x00, 0x00);

@@ -319,6 +319,9 @@
           </Layout>
           <SubComponents>
             <Container class="javax.swing.JTabbedPane" name="jTabbedPane">
+              <Events>
+                <EventHandler event="stateChanged" listener="javax.swing.event.ChangeListener" parameters="javax.swing.event.ChangeEvent" handler="jTabbedPaneStateChanged"/>
+              </Events>
 
               <Layout class="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout"/>
               <SubComponents>
@@ -1047,13 +1050,13 @@
                                               <Component id="jRadioButtonCenterText" min="-2" max="-2" attributes="0"/>
                                           </Group>
                                           <Group type="102" alignment="0" attributes="0">
-                                              <Component id="jRadioNoneText" min="-2" max="-2" attributes="0"/>
+                                              <Component id="jRadioButtonNoneText" min="-2" max="-2" attributes="0"/>
                                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                               <Component id="jRadioButtonSquareText" min="-2" max="-2" attributes="0"/>
                                           </Group>
                                       </Group>
                                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                      <Component id="jRadioButtonCircle" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jRadioButtonCircleText" min="-2" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                               <EmptySpace pref="201" max="32767" attributes="0"/>
@@ -1088,9 +1091,9 @@
                               </Group>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="jRadioNoneText" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jRadioButtonNoneText" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="jRadioButtonSquareText" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jRadioButtonCircle" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jRadioButtonCircleText" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="jLabelShapeText" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
@@ -1222,7 +1225,7 @@
                         </Property>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JRadioButton" name="jRadioNoneText">
+                    <Component class="javax.swing.JRadioButton" name="jRadioButtonNoneText">
                       <Properties>
                         <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
                           <ComponentRef name="buttonGroupShapeText"/>
@@ -1242,7 +1245,7 @@
                         </Property>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JRadioButton" name="jRadioButtonCircle">
+                    <Component class="javax.swing.JRadioButton" name="jRadioButtonCircleText">
                       <Properties>
                         <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
                           <ComponentRef name="buttonGroupShapeText"/>

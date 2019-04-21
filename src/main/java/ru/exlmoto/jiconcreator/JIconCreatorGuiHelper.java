@@ -18,19 +18,28 @@ import java.util.Random;
 class JIconCreatorGuiHelper {
     private CreateAssetSetWizardState createAssetSetWizardState = null;
     private JIconCreatorGui jIconCreatorGui = null;
+    private JIconCreatorOptions jIconCreatorOptions = null;
 
-    JIconCreatorGuiHelper(JIconCreatorGui jIconCreatorGuiArg) {
-        jIconCreatorGui = jIconCreatorGuiArg;
+    JIconCreatorGuiHelper(JIconCreatorOptions aIconCreatorOptions,
+                          JIconCreatorGui aIconCreatorGui) {
+        jIconCreatorOptions = aIconCreatorOptions;
+        jIconCreatorGui = aIconCreatorGui;
 
         createAssetSetWizardState = new CreateAssetSetWizardState();
     }
 
-    static boolean wtf(int cnt, Map<String, Map<String, BufferedImage>> categories, JLabel labelMdpiImage, JLabel labelHpdiImage, JLabel labelXhdpiImage, JLabel labelXxhdpiImage) {
+    /************/
+    static boolean wtf(int cnt,
+                       Map<String, Map<String, BufferedImage>> categories,
+                       JLabel labelMdpiImage,
+                       JLabel labelHpdiImage,
+                       JLabel labelXhdpiImage,
+                       JLabel labelXxhdpiImage) {
         for (Map<String, BufferedImage> previews : categories.values()) {
             for (Map.Entry<String, BufferedImage> entry : previews.entrySet()) {
                 BufferedImage image = entry.getValue();
-
                 if (image != null) {
+                    System.out.println(cnt);
                     switch (cnt) {
                         default:
                             return true;
@@ -56,22 +65,24 @@ class JIconCreatorGuiHelper {
         return false;
     }
 
-    /************/
     void imageTabBackColorRandomButton() {
-        int red = new Random().nextInt(255 + 1);
-        int green = new Random().nextInt(255 + 1);
-        int blue = new Random().nextInt(255 + 1);
-        System.out.println("Clicked Random button: " + red + " " + green + " " + blue);
-        createAssetSetWizardState.background = new RGB(red, green, blue);
+        int bound = 255 + 1;
+
+        int red = new Random().nextInt(bound);
+        int green = new Random().nextInt(bound);
+        int blue = new Random().nextInt(bound);
+
         jIconCreatorGui.getLabelColorShowImageL().setBackground(new Color(red, green, blue));
+
+        createAssetSetWizardState.background = new RGB(red, green, blue);
+
         updatePreviewIcons();
     }
 
-    void updatePreviewIcons(/*labels*/) {
+    void updatePreviewIcons() {
         int cnt = 0;
         Map<String, Map<String, BufferedImage>> categories = JIconCreatorExtrasLibraryHere.generateImages(createAssetSetWizardState, true);
-        if (wtf(cnt, categories,
-                jIconCreatorGui.getLabelMdpiI(), jIconCreatorGui.getLabelHdpiI(), jIconCreatorGui.getLabelXhdpiI(), jIconCreatorGui.getLabelXxhdpiI()))
+        if (wtf(cnt, categories, jIconCreatorGui.getLabelMdpiI(), jIconCreatorGui.getLabelHdpiI(), jIconCreatorGui.getLabelXhdpiI(), jIconCreatorGui.getLabelXxhdpiI()))
             return;
 
         System.gc();
