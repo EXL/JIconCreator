@@ -1,8 +1,5 @@
 package ru.exlmoto.jiconcreator;
 
-import javax.swing.*;
-import java.awt.*;
-
 /**
  *
  * @author exl
@@ -748,6 +745,11 @@ public class JIconCreatorGui extends javax.swing.JFrame {
         jMenuFile.add(jSeparator2);
 
         jMenuItemExit.setText(bundle.getString("JIconCreator.jMenuItemExit.text")); // NOI18N
+        jMenuItemExit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItemExitActionPerformed(evt);
+            }
+        });
         jMenuFile.add(jMenuItemExit);
 
         jMenuBar.add(jMenuFile);
@@ -770,6 +772,11 @@ public class JIconCreatorGui extends javax.swing.JFrame {
     private void jButtonRandomImageLActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRandomImageLActionPerformed
         jIconCreatorGuiHelper.imageTabBackColorRandomButton();
     }//GEN-LAST:event_jButtonRandomImageLActionPerformed
+
+    private void jMenuItemExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemExitActionPerformed
+        JIconCreatorGui.this.processWindowEvent(
+                new java.awt.event.WindowEvent(JIconCreatorGui.this,java.awt.event.WindowEvent.WINDOW_CLOSING));
+    }//GEN-LAST:event_jMenuItemExitActionPerformed
 
     /**
      * @param args the command line arguments
@@ -901,31 +908,31 @@ public class JIconCreatorGui extends javax.swing.JFrame {
     private javax.swing.JTextField jTextFieldText;
     // End of variables declaration//GEN-END:variables
 
-    public ButtonGroup getButtonGroupStyles() {
+    public javax.swing.ButtonGroup getButtonGroupStyles() {
         return buttonGroupStyles;
     }
 
-    public JMenu getMenuStyle() {
+    public javax.swing.JMenu getMenuStyle() {
         return jMenuStyle;
     }
 
-    public JLabel getLabelColorShowImageL() {
+    public javax.swing.JLabel getLabelColorShowImageL() {
         return jLabelColorShowImageL;
     }
 
-    public JLabel getLabelMdpiI() {
+    public javax.swing.JLabel getLabelMdpiI() {
         return jLabelMdpiI;
     }
 
-    public JLabel getLabelHdpiI() {
+    public javax.swing.JLabel getLabelHdpiI() {
         return jLabelHdpiI;
     }
 
-    public JLabel getLabelXhdpiI() {
+    public javax.swing.JLabel getLabelXhdpiI() {
         return jLabelXhdpiI;
     }
 
-    public JLabel getLabelXxhdpiI() {
+    public javax.swing.JLabel getLabelXxhdpiI() {
         return jLabelXxhdpiI;
     }
 }

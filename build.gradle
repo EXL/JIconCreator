@@ -15,7 +15,7 @@ repositories {
 // Create the "fat" JAR-package with all dependencies
 jar {
     manifest {
-        attributes 'Main-Class': 'ru.exlmoto.jiconcreator.JIconCreator'
+        attributes 'Main-Class': 'ru.exlmoto.jiconcreator.JIconCreatorGui'
     }
     from {
         configurations.compile.collect { it.isDirectory() ? it : zipTree(it) }
