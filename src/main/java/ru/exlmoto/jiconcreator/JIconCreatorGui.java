@@ -432,9 +432,9 @@ public class JIconCreatorGui extends javax.swing.JFrame {
         jLabelPercentsClipart.setText(bundle.getString("JIconCreator.jLabelPercentsClipart.text")); // NOI18N
 
         jLabelNameClipart.setText(bundle.getString("JIconCreator.jLabelNameClipart.text")); // NOI18N
-        jLabelNameClipart.setMaximumSize(new java.awt.Dimension(95, 25));
-        jLabelNameClipart.setMinimumSize(new java.awt.Dimension(95, 25));
-        jLabelNameClipart.setPreferredSize(new java.awt.Dimension(95, 25));
+        jLabelNameClipart.setMaximumSize(new java.awt.Dimension(237, 25));
+        jLabelNameClipart.setMinimumSize(new java.awt.Dimension(237, 25));
+        jLabelNameClipart.setPreferredSize(new java.awt.Dimension(237, 25));
 
         jLabelScalingClipart.setText(bundle.getString("JIconCreator.jLabelScalingClipart.text")); // NOI18N
 
@@ -538,7 +538,7 @@ public class JIconCreatorGui extends javax.swing.JFrame {
                         .addGroup(jPanelClipartLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabelColorShowClipartH, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabelColorShowClipartL, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(241, Short.MAX_VALUE))
+                .addContainerGap(47, Short.MAX_VALUE))
         );
         jPanelClipartLayout.setVerticalGroup(
             jPanelClipartLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
