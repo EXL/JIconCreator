@@ -317,6 +317,11 @@ public class JIconCreatorGui extends javax.swing.JFrame {
         jTextFieldPathImage.setText(bundle.getString("JIconCreator.jTextFieldPathImage.text")); // NOI18N
         jTextFieldPathImage.setMinimumSize(new java.awt.Dimension(237, 25));
         jTextFieldPathImage.setPreferredSize(new java.awt.Dimension(237, 25));
+        jTextFieldPathImage.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFieldPathImageActionPerformed(evt);
+            }
+        });
 
         jButtonBrowseImage.setText(bundle.getString("JIconCreator.jButtonBrowseImage.text")); // NOI18N
         jButtonBrowseImage.addActionListener(new java.awt.event.ActionListener() {
@@ -1003,6 +1008,11 @@ public class JIconCreatorGui extends javax.swing.JFrame {
         jIconCreatorOptions.setImageFilePath(sign);
         jIconCreatorGuiHelper.updatePreviewIcons();
     }//GEN-LAST:event_jButtonResetImageActionPerformed
+
+    private void jTextFieldPathImageActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldPathImageActionPerformed
+        jIconCreatorOptions.setImageFilePath(jTextFieldPathImage.getText());
+        jIconCreatorGuiHelper.updatePreviewIcons();
+    }//GEN-LAST:event_jTextFieldPathImageActionPerformed
 
     /**
      * @param args the command line arguments
