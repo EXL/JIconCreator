@@ -897,7 +897,7 @@
                     <Component class="javax.swing.JLabel" name="jLabelColorShowClipartL">
                       <Properties>
                         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                          <Color blue="0" green="cc" red="ff" type="rgb"/>
+                          <Color blue="99" green="99" red="99" type="rgb"/>
                         </Property>
                         <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
                           <ResourceString bundle="Bundle.properties" key="JIconCreator.jLabelColorShowClipartL.text" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
@@ -952,7 +952,7 @@
                     <Component class="javax.swing.JLabel" name="jLabelColorShowClipartH">
                       <Properties>
                         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                          <Color blue="0" green="cc" red="ff" type="rgb"/>
+                          <Color blue="99" green="ff" red="ff" type="rgb"/>
                         </Property>
                         <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
                           <ResourceString bundle="Bundle.properties" key="JIconCreator.jLabelColorShowClipartH.text" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
@@ -1279,7 +1279,7 @@
                     <Component class="javax.swing.JLabel" name="jLabelColorShowTextL">
                       <Properties>
                         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                          <Color blue="0" green="cc" red="ff" type="rgb"/>
+                          <Color blue="33" green="33" red="0" type="rgb"/>
                         </Property>
                         <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
                           <ResourceString bundle="Bundle.properties" key="JIconCreator.jLabelColorShowTextL.text" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
@@ -1320,7 +1320,7 @@
                     <Component class="javax.swing.JLabel" name="jLabelColorShowTextH">
                       <Properties>
                         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                          <Color blue="0" green="cc" red="ff" type="rgb"/>
+                          <Color blue="33" green="33" red="ff" type="rgb"/>
                         </Property>
                         <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
                           <ResourceString bundle="Bundle.properties" key="JIconCreator.jLabelColorShowTextH.text" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
