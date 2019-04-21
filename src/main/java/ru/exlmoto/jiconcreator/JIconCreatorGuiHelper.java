@@ -5,16 +5,16 @@ import ru.exlmoto.jiconcreator.unsorted.JIconCreatorExtrasLibraryHere;
 
 import javax.swing.*;
 import javax.swing.UIManager.LookAndFeelInfo;
+import javax.swing.filechooser.FileFilter;
+import javax.swing.filechooser.FileView;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Random;
+import java.io.File;
+import java.util.*;
 
-class JIconCreatorGuiHelper {
+public class JIconCreatorGuiHelper {
     private CreateAssetSetWizardState createAssetSetWizardState = null;
     private JIconCreatorGui jIconCreatorGui = null;
     private JIconCreatorOptions jIconCreatorOptions = null;

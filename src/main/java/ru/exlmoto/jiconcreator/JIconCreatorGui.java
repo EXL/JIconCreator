@@ -1,5 +1,8 @@
 package ru.exlmoto.jiconcreator;
 
+import com.oracle.docs.ImageFilter;
+import com.oracle.docs.ImagePreview;
+
 import javax.swing.*;
 import java.awt.*;
 
@@ -281,8 +284,18 @@ public class JIconCreatorGui extends javax.swing.JFrame {
         jTextFieldPathImage.setPreferredSize(new java.awt.Dimension(237, 25));
 
         jButtonBrowseImage.setText(bundle.getString("JIconCreator.jButtonBrowseImage.text")); // NOI18N
+        jButtonBrowseImage.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonBrowseImageActionPerformed(evt);
+            }
+        });
 
         jButtonResetImage.setText(bundle.getString("JIconCreator.jButtonResetImage.text")); // NOI18N
+        jButtonResetImage.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonResetImageActionPerformed(evt);
+            }
+        });
 
         jCheckBoxTrimImage.setSelected(true);
         jCheckBoxTrimImage.setText(bundle.getString("JIconCreator.jCheckBoxTrimImage.text")); // NOI18N
@@ -935,6 +948,26 @@ public class JIconCreatorGui extends javax.swing.JFrame {
         jIconCreatorOptions.setTrim(jCheckBoxTrimImage.isSelected());
         jIconCreatorGuiHelper.updatePreviewIcons();
     }//GEN-LAST:event_jCheckBoxTrimImageActionPerformed
+
+    private void jButtonBrowseImageActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonBrowseImageActionPerformed
+        String title = java.util.ResourceBundle.getBundle("Bundle").getString("JIconCreator.openImageDialog.text"); // NOI18N
+        JFileChooser jFileChooser = new JFileChooser();
+        jFileChooser.setFileFilter(new ImageFilter());
+        jFileChooser.setAccessory(new ImagePreview(jFileChooser));
+        jFileChooser.setAcceptAllFileFilterUsed(false);
+        if (jFileChooser.showDialog(this, title) == JFileChooser.APPROVE_OPTION) {
+            jTextFieldPathImage.setText(jFileChooser.getSelectedFile().getAbsolutePath());
+            jIconCreatorOptions.setImageFilePath(jTextFieldPathImage.getText());
+            jIconCreatorGuiHelper.updatePreviewIcons();
+        }
+    }//GEN-LAST:event_jButtonBrowseImageActionPerformed
+
+    private void jButtonResetImageActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonResetImageActionPerformed
+        String sign = java.util.ResourceBundle.getBundle("Bundle").getString("JIconCreator.jTextFieldPathImage.text"); // NOI18N
+        jTextFieldPathImage.setText(sign);
+        jIconCreatorOptions.setImageFilePath(sign);
+        jIconCreatorGuiHelper.updatePreviewIcons();
+    }//GEN-LAST:event_jButtonResetImageActionPerformed
 
     /**
      * @param args the command line arguments
