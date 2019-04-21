@@ -2,7 +2,6 @@ package ru.exlmoto.jiconcreator;
 
 import ru.exlmoto.jiconcreator.unsorted.CreateAssetSetWizardState;
 import ru.exlmoto.jiconcreator.unsorted.JIconCreatorExtrasLibraryHere;
-import ru.exlmoto.jiconcreator.unsorted.RGB;
 
 import javax.swing.*;
 import javax.swing.UIManager.LookAndFeelInfo;

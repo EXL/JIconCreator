@@ -293,18 +293,44 @@ public class JIconCreatorGui extends javax.swing.JFrame {
 
         buttonGroupScalingImage.add(jRadioButtonCropImage);
         jRadioButtonCropImage.setText(bundle.getString("JIconCreator.jRadioButtonCropImage.text")); // NOI18N
+        jRadioButtonCropImage.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButtonCropImageActionPerformed(evt);
+            }
+        });
 
         buttonGroupScalingImage.add(jRadioButtonCenterImage);
         jRadioButtonCenterImage.setText(bundle.getString("JIconCreator.jRadioButtonCenterImage.text")); // NOI18N
+        jRadioButtonCenterImage.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButtonCenterImageActionPerformed(evt);
+            }
+        });
 
         buttonGroupShapeImage.add(jRadioButtonNoneImage);
         jRadioButtonNoneImage.setText(bundle.getString("JIconCreator.jRadioButtonNoneImage.text")); // NOI18N
+        jRadioButtonNoneImage.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButtonNoneImageActionPerformed(evt);
+            }
+        });
 
         buttonGroupShapeImage.add(jRadioButtonSquareImage);
+        jRadioButtonSquareImage.setSelected(true);
         jRadioButtonSquareImage.setText(bundle.getString("JIconCreator.jRadioButtonSquareImage.text")); // NOI18N
+        jRadioButtonSquareImage.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButtonSquareImageActionPerformed(evt);
+            }
+        });
 
         buttonGroupShapeImage.add(jRadioButtonCircleImage);
         jRadioButtonCircleImage.setText(bundle.getString("JIconCreator.jRadioButtonCircleImage.text")); // NOI18N
+        jRadioButtonCircleImage.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButtonCircleImageActionPerformed(evt);
+            }
+        });
 
         jButtonChooseImageL.setText(bundle.getString("JIconCreator.jButtonChooseImageL.text")); // NOI18N
         jButtonChooseImageL.addActionListener(new java.awt.event.ActionListener() {
@@ -455,6 +481,7 @@ public class JIconCreatorGui extends javax.swing.JFrame {
         jRadioButtonNoneClipart.setText(bundle.getString("JIconCreator.jRadioButtonNoneClipart.text")); // NOI18N
 
         buttonGroupShapeClipart.add(jRadioButtonSquareClipart);
+        jRadioButtonSquareClipart.setSelected(true);
         jRadioButtonSquareClipart.setText(bundle.getString("JIconCreator.jRadioButtonSquareClipart.text")); // NOI18N
 
         buttonGroupShapeClipart.add(jRadioButtonCircleClipart);
@@ -626,6 +653,7 @@ public class JIconCreatorGui extends javax.swing.JFrame {
         jRadioButtonNoneText.setText(bundle.getString("JIconCreator.jRadioNoneText.text")); // NOI18N
 
         buttonGroupShapeText.add(jRadioButtonSquareText);
+        jRadioButtonSquareText.setSelected(true);
         jRadioButtonSquareText.setText(bundle.getString("JIconCreator.jRadioButtonSquareText.text")); // NOI18N
 
         buttonGroupShapeText.add(jRadioButtonCircleText);
@@ -859,12 +887,38 @@ public class JIconCreatorGui extends javax.swing.JFrame {
     }//GEN-LAST:event_jTabbedPaneStateChanged
 
     private void jButtonChooseImageLActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonChooseImageLActionPerformed
-        Color color = JColorChooser.showDialog(this, "aa", jLabelColorShowImageL.getBackground());
+        String title = java.util.ResourceBundle.getBundle("Bundle").getString("JIconCreator.colorDialogL.text"); // NOI18N
+        Color color = JColorChooser.showDialog(this, title, jLabelColorShowImageL.getBackground());
         if (color != null) {
             jLabelColorShowImageL.setBackground(color);
             jIconCreatorGuiHelper.setColorToImage(color, true);
         }
     }//GEN-LAST:event_jButtonChooseImageLActionPerformed
+
+    private void jRadioButtonNoneImageActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonNoneImageActionPerformed
+        jIconCreatorOptions.setShapeType(JIconCreatorOptions.SHAPE_NONE);
+        jIconCreatorGuiHelper.updatePreviewIcons();
+    }//GEN-LAST:event_jRadioButtonNoneImageActionPerformed
+
+    private void jRadioButtonSquareImageActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonSquareImageActionPerformed
+        jIconCreatorOptions.setShapeType(JIconCreatorOptions.SHAPE_SQUARE);
+        jIconCreatorGuiHelper.updatePreviewIcons();
+    }//GEN-LAST:event_jRadioButtonSquareImageActionPerformed
+
+    private void jRadioButtonCircleImageActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonCircleImageActionPerformed
+        jIconCreatorOptions.setShapeType(JIconCreatorOptions.SHAPE_CIRCLE);
+        jIconCreatorGuiHelper.updatePreviewIcons();
+    }//GEN-LAST:event_jRadioButtonCircleImageActionPerformed
+
+    private void jRadioButtonCropImageActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonCropImageActionPerformed
+        jIconCreatorOptions.setCrop(false);
+        jIconCreatorGuiHelper.updatePreviewIcons();
+    }//GEN-LAST:event_jRadioButtonCropImageActionPerformed
+
+    private void jRadioButtonCenterImageActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonCenterImageActionPerformed
+        jIconCreatorOptions.setCrop(true);
+        jIconCreatorGuiHelper.updatePreviewIcons();
+    }//GEN-LAST:event_jRadioButtonCenterImageActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1002,10 +1056,6 @@ public class JIconCreatorGui extends javax.swing.JFrame {
 
     public javax.swing.JMenu getMenuStyle() {
         return jMenuStyle;
-    }
-
-    public javax.swing.JLabel getLabelColorShowImageL() {
-        return jLabelColorShowImageL;
     }
 
     public javax.swing.JLabel getLabelMdpiI() {
