@@ -127,6 +127,16 @@ class JIconCreatorGuiHelper {
         }
     }
 
+    public void setColorToImage(Color color, boolean backColor) {
+        if (backColor) {
+            jIconCreatorOptions.setBackColor(color);
+        } else {
+            jIconCreatorOptions.setForeColor(color);
+        }
+
+        updatePreviewIcons();
+    }
+
     public void setRandomColor(JLabel showColorLabel, boolean backColor) {
         Color randomColor = new Color(
                 new Random().nextInt(256),
@@ -134,11 +144,6 @@ class JIconCreatorGuiHelper {
                 new Random().nextInt(256));
 
         showColorLabel.setBackground(randomColor);
-        if (backColor) {
-            jIconCreatorOptions.setBackColor(randomColor);
-        } else {
-            jIconCreatorOptions.setForeColor(randomColor);
-        }
-        updatePreviewIcons();
+        setColorToImage(randomColor, backColor);
     }
 }

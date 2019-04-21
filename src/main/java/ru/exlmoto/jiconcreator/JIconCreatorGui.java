@@ -1,6 +1,7 @@
 package ru.exlmoto.jiconcreator;
 
 import javax.swing.*;
+import java.awt.*;
 
 /**
  *
@@ -306,6 +307,11 @@ public class JIconCreatorGui extends javax.swing.JFrame {
         jRadioButtonCircleImage.setText(bundle.getString("JIconCreator.jRadioButtonCircleImage.text")); // NOI18N
 
         jButtonChooseImageL.setText(bundle.getString("JIconCreator.jButtonChooseImageL.text")); // NOI18N
+        jButtonChooseImageL.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonChooseImageLActionPerformed(evt);
+            }
+        });
 
         jButtonRandomImageL.setText(bundle.getString("JIconCreator.jButtonRandomImageL.text")); // NOI18N
         jButtonRandomImageL.addActionListener(new java.awt.event.ActionListener() {
@@ -851,6 +857,14 @@ public class JIconCreatorGui extends javax.swing.JFrame {
             }
         });
     }//GEN-LAST:event_jTabbedPaneStateChanged
+
+    private void jButtonChooseImageLActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonChooseImageLActionPerformed
+        Color color = JColorChooser.showDialog(this, "aa", jLabelColorShowImageL.getBackground());
+        if (color != null) {
+            jLabelColorShowImageL.setBackground(color);
+            jIconCreatorGuiHelper.setColorToImage(color, true);
+        }
+    }//GEN-LAST:event_jButtonChooseImageLActionPerformed
 
     /**
      * @param args the command line arguments
