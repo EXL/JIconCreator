@@ -177,7 +177,6 @@ public class CreateAssetSetWizardState implements GraphicGeneratorContext {
             }
             mImageCache.put(path, image);
         }
-
         return image;
     }
 

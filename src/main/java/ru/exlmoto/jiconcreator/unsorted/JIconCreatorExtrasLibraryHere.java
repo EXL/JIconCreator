@@ -4,6 +4,7 @@ import com.android.annotations.NonNull;
 import com.android.annotations.Nullable;
 import com.android.assetstudiolib.*;
 import com.android.utils.Pair;
+import ru.exlmoto.jiconcreator.JIconCreatorOptions;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
@@ -50,20 +51,34 @@ public class JIconCreatorExtrasLibraryHere {
      */
     public static Map<String, Map<String, BufferedImage>> generateImages(
             @NonNull CreateAssetSetWizardState mValues,
+            JIconCreatorOptions jIconCreatorOptions,
             boolean previewOnly) {
+
         // Map of ids to images: Preserve insertion order (the densities)
         Map<String, Map<String, BufferedImage>> categoryMap =
                 new LinkedHashMap<String, Map<String, BufferedImage>>();
 
-        AssetType type = mValues.type;
-        boolean trim = mValues.trim;
+        AssetType type = mValues.type; // DELETE THIS CODE!!!!!
+
+        boolean trim = jIconCreatorOptions.isTrim();
 
         BufferedImage sourceImage = null;
-        switch (mValues.sourceType) {
+
+        // TODO: Disable this shitty converting
+        CreateAssetSetWizardState.SourceType sourceType = CreateAssetSetWizardState.SourceType.IMAGE;
+        int iconType = jIconCreatorOptions.getIconType();
+        if (iconType == JIconCreatorOptions.ICON_CLIPART) {
+            sourceType = CreateAssetSetWizardState.SourceType.CLIPART;
+        } else if (iconType == JIconCreatorOptions.ICON_TEXT) {
+            sourceType = CreateAssetSetWizardState.SourceType.TEXT;
+        }
+
+        switch (sourceType) {
             case IMAGE: {
                 // Load the image
                 // TODO: Only do this when the source image type is image
-                String path = mValues.imagePath != null ? mValues.imagePath.getPath() : "";
+                // String path = mValues.imagePath != null ? mValues.imagePath.getPath() : "";
+                String path = jIconCreatorOptions.getImageFilePath();
                 /*
                 if (path.length() == 0) {
                     //if (page != null) {
@@ -86,21 +101,22 @@ public class JIconCreatorExtrasLibraryHere {
 
                 //if (page != null) {
                     // page.setErrorMessage(null);
-                    System.out.println("Null");
+                    // System.out.println("Null");
                 //}
                 try {
+                    // ???????????????????????????????????????????????????????????????????????????????????????????????????????????!
                     sourceImage = mValues.getCachedImage(path, false);
                     if (sourceImage != null) {
                         if (trim) {
                             sourceImage = ImageUtils.cropBlank(sourceImage, null, TYPE_INT_ARGB);
                         }
-                        if (mValues.padding != 0) {
-                            sourceImage = Util.paddedImage(sourceImage, mValues.padding);
+                        if (jIconCreatorOptions.getPadding() != 0) {
+                            sourceImage = Util.paddedImage(sourceImage, jIconCreatorOptions.getPadding());
                         }
                     }
                 } catch (IOException ioe) {
                     //if (page != null) {
-                        System.out.println("IOE Error");
+                        System.out.println("IOE Error: Fallback to Clipart Image");
                         // page.setErrorMessage(ioe.getLocalizedMessage());
                     try {
                         sourceImage = GraphicGenerator.getClipartImage("android.png");
@@ -113,22 +129,24 @@ public class JIconCreatorExtrasLibraryHere {
             }
             case CLIPART: {
                 try {
-                    sourceImage = GraphicGenerator.getClipartImage(mValues.clipartName);
+                    sourceImage = GraphicGenerator.getClipartImage(jIconCreatorOptions.getClipartName());
 
-                    boolean isActionBar = mValues.type == AssetType.ACTIONBAR;
-                    if (trim && !isActionBar) {
+                    // boolean isActionBar = mValues.type == AssetType.ACTIONBAR;
+                    if (trim) {
                         sourceImage = ImageUtils.cropBlank(sourceImage, null, TYPE_INT_ARGB);
                     }
 
-                    if (type.needsColors()) {
-                        RGB fg = mValues.foreground;
-                        int color = 0xFF000000 | (fg.red << 16) | (fg.green << 8) | fg.blue;
+                    if (type.needsColors()) { // ALWAYS TRUE???????????????????????????????????????????????????????
+                        // RGB fg = mValues.foreground;
+                        Color fg = jIconCreatorOptions.getForeColor();
+
+                        int color = 0xFF000000 | (fg.getRed() << 16) | (fg.getGreen() << 8) | fg.getBlue();
                         Paint paint = new java.awt.Color(color);
                         sourceImage = Util.filledImage(sourceImage, paint);
                     }
 
-                    int padding = mValues.padding;
-                    if (padding != 0 && !isActionBar) {
+                    int padding = jIconCreatorOptions.getPadding();
+                    if (padding != 0) {
                         sourceImage = Util.paddedImage(sourceImage, padding);
                     }
                 } catch (IOException e) {
@@ -139,24 +157,31 @@ public class JIconCreatorExtrasLibraryHere {
                 break;
             }
             case TEXT: {
-                String text = mValues.text;
+                String text = jIconCreatorOptions.getTextString();
                 TextRenderUtil.Options options = new TextRenderUtil.Options();
+
+                /// TODO: DROP THIS AND CHANGE TO FONT
                 options.font = mValues.getTextFont();
+
                 int color;
-                if (type.needsColors()) {
-                    RGB fg = mValues.foreground;
-                    color = 0xFF000000 | (fg.red << 16) | (fg.green << 8) | fg.blue;
+                if (type.needsColors()) { // ALWAYS TRUE?????
+                    // RGB fg = mValues.foreground;
+                    Color fg = jIconCreatorOptions.getForeColor();
+
+                    color = 0xFF000000 | (fg.getRed() << 16) | (fg.getGreen() << 8) | fg.getBlue();
                 } else {
                     color = 0xFFFFFFFF;
                 }
+
                 options.foregroundColor = color;
-                sourceImage = TextRenderUtil.renderTextImage(text, mValues.padding, options);
+
+                sourceImage = TextRenderUtil.renderTextImage(text, jIconCreatorOptions.getPadding() /* 15?? */, options);
 
                 if (trim) {
                     sourceImage = ImageUtils.cropBlank(sourceImage, null, TYPE_INT_ARGB);
                 }
 
-                int padding = mValues.padding;
+                int padding = jIconCreatorOptions.getPadding();
                 if (padding != 0) {
                     sourceImage = Util.paddedImage(sourceImage, padding);
                 }
@@ -166,24 +191,46 @@ public class JIconCreatorExtrasLibraryHere {
 
         GraphicGenerator generator = null;
         GraphicGenerator.Options options = null;
+
         switch (type) {
             case LAUNCHER: {
                 generator = new LauncherIconGenerator();
                 LauncherIconGenerator.LauncherOptions launcherOptions =
                         new LauncherIconGenerator.LauncherOptions();
-                launcherOptions.shape = mValues.shape;
-                launcherOptions.crop = mValues.crop;
+
+                //// TODO: Rewrite this.
+
+                int shape = jIconCreatorOptions.getShapeType();
+                switch (shape) {
+                    case JIconCreatorOptions.SHAPE_NONE:
+                        launcherOptions.shape = GraphicGenerator.Shape.NONE;
+                        break;
+                    case JIconCreatorOptions.SHAPE_SQUARE:
+                        launcherOptions.shape = GraphicGenerator.Shape.SQUARE;
+                        break;
+                    case JIconCreatorOptions.SHAPE_CIRCLE:
+                        launcherOptions.shape = GraphicGenerator.Shape.CIRCLE;
+                        break;
+                }
+                // launcherOptions.shape = mValues.shape;
+
+                launcherOptions.crop = jIconCreatorOptions.isCrop();
+
+                /// ??????????????????????????????????????????????????????????
                 launcherOptions.style = GraphicGenerator.Style.SIMPLE;
 
-                RGB bg = mValues.background;
-                int color = (bg.red << 16) | (bg.green << 8) | bg.blue;
+                // RGB bg = mValues.background;
+                Color bg = jIconCreatorOptions.getBackColor();
+                int color = (bg.getRed() << 16) | (bg.getRed() << 8) | bg.getBlue();
                 launcherOptions.backgroundColor = color;
+
                 // Flag which tells the generator iterator to include a web graphic
                 launcherOptions.isWebGraphic = !previewOnly;
-                options = launcherOptions;
 
+                options = launcherOptions;
                 break;
             }
+            /*
             case MENU:
                 generator = new MenuIconGenerator();
                 options = new GraphicGenerator.Options();
@@ -209,6 +256,7 @@ public class JIconCreatorExtrasLibraryHere {
                 generator = new TabIconGenerator();
                 options = new TabIconGenerator.TabOptions();
                 break;
+                */
             default:
                 System.out.println("Unsupported asset type: %1$s" + type);
                 // AdtPlugin.log(IStatus.ERROR, "Unsupported asset type: %1$s", type);
@@ -229,6 +277,8 @@ public class JIconCreatorExtrasLibraryHere {
 
         String baseName = mValues.outputName;
         //if (baseName != null) //baseName = "android.png";
+
+        /// WHY mVALUES????????????????????????????????????????????????
         generator.generate(null, categoryMap, mValues, options, baseName);
 
         return categoryMap;
@@ -245,10 +295,11 @@ public class JIconCreatorExtrasLibraryHere {
      */
     public static void generateIcons(/*final IProject newProject,*/
                                      @NonNull CreateAssetSetWizardState values,
+                                     JIconCreatorOptions jIconCreatorOptions,
                                      boolean previewOnly//,
                                      /*@Nullable WizardPage page*/) {
         // Generate the custom icons
-        Map<String, Map<String, BufferedImage>> categories = generateImages(values,
+        Map<String, Map<String, BufferedImage>> categories = generateImages(values, jIconCreatorOptions,
                 false /*previewOnly*/);
         int cnt = 0;
         for (Map<String, BufferedImage> previews : categories.values()) {

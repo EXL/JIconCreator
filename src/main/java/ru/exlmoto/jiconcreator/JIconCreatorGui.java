@@ -12,8 +12,6 @@ public class JIconCreatorGui extends javax.swing.JFrame {
     JIconCreatorOptions jIconCreatorOptions = null;
 
     private void updateOptionsFromForm() {
-        System.out.println("Im Here!");
-
         int currentShape = JIconCreatorOptions.SHAPE_SQUARE;
 
         switch (jTabbedPane.getSelectedIndex()) {

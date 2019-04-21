@@ -20,7 +20,7 @@ class JIconCreatorGuiHelper {
     private JIconCreatorGui jIconCreatorGui = null;
     private JIconCreatorOptions jIconCreatorOptions = null;
 
-    JIconCreatorGuiHelper(JIconCreatorOptions aIconCreatorOptions,
+    public JIconCreatorGuiHelper(JIconCreatorOptions aIconCreatorOptions,
                           JIconCreatorGui aIconCreatorGui) {
         jIconCreatorOptions = aIconCreatorOptions;
         jIconCreatorGui = aIconCreatorGui;
@@ -29,7 +29,7 @@ class JIconCreatorGuiHelper {
     }
 
     /************/
-    static boolean wtf(int cnt,
+    public static boolean wtf(int cnt,
                        Map<String, Map<String, BufferedImage>> categories,
                        JLabel labelMdpiImage,
                        JLabel labelHpdiImage,
@@ -39,7 +39,6 @@ class JIconCreatorGuiHelper {
             for (Map.Entry<String, BufferedImage> entry : previews.entrySet()) {
                 BufferedImage image = entry.getValue();
                 if (image != null) {
-                    System.out.println(cnt);
                     switch (cnt) {
                         default:
                             return true;
@@ -65,7 +64,7 @@ class JIconCreatorGuiHelper {
         return false;
     }
 
-    void imageTabBackColorRandomButton() {
+    public void imageTabBackColorRandomButton() {
         int bound = 255 + 1;
 
         int red = new Random().nextInt(bound);
@@ -79,9 +78,10 @@ class JIconCreatorGuiHelper {
         updatePreviewIcons();
     }
 
-    void updatePreviewIcons() {
+    public void updatePreviewIcons() {
         int cnt = 0;
-        Map<String, Map<String, BufferedImage>> categories = JIconCreatorExtrasLibraryHere.generateImages(createAssetSetWizardState, true);
+        Map<String, Map<String, BufferedImage>> categories =
+                JIconCreatorExtrasLibraryHere.generateImages(createAssetSetWizardState, jIconCreatorOptions, true);
         if (wtf(cnt, categories, jIconCreatorGui.getLabelMdpiI(), jIconCreatorGui.getLabelHdpiI(), jIconCreatorGui.getLabelXhdpiI(), jIconCreatorGui.getLabelXxhdpiI()))
             return;
 
@@ -90,7 +90,7 @@ class JIconCreatorGuiHelper {
 
     /************/
 
-    void generateStyleMenuItems() {
+    public void generateStyleMenuItems() {
         HashMap<String, String> installedStyles = new HashMap<>();
         ArrayList<JRadioButtonMenuItem> styleMenuItems = new ArrayList<>();
 
