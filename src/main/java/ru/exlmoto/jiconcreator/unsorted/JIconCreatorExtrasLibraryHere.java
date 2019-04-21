@@ -296,7 +296,9 @@ public class JIconCreatorExtrasLibraryHere {
     public static void generateIcons(/*final IProject newProject,*/
                                      @NonNull CreateAssetSetWizardState values,
                                      JIconCreatorOptions jIconCreatorOptions,
-                                     boolean previewOnly//,
+                                     boolean previewOnly,
+                                     String fileName,
+                                     String path
                                      /*@Nullable WizardPage page*/) {
         // Generate the custom icons
         Map<String, Map<String, BufferedImage>> categories = generateImages(values, jIconCreatorOptions, previewOnly);
@@ -308,7 +310,7 @@ public class JIconCreatorExtrasLibraryHere {
                 //IPath dest = new Path(relativePath);
                 //IFile file = newProject.getFile(dest);
 
-                File file = new File("image_" + String.valueOf(cnt) + "_" + DEFAULT_LAUNCHER_ICON);
+                File file = new File(fileName + "_" + String.valueOf(cnt) + ".png");
                 cnt++;
 
                 // In case template already created icons (should remove that)

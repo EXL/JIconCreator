@@ -226,6 +226,10 @@ public class JIconCreatorGui extends javax.swing.JFrame {
         fillerSmallH1 = new javax.swing.Box.Filler(new java.awt.Dimension(3, 0), new java.awt.Dimension(3, 0), new java.awt.Dimension(3, 32767));
         jLabelStatusBar = new javax.swing.JLabel();
         fillerLargeH1 = new javax.swing.Box.Filler(new java.awt.Dimension(0, 0), new java.awt.Dimension(0, 0), new java.awt.Dimension(32767, 0));
+        jLabelStatusFileName = new javax.swing.JLabel();
+        fillerSmallH4 = new javax.swing.Box.Filler(new java.awt.Dimension(3, 0), new java.awt.Dimension(3, 0), new java.awt.Dimension(3, 32767));
+        jTextFieldStatusFileName = new javax.swing.JTextField();
+        fillerSmallH3 = new javax.swing.Box.Filler(new java.awt.Dimension(3, 0), new java.awt.Dimension(3, 0), new java.awt.Dimension(3, 32767));
         jButtonSave = new javax.swing.JButton();
         fillerSmallH2 = new javax.swing.Box.Filler(new java.awt.Dimension(3, 0), new java.awt.Dimension(3, 0), new java.awt.Dimension(3, 32767));
         jButtonSaveAs = new javax.swing.JButton();
@@ -889,6 +893,17 @@ public class JIconCreatorGui extends javax.swing.JFrame {
         jPanelStatusBar.add(jLabelStatusBar);
         jPanelStatusBar.add(fillerLargeH1);
 
+        jLabelStatusFileName.setText(bundle.getString("JIconCreatorGui.jLabelStatusFileName.text")); // NOI18N
+        jPanelStatusBar.add(jLabelStatusFileName);
+        jPanelStatusBar.add(fillerSmallH4);
+
+        jTextFieldStatusFileName.setText(bundle.getString("JIconCreatorGui.jTextFieldStatusFileName.text")); // NOI18N
+        jTextFieldStatusFileName.setMaximumSize(new java.awt.Dimension(150, 25));
+        jTextFieldStatusFileName.setMinimumSize(new java.awt.Dimension(150, 25));
+        jTextFieldStatusFileName.setPreferredSize(new java.awt.Dimension(150, 25));
+        jPanelStatusBar.add(jTextFieldStatusFileName);
+        jPanelStatusBar.add(fillerSmallH3);
+
         jButtonSave.setText(bundle.getString("JIconCreator.jButtonSave.text")); // NOI18N
         jButtonSave.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1038,9 +1053,17 @@ public class JIconCreatorGui extends javax.swing.JFrame {
     }//GEN-LAST:event_jSliderPaddingImageStateChanged
 
     private void jButtonSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSaveActionPerformed
-        String status = java.util.ResourceBundle.getBundle("Bundle").getString("JIconCreator.saveImageStatusBar.text"); // NOI18N
-        jIconCreatorGuiHelper.saveImages();
-        jLabelStatusBar.setText(status);
+        jIconCreatorGuiHelper.saveImages(jTextFieldStatusFileName.getText(), null);
+        jLabelStatusBar.setText(java.util.ResourceBundle.getBundle("Bundle").getString("JIconCreator.saveImageStatusBar.text"));
+        Timer statusTimer = new Timer(10000, new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent e) {
+                System.out.println("Tick");
+                jLabelStatusBar.setText(java.util.ResourceBundle.getBundle("Bundle").getString("JIconCreator.jLabelStatusBar.text"));
+            }
+        });
+        statusTimer.setInitialDelay(10000); // 10 seconds.
+        statusTimer.setRepeats(false);
+        statusTimer.restart();
     }//GEN-LAST:event_jButtonSaveActionPerformed
 
     /**
@@ -1069,6 +1092,8 @@ public class JIconCreatorGui extends javax.swing.JFrame {
     private javax.swing.Box.Filler fillerLargeV1;
     private javax.swing.Box.Filler fillerSmallH1;
     private javax.swing.Box.Filler fillerSmallH2;
+    private javax.swing.Box.Filler fillerSmallH3;
+    private javax.swing.Box.Filler fillerSmallH4;
     private javax.swing.JButton jButtonBrowseImage;
     private javax.swing.JButton jButtonChooseClipart;
     private javax.swing.JButton jButtonChooseClipartH;
@@ -1126,6 +1151,7 @@ public class JIconCreatorGui extends javax.swing.JFrame {
     private javax.swing.JLabel jLabelShapeImage;
     private javax.swing.JLabel jLabelShapeText;
     private javax.swing.JLabel jLabelStatusBar;
+    private javax.swing.JLabel jLabelStatusFileName;
     private javax.swing.JLabel jLabelText;
     private javax.swing.JLabel jLabelXhdpiI;
     private javax.swing.JLabel jLabelXhdpiL;
@@ -1170,6 +1196,7 @@ public class JIconCreatorGui extends javax.swing.JFrame {
     private javax.swing.JSplitPane jSplitPane;
     private javax.swing.JTabbedPane jTabbedPane;
     private javax.swing.JTextField jTextFieldPathImage;
+    private javax.swing.JTextField jTextFieldStatusFileName;
     private javax.swing.JTextField jTextFieldText;
     // End of variables declaration//GEN-END:variables
 
