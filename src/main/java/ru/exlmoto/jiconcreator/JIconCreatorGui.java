@@ -51,11 +51,10 @@ public class JIconCreatorGui extends javax.swing.JFrame {
                                           JRadioButton jRadioButtonNoneImage,
                                           JRadioButton jRadioButtonCircleImage,
                                           JLabel jLabelColorShowImageL) {
-        boolean currentScaling = false;
+        boolean currentScaling = jRadioButtonCenterImage.isSelected();
         jIconCreatorOptions.setTrim(jCheckBoxTrimImage.isSelected());
         jIconCreatorOptions.setPadding(jSliderPaddingImage.getValue());
 
-        currentScaling = jRadioButtonCenterImage.isSelected();
         if (jRadioButtonNoneImage.isSelected()) {
             currentShape = JIconCreatorOptions.SHAPE_NONE;
         } else if (jRadioButtonCircleImage.isSelected()) {
@@ -836,7 +835,7 @@ public class JIconCreatorGui extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButtonRandomImageLActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRandomImageLActionPerformed
-        jIconCreatorGuiHelper.imageTabBackColorRandomButton();
+        jIconCreatorGuiHelper.setRandomColor(jLabelColorShowImageL, true);
     }//GEN-LAST:event_jButtonRandomImageLActionPerformed
 
     private void jMenuItemExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemExitActionPerformed

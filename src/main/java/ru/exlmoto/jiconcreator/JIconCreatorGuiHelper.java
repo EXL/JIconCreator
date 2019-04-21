@@ -64,20 +64,6 @@ class JIconCreatorGuiHelper {
         return false;
     }
 
-    public void imageTabBackColorRandomButton() {
-        int bound = 255 + 1;
-
-        int red = new Random().nextInt(bound);
-        int green = new Random().nextInt(bound);
-        int blue = new Random().nextInt(bound);
-
-        jIconCreatorGui.getLabelColorShowImageL().setBackground(new Color(red, green, blue));
-
-        createAssetSetWizardState.background = new RGB(red, green, blue);
-
-        updatePreviewIcons();
-    }
-
     public void updatePreviewIcons() {
         int cnt = 0;
         Map<String, Map<String, BufferedImage>> categories =
@@ -139,5 +125,20 @@ class JIconCreatorGuiHelper {
                 e.printStackTrace();
             }
         }
+    }
+
+    public void setRandomColor(JLabel showColorLabel, boolean backColor) {
+        Color randomColor = new Color(
+                new Random().nextInt(256),
+                new Random().nextInt(256),
+                new Random().nextInt(256));
+
+        showColorLabel.setBackground(randomColor);
+        if (backColor) {
+            jIconCreatorOptions.setBackColor(randomColor);
+        } else {
+            jIconCreatorOptions.setForeColor(randomColor);
+        }
+        updatePreviewIcons();
     }
 }

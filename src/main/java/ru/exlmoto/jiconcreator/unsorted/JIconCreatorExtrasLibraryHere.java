@@ -221,7 +221,7 @@ public class JIconCreatorExtrasLibraryHere {
 
                 // RGB bg = mValues.background;
                 Color bg = jIconCreatorOptions.getBackColor();
-                int color = (bg.getRed() << 16) | (bg.getRed() << 8) | bg.getBlue();
+                int color = (bg.getRed() << 16) | (bg.getGreen() << 8) | bg.getBlue();
                 launcherOptions.backgroundColor = color;
 
                 // Flag which tells the generator iterator to include a web graphic
