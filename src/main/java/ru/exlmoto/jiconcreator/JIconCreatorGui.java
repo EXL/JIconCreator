@@ -25,6 +25,7 @@ public class JIconCreatorGui extends javax.swing.JFrame {
     JIconCreatorOptions jIconCreatorOptions = null;
 
     Timer statusTimer = null;
+    JFileChooser jFileChooser = null;
 
     private void updateOptionsFromForm() {
         int currentShape = JIconCreatorOptions.SHAPE_SQUARE;
@@ -95,6 +96,7 @@ public class JIconCreatorGui extends javax.swing.JFrame {
                         File droppedFile = (File) droppedFiles.get(droppedFiles.size() - 1);
                         boolean isImageFile = ImageFilter.isImageFile(droppedFile);
                         if (isImageFile) {
+                            jIconCreatorOptions.setBigImage(jIconCreatorOptions.isImageBigSize(droppedFile));
                             jTextFieldPathImage.setText(droppedFile.getAbsolutePath());
                             jIconCreatorOptions.setImageFilePath(jTextFieldPathImage.getText());
                             jIconCreatorGuiHelper.updatePreviewIcons();
@@ -118,6 +120,13 @@ public class JIconCreatorGui extends javax.swing.JFrame {
         statusTimer.setRepeats(false);
     }
 
+    private void registerOpenFileDialog() {
+        jFileChooser = new JFileChooser();
+        jFileChooser.setFileFilter(new ImageFilter());
+        jFileChooser.setAccessory(new ImagePreview(jFileChooser));
+        jFileChooser.setAcceptAllFileFilterUsed(false);
+    }
+
     /**
      * Creates new form JIconCreator
      */
@@ -127,6 +136,7 @@ public class JIconCreatorGui extends javax.swing.JFrame {
         initComponents();
         registerDropOnTextField();
         registerStatusTimer();
+        registerOpenFileDialog();
 
         jIconCreatorGuiHelper = new JIconCreatorGuiHelper(jIconCreatorOptions,this);
         jIconCreatorGuiHelper.generateStyleMenuItems();
@@ -364,7 +374,6 @@ public class JIconCreatorGui extends javax.swing.JFrame {
             }
         });
 
-        jSliderPaddingImage.setMinimum(-100);
         jSliderPaddingImage.setValue(15);
         jSliderPaddingImage.setMinimumSize(new java.awt.Dimension(237, 16));
         jSliderPaddingImage.setPreferredSize(new java.awt.Dimension(237, 16));
@@ -544,7 +553,6 @@ public class JIconCreatorGui extends javax.swing.JFrame {
 
         jLabelPaddingClipart.setText(bundle.getString("JIconCreator.jLabelPaddingClipart.text")); // NOI18N
 
-        jSliderPaddingClipart.setMinimum(-100);
         jSliderPaddingClipart.setValue(15);
         jSliderPaddingClipart.setMinimumSize(new java.awt.Dimension(237, 16));
         jSliderPaddingClipart.setPreferredSize(new java.awt.Dimension(237, 16));
@@ -725,7 +733,6 @@ public class JIconCreatorGui extends javax.swing.JFrame {
 
         jLabelPaddingText.setText(bundle.getString("JIconCreator.jLabelPaddingText.text")); // NOI18N
 
-        jSliderPaddingText.setMinimum(-100);
         jSliderPaddingText.setValue(15);
         jSliderPaddingText.setMinimumSize(new java.awt.Dimension(237, 16));
         jSliderPaddingText.setPreferredSize(new java.awt.Dimension(237, 16));
@@ -1037,12 +1044,10 @@ public class JIconCreatorGui extends javax.swing.JFrame {
 
     private void jButtonBrowseImageActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonBrowseImageActionPerformed
         String title = java.util.ResourceBundle.getBundle("Bundle").getString("JIconCreator.openImageDialog.text"); // NOI18N
-        JFileChooser jFileChooser = new JFileChooser();
-        jFileChooser.setFileFilter(new ImageFilter());
-        jFileChooser.setAccessory(new ImagePreview(jFileChooser));
-        jFileChooser.setAcceptAllFileFilterUsed(false);
         if (jFileChooser.showDialog(this, title) == JFileChooser.APPROVE_OPTION) {
-            jTextFieldPathImage.setText(jFileChooser.getSelectedFile().getAbsolutePath());
+            File imageFile = jFileChooser.getSelectedFile();
+            jTextFieldPathImage.setText(imageFile.getAbsolutePath());
+            jIconCreatorOptions.setBigImage(jIconCreatorOptions.isImageBigSize(imageFile));
             jIconCreatorOptions.setImageFilePath(jTextFieldPathImage.getText());
             jIconCreatorGuiHelper.updatePreviewIcons();
         }
@@ -1063,8 +1068,15 @@ public class JIconCreatorGui extends javax.swing.JFrame {
     private void jSliderPaddingImageStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jSliderPaddingImageStateChanged
         int percent = jSliderPaddingImage.getValue();
         jLabelPercentsImage.setText(percent + "%");
-        jIconCreatorOptions.setPadding(percent);
-        jIconCreatorGuiHelper.updatePreviewIcons();
+        JSlider slider = (JSlider) evt.getSource();
+        boolean imageIsBig = jIconCreatorOptions.isBigImage();
+        if (!slider.getValueIsAdjusting() && imageIsBig) {
+            jIconCreatorOptions.setPadding(percent);
+            jIconCreatorGuiHelper.updatePreviewIcons();
+        } else if (!imageIsBig) {
+            jIconCreatorOptions.setPadding(percent);
+            jIconCreatorGuiHelper.updatePreviewIcons();
+        }
     }//GEN-LAST:event_jSliderPaddingImageStateChanged
 
     private void jButtonSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSaveActionPerformed

@@ -1,6 +1,10 @@
 package ru.exlmoto.jiconcreator;
 
+import javax.imageio.ImageIO;
 import java.awt.Color;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
 
 public class JIconCreatorOptions {
     public static final int PREVIEW_M = 0;
@@ -8,6 +12,10 @@ public class JIconCreatorOptions {
     public static final int PREVIEW_XH = 2;
     public static final int PREVIEW_XXH = 3;
     public static final int PREVIEW_WEB = 4;
+
+    private final int BIG_SIZE_PIX = 300;
+
+    private boolean bigImage = false;
 
     public static final int ICON_IMAGE = 0;
     public static final int ICON_CLIPART = 1;
@@ -37,6 +45,16 @@ public class JIconCreatorOptions {
 
     // TODO: ????
     private String font = "";
+
+    public boolean isImageBigSize(File imageFile) {
+        try {
+            BufferedImage image = ImageIO.read(imageFile);
+            return ((image.getHeight() > BIG_SIZE_PIX) || (image.getWidth() > BIG_SIZE_PIX));
+        } catch (IOException e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
 
     public int getIconType() {
         return iconType;
@@ -124,5 +142,13 @@ public class JIconCreatorOptions {
 
     public void setFont(String font) {
         this.font = font;
+    }
+
+    public boolean isBigImage() {
+        return bigImage;
+    }
+
+    public void setBigImage(boolean bigImage) {
+        this.bigImage = bigImage;
     }
 }

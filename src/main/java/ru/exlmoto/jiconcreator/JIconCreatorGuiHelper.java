@@ -3,16 +3,19 @@ package ru.exlmoto.jiconcreator;
 import ru.exlmoto.jiconcreator.unsorted.CreateAssetSetWizardState;
 import ru.exlmoto.jiconcreator.unsorted.JIconCreatorExtrasLibraryHere;
 
+import javax.imageio.ImageIO;
 import javax.swing.*;
 import javax.swing.UIManager.LookAndFeelInfo;
-import javax.swing.filechooser.FileFilter;
-import javax.swing.filechooser.FileView;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
 import java.io.File;
-import java.util.*;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Random;
 
 public class JIconCreatorGuiHelper {
     private CreateAssetSetWizardState createAssetSetWizardState = null;
@@ -20,7 +23,7 @@ public class JIconCreatorGuiHelper {
     private JIconCreatorOptions jIconCreatorOptions = null;
 
     public JIconCreatorGuiHelper(JIconCreatorOptions aIconCreatorOptions,
-                          JIconCreatorGui aIconCreatorGui) {
+                                 JIconCreatorGui aIconCreatorGui) {
         jIconCreatorOptions = aIconCreatorOptions;
         jIconCreatorGui = aIconCreatorGui;
 
@@ -29,11 +32,11 @@ public class JIconCreatorGuiHelper {
 
     /************/
     public static boolean wtf(int cnt,
-                       Map<String, Map<String, BufferedImage>> categories,
-                       JLabel labelMdpiImage,
-                       JLabel labelHpdiImage,
-                       JLabel labelXhdpiImage,
-                       JLabel labelXxhdpiImage) {
+                              Map<String, Map<String, BufferedImage>> categories,
+                              JLabel labelMdpiImage,
+                              JLabel labelHpdiImage,
+                              JLabel labelXhdpiImage,
+                              JLabel labelXxhdpiImage) {
         for (Map<String, BufferedImage> previews : categories.values()) {
             for (Map.Entry<String, BufferedImage> entry : previews.entrySet()) {
                 BufferedImage image = entry.getValue();
@@ -80,7 +83,6 @@ public class JIconCreatorGuiHelper {
 
         return status;
     }
-
     /************/
 
     public void generateStyleMenuItems() {

@@ -117,6 +117,7 @@ public class JIconCreatorExtrasLibraryHere {
                 } catch (IOException ioe) {
                     //if (page != null) {
                         System.out.println("IOE Error: Fallback to Clipart Image");
+                        jIconCreatorOptions.setBigImage(true);
                         // page.setErrorMessage(ioe.getLocalizedMessage());
                     try {
                         sourceImage = GraphicGenerator.getClipartImage("android.png");
