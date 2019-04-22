@@ -159,6 +159,7 @@ public class JIconCreatorGui extends javax.swing.JFrame {
         buttonGroupScalingText = new javax.swing.ButtonGroup();
         buttonGroupShapeText = new javax.swing.ButtonGroup();
         buttonGroupStyles = new javax.swing.ButtonGroup();
+        buttonGroupScheme = new javax.swing.ButtonGroup();
         jSplitPane = new javax.swing.JSplitPane();
         jPanelPreview = new javax.swing.JPanel();
         jLabelMdpiL = new javax.swing.JLabel();
@@ -267,10 +268,15 @@ public class JIconCreatorGui extends javax.swing.JFrame {
         jMenuItemPreview = new javax.swing.JMenuItem();
         jSeparator1 = new javax.swing.JPopupMenu.Separator();
         jMenuItemSave = new javax.swing.JMenuItem();
-        jMenuItemSaveAs = new javax.swing.JMenuItem();
+        jMenuSaveAs = new javax.swing.JMenu();
+        jMenuItemSaDrawable = new javax.swing.JMenuItem();
+        jMenuItemSaMipmap = new javax.swing.JMenuItem();
         jSeparator2 = new javax.swing.JPopupMenu.Separator();
         jMenuItemExit = new javax.swing.JMenuItem();
         jMenuStyle = new javax.swing.JMenu();
+        jMenuScheme = new javax.swing.JMenu();
+        jRadioButtonMenuItemDrawable = new javax.swing.JRadioButtonMenuItem();
+        jRadioButtonMenuItemMipmap = new javax.swing.JRadioButtonMenuItem();
         jMenuHelp = new javax.swing.JMenu();
         jMenuItemAbout = new javax.swing.JMenuItem();
 
@@ -976,13 +982,19 @@ public class JIconCreatorGui extends javax.swing.JFrame {
         jMenuFile.add(jMenuItemPreview);
         jMenuFile.add(jSeparator1);
 
-        jMenuItemSave.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_S, java.awt.event.InputEvent.SHIFT_MASK | java.awt.event.InputEvent.CTRL_MASK));
+        jMenuItemSave.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_S, java.awt.event.InputEvent.CTRL_MASK));
         jMenuItemSave.setText(bundle.getString("JIconCreator.jMenuItemSave.text")); // NOI18N
         jMenuFile.add(jMenuItemSave);
 
-        jMenuItemSaveAs.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_S, java.awt.event.InputEvent.CTRL_MASK));
-        jMenuItemSaveAs.setText(bundle.getString("JIconCreator.jMenuItemSaveAs.text")); // NOI18N
-        jMenuFile.add(jMenuItemSaveAs);
+        jMenuSaveAs.setText(bundle.getString("JIconCreatorGui.jMenuSaveAs.text")); // NOI18N
+
+        jMenuItemSaDrawable.setText(bundle.getString("JIconCreatorGui.jMenuItemSaDrawable.text")); // NOI18N
+        jMenuSaveAs.add(jMenuItemSaDrawable);
+
+        jMenuItemSaMipmap.setText(bundle.getString("JIconCreatorGui.jMenuItemSaMipmap.text")); // NOI18N
+        jMenuSaveAs.add(jMenuItemSaMipmap);
+
+        jMenuFile.add(jMenuSaveAs);
         jMenuFile.add(jSeparator2);
 
         jMenuItemExit.setText(bundle.getString("JIconCreator.jMenuItemExit.text")); // NOI18N
@@ -997,6 +1009,19 @@ public class JIconCreatorGui extends javax.swing.JFrame {
 
         jMenuStyle.setText(bundle.getString("JIconCreator.jMenuStyle.text")); // NOI18N
         jMenuBar.add(jMenuStyle);
+
+        jMenuScheme.setText(bundle.getString("JIconCreatorGui.jMenuScheme.text")); // NOI18N
+
+        buttonGroupScheme.add(jRadioButtonMenuItemDrawable);
+        jRadioButtonMenuItemDrawable.setSelected(true);
+        jRadioButtonMenuItemDrawable.setText(bundle.getString("JIconCreatorGui.jRadioButtonMenuItemDrawable.text")); // NOI18N
+        jMenuScheme.add(jRadioButtonMenuItemDrawable);
+
+        buttonGroupScheme.add(jRadioButtonMenuItemMipmap);
+        jRadioButtonMenuItemMipmap.setText(bundle.getString("JIconCreatorGui.jRadioButtonMenuItemMipmap.text")); // NOI18N
+        jMenuScheme.add(jRadioButtonMenuItemMipmap);
+
+        jMenuBar.add(jMenuScheme);
 
         jMenuHelp.setText(bundle.getString("JIconCreator.jMenuHelp.text")); // NOI18N
 
@@ -1140,6 +1165,7 @@ public class JIconCreatorGui extends javax.swing.JFrame {
     private javax.swing.ButtonGroup buttonGroupScalingClipart;
     private javax.swing.ButtonGroup buttonGroupScalingImage;
     private javax.swing.ButtonGroup buttonGroupScalingText;
+    private javax.swing.ButtonGroup buttonGroupScheme;
     private javax.swing.ButtonGroup buttonGroupShapeClipart;
     private javax.swing.ButtonGroup buttonGroupShapeImage;
     private javax.swing.ButtonGroup buttonGroupShapeText;
@@ -1223,8 +1249,11 @@ public class JIconCreatorGui extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItemAbout;
     private javax.swing.JMenuItem jMenuItemExit;
     private javax.swing.JMenuItem jMenuItemPreview;
+    private javax.swing.JMenuItem jMenuItemSaDrawable;
+    private javax.swing.JMenuItem jMenuItemSaMipmap;
     private javax.swing.JMenuItem jMenuItemSave;
-    private javax.swing.JMenuItem jMenuItemSaveAs;
+    private javax.swing.JMenu jMenuSaveAs;
+    private javax.swing.JMenu jMenuScheme;
     private javax.swing.JMenu jMenuStyle;
     private javax.swing.JPanel jPanelClipart;
     private javax.swing.JPanel jPanelGeneral;
@@ -1242,6 +1271,8 @@ public class JIconCreatorGui extends javax.swing.JFrame {
     private javax.swing.JRadioButton jRadioButtonCropClipart;
     private javax.swing.JRadioButton jRadioButtonCropImage;
     private javax.swing.JRadioButton jRadioButtonCropText;
+    private javax.swing.JRadioButtonMenuItem jRadioButtonMenuItemDrawable;
+    private javax.swing.JRadioButtonMenuItem jRadioButtonMenuItemMipmap;
     private javax.swing.JRadioButton jRadioButtonNoneClipart;
     private javax.swing.JRadioButton jRadioButtonNoneImage;
     private javax.swing.JRadioButton jRadioButtonNoneText;

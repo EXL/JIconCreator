@@ -45,7 +45,6 @@ public class JIconCreatorOptions {
     private Color backColor = new Color(0xFF, 0xFF, 0xFF);
     private Color foreColor = new Color(0x00, 0x00, 0x00);
 
-    // TODO: ????
     private String font = "Default";
 
     public boolean isImageBigSize(File imageFile) {
