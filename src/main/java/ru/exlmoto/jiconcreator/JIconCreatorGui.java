@@ -63,6 +63,16 @@ public class JIconCreatorGui extends javax.swing.JFrame {
         return status;
     }
     ////////////////////// ***** RECAT **** ////
+
+    private void setColorByChooseButton(JLabel colorShowLabel, boolean backColor) {
+        String title = java.util.ResourceBundle.getBundle("Bundle").getString("JIconCreatorGui.colorDialogL.text"); // NOI18N
+        Color color = JColorChooser.showDialog(this, title, colorShowLabel.getBackground());
+        if (color != null) {
+            colorShowLabel.setBackground(color);
+            setColorToImage(color, backColor);
+        }
+    }
+
     public boolean isImageBigSize(File imageFile) {
         try {
             BufferedImage image = ImageIO.read(imageFile);
@@ -724,12 +734,22 @@ public class JIconCreatorGui extends javax.swing.JFrame {
 
         jCheckBoxTrimClipart.setSelected(true);
         jCheckBoxTrimClipart.setText(bundle.getString("JIconCreatorGui.jCheckBoxTrimClipart.text")); // NOI18N
+        jCheckBoxTrimClipart.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCheckBoxTrimClipartActionPerformed(evt);
+            }
+        });
 
         jLabelPaddingClipart.setText(bundle.getString("JIconCreatorGui.jLabelPaddingClipart.text")); // NOI18N
 
         jSliderPaddingClipart.setValue(15);
         jSliderPaddingClipart.setMinimumSize(new java.awt.Dimension(237, 16));
         jSliderPaddingClipart.setPreferredSize(new java.awt.Dimension(237, 16));
+        jSliderPaddingClipart.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                jSliderPaddingClipartStateChanged(evt);
+            }
+        });
 
         jLabelPercentsClipart.setText(bundle.getString("JIconCreatorGui.jLabelPercentsClipart.text")); // NOI18N
 
@@ -743,27 +763,62 @@ public class JIconCreatorGui extends javax.swing.JFrame {
         buttonGroupScalingClipart.add(jRadioButtonCropClipart);
         jRadioButtonCropClipart.setSelected(true);
         jRadioButtonCropClipart.setText(bundle.getString("JIconCreatorGui.jRadioButtonCropClipart.text")); // NOI18N
+        jRadioButtonCropClipart.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButtonCropClipartActionPerformed(evt);
+            }
+        });
 
         buttonGroupScalingClipart.add(jRadioButtonCenterClipart);
         jRadioButtonCenterClipart.setText(bundle.getString("JIconCreatorGui.jRadioButtonCenterClipart.text")); // NOI18N
+        jRadioButtonCenterClipart.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButtonCenterClipartActionPerformed(evt);
+            }
+        });
 
         jLabelShapeClipart.setText(bundle.getString("JIconCreatorGui.jLabelShapeClipart.text")); // NOI18N
 
         buttonGroupShapeClipart.add(jRadioButtonNoneClipart);
         jRadioButtonNoneClipart.setText(bundle.getString("JIconCreatorGui.jRadioButtonNoneClipart.text")); // NOI18N
+        jRadioButtonNoneClipart.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButtonNoneClipartActionPerformed(evt);
+            }
+        });
 
         buttonGroupShapeClipart.add(jRadioButtonSquareClipart);
         jRadioButtonSquareClipart.setSelected(true);
         jRadioButtonSquareClipart.setText(bundle.getString("JIconCreatorGui.jRadioButtonSquareClipart.text")); // NOI18N
+        jRadioButtonSquareClipart.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButtonSquareClipartActionPerformed(evt);
+            }
+        });
 
         buttonGroupShapeClipart.add(jRadioButtonCircleClipart);
         jRadioButtonCircleClipart.setText(bundle.getString("JIconCreatorGui.jRadioButtonCircleClipart.text")); // NOI18N
+        jRadioButtonCircleClipart.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButtonCircleClipartActionPerformed(evt);
+            }
+        });
 
         jLabelColorClipartL.setText(bundle.getString("JIconCreatorGui.jLabelColorClipartL.text")); // NOI18N
 
         jButtonChooseClipartL.setText(bundle.getString("JIconCreatorGui.jButtonChooseClipartL.text")); // NOI18N
+        jButtonChooseClipartL.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonChooseClipartLActionPerformed(evt);
+            }
+        });
 
         jButtonRandomClipartL.setText(bundle.getString("JIconCreatorGui.jButtonRandomClipartL.text")); // NOI18N
+        jButtonRandomClipartL.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonRandomClipartLActionPerformed(evt);
+            }
+        });
 
         jLabelColorShowClipartL.setBackground(new java.awt.Color(153, 153, 153));
         jLabelColorShowClipartL.setText(bundle.getString("JIconCreatorGui.jLabelColorShowClipartL.text")); // NOI18N
@@ -773,14 +828,34 @@ public class JIconCreatorGui extends javax.swing.JFrame {
         jLabelColorShowClipartL.setPreferredSize(new java.awt.Dimension(25, 25));
 
         jButtonChooseClipart.setText(bundle.getString("JIconCreatorGui.jButtonChooseClipart.text")); // NOI18N
+        jButtonChooseClipart.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonChooseClipartActionPerformed(evt);
+            }
+        });
 
         jButtonResetClipart.setText(bundle.getString("JIconCreatorGui.jButtonResetClipart.text")); // NOI18N
+        jButtonResetClipart.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonResetClipartActionPerformed(evt);
+            }
+        });
 
         jLabelColorClipartH.setText(bundle.getString("JIconCreatorGui.jLabelColorClipartH.text")); // NOI18N
 
         jButtonChooseClipartH.setText(bundle.getString("JIconCreatorGui.jButtonChooseClipartH.text")); // NOI18N
+        jButtonChooseClipartH.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonChooseClipartHActionPerformed(evt);
+            }
+        });
 
         jButtonRandomClipartH.setText(bundle.getString("JIconCreatorGui.jButtonRandomClipartH.text")); // NOI18N
+        jButtonRandomClipartH.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonRandomClipartHActionPerformed(evt);
+            }
+        });
 
         jLabelColorShowClipartH.setBackground(new java.awt.Color(255, 255, 153));
         jLabelColorShowClipartH.setText(bundle.getString("JIconCreatorGui.jLabelColorShowClipartH.text")); // NOI18N
@@ -793,6 +868,11 @@ public class JIconCreatorGui extends javax.swing.JFrame {
 
         jCheckBoxForeMaskClipart.setSelected(true);
         jCheckBoxForeMaskClipart.setText(bundle.getString("JIconCreatorGui.jCheckBoxForeMaskClipart.text")); // NOI18N
+        jCheckBoxForeMaskClipart.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCheckBoxForeMaskClipartActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanelClipartLayout = new javax.swing.GroupLayout(jPanelClipart);
         jPanelClipart.setLayout(jPanelClipartLayout);
@@ -1237,12 +1317,7 @@ public class JIconCreatorGui extends javax.swing.JFrame {
     }//GEN-LAST:event_jTabbedPaneStateChanged
 
     private void jButtonChooseImageLActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonChooseImageLActionPerformed
-        String title = java.util.ResourceBundle.getBundle("Bundle").getString("JIconCreatorGui.colorDialogL.text"); // NOI18N
-        Color color = JColorChooser.showDialog(this, title, jLabelColorShowImageL.getBackground());
-        if (color != null) {
-            jLabelColorShowImageL.setBackground(color);
-            setColorToImage(color, true);
-        }
+        setColorByChooseButton(jLabelColorShowImageL, true);
     }//GEN-LAST:event_jButtonChooseImageLActionPerformed
 
     private void jRadioButtonNoneImageActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonNoneImageActionPerformed
@@ -1349,6 +1424,77 @@ public class JIconCreatorGui extends javax.swing.JFrame {
     private void jMenuItemSaMipmapActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemSaMipmapActionPerformed
         saveFilesToDirectory(true);
     }//GEN-LAST:event_jMenuItemSaMipmapActionPerformed
+
+    private void jCheckBoxTrimClipartActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBoxTrimClipartActionPerformed
+        jIconCreatorOptions.setTrim(jCheckBoxTrimClipart.isSelected());
+        updatePreviewIcons();
+    }//GEN-LAST:event_jCheckBoxTrimClipartActionPerformed
+
+    private void jCheckBoxForeMaskClipartActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBoxForeMaskClipartActionPerformed
+        jIconCreatorOptions.setMask(jCheckBoxForeMaskClipart.isSelected());
+        updatePreviewIcons();
+    }//GEN-LAST:event_jCheckBoxForeMaskClipartActionPerformed
+
+    private void jSliderPaddingClipartStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jSliderPaddingClipartStateChanged
+        int percent = jSliderPaddingClipart.getValue();
+        jLabelPercentsClipart.setText(percent + "%");
+        JSlider slider = (JSlider) evt.getSource();
+        if (!slider.getValueIsAdjusting()) {
+            jIconCreatorOptions.setPadding(percent);
+            updatePreviewIcons();
+        }
+    }//GEN-LAST:event_jSliderPaddingClipartStateChanged
+
+    private void jRadioButtonCropClipartActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonCropClipartActionPerformed
+        jIconCreatorOptions.setCrop(false);
+        updatePreviewIcons();
+    }//GEN-LAST:event_jRadioButtonCropClipartActionPerformed
+
+    private void jRadioButtonCenterClipartActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonCenterClipartActionPerformed
+        jIconCreatorOptions.setCrop(true);
+        updatePreviewIcons();
+    }//GEN-LAST:event_jRadioButtonCenterClipartActionPerformed
+
+    private void jRadioButtonNoneClipartActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonNoneClipartActionPerformed
+        jIconCreatorOptions.setShapeType(JIconCreatorOptions.SHAPE_NONE);
+        updatePreviewIcons();
+    }//GEN-LAST:event_jRadioButtonNoneClipartActionPerformed
+
+    private void jRadioButtonSquareClipartActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonSquareClipartActionPerformed
+        jIconCreatorOptions.setShapeType(JIconCreatorOptions.SHAPE_SQUARE);
+        updatePreviewIcons();
+    }//GEN-LAST:event_jRadioButtonSquareClipartActionPerformed
+
+    private void jRadioButtonCircleClipartActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonCircleClipartActionPerformed
+        jIconCreatorOptions.setShapeType(JIconCreatorOptions.SHAPE_CIRCLE);
+        updatePreviewIcons();
+    }//GEN-LAST:event_jRadioButtonCircleClipartActionPerformed
+
+    private void jButtonChooseClipartLActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonChooseClipartLActionPerformed
+        setColorByChooseButton(jLabelColorShowClipartL, true);
+    }//GEN-LAST:event_jButtonChooseClipartLActionPerformed
+
+    private void jButtonRandomClipartLActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRandomClipartLActionPerformed
+        setRandomColor(jLabelColorShowClipartL, true);
+    }//GEN-LAST:event_jButtonRandomClipartLActionPerformed
+
+    private void jButtonChooseClipartHActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonChooseClipartHActionPerformed
+        setColorByChooseButton(jLabelColorShowClipartH, false);
+    }//GEN-LAST:event_jButtonChooseClipartHActionPerformed
+
+    private void jButtonRandomClipartHActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRandomClipartHActionPerformed
+        setRandomColor(jLabelColorShowClipartH, false);
+    }//GEN-LAST:event_jButtonRandomClipartHActionPerformed
+
+    private void jButtonChooseClipartActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonChooseClipartActionPerformed
+        // TODO add your handling code here:
+        System.out.println("STUB!");
+    }//GEN-LAST:event_jButtonChooseClipartActionPerformed
+
+    private void jButtonResetClipartActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonResetClipartActionPerformed
+        // TODO add your handling code here:
+        System.out.println("STUB!");
+    }//GEN-LAST:event_jButtonResetClipartActionPerformed
 
     /**
      * @param args the command line arguments

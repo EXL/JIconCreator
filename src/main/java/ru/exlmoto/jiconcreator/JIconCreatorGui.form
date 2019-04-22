@@ -886,6 +886,9 @@
                           <ResourceString bundle="Bundle.properties" key="JIconCreatorGui.jCheckBoxTrimClipart.text" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
                         </Property>
                       </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jCheckBoxTrimClipartActionPerformed"/>
+                      </Events>
                     </Component>
                     <Component class="javax.swing.JLabel" name="jLabelPaddingClipart">
                       <Properties>
@@ -904,6 +907,9 @@
                           <Dimension value="[237, 16]"/>
                         </Property>
                       </Properties>
+                      <Events>
+                        <EventHandler event="stateChanged" listener="javax.swing.event.ChangeListener" parameters="javax.swing.event.ChangeEvent" handler="jSliderPaddingClipartStateChanged"/>
+                      </Events>
                     </Component>
                     <Component class="javax.swing.JLabel" name="jLabelPercentsClipart">
                       <Properties>
@@ -945,6 +951,9 @@
                           <ResourceString bundle="Bundle.properties" key="JIconCreatorGui.jRadioButtonCropClipart.text" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
                         </Property>
                       </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jRadioButtonCropClipartActionPerformed"/>
+                      </Events>
                     </Component>
                     <Component class="javax.swing.JRadioButton" name="jRadioButtonCenterClipart">
                       <Properties>
@@ -955,6 +964,9 @@
                           <ResourceString bundle="Bundle.properties" key="JIconCreatorGui.jRadioButtonCenterClipart.text" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
                         </Property>
                       </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jRadioButtonCenterClipartActionPerformed"/>
+                      </Events>
                     </Component>
                     <Component class="javax.swing.JLabel" name="jLabelShapeClipart">
                       <Properties>
@@ -972,6 +984,9 @@
                           <ResourceString bundle="Bundle.properties" key="JIconCreatorGui.jRadioButtonNoneClipart.text" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
                         </Property>
                       </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jRadioButtonNoneClipartActionPerformed"/>
+                      </Events>
                     </Component>
                     <Component class="javax.swing.JRadioButton" name="jRadioButtonSquareClipart">
                       <Properties>
@@ -983,6 +998,9 @@
                           <ResourceString bundle="Bundle.properties" key="JIconCreatorGui.jRadioButtonSquareClipart.text" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
                         </Property>
                       </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jRadioButtonSquareClipartActionPerformed"/>
+                      </Events>
                     </Component>
                     <Component class="javax.swing.JRadioButton" name="jRadioButtonCircleClipart">
                       <Properties>
@@ -993,6 +1011,9 @@
                           <ResourceString bundle="Bundle.properties" key="JIconCreatorGui.jRadioButtonCircleClipart.text" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
                         </Property>
                       </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jRadioButtonCircleClipartActionPerformed"/>
+                      </Events>
                     </Component>
                     <Component class="javax.swing.JLabel" name="jLabelColorClipartL">
                       <Properties>
@@ -1007,6 +1028,9 @@
                           <ResourceString bundle="Bundle.properties" key="JIconCreatorGui.jButtonChooseClipartL.text" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
                         </Property>
                       </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonChooseClipartLActionPerformed"/>
+                      </Events>
                     </Component>
                     <Component class="javax.swing.JButton" name="jButtonRandomClipartL">
                       <Properties>
@@ -1014,6 +1038,9 @@
                           <ResourceString bundle="Bundle.properties" key="JIconCreatorGui.jButtonRandomClipartL.text" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
                         </Property>
                       </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonRandomClipartLActionPerformed"/>
+                      </Events>
                     </Component>
                     <Component class="javax.swing.JLabel" name="jLabelColorShowClipartL">
                       <Properties>
@@ -1041,6 +1068,9 @@
                           <ResourceString bundle="Bundle.properties" key="JIconCreatorGui.jButtonChooseClipart.text" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
                         </Property>
                       </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonChooseClipartActionPerformed"/>
+                      </Events>
                     </Component>
                     <Component class="javax.swing.JButton" name="jButtonResetClipart">
                       <Properties>
@@ -1048,6 +1078,9 @@
                           <ResourceString bundle="Bundle.properties" key="JIconCreatorGui.jButtonResetClipart.text" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
                         </Property>
                       </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonResetClipartActionPerformed"/>
+                      </Events>
                     </Component>
                     <Component class="javax.swing.JLabel" name="jLabelColorClipartH">
                       <Properties>
@@ -1062,6 +1095,9 @@
                           <ResourceString bundle="Bundle.properties" key="JIconCreatorGui.jButtonChooseClipartH.text" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
                         </Property>
                       </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonChooseClipartHActionPerformed"/>
+                      </Events>
                     </Component>
                     <Component class="javax.swing.JButton" name="jButtonRandomClipartH">
                       <Properties>
@@ -1069,6 +1105,9 @@
                           <ResourceString bundle="Bundle.properties" key="JIconCreatorGui.jButtonRandomClipartH.text" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
                         </Property>
                       </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonRandomClipartHActionPerformed"/>
+                      </Events>
                     </Component>
                     <Component class="javax.swing.JLabel" name="jLabelColorShowClipartH">
                       <Properties>
@@ -1104,6 +1143,9 @@
                           <ResourceString bundle="Bundle.properties" key="JIconCreatorGui.jCheckBoxForeMaskClipart.text" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
                         </Property>
                       </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jCheckBoxForeMaskClipartActionPerformed"/>
+                      </Events>
                     </Component>
                   </SubComponents>
                 </Container>
