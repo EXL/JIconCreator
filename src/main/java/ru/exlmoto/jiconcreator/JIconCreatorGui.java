@@ -203,10 +203,10 @@ public class JIconCreatorGui extends javax.swing.JFrame {
                 try {
                     event.acceptDrop(DnDConstants.ACTION_COPY);
                     Object data = event.getTransferable().getTransferData(DataFlavor.javaFileListFlavor);
-                    if (data instanceof ArrayList) {
+                    if (data instanceof List) {
                         List<?> droppedFiles = (List<?>) data;
-
                         File droppedFile = (File) droppedFiles.get(droppedFiles.size() - 1);
+
                         boolean isImageFile = ImageFilter.isImageFile(droppedFile);
                         if (isImageFile) {
                             jIconCreatorOptions.setBigImage(isImageBigSize(droppedFile));
@@ -266,12 +266,6 @@ public class JIconCreatorGui extends javax.swing.JFrame {
         }
 
         for (final JRadioButtonMenuItem menuItem : styleMenuItems) {
-            if (menuItem.getText().equals("Windows") && isWindows) {
-                menuItem.setSelected(true);
-            } else if (UIManager.getLookAndFeel().getName().equals(menuItem.getText())) {
-                menuItem.setSelected(true);
-            }
-
             menuItem.addActionListener(new ActionListener() {
                 public void actionPerformed(ActionEvent event) {
                     try {
@@ -285,6 +279,12 @@ public class JIconCreatorGui extends javax.swing.JFrame {
 
             buttonGroupStyles.add(menuItem);
             jMenuStyle.add(menuItem);
+
+            if (menuItem.getText().equals("Windows") && isWindows) {
+                menuItem.setSelected(true);
+            } else if (UIManager.getLookAndFeel().getName().equals(menuItem.getText())) {
+                menuItem.setSelected(true);
+            }
         }
 
         if (isWindows) {
