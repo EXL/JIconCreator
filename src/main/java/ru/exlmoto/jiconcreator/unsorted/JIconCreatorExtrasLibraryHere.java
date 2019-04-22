@@ -340,7 +340,7 @@ public class JIconCreatorExtrasLibraryHere {
 
                 File file = null;
                 if (!saveToPath) {
-                    file = new File(fileName + "_" + String.valueOf(cnt) + ".png");
+                    file = new File(fileName + String.valueOf(cnt) + ".png");
                 } else {
                     Path dpiPath = Paths.get(directories[cnt], fileName + ".png");
                     file = new File(dpiPath.toString());
