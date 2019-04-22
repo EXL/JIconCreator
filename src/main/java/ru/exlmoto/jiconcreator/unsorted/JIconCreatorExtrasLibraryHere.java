@@ -12,6 +12,7 @@ import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.*;
 import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.Collections;
 import java.util.LinkedHashMap;
 import java.util.Map;
@@ -20,6 +21,7 @@ import static java.awt.image.BufferedImage.TYPE_INT_ARGB;
 
 public class JIconCreatorExtrasLibraryHere {
 
+    // TODO: PNG :)
     private final static String DEFAULT_LAUNCHER_ICON = "test.png";
 
     /*
@@ -304,6 +306,27 @@ public class JIconCreatorExtrasLibraryHere {
                                      String path,
                                      boolean mipmap
                                      /*@Nullable WizardPage page*/) {
+
+        boolean saveToPath = false;
+        String[] directories = new String[JIconCreatorOptions.DPIS.length];
+        if (path != null) {
+            saveToPath = true;
+            String directory = (mipmap) ? "mipmap-" : "drawable-";
+            int failed = 0, cnt = 0;
+            for (String dpi : JIconCreatorOptions.DPIS) {
+                Path dpiPath = Paths.get(path, directory + dpi);
+                String dir = dpiPath.toString();
+                directories[cnt] = dir;
+                boolean status = new File(dir).mkdir();
+                if (!status) {
+                    failed++;
+                }
+                cnt++;
+            }
+            if (failed != 0) {
+                return false;
+            }
+        }
         // Generate the custom icons
         Map<String, Map<String, BufferedImage>> categories = generateImages(values, jIconCreatorOptions, previewOnly);
         int cnt = 0;
@@ -315,7 +338,13 @@ public class JIconCreatorExtrasLibraryHere {
                 //IPath dest = new Path(relativePath);
                 //IFile file = newProject.getFile(dest);
 
-                File file = new File(fileName + "_" + String.valueOf(cnt) + ".png");
+                File file = null;
+                if (!saveToPath) {
+                    file = new File(fileName + "_" + String.valueOf(cnt) + ".png");
+                } else {
+                    Path dpiPath = Paths.get(directories[cnt], fileName + ".png");
+                    file = new File(dpiPath.toString());
+                }
                 cnt++;
 
                 // In case template already created icons (should remove that)

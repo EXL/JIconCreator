@@ -13,6 +13,8 @@ public class JIconCreatorOptions {
     public static final int PREVIEW_XXH = 3;
     public static final int PREVIEW_WEB = 4;
 
+    public static final String[] DPIS = { "mdpi", "hdpi", "xhdpi", "xxdpi", "xxxdpi", "web" };
+
     private final int BIG_SIZE_PIX = 300;
 
     private boolean bigImage = false;

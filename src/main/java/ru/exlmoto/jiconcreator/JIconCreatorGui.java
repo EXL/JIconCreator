@@ -1224,7 +1224,7 @@ public class JIconCreatorGui extends javax.swing.JFrame {
     private void saveFilesToDirectory(boolean mipmap) {
         String title = java.util.ResourceBundle.getBundle("Bundle").getString("JIconCreator.openImageDialogDir.text"); // NOI18N
         if (jDirectoryChooser.showDialog(this, title) == JFileChooser.APPROVE_OPTION) {
-            saveFilesAction(jTextFieldStatusFileName.getText(), jDirectoryChooser.getCurrentDirectory().getAbsolutePath(), mipmap);
+            saveFilesAction(jTextFieldStatusFileName.getText(), jDirectoryChooser.getSelectedFile().getAbsolutePath(), mipmap);
         }
     }
 
