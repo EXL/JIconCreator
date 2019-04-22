@@ -265,6 +265,7 @@ public class JIconCreatorExtrasLibraryHere {
         }
 
         options.sourceImage = sourceImage;
+        options.foreMask = jIconCreatorOptions.isMask();
 
         /*
         IProject project = mValues.project;

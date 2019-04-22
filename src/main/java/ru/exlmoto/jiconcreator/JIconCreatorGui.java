@@ -35,14 +35,14 @@ public class JIconCreatorGui extends javax.swing.JFrame {
             case JIconCreatorOptions.ICON_IMAGE: {
                 jIconCreatorOptions.setIconType(JIconCreatorOptions.ICON_IMAGE);
                 jIconCreatorOptions.setImageFilePath(jTextFieldPathImage.getText());
-                updateOptionsFromFormAux(currentShape, jCheckBoxTrimImage, jSliderPaddingImage,
+                updateOptionsFromFormAux(currentShape, jCheckBoxTrimImage, jCheckBoxForeMaskImage, jSliderPaddingImage,
                         jRadioButtonCenterImage, jRadioButtonNoneImage, jRadioButtonCircleImage, jLabelColorShowImageL);
                 break;
             }
             case JIconCreatorOptions.ICON_CLIPART: {
                 jIconCreatorOptions.setIconType(JIconCreatorOptions.ICON_CLIPART);
                 jIconCreatorOptions.setClipartName(jLabelNameClipart.getText());
-                updateOptionsFromFormAux(currentShape, jCheckBoxTrimClipart, jSliderPaddingClipart,
+                updateOptionsFromFormAux(currentShape, jCheckBoxTrimClipart, jCheckBoxForeMaskClipart, jSliderPaddingClipart,
                         jRadioButtonCenterClipart, jRadioButtonNoneClipart, jRadioButtonCircleClipart, jLabelColorShowClipartL);
                 jIconCreatorOptions.setForeColor(jLabelColorShowClipartH.getBackground());
                 break;
@@ -50,7 +50,7 @@ public class JIconCreatorGui extends javax.swing.JFrame {
             case JIconCreatorOptions.ICON_TEXT: {
                 jIconCreatorOptions.setIconType(JIconCreatorOptions.ICON_TEXT);
                 jIconCreatorOptions.setTextString(jTextFieldText.getText());
-                updateOptionsFromFormAux(currentShape, jCheckBoxTrimText, jSliderPaddingText,
+                updateOptionsFromFormAux(currentShape, jCheckBoxTrimText, jCheckBoxForeMaskText, jSliderPaddingText,
                         jRadioButtonCenterText, jRadioButtonNoneText, jRadioButtonCircleText, jLabelColorShowTextL);
                 jIconCreatorOptions.setForeColor(jLabelColorShowTextH.getBackground());
                 
@@ -62,6 +62,7 @@ public class JIconCreatorGui extends javax.swing.JFrame {
 
     private void updateOptionsFromFormAux(int currentShape,
                                           JCheckBox jCheckBoxTrimImage,
+                                          JCheckBox jCheckBoxForeMaskImage,
                                           JSlider jSliderPaddingImage,
                                           JRadioButton jRadioButtonCenterImage,
                                           JRadioButton jRadioButtonNoneImage,
@@ -69,6 +70,7 @@ public class JIconCreatorGui extends javax.swing.JFrame {
                                           JLabel jLabelColorShowImageL) {
         boolean currentScaling = jRadioButtonCenterImage.isSelected();
         jIconCreatorOptions.setTrim(jCheckBoxTrimImage.isSelected());
+        jIconCreatorOptions.setMask(jCheckBoxForeMaskImage.isSelected());
         jIconCreatorOptions.setPadding(jSliderPaddingImage.getValue());
 
         if (jRadioButtonNoneImage.isSelected()) {
@@ -465,6 +467,11 @@ public class JIconCreatorGui extends javax.swing.JFrame {
 
         jCheckBoxForeMaskImage.setSelected(true);
         jCheckBoxForeMaskImage.setText(bundle.getString("JIconCreatorGui.jCheckBoxForeMaskImage.text")); // NOI18N
+        jCheckBoxForeMaskImage.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCheckBoxForeMaskImageActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanelImageLayout = new javax.swing.GroupLayout(jPanelImage);
         jPanelImage.setLayout(jPanelImageLayout);
@@ -1111,6 +1118,11 @@ public class JIconCreatorGui extends javax.swing.JFrame {
         jLabelStatusBar.setText(statusText);
         statusTimer.restart();
     }//GEN-LAST:event_jButtonSaveActionPerformed
+
+    private void jCheckBoxForeMaskImageActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBoxForeMaskImageActionPerformed
+        jIconCreatorOptions.setMask(jCheckBoxForeMaskImage.isSelected());
+        jIconCreatorGuiHelper.updatePreviewIcons();
+    }//GEN-LAST:event_jCheckBoxForeMaskImageActionPerformed
 
     /**
      * @param args the command line arguments

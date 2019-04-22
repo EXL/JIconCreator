@@ -65,6 +65,8 @@ public abstract class GraphicGenerator {
 
         /** Whether the icon should be written out to the mipmap folder instead of drawable */
         public boolean mipmap;
+
+        public boolean foreMask = true;
     }
 
     /** Shapes that can be used for icon backgrounds */

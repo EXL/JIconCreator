@@ -35,6 +35,8 @@ public class JIconCreatorOptions {
     private String textString = "aA";
 
     private boolean trim = true;
+
+    private boolean mask = true;
     private int padding = 15;
 
     private boolean crop = false;
@@ -150,5 +152,13 @@ public class JIconCreatorOptions {
 
     public void setBigImage(boolean bigImage) {
         this.bigImage = bigImage;
+    }
+
+    public boolean isMask() {
+        return mask;
+    }
+
+    public void setMask(boolean mask) {
+        this.mask = mask;
     }
 }

@@ -132,7 +132,7 @@ public class LauncherIconGenerator extends GraphicGenerator {
 
         g2.drawImage(tempImage2, 0, 0, null);
         g.drawImage(tempImage, 0, 0, null);
-        if (foreImage != null) {
+        if (foreImage != null && options.foreMask) {
             g.drawImage(foreImage, 0, 0, null);
         }
 
