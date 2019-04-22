@@ -22,6 +22,8 @@ public class JIconCreatorGui extends javax.swing.JFrame {
     JIconCreatorGuiHelper jIconCreatorGuiHelper = null;
     JIconCreatorOptions jIconCreatorOptions = null;
 
+    Timer statusTimer = null;
+
     private void updateOptionsFromForm() {
         int currentShape = JIconCreatorOptions.SHAPE_SQUARE;
 
@@ -104,6 +106,16 @@ public class JIconCreatorGui extends javax.swing.JFrame {
         });
     }
 
+    private void registerStatusTimer() {
+        statusTimer = new Timer(10000, new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent e) {
+                jLabelStatusBar.setText(java.util.ResourceBundle.getBundle("Bundle").getString("JIconCreator.jLabelStatusBar.text"));
+            }
+        });
+        statusTimer.setInitialDelay(10000); // 10 seconds.
+        statusTimer.setRepeats(false);
+    }
+
     /**
      * Creates new form JIconCreator
      */
@@ -112,6 +124,7 @@ public class JIconCreatorGui extends javax.swing.JFrame {
 
         initComponents();
         registerDropOnTextField();
+        registerStatusTimer();
 
         jIconCreatorGuiHelper = new JIconCreatorGuiHelper(jIconCreatorOptions,this);
         jIconCreatorGuiHelper.generateStyleMenuItems();
@@ -1055,14 +1068,6 @@ public class JIconCreatorGui extends javax.swing.JFrame {
     private void jButtonSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSaveActionPerformed
         jIconCreatorGuiHelper.saveImages(jTextFieldStatusFileName.getText(), null);
         jLabelStatusBar.setText(java.util.ResourceBundle.getBundle("Bundle").getString("JIconCreator.saveImageStatusBar.text"));
-        Timer statusTimer = new Timer(10000, new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent e) {
-                System.out.println("Tick");
-                jLabelStatusBar.setText(java.util.ResourceBundle.getBundle("Bundle").getString("JIconCreator.jLabelStatusBar.text"));
-            }
-        });
-        statusTimer.setInitialDelay(10000); // 10 seconds.
-        statusTimer.setRepeats(false);
         statusTimer.restart();
     }//GEN-LAST:event_jButtonSaveActionPerformed
 
