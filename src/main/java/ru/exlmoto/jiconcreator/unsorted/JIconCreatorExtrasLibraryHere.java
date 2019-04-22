@@ -301,7 +301,8 @@ public class JIconCreatorExtrasLibraryHere {
                                      JIconCreatorOptions jIconCreatorOptions,
                                      boolean previewOnly,
                                      String fileName,
-                                     String path
+                                     String path,
+                                     boolean mipmap
                                      /*@Nullable WizardPage page*/) {
         // Generate the custom icons
         Map<String, Map<String, BufferedImage>> categories = generateImages(values, jIconCreatorOptions, previewOnly);

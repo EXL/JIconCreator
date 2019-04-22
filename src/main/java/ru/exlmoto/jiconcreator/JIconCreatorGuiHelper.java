@@ -76,8 +76,8 @@ public class JIconCreatorGuiHelper {
         System.gc();
     }
 
-    public boolean saveImages(String fileName, String path) {
-        boolean status = JIconCreatorExtrasLibraryHere.generateIcons(createAssetSetWizardState, jIconCreatorOptions, false, fileName, path);
+    public boolean saveImages(String fileName, String path, boolean mipmap) {
+        boolean status = JIconCreatorExtrasLibraryHere.generateIcons(createAssetSetWizardState, jIconCreatorOptions, false, fileName, path, mipmap);
 
         System.gc();
 

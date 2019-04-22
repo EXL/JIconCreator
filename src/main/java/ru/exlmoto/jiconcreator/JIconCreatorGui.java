@@ -21,11 +21,14 @@ public class JIconCreatorGui extends javax.swing.JFrame {
 
     private final int DELAY_10S = 10000;
 
-    JIconCreatorGuiHelper jIconCreatorGuiHelper = null;
-    JIconCreatorOptions jIconCreatorOptions = null;
+    private JIconCreatorGuiHelper jIconCreatorGuiHelper = null;
+    private JIconCreatorOptions jIconCreatorOptions = null;
 
-    Timer statusTimer = null;
-    JFileChooser jFileChooser = null;
+    private Timer statusTimer = null;
+    private JFileChooser jFileChooser = null;
+    private JFileChooser jDirectoryChooser = null;
+
+    private boolean isMipmapScheme = false;
 
     private void updateOptionsFromForm() {
         int currentShape = JIconCreatorOptions.SHAPE_SQUARE;
@@ -128,6 +131,12 @@ public class JIconCreatorGui extends javax.swing.JFrame {
         jFileChooser.setAcceptAllFileFilterUsed(false);
     }
 
+    private void registerOpenDirectoryDialog() {
+        jDirectoryChooser = new JFileChooser();
+        jDirectoryChooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
+        jDirectoryChooser.setAcceptAllFileFilterUsed(false);
+    }
+
     /**
      * Creates new form JIconCreator
      */
@@ -138,6 +147,7 @@ public class JIconCreatorGui extends javax.swing.JFrame {
         registerDropOnTextField();
         registerStatusTimer();
         registerOpenFileDialog();
+        registerOpenDirectoryDialog();
 
         jIconCreatorGuiHelper = new JIconCreatorGuiHelper(jIconCreatorOptions,this);
         jIconCreatorGuiHelper.generateStyleMenuItems();
@@ -562,7 +572,7 @@ public class JIconCreatorGui extends javax.swing.JFrame {
                         .addComponent(jButtonChooseImageL)
                         .addComponent(jButtonRandomImageL)
                         .addComponent(jLabelColorImageL)))
-                .addContainerGap(284, Short.MAX_VALUE))
+                .addContainerGap(283, Short.MAX_VALUE))
         );
 
         jTabbedPane.addTab(bundle.getString("JIconCreator.jPanelImage.TabConstraints.tabTitle"), jPanelImage); // NOI18N
@@ -741,7 +751,7 @@ public class JIconCreatorGui extends javax.swing.JFrame {
                         .addComponent(jLabelColorClipartH)
                         .addComponent(jButtonChooseClipartH)
                         .addComponent(jButtonRandomClipartH)))
-                .addContainerGap(241, Short.MAX_VALUE))
+                .addContainerGap(240, Short.MAX_VALUE))
         );
 
         jTabbedPane.addTab(bundle.getString("JIconCreator.jPanelClipart.TabConstraints.tabTitle"), jPanelClipart); // NOI18N
@@ -880,7 +890,7 @@ public class JIconCreatorGui extends javax.swing.JFrame {
                         .addGap(6, 6, 6)
                         .addComponent(jLabelColorShowTextH, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jComboBoxFontText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(138, Short.MAX_VALUE))
+                .addContainerGap(97, Short.MAX_VALUE))
         );
         jPanelTextLayout.setVerticalGroup(
             jPanelTextLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -929,7 +939,7 @@ public class JIconCreatorGui extends javax.swing.JFrame {
                 .addGroup(jPanelTextLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabelFontText)
                     .addComponent(jComboBoxFontText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(199, Short.MAX_VALUE))
+                .addContainerGap(198, Short.MAX_VALUE))
         );
 
         jTabbedPane.addTab(bundle.getString("JIconCreator.jPanelText.TabConstraints.tabTitle"), jPanelText); // NOI18N
@@ -967,6 +977,11 @@ public class JIconCreatorGui extends javax.swing.JFrame {
         jPanelStatusBar.add(fillerSmallH2);
 
         jButtonSaveAs.setText(bundle.getString("JIconCreator.jButtonSaveAs.text")); // NOI18N
+        jButtonSaveAs.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonSaveAsActionPerformed(evt);
+            }
+        });
         jPanelStatusBar.add(jButtonSaveAs);
 
         jPanelGeneral.add(jPanelStatusBar);
@@ -984,14 +999,29 @@ public class JIconCreatorGui extends javax.swing.JFrame {
 
         jMenuItemSave.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_S, java.awt.event.InputEvent.CTRL_MASK));
         jMenuItemSave.setText(bundle.getString("JIconCreator.jMenuItemSave.text")); // NOI18N
+        jMenuItemSave.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItemSaveActionPerformed(evt);
+            }
+        });
         jMenuFile.add(jMenuItemSave);
 
         jMenuSaveAs.setText(bundle.getString("JIconCreatorGui.jMenuSaveAs.text")); // NOI18N
 
         jMenuItemSaDrawable.setText(bundle.getString("JIconCreatorGui.jMenuItemSaDrawable.text")); // NOI18N
+        jMenuItemSaDrawable.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItemSaDrawableActionPerformed(evt);
+            }
+        });
         jMenuSaveAs.add(jMenuItemSaDrawable);
 
         jMenuItemSaMipmap.setText(bundle.getString("JIconCreatorGui.jMenuItemSaMipmap.text")); // NOI18N
+        jMenuItemSaMipmap.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItemSaMipmapActionPerformed(evt);
+            }
+        });
         jMenuSaveAs.add(jMenuItemSaMipmap);
 
         jMenuFile.add(jMenuSaveAs);
@@ -1015,10 +1045,20 @@ public class JIconCreatorGui extends javax.swing.JFrame {
         buttonGroupScheme.add(jRadioButtonMenuItemDrawable);
         jRadioButtonMenuItemDrawable.setSelected(true);
         jRadioButtonMenuItemDrawable.setText(bundle.getString("JIconCreatorGui.jRadioButtonMenuItemDrawable.text")); // NOI18N
+        jRadioButtonMenuItemDrawable.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButtonMenuItemDrawableActionPerformed(evt);
+            }
+        });
         jMenuScheme.add(jRadioButtonMenuItemDrawable);
 
         buttonGroupScheme.add(jRadioButtonMenuItemMipmap);
         jRadioButtonMenuItemMipmap.setText(bundle.getString("JIconCreatorGui.jRadioButtonMenuItemMipmap.text")); // NOI18N
+        jRadioButtonMenuItemMipmap.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButtonMenuItemMipmapActionPerformed(evt);
+            }
+        });
         jMenuScheme.add(jRadioButtonMenuItemMipmap);
 
         jMenuBar.add(jMenuScheme);
@@ -1130,13 +1170,7 @@ public class JIconCreatorGui extends javax.swing.JFrame {
     }//GEN-LAST:event_jSliderPaddingImageStateChanged
 
     private void jButtonSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSaveActionPerformed
-        boolean status = jIconCreatorGuiHelper.saveImages(jTextFieldStatusFileName.getText(), null);
-        String statusText = java.util.ResourceBundle.getBundle("Bundle").getString("JIconCreator.saveImageStatusBarFail.text");
-        if (status) {
-            statusText = java.util.ResourceBundle.getBundle("Bundle").getString("JIconCreator.saveImageStatusBar.text");
-        }
-        jLabelStatusBar.setText(statusText);
-        statusTimer.restart();
+        saveFilesAction(jTextFieldStatusFileName.getText());
     }//GEN-LAST:event_jButtonSaveActionPerformed
 
     private void jCheckBoxForeMaskImageActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBoxForeMaskImageActionPerformed
@@ -1148,6 +1182,51 @@ public class JIconCreatorGui extends javax.swing.JFrame {
         jIconCreatorOptions.setFont((String) jComboBoxFontText.getSelectedItem());
         jIconCreatorGuiHelper.updatePreviewIcons();
     }//GEN-LAST:event_jComboBoxFontTextActionPerformed
+
+    private void jRadioButtonMenuItemDrawableActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonMenuItemDrawableActionPerformed
+        isMipmapScheme = false;
+    }//GEN-LAST:event_jRadioButtonMenuItemDrawableActionPerformed
+
+    private void jRadioButtonMenuItemMipmapActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonMenuItemMipmapActionPerformed
+        isMipmapScheme = true;
+    }//GEN-LAST:event_jRadioButtonMenuItemMipmapActionPerformed
+
+    private void jButtonSaveAsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSaveAsActionPerformed
+        saveFilesToDirectory(isMipmapScheme);
+    }//GEN-LAST:event_jButtonSaveAsActionPerformed
+
+    private void jMenuItemSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemSaveActionPerformed
+        saveFilesAction(jTextFieldStatusFileName.getText());
+    }//GEN-LAST:event_jMenuItemSaveActionPerformed
+
+    private void jMenuItemSaDrawableActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemSaDrawableActionPerformed
+        saveFilesToDirectory(false);
+    }//GEN-LAST:event_jMenuItemSaDrawableActionPerformed
+
+    private void jMenuItemSaMipmapActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemSaMipmapActionPerformed
+        saveFilesToDirectory(true);
+    }//GEN-LAST:event_jMenuItemSaMipmapActionPerformed
+
+    private void saveFilesAction(String fileName, String path, boolean mipmap) {
+        boolean status = jIconCreatorGuiHelper.saveImages(fileName, path, mipmap);
+        String statusText = java.util.ResourceBundle.getBundle("Bundle").getString("JIconCreator.saveImageStatusBarFail.text");
+        if (status) {
+            statusText = java.util.ResourceBundle.getBundle("Bundle").getString("JIconCreator.saveImageStatusBar.text");
+        }
+        jLabelStatusBar.setText(statusText);
+        statusTimer.restart();
+    }
+
+    private void saveFilesAction(String fileName) {
+        saveFilesAction(fileName, null, false);
+    }
+
+    private void saveFilesToDirectory(boolean mipmap) {
+        String title = java.util.ResourceBundle.getBundle("Bundle").getString("JIconCreator.openImageDialogDir.text"); // NOI18N
+        if (jDirectoryChooser.showDialog(this, title) == JFileChooser.APPROVE_OPTION) {
+            saveFilesAction(jTextFieldStatusFileName.getText(), jDirectoryChooser.getCurrentDirectory().getAbsolutePath(), mipmap);
+        }
+    }
 
     /**
      * @param args the command line arguments
