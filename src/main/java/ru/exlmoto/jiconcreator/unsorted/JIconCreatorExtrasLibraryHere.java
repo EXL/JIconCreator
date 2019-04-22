@@ -162,7 +162,8 @@ public class JIconCreatorExtrasLibraryHere {
                 TextRenderUtil.Options options = new TextRenderUtil.Options();
 
                 /// TODO: DROP THIS AND CHANGE TO FONT
-                options.font = mValues.getTextFont();
+                //options.font = mValues.getTextFont();
+                options.font = new Font(jIconCreatorOptions.getFont(), Font.BOLD, 512);
 
                 int color;
                 if (type.needsColors()) { // ALWAYS TRUE?????

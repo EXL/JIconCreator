@@ -1098,24 +1098,6 @@
                                       <Component id="jLabelColorShowTextL" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <Group type="102" alignment="0" attributes="0">
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="jButtonChooseTextH" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jButtonChooseFontText" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      </Group>
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Group type="102" attributes="0">
-                                              <EmptySpace max="-2" attributes="0"/>
-                                              <Component id="jButtonRandomTextH" min="-2" max="-2" attributes="0"/>
-                                              <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
-                                              <Component id="jLabelColorShowTextH" min="-2" max="-2" attributes="0"/>
-                                          </Group>
-                                          <Group type="102" alignment="0" attributes="0">
-                                              <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
-                                              <Component id="jLabelFontNameText" min="-2" max="-2" attributes="0"/>
-                                          </Group>
-                                      </Group>
-                                  </Group>
-                                  <Group type="102" alignment="0" attributes="0">
                                       <Group type="103" groupAlignment="1" attributes="0">
                                           <Group type="102" alignment="0" attributes="0">
                                               <Component id="jRadioButtonCropText" min="-2" max="-2" attributes="0"/>
@@ -1131,8 +1113,16 @@
                                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                       <Component id="jRadioButtonCircleText" min="-2" max="-2" attributes="0"/>
                                   </Group>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Component id="jButtonChooseTextH" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="jButtonRandomTextH" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
+                                      <Component id="jLabelColorShowTextH" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Component id="jComboBoxFontText" alignment="0" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace pref="104" max="32767" attributes="0"/>
+                              <EmptySpace pref="138" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
@@ -1191,10 +1181,9 @@
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="jLabelFontText" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jButtonChooseFontText" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabelFontNameText" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jComboBoxFontText" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace pref="198" max="32767" attributes="0"/>
+                              <EmptySpace pref="199" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
@@ -1422,20 +1411,6 @@
                         </Property>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JButton" name="jButtonChooseFontText">
-                      <Properties>
-                        <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
-                          <ResourceString bundle="Bundle.properties" key="JIconCreator.jButtonChooseFontText.text" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
-                        </Property>
-                      </Properties>
-                    </Component>
-                    <Component class="javax.swing.JLabel" name="jLabelFontNameText">
-                      <Properties>
-                        <Property name="text" type="java.lang.String" editor="org.netbeans.modules.i18n.form.FormI18nStringEditor">
-                          <ResourceString bundle="Bundle.properties" key="JIconCreator.jLabelFontNameText.text" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
-                        </Property>
-                      </Properties>
-                    </Component>
                     <Component class="javax.swing.JCheckBox" name="jCheckBoxForeMaskText">
                       <Properties>
                         <Property name="selected" type="boolean" value="true"/>
@@ -1443,6 +1418,21 @@
                           <ResourceString bundle="Bundle.properties" key="JIconCreatorGui.jCheckBoxForeMaskText.text" replaceFormat="java.util.ResourceBundle.getBundle(&quot;{bundleNameSlashes}&quot;).getString(&quot;{key}&quot;)"/>
                         </Property>
                       </Properties>
+                    </Component>
+                    <Component class="javax.swing.JComboBox" name="jComboBoxFontText">
+                      <Properties>
+                        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                          <StringArray count="1">
+                            <StringItem index="0" value="Default"/>
+                          </StringArray>
+                        </Property>
+                      </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jComboBoxFontTextActionPerformed"/>
+                      </Events>
+                      <AuxValues>
+                        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+                      </AuxValues>
                     </Component>
                   </SubComponents>
                 </Container>

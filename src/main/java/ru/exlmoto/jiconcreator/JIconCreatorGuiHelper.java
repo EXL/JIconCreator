@@ -83,6 +83,17 @@ public class JIconCreatorGuiHelper {
 
         return status;
     }
+
+    public void generateFontComboboxItems() {
+        GraphicsEnvironment graphicsEnvironment = GraphicsEnvironment.getLocalGraphicsEnvironment();
+        String[] fontArray = graphicsEnvironment.getAvailableFontFamilyNames();
+
+        for (String font : fontArray) {
+            jIconCreatorGui.getComboBoxFontText().addItem(font);
+        }
+        //JComboBox<String> box = new JComboBox<String>(array);
+        //box.setEditable(true);
+    }
     /************/
 
     public void generateStyleMenuItems() {

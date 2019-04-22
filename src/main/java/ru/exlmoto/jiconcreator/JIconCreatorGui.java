@@ -53,8 +53,7 @@ public class JIconCreatorGui extends javax.swing.JFrame {
                 updateOptionsFromFormAux(currentShape, jCheckBoxTrimText, jCheckBoxForeMaskText, jSliderPaddingText,
                         jRadioButtonCenterText, jRadioButtonNoneText, jRadioButtonCircleText, jLabelColorShowTextL);
                 jIconCreatorOptions.setForeColor(jLabelColorShowTextH.getBackground());
-                
-                jIconCreatorOptions.setFont(jLabelFontNameText.getText());
+                jIconCreatorOptions.setFont((String) jComboBoxFontText.getSelectedItem());
                 break;
             }
         }
@@ -142,6 +141,7 @@ public class JIconCreatorGui extends javax.swing.JFrame {
 
         jIconCreatorGuiHelper = new JIconCreatorGuiHelper(jIconCreatorOptions,this);
         jIconCreatorGuiHelper.generateStyleMenuItems();
+        jIconCreatorGuiHelper.generateFontComboboxItems();
     }
 
     /**
@@ -249,9 +249,8 @@ public class JIconCreatorGui extends javax.swing.JFrame {
         jButtonRandomTextH = new javax.swing.JButton();
         jLabelColorShowTextH = new javax.swing.JLabel();
         jLabelFontText = new javax.swing.JLabel();
-        jButtonChooseFontText = new javax.swing.JButton();
-        jLabelFontNameText = new javax.swing.JLabel();
         jCheckBoxForeMaskText = new javax.swing.JCheckBox();
+        jComboBoxFontText = new javax.swing.JComboBox<>();
         jPanelStatusBar = new javax.swing.JPanel();
         fillerSmallH1 = new javax.swing.Box.Filler(new java.awt.Dimension(3, 0), new java.awt.Dimension(3, 0), new java.awt.Dimension(3, 32767));
         jLabelStatusBar = new javax.swing.JLabel();
@@ -811,12 +810,15 @@ public class JIconCreatorGui extends javax.swing.JFrame {
 
         jLabelFontText.setText(bundle.getString("JIconCreator.jLabelFontText.text")); // NOI18N
 
-        jButtonChooseFontText.setText(bundle.getString("JIconCreator.jButtonChooseFontText.text")); // NOI18N
-
-        jLabelFontNameText.setText(bundle.getString("JIconCreator.jLabelFontNameText.text")); // NOI18N
-
         jCheckBoxForeMaskText.setSelected(true);
         jCheckBoxForeMaskText.setText(bundle.getString("JIconCreatorGui.jCheckBoxForeMaskText.text")); // NOI18N
+
+        jComboBoxFontText.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Default" }));
+        jComboBoxFontText.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBoxFontTextActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanelTextLayout = new javax.swing.GroupLayout(jPanelText);
         jPanelText.setLayout(jPanelTextLayout);
@@ -854,19 +856,6 @@ public class JIconCreatorGui extends javax.swing.JFrame {
                         .addGap(6, 6, 6)
                         .addComponent(jLabelColorShowTextL, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanelTextLayout.createSequentialGroup()
-                        .addGroup(jPanelTextLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jButtonChooseTextH)
-                            .addComponent(jButtonChooseFontText))
-                        .addGroup(jPanelTextLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanelTextLayout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jButtonRandomTextH)
-                                .addGap(6, 6, 6)
-                                .addComponent(jLabelColorShowTextH, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanelTextLayout.createSequentialGroup()
-                                .addGap(6, 6, 6)
-                                .addComponent(jLabelFontNameText))))
-                    .addGroup(jPanelTextLayout.createSequentialGroup()
                         .addGroup(jPanelTextLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanelTextLayout.createSequentialGroup()
                                 .addComponent(jRadioButtonCropText)
@@ -877,8 +866,15 @@ public class JIconCreatorGui extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(jRadioButtonSquareText)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jRadioButtonCircleText)))
-                .addContainerGap(104, Short.MAX_VALUE))
+                        .addComponent(jRadioButtonCircleText))
+                    .addGroup(jPanelTextLayout.createSequentialGroup()
+                        .addComponent(jButtonChooseTextH)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jButtonRandomTextH)
+                        .addGap(6, 6, 6)
+                        .addComponent(jLabelColorShowTextH, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jComboBoxFontText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(138, Short.MAX_VALUE))
         );
         jPanelTextLayout.setVerticalGroup(
             jPanelTextLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -926,9 +922,8 @@ public class JIconCreatorGui extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(jPanelTextLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabelFontText)
-                    .addComponent(jButtonChooseFontText)
-                    .addComponent(jLabelFontNameText))
-                .addContainerGap(198, Short.MAX_VALUE))
+                    .addComponent(jComboBoxFontText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(199, Short.MAX_VALUE))
         );
 
         jTabbedPane.addTab(bundle.getString("JIconCreator.jPanelText.TabConstraints.tabTitle"), jPanelText); // NOI18N
@@ -1124,6 +1119,11 @@ public class JIconCreatorGui extends javax.swing.JFrame {
         jIconCreatorGuiHelper.updatePreviewIcons();
     }//GEN-LAST:event_jCheckBoxForeMaskImageActionPerformed
 
+    private void jComboBoxFontTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxFontTextActionPerformed
+        jIconCreatorOptions.setFont((String) jComboBoxFontText.getSelectedItem());
+        jIconCreatorGuiHelper.updatePreviewIcons();
+    }//GEN-LAST:event_jComboBoxFontTextActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -1156,7 +1156,6 @@ public class JIconCreatorGui extends javax.swing.JFrame {
     private javax.swing.JButton jButtonChooseClipart;
     private javax.swing.JButton jButtonChooseClipartH;
     private javax.swing.JButton jButtonChooseClipartL;
-    private javax.swing.JButton jButtonChooseFontText;
     private javax.swing.JButton jButtonChooseImageL;
     private javax.swing.JButton jButtonChooseTextH;
     private javax.swing.JButton jButtonChooseTextL;
@@ -1177,6 +1176,7 @@ public class JIconCreatorGui extends javax.swing.JFrame {
     private javax.swing.JCheckBox jCheckBoxTrimClipart;
     private javax.swing.JCheckBox jCheckBoxTrimImage;
     private javax.swing.JCheckBox jCheckBoxTrimText;
+    private javax.swing.JComboBox<String> jComboBoxFontText;
     private javax.swing.JLabel jLabelClipart;
     private javax.swing.JLabel jLabelColorClipartH;
     private javax.swing.JLabel jLabelColorClipartL;
@@ -1188,7 +1188,6 @@ public class JIconCreatorGui extends javax.swing.JFrame {
     private javax.swing.JLabel jLabelColorShowTextL;
     private javax.swing.JLabel jLabelColorTextH;
     private javax.swing.JLabel jLabelColorTextL;
-    private javax.swing.JLabel jLabelFontNameText;
     private javax.swing.JLabel jLabelFontText;
     private javax.swing.JLabel jLabelHdpiI;
     private javax.swing.JLabel jLabelHdpiL;
@@ -1267,6 +1266,10 @@ public class JIconCreatorGui extends javax.swing.JFrame {
 
     public javax.swing.JMenu getMenuStyle() {
         return jMenuStyle;
+    }
+
+    public javax.swing.JComboBox<String> getComboBoxFontText() {
+        return jComboBoxFontText;
     }
 
     public javax.swing.JLabel getLabelMdpiI() {
