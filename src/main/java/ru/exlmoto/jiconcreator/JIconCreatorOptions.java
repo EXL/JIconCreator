@@ -1,10 +1,6 @@
 package ru.exlmoto.jiconcreator;
 
-import javax.imageio.ImageIO;
 import java.awt.Color;
-import java.awt.image.BufferedImage;
-import java.io.File;
-import java.io.IOException;
 
 public class JIconCreatorOptions {
     public static final int PREVIEW_M = 0;
@@ -12,6 +8,8 @@ public class JIconCreatorOptions {
     public static final int PREVIEW_XH = 2;
     public static final int PREVIEW_XXH = 3;
     public static final int PREVIEW_WEB = 4;
+
+    public static final String DEFAULT_TEXT = "aA";
 
     public static final String[] DPIS = { "mdpi", "hdpi", "xhdpi", "xxdpi", "xxxdpi", "web" };
 
