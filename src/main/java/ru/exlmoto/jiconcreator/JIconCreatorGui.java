@@ -195,6 +195,7 @@ public class JIconCreatorGui extends javax.swing.JFrame {
         jLabelPaddingImage = new javax.swing.JLabel();
         jLabelOptionsImage = new javax.swing.JLabel();
         jLabelImage = new javax.swing.JLabel();
+        jCheckBoxForeMaskImage = new javax.swing.JCheckBox();
         jPanelClipart = new javax.swing.JPanel();
         jLabelOptionsClipart = new javax.swing.JLabel();
         jCheckBoxTrimClipart = new javax.swing.JCheckBox();
@@ -220,6 +221,7 @@ public class JIconCreatorGui extends javax.swing.JFrame {
         jButtonRandomClipartH = new javax.swing.JButton();
         jLabelColorShowClipartH = new javax.swing.JLabel();
         jLabelClipart = new javax.swing.JLabel();
+        jCheckBoxForeMaskClipart = new javax.swing.JCheckBox();
         jPanelText = new javax.swing.JPanel();
         jLabelText = new javax.swing.JLabel();
         jTextFieldText = new javax.swing.JTextField();
@@ -247,6 +249,7 @@ public class JIconCreatorGui extends javax.swing.JFrame {
         jLabelFontText = new javax.swing.JLabel();
         jButtonChooseFontText = new javax.swing.JButton();
         jLabelFontNameText = new javax.swing.JLabel();
+        jCheckBoxForeMaskText = new javax.swing.JCheckBox();
         jPanelStatusBar = new javax.swing.JPanel();
         fillerSmallH1 = new javax.swing.Box.Filler(new java.awt.Dimension(3, 0), new java.awt.Dimension(3, 0), new java.awt.Dimension(3, 32767));
         jLabelStatusBar = new javax.swing.JLabel();
@@ -460,6 +463,9 @@ public class JIconCreatorGui extends javax.swing.JFrame {
 
         jLabelImage.setText(bundle.getString("JIconCreator.jLabelImage.text")); // NOI18N
 
+        jCheckBoxForeMaskImage.setSelected(true);
+        jCheckBoxForeMaskImage.setText(bundle.getString("JIconCreatorGui.jCheckBoxForeMaskImage.text")); // NOI18N
+
         javax.swing.GroupLayout jPanelImageLayout = new javax.swing.GroupLayout(jPanelImage);
         jPanelImage.setLayout(jPanelImageLayout);
         jPanelImageLayout.setHorizontalGroup(
@@ -483,7 +489,7 @@ public class JIconCreatorGui extends javax.swing.JFrame {
                         .addComponent(jRadioButtonCircleImage))
                     .addGroup(jPanelImageLayout.createSequentialGroup()
                         .addComponent(jTextFieldPathImage, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGap(6, 6, 6)
                         .addComponent(jButtonBrowseImage)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jButtonResetImage))
@@ -497,8 +503,10 @@ public class JIconCreatorGui extends javax.swing.JFrame {
                         .addGroup(jPanelImageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addComponent(jSliderPaddingImage, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jCheckBoxTrimImage, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jLabelPercentsImage))
+                        .addGap(6, 6, 6)
+                        .addGroup(jPanelImageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabelPercentsImage)
+                            .addComponent(jCheckBoxForeMaskImage)))
                     .addGroup(jPanelImageLayout.createSequentialGroup()
                         .addComponent(jRadioButtonCropImage)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -517,7 +525,8 @@ public class JIconCreatorGui extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(jPanelImageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jCheckBoxTrimImage)
-                    .addComponent(jLabelOptionsImage))
+                    .addComponent(jLabelOptionsImage)
+                    .addComponent(jCheckBoxForeMaskImage))
                 .addGap(18, 18, 18)
                 .addGroup(jPanelImageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jSliderPaddingImage, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -541,7 +550,7 @@ public class JIconCreatorGui extends javax.swing.JFrame {
                         .addComponent(jButtonChooseImageL)
                         .addComponent(jButtonRandomImageL)
                         .addComponent(jLabelColorImageL)))
-                .addContainerGap(282, Short.MAX_VALUE))
+                .addContainerGap(284, Short.MAX_VALUE))
         );
 
         jTabbedPane.addTab(bundle.getString("JIconCreator.jPanelImage.TabConstraints.tabTitle"), jPanelImage); // NOI18N
@@ -617,6 +626,9 @@ public class JIconCreatorGui extends javax.swing.JFrame {
 
         jLabelClipart.setText(bundle.getString("JIconCreator.jLabelClipart.text")); // NOI18N
 
+        jCheckBoxForeMaskClipart.setSelected(true);
+        jCheckBoxForeMaskClipart.setText(bundle.getString("JIconCreatorGui.jCheckBoxForeMaskClipart.text")); // NOI18N
+
         javax.swing.GroupLayout jPanelClipartLayout = new javax.swing.GroupLayout(jPanelClipart);
         jPanelClipart.setLayout(jPanelClipartLayout);
         jPanelClipartLayout.setHorizontalGroup(
@@ -635,14 +647,17 @@ public class JIconCreatorGui extends javax.swing.JFrame {
                 .addGroup(jPanelClipartLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanelClipartLayout.createSequentialGroup()
                         .addComponent(jLabelNameClipart, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGap(6, 6, 6)
                         .addComponent(jButtonChooseClipart)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jButtonResetClipart))
-                    .addComponent(jCheckBoxTrimClipart)
+                    .addGroup(jPanelClipartLayout.createSequentialGroup()
+                        .addComponent(jCheckBoxTrimClipart)
+                        .addGap(6, 6, 6)
+                        .addComponent(jCheckBoxForeMaskClipart))
                     .addGroup(jPanelClipartLayout.createSequentialGroup()
                         .addComponent(jSliderPaddingClipart, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGap(6, 6, 6)
                         .addComponent(jLabelPercentsClipart))
                     .addGroup(jPanelClipartLayout.createSequentialGroup()
                         .addComponent(jRadioButtonCropClipart)
@@ -682,7 +697,8 @@ public class JIconCreatorGui extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(jPanelClipartLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabelOptionsClipart)
-                    .addComponent(jCheckBoxTrimClipart))
+                    .addComponent(jCheckBoxTrimClipart)
+                    .addComponent(jCheckBoxForeMaskClipart))
                 .addGap(18, 18, 18)
                 .addGroup(jPanelClipartLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabelPaddingClipart)
@@ -713,7 +729,7 @@ public class JIconCreatorGui extends javax.swing.JFrame {
                         .addComponent(jLabelColorClipartH)
                         .addComponent(jButtonChooseClipartH)
                         .addComponent(jButtonRandomClipartH)))
-                .addContainerGap(239, Short.MAX_VALUE))
+                .addContainerGap(241, Short.MAX_VALUE))
         );
 
         jTabbedPane.addTab(bundle.getString("JIconCreator.jPanelClipart.TabConstraints.tabTitle"), jPanelClipart); // NOI18N
@@ -792,6 +808,9 @@ public class JIconCreatorGui extends javax.swing.JFrame {
 
         jLabelFontNameText.setText(bundle.getString("JIconCreator.jLabelFontNameText.text")); // NOI18N
 
+        jCheckBoxForeMaskText.setSelected(true);
+        jCheckBoxForeMaskText.setText(bundle.getString("JIconCreatorGui.jCheckBoxForeMaskText.text")); // NOI18N
+
         javax.swing.GroupLayout jPanelTextLayout = new javax.swing.GroupLayout(jPanelText);
         jPanelText.setLayout(jPanelTextLayout);
         jPanelTextLayout.setHorizontalGroup(
@@ -813,10 +832,13 @@ public class JIconCreatorGui extends javax.swing.JFrame {
                         .addComponent(jTextFieldText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jButtonRestText))
-                    .addComponent(jCheckBoxTrimText)
+                    .addGroup(jPanelTextLayout.createSequentialGroup()
+                        .addComponent(jCheckBoxTrimText)
+                        .addGap(6, 6, 6)
+                        .addComponent(jCheckBoxForeMaskText))
                     .addGroup(jPanelTextLayout.createSequentialGroup()
                         .addComponent(jSliderPaddingText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGap(6, 6, 6)
                         .addComponent(jLabelPercentsText))
                     .addGroup(jPanelTextLayout.createSequentialGroup()
                         .addComponent(jButtonChooseTextL)
@@ -849,7 +871,7 @@ public class JIconCreatorGui extends javax.swing.JFrame {
                                 .addComponent(jRadioButtonSquareText)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jRadioButtonCircleText)))
-                .addContainerGap(161, Short.MAX_VALUE))
+                .addContainerGap(104, Short.MAX_VALUE))
         );
         jPanelTextLayout.setVerticalGroup(
             jPanelTextLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -862,7 +884,8 @@ public class JIconCreatorGui extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(jPanelTextLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabelOptionsText)
-                    .addComponent(jCheckBoxTrimText))
+                    .addComponent(jCheckBoxTrimText)
+                    .addComponent(jCheckBoxForeMaskText))
                 .addGap(18, 18, 18)
                 .addGroup(jPanelTextLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jSliderPaddingText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1136,6 +1159,9 @@ public class JIconCreatorGui extends javax.swing.JFrame {
     private javax.swing.JButton jButtonRestText;
     private javax.swing.JButton jButtonSave;
     private javax.swing.JButton jButtonSaveAs;
+    private javax.swing.JCheckBox jCheckBoxForeMaskClipart;
+    private javax.swing.JCheckBox jCheckBoxForeMaskImage;
+    private javax.swing.JCheckBox jCheckBoxForeMaskText;
     private javax.swing.JCheckBox jCheckBoxTrimClipart;
     private javax.swing.JCheckBox jCheckBoxTrimImage;
     private javax.swing.JCheckBox jCheckBoxTrimText;
