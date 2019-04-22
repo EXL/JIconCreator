@@ -293,7 +293,7 @@ public class JIconCreatorExtrasLibraryHere {
      *            the launcher icons won't generate a huge 512x512 web graphic
      *            in preview mode
      */
-    public static void generateIcons(/*final IProject newProject,*/
+    public static boolean generateIcons(/*final IProject newProject,*/
                                      @NonNull CreateAssetSetWizardState values,
                                      JIconCreatorOptions jIconCreatorOptions,
                                      boolean previewOnly,
@@ -303,6 +303,7 @@ public class JIconCreatorExtrasLibraryHere {
         // Generate the custom icons
         Map<String, Map<String, BufferedImage>> categories = generateImages(values, jIconCreatorOptions, previewOnly);
         int cnt = 0;
+        int failed = 0;
         for (Map<String, BufferedImage> previews : categories.values()) {
             for (Map.Entry<String, BufferedImage> entry : previews.entrySet()) {
                 String relativePath = entry.getKey();
@@ -338,12 +339,12 @@ public class JIconCreatorExtrasLibraryHere {
                     is.read(buffer);
                     OutputStream outStream = new FileOutputStream(file);
                     outStream.write(buffer);
-
                     // file.create(is, true /*force*/, null /*progress*/);
                     // File create
                 } catch (IOException e) {
-                    System.out.println("IOException error");
+                    System.out.println("IOException: " + e.getMessage());
                     // AdtPlugin.log(e, null);
+                    failed++;
                 } /*catch (CoreException e) {
                     AdtPlugin.log(e, null);
                 } */
@@ -356,6 +357,7 @@ public class JIconCreatorExtrasLibraryHere {
                 */
             }
         }
+        return (failed == 0);
     }
 
     /*

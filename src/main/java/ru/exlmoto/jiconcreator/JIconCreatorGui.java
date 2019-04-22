@@ -19,6 +19,8 @@ import java.util.List;
  */
 public class JIconCreatorGui extends javax.swing.JFrame {
 
+    private final int DELAY_10S = 10000;
+
     JIconCreatorGuiHelper jIconCreatorGuiHelper = null;
     JIconCreatorOptions jIconCreatorOptions = null;
 
@@ -107,12 +109,12 @@ public class JIconCreatorGui extends javax.swing.JFrame {
     }
 
     private void registerStatusTimer() {
-        statusTimer = new Timer(10000, new java.awt.event.ActionListener() {
+        statusTimer = new Timer(DELAY_10S, new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent e) {
                 jLabelStatusBar.setText(java.util.ResourceBundle.getBundle("Bundle").getString("JIconCreator.jLabelStatusBar.text"));
             }
         });
-        statusTimer.setInitialDelay(10000); // 10 seconds.
+        statusTimer.setInitialDelay(DELAY_10S); // 10 seconds.
         statusTimer.setRepeats(false);
     }
 
@@ -1066,8 +1068,12 @@ public class JIconCreatorGui extends javax.swing.JFrame {
     }//GEN-LAST:event_jSliderPaddingImageStateChanged
 
     private void jButtonSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSaveActionPerformed
-        jIconCreatorGuiHelper.saveImages(jTextFieldStatusFileName.getText(), null);
-        jLabelStatusBar.setText(java.util.ResourceBundle.getBundle("Bundle").getString("JIconCreator.saveImageStatusBar.text"));
+        boolean status = jIconCreatorGuiHelper.saveImages(jTextFieldStatusFileName.getText(), null);
+        String statusText = java.util.ResourceBundle.getBundle("Bundle").getString("JIconCreator.saveImageStatusBarFail.text");
+        if (status) {
+            statusText = java.util.ResourceBundle.getBundle("Bundle").getString("JIconCreator.saveImageStatusBar.text");
+        }
+        jLabelStatusBar.setText(statusText);
         statusTimer.restart();
     }//GEN-LAST:event_jButtonSaveActionPerformed
 
