@@ -150,11 +150,11 @@ public class LauncherIconGenerator extends GraphicGenerator {
 
     @Override
     public void generate(String category, Map<String, Map<String, BufferedImage>> categoryMap,
-            GraphicGeneratorContext context, Options options, String name) {
+            GraphicGeneratorContext context, Options options, String name, boolean previewOnly) {
         LauncherOptions launcherOptions = (LauncherOptions) options;
         boolean generateWebImage = launcherOptions.isWebGraphic;
         launcherOptions.isWebGraphic = false;
-        super.generate(category, categoryMap, context, options, name);
+        super.generate(category, categoryMap, context, options, name, !generateWebImage);
 
         if (generateWebImage) {
             launcherOptions.isWebGraphic = true;
@@ -200,7 +200,7 @@ public class LauncherIconGenerator extends GraphicGenerator {
          * setting). The {@link #generate(GraphicGeneratorContext, Options)}
          * method will use this to decide whether to generate a normal density
          * icon or a high res web image. The
-         * {@link GraphicGenerator#generate(String, Map, GraphicGeneratorContext, Options, String)}
+         * {@link GraphicGenerator#generate(String, Map, GraphicGeneratorContext, Options, String, boolean)}
          * method will use this flag to determine whether it should include a
          * web graphic in its iteration.
          */

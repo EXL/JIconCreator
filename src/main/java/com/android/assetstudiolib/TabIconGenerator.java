@@ -141,7 +141,7 @@ public class TabIconGenerator extends GraphicGenerator {
 
     @Override
     public void generate(String category, Map<String, Map<String, BufferedImage>> categoryMap,
-            GraphicGeneratorContext context, Options baseOptions, String name) {
+            GraphicGeneratorContext context, Options baseOptions, String name, boolean previewOnly) {
         TabOptions options = (TabOptions) baseOptions;
         // Generate all permutations of tabOptions.selected and tabOptions.oldStyle
         options.selected = true;
@@ -156,18 +156,18 @@ public class TabIconGenerator extends GraphicGenerator {
         if (generateOldStyle) {
             options.oldStyle = true;
             options.selected = true;
-            super.generate(selectedLabel, categoryMap, context, options, name);
+            super.generate(selectedLabel, categoryMap, context, options, name, previewOnly);
             options.selected = false;
-            super.generate(unselectedLabel, categoryMap, context, options, name);
+            super.generate(unselectedLabel, categoryMap, context, options, name, previewOnly);
         }
 
         options.oldStyle = false;
         options.selected = true;
         super.generate(generateOldStyle ? unselectedLabelV5 : unselectedLabel,
-                categoryMap, context, options, name);
+                categoryMap, context, options, name, previewOnly);
         options.selected = false;
         super.generate(generateOldStyle ? selectedLabelV5 : selectedLabel,
-                categoryMap, context, options, name);
+                categoryMap, context, options, name, previewOnly);
     }
 
     @Override

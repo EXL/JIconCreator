@@ -112,7 +112,7 @@ public abstract class GraphicGenerator {
      * Computes the target filename (relative to the Android project folder)
      * where an icon rendered with the given options should be stored. This is
      * also used as the map keys in the result map used by
-     * {@link #generate(String, Map, GraphicGeneratorContext, Options, String)}.
+     * {@link #generate(String, Map, GraphicGeneratorContext, Options, String, boolean)}.
      *
      * @param options the options object used by the generator for the current
      *            image
@@ -167,7 +167,7 @@ public abstract class GraphicGenerator {
      * @param name the base name of the icons to generate
      */
     public void generate(String category, Map<String, Map<String, BufferedImage>> categoryMap,
-            GraphicGeneratorContext context, Options options, String name) {
+            GraphicGeneratorContext context, Options options, String name, boolean previewOnly) {
         Density[] densityValues = Density.values();
         // Sort density values into ascending order
         Arrays.sort(densityValues, new Comparator<Density>() {
@@ -186,7 +186,15 @@ public abstract class GraphicGenerator {
                 // TODO don't manually check and instead gracefully handle missing stencils.
                 continue;
             }
+            // TODO optimize this!
+            if (density == Density.XXXHIGH && previewOnly) {
+                continue;
+            }
+
+            /// System.out.println(density.toString());
+
             options.density = density;
+
             BufferedImage image = generate(context, options);
             if (image != null) {
                 String mapCategory = category;

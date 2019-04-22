@@ -29,7 +29,7 @@ import java.util.List;
  */
 public class JIconCreatorGui extends javax.swing.JFrame {
 
-    private final int BIG_SIZE_PIX = 300;
+    private final int BIG_SIZE_PIX = 400;
     private final int DELAY_10S = 10000;
 
     private JIconCreatorOptions jIconCreatorOptions = null;

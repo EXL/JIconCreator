@@ -104,19 +104,19 @@ public class NotificationIconGenerator extends GraphicGenerator {
 
     @Override
     public void generate(String category, Map<String, Map<String, BufferedImage>> categoryMap,
-            GraphicGeneratorContext context, Options baseOptions, String name) {
+            GraphicGeneratorContext context, Options baseOptions, String name, boolean previewOnly) {
         NotificationOptions options = (NotificationOptions) baseOptions;
         if (options.minSdk < 9) {
             options.version = Version.OLDER;
-            super.generate(options.version.getDisplayName(), categoryMap, context, options, name);
+            super.generate(options.version.getDisplayName(), categoryMap, context, options, name, previewOnly);
         }
         if (options.minSdk < 11) {
             options.version = Version.V9;
-            super.generate(options.version.getDisplayName(), categoryMap, context, options, name);
+            super.generate(options.version.getDisplayName(), categoryMap, context, options, name, previewOnly);
         }
         options.version = Version.V11;
         super.generate(options.minSdk < 11 ? options.version.getDisplayName() : null,
-                categoryMap, context, options, name);
+                categoryMap, context, options, name, previewOnly);
     }
 
     @Override
