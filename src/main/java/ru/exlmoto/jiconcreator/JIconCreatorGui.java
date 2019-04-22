@@ -2,15 +2,25 @@ package ru.exlmoto.jiconcreator;
 
 import com.oracle.docs.ImageFilter;
 import com.oracle.docs.ImagePreview;
+//////// REF
+import ru.exlmoto.jiconcreator.unsorted.CreateAssetSetWizardState;
+import ru.exlmoto.jiconcreator.unsorted.JIconCreatorExtrasLibraryHere;
+/////// REF
 
+import javax.imageio.ImageIO;
 import javax.swing.*;
+import javax.swing.Timer;
 import java.awt.*;
 import java.awt.datatransfer.DataFlavor;
 import java.awt.dnd.DnDConstants;
 import java.awt.dnd.DropTarget;
 import java.awt.dnd.DropTargetDropEvent;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.image.BufferedImage;
 import java.io.File;
-import java.util.ArrayList;
+import java.io.IOException;
+import java.util.*;
 import java.util.List;
 
 /**
@@ -19,9 +29,9 @@ import java.util.List;
  */
 public class JIconCreatorGui extends javax.swing.JFrame {
 
+    private final int BIG_SIZE_PIX = 300;
     private final int DELAY_10S = 10000;
 
-    private JIconCreatorGuiHelper jIconCreatorGuiHelper = null;
     private JIconCreatorOptions jIconCreatorOptions = null;
 
     private Timer statusTimer = null;
@@ -29,6 +39,60 @@ public class JIconCreatorGui extends javax.swing.JFrame {
     private JFileChooser jDirectoryChooser = null;
 
     private boolean isMipmapScheme = false;
+
+    ////// **** REFACTORING ******** ///////
+    private CreateAssetSetWizardState createAssetSetWizardState = null;
+
+    public void updatePreviewIcons() {
+        int cnt = 0;
+        Map<String, Map<String, BufferedImage>> categories =
+                JIconCreatorExtrasLibraryHere.generateImages(createAssetSetWizardState, jIconCreatorOptions, true);
+        if (JIconCreatorExtrasLibraryHere.wtf(cnt, categories,
+                jLabelMdpiI, jLabelHdpiI, jLabelXhdpiI, jLabelXxhdpiI))
+            return;
+
+        System.gc();
+    }
+
+    public boolean saveImages(String fileName, String path, boolean mipmap) {
+        boolean status = JIconCreatorExtrasLibraryHere.generateIcons(
+                createAssetSetWizardState, jIconCreatorOptions, false, fileName, path, mipmap);
+
+        System.gc();
+
+        return status;
+    }
+    ////////////////////// ***** RECAT **** ////
+    public boolean isImageBigSize(File imageFile) {
+        try {
+            BufferedImage image = ImageIO.read(imageFile);
+            return ((image.getHeight() > BIG_SIZE_PIX) || (image.getWidth() > BIG_SIZE_PIX));
+        } catch (IOException e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+
+    private void saveFilesAction(String fileName, String path, boolean mipmap) {
+        boolean status = saveImages(fileName, path, mipmap);
+        String statusText = java.util.ResourceBundle.getBundle("Bundle").getString("JIconCreator.saveImageStatusBarFail.text");
+        if (status) {
+            statusText = java.util.ResourceBundle.getBundle("Bundle").getString("JIconCreator.saveImageStatusBar.text");
+        }
+        jLabelStatusBar.setText(statusText);
+        statusTimer.restart();
+    }
+
+    private void saveFilesAction(String fileName) {
+        saveFilesAction(fileName, null, false);
+    }
+
+    private void saveFilesToDirectory(boolean mipmap) {
+        String title = java.util.ResourceBundle.getBundle("Bundle").getString("JIconCreator.openImageDialogDir.text"); // NOI18N
+        if (jDirectoryChooser.showDialog(this, title) == JFileChooser.APPROVE_OPTION) {
+            saveFilesAction(jTextFieldStatusFileName.getText(), jDirectoryChooser.getSelectedFile().getAbsolutePath(), mipmap);
+        }
+    }
 
     private void updateOptionsFromForm() {
         int currentShape = JIconCreatorOptions.SHAPE_SQUARE;
@@ -86,8 +150,10 @@ public class JIconCreatorGui extends javax.swing.JFrame {
         jIconCreatorOptions.setBackColor(jLabelColorShowImageL.getBackground());
     }
 
-    // https://stackoverflow.com/a/9111327
-    // https://stackoverflow.com/a/13387897
+    // Drag-and-drop files to JTextField.
+    // See this for additional information:
+    //  https://stackoverflow.com/a/9111327
+    //  https://stackoverflow.com/a/13387897
     public void registerDropOnTextField() {
         jTextFieldPathImage.setDropTarget(new DropTarget() {
             public synchronized void drop(DropTargetDropEvent event) {
@@ -100,10 +166,10 @@ public class JIconCreatorGui extends javax.swing.JFrame {
                         File droppedFile = (File) droppedFiles.get(droppedFiles.size() - 1);
                         boolean isImageFile = ImageFilter.isImageFile(droppedFile);
                         if (isImageFile) {
-                            jIconCreatorOptions.setBigImage(jIconCreatorOptions.isImageBigSize(droppedFile));
+                            jIconCreatorOptions.setBigImage(isImageBigSize(droppedFile));
                             jTextFieldPathImage.setText(droppedFile.getAbsolutePath());
                             jIconCreatorOptions.setImageFilePath(jTextFieldPathImage.getText());
-                            jIconCreatorGuiHelper.updatePreviewIcons();
+                            updatePreviewIcons();
                         }
                     }
                 } catch (Exception ex) {
@@ -137,6 +203,85 @@ public class JIconCreatorGui extends javax.swing.JFrame {
         jDirectoryChooser.setAcceptAllFileFilterUsed(false);
     }
 
+    public void generateStyleMenuItems() {
+        HashMap<String, String> installedStyles = new HashMap<>();
+        ArrayList<JRadioButtonMenuItem> styleMenuItems = new ArrayList<>();
+
+        UIManager.LookAndFeelInfo[] styles = UIManager.getInstalledLookAndFeels();
+
+        boolean isWindows = false;
+
+        for (UIManager.LookAndFeelInfo info : styles) {
+            String styleName = info.getName();
+
+            styleMenuItems.add(new JRadioButtonMenuItem(styleName));
+            installedStyles.put(styleName, info.getClassName());
+
+            if (styleName.startsWith("Windows")) {
+                isWindows = true;
+            }
+        }
+
+        for (final JRadioButtonMenuItem menuItem : styleMenuItems) {
+            if (menuItem.getText().equals("Windows") && isWindows) {
+                menuItem.setSelected(true);
+            } else if (UIManager.getLookAndFeel().getName().equals(menuItem.getText())) {
+                menuItem.setSelected(true);
+            }
+
+            menuItem.addActionListener(new ActionListener() {
+                public void actionPerformed(ActionEvent event) {
+                    try {
+                        UIManager.setLookAndFeel(installedStyles.get(menuItem.getText()));
+                        SwingUtilities.updateComponentTreeUI(getRootPane());
+                    } catch (ClassNotFoundException | IllegalAccessException | InstantiationException | UnsupportedLookAndFeelException e) {
+                        e.printStackTrace();
+                    }
+                }
+            });
+
+            buttonGroupStyles.add(menuItem);
+            jMenuStyle.add(menuItem);
+        }
+
+        if (isWindows) {
+            try {
+                UIManager.setLookAndFeel(installedStyles.get("Windows"));
+                SwingUtilities.updateComponentTreeUI(getRootPane());
+            } catch (ClassNotFoundException | IllegalAccessException | InstantiationException | UnsupportedLookAndFeelException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    public void setColorToImage(Color color, boolean backColor) {
+        if (backColor) {
+            jIconCreatorOptions.setBackColor(color);
+        } else {
+            jIconCreatorOptions.setForeColor(color);
+        }
+
+        updatePreviewIcons();
+    }
+
+    public void setRandomColor(JLabel showColorLabel, boolean backColor) {
+        Color randomColor = new Color(
+                new Random().nextInt(256),
+                new Random().nextInt(256),
+                new Random().nextInt(256));
+
+        showColorLabel.setBackground(randomColor);
+        setColorToImage(randomColor, backColor);
+    }
+
+    public void generateFontComboboxItems() {
+        GraphicsEnvironment graphicsEnvironment = GraphicsEnvironment.getLocalGraphicsEnvironment();
+        String[] fontArray = graphicsEnvironment.getAvailableFontFamilyNames();
+        for (String font : fontArray) {
+            jComboBoxFontText.addItem(font);
+        }
+    }
+
     /**
      * Creates new form JIconCreator
      */
@@ -149,9 +294,7 @@ public class JIconCreatorGui extends javax.swing.JFrame {
         registerOpenFileDialog();
         registerOpenDirectoryDialog();
 
-        jIconCreatorGuiHelper = new JIconCreatorGuiHelper(jIconCreatorOptions,this);
-        jIconCreatorGuiHelper.generateStyleMenuItems();
-        jIconCreatorGuiHelper.generateFontComboboxItems();
+        createAssetSetWizardState = new CreateAssetSetWizardState();
     }
 
     /**
@@ -1076,7 +1219,7 @@ public class JIconCreatorGui extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButtonRandomImageLActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRandomImageLActionPerformed
-        jIconCreatorGuiHelper.setRandomColor(jLabelColorShowImageL, true);
+        setRandomColor(jLabelColorShowImageL, true);
     }//GEN-LAST:event_jButtonRandomImageLActionPerformed
 
     private void jMenuItemExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemExitActionPerformed
@@ -1088,7 +1231,7 @@ public class JIconCreatorGui extends javax.swing.JFrame {
         updateOptionsFromForm();
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                jIconCreatorGuiHelper.updatePreviewIcons();
+                updatePreviewIcons();
             }
         });
     }//GEN-LAST:event_jTabbedPaneStateChanged
@@ -1098,38 +1241,38 @@ public class JIconCreatorGui extends javax.swing.JFrame {
         Color color = JColorChooser.showDialog(this, title, jLabelColorShowImageL.getBackground());
         if (color != null) {
             jLabelColorShowImageL.setBackground(color);
-            jIconCreatorGuiHelper.setColorToImage(color, true);
+            setColorToImage(color, true);
         }
     }//GEN-LAST:event_jButtonChooseImageLActionPerformed
 
     private void jRadioButtonNoneImageActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonNoneImageActionPerformed
         jIconCreatorOptions.setShapeType(JIconCreatorOptions.SHAPE_NONE);
-        jIconCreatorGuiHelper.updatePreviewIcons();
+        updatePreviewIcons();
     }//GEN-LAST:event_jRadioButtonNoneImageActionPerformed
 
     private void jRadioButtonSquareImageActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonSquareImageActionPerformed
         jIconCreatorOptions.setShapeType(JIconCreatorOptions.SHAPE_SQUARE);
-        jIconCreatorGuiHelper.updatePreviewIcons();
+        updatePreviewIcons();
     }//GEN-LAST:event_jRadioButtonSquareImageActionPerformed
 
     private void jRadioButtonCircleImageActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonCircleImageActionPerformed
         jIconCreatorOptions.setShapeType(JIconCreatorOptions.SHAPE_CIRCLE);
-        jIconCreatorGuiHelper.updatePreviewIcons();
+        updatePreviewIcons();
     }//GEN-LAST:event_jRadioButtonCircleImageActionPerformed
 
     private void jRadioButtonCropImageActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonCropImageActionPerformed
         jIconCreatorOptions.setCrop(false);
-        jIconCreatorGuiHelper.updatePreviewIcons();
+        updatePreviewIcons();
     }//GEN-LAST:event_jRadioButtonCropImageActionPerformed
 
     private void jRadioButtonCenterImageActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonCenterImageActionPerformed
         jIconCreatorOptions.setCrop(true);
-        jIconCreatorGuiHelper.updatePreviewIcons();
+        updatePreviewIcons();
     }//GEN-LAST:event_jRadioButtonCenterImageActionPerformed
 
     private void jCheckBoxTrimImageActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBoxTrimImageActionPerformed
         jIconCreatorOptions.setTrim(jCheckBoxTrimImage.isSelected());
-        jIconCreatorGuiHelper.updatePreviewIcons();
+        updatePreviewIcons();
     }//GEN-LAST:event_jCheckBoxTrimImageActionPerformed
 
     private void jButtonBrowseImageActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonBrowseImageActionPerformed
@@ -1137,9 +1280,9 @@ public class JIconCreatorGui extends javax.swing.JFrame {
         if (jFileChooser.showDialog(this, title) == JFileChooser.APPROVE_OPTION) {
             File imageFile = jFileChooser.getSelectedFile();
             jTextFieldPathImage.setText(imageFile.getAbsolutePath());
-            jIconCreatorOptions.setBigImage(jIconCreatorOptions.isImageBigSize(imageFile));
+            jIconCreatorOptions.setBigImage(isImageBigSize(imageFile));
             jIconCreatorOptions.setImageFilePath(jTextFieldPathImage.getText());
-            jIconCreatorGuiHelper.updatePreviewIcons();
+            updatePreviewIcons();
         }
     }//GEN-LAST:event_jButtonBrowseImageActionPerformed
 
@@ -1147,12 +1290,12 @@ public class JIconCreatorGui extends javax.swing.JFrame {
         String sign = java.util.ResourceBundle.getBundle("Bundle").getString("JIconCreator.jTextFieldPathImage.text"); // NOI18N
         jTextFieldPathImage.setText(sign);
         jIconCreatorOptions.setImageFilePath(sign);
-        jIconCreatorGuiHelper.updatePreviewIcons();
+        updatePreviewIcons();
     }//GEN-LAST:event_jButtonResetImageActionPerformed
 
     private void jTextFieldPathImageActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldPathImageActionPerformed
         jIconCreatorOptions.setImageFilePath(jTextFieldPathImage.getText());
-        jIconCreatorGuiHelper.updatePreviewIcons();
+        updatePreviewIcons();
     }//GEN-LAST:event_jTextFieldPathImageActionPerformed
 
     private void jSliderPaddingImageStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jSliderPaddingImageStateChanged
@@ -1162,10 +1305,10 @@ public class JIconCreatorGui extends javax.swing.JFrame {
         boolean imageIsBig = jIconCreatorOptions.isBigImage();
         if (!slider.getValueIsAdjusting() && imageIsBig) {
             jIconCreatorOptions.setPadding(percent);
-            jIconCreatorGuiHelper.updatePreviewIcons();
+            updatePreviewIcons();
         } else if (!imageIsBig) {
             jIconCreatorOptions.setPadding(percent);
-            jIconCreatorGuiHelper.updatePreviewIcons();
+            updatePreviewIcons();
         }
     }//GEN-LAST:event_jSliderPaddingImageStateChanged
 
@@ -1175,12 +1318,12 @@ public class JIconCreatorGui extends javax.swing.JFrame {
 
     private void jCheckBoxForeMaskImageActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBoxForeMaskImageActionPerformed
         jIconCreatorOptions.setMask(jCheckBoxForeMaskImage.isSelected());
-        jIconCreatorGuiHelper.updatePreviewIcons();
+        updatePreviewIcons();
     }//GEN-LAST:event_jCheckBoxForeMaskImageActionPerformed
 
     private void jComboBoxFontTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxFontTextActionPerformed
         jIconCreatorOptions.setFont((String) jComboBoxFontText.getSelectedItem());
-        jIconCreatorGuiHelper.updatePreviewIcons();
+        updatePreviewIcons();
     }//GEN-LAST:event_jComboBoxFontTextActionPerformed
 
     private void jRadioButtonMenuItemDrawableActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonMenuItemDrawableActionPerformed
@@ -1206,27 +1349,6 @@ public class JIconCreatorGui extends javax.swing.JFrame {
     private void jMenuItemSaMipmapActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemSaMipmapActionPerformed
         saveFilesToDirectory(true);
     }//GEN-LAST:event_jMenuItemSaMipmapActionPerformed
-
-    private void saveFilesAction(String fileName, String path, boolean mipmap) {
-        boolean status = jIconCreatorGuiHelper.saveImages(fileName, path, mipmap);
-        String statusText = java.util.ResourceBundle.getBundle("Bundle").getString("JIconCreator.saveImageStatusBarFail.text");
-        if (status) {
-            statusText = java.util.ResourceBundle.getBundle("Bundle").getString("JIconCreator.saveImageStatusBar.text");
-        }
-        jLabelStatusBar.setText(statusText);
-        statusTimer.restart();
-    }
-
-    private void saveFilesAction(String fileName) {
-        saveFilesAction(fileName, null, false);
-    }
-
-    private void saveFilesToDirectory(boolean mipmap) {
-        String title = java.util.ResourceBundle.getBundle("Bundle").getString("JIconCreator.openImageDialogDir.text"); // NOI18N
-        if (jDirectoryChooser.showDialog(this, title) == JFileChooser.APPROVE_OPTION) {
-            saveFilesAction(jTextFieldStatusFileName.getText(), jDirectoryChooser.getSelectedFile().getAbsolutePath(), mipmap);
-        }
-    }
 
     /**
      * @param args the command line arguments
@@ -1369,32 +1491,4 @@ public class JIconCreatorGui extends javax.swing.JFrame {
     private javax.swing.JTextField jTextFieldStatusFileName;
     private javax.swing.JTextField jTextFieldText;
     // End of variables declaration//GEN-END:variables
-
-    public javax.swing.ButtonGroup getButtonGroupStyles() {
-        return buttonGroupStyles;
-    }
-
-    public javax.swing.JMenu getMenuStyle() {
-        return jMenuStyle;
-    }
-
-    public javax.swing.JComboBox<String> getComboBoxFontText() {
-        return jComboBoxFontText;
-    }
-
-    public javax.swing.JLabel getLabelMdpiI() {
-        return jLabelMdpiI;
-    }
-
-    public javax.swing.JLabel getLabelHdpiI() {
-        return jLabelHdpiI;
-    }
-
-    public javax.swing.JLabel getLabelXhdpiI() {
-        return jLabelXhdpiI;
-    }
-
-    public javax.swing.JLabel getLabelXxhdpiI() {
-        return jLabelXxhdpiI;
-    }
 }

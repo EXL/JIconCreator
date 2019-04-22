@@ -15,8 +15,6 @@ public class JIconCreatorOptions {
 
     public static final String[] DPIS = { "mdpi", "hdpi", "xhdpi", "xxdpi", "xxxdpi", "web" };
 
-    private final int BIG_SIZE_PIX = 300;
-
     private boolean bigImage = false;
 
     public static final int ICON_IMAGE = 0;
@@ -48,16 +46,6 @@ public class JIconCreatorOptions {
     private Color foreColor = new Color(0x00, 0x00, 0x00);
 
     private String font = "Default";
-
-    public boolean isImageBigSize(File imageFile) {
-        try {
-            BufferedImage image = ImageIO.read(imageFile);
-            return ((image.getHeight() > BIG_SIZE_PIX) || (image.getWidth() > BIG_SIZE_PIX));
-        } catch (IOException e) {
-            e.printStackTrace();
-            return false;
-        }
-    }
 
     public int getIconType() {
         return iconType;

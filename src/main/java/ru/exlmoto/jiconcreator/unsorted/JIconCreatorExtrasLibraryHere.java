@@ -393,6 +393,41 @@ public class JIconCreatorExtrasLibraryHere {
         return (failed == 0);
     }
 
+    public static boolean wtf(int cnt,
+                              Map<String, Map<String, BufferedImage>> categories,
+                              JLabel labelMdpiImage,
+                              JLabel labelHpdiImage,
+                              JLabel labelXhdpiImage,
+                              JLabel labelXxhdpiImage) {
+        for (Map<String, BufferedImage> previews : categories.values()) {
+            for (Map.Entry<String, BufferedImage> entry : previews.entrySet()) {
+                BufferedImage image = entry.getValue();
+                if (image != null) {
+                    switch (cnt) {
+                        default:
+                            return true;
+                        case 0:
+                            labelMdpiImage.setIcon(new ImageIcon(image));
+                            break;
+                        case 1:
+                            labelHpdiImage.setIcon(new ImageIcon(image));
+                            break;
+                        case 2:
+                            labelXhdpiImage.setIcon(new ImageIcon(image));
+                            break;
+                        case 3:
+                            labelXxhdpiImage.setIcon(new ImageIcon(image));
+                            break;
+                    }
+                    cnt++;
+                } else {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
     /*
     private void updateColor(Display display, RGB color, boolean isBackground) {
         // Button.setBackgroundColor does not work (at least not on OSX) so
