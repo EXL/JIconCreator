@@ -75,9 +75,9 @@ public class JIconCreatorGui extends javax.swing.JFrame {
 
     private void saveFilesAction(String fileName, String path, boolean mipmap) {
         boolean status = saveImages(fileName, path, mipmap);
-        String statusText = java.util.ResourceBundle.getBundle("Bundle").getString("JIconCreator.saveImageStatusBarFail.text");
+        String statusText = java.util.ResourceBundle.getBundle("Bundle").getString("JIconCreatorGui.saveImageStatusBarFail.text");
         if (status) {
-            statusText = java.util.ResourceBundle.getBundle("Bundle").getString("JIconCreator.saveImageStatusBar.text");
+            statusText = java.util.ResourceBundle.getBundle("Bundle").getString("JIconCreatorGui.saveImageStatusBar.text");
         }
         jLabelStatusBar.setText(statusText);
         statusTimer.restart();
@@ -88,7 +88,7 @@ public class JIconCreatorGui extends javax.swing.JFrame {
     }
 
     private void saveFilesToDirectory(boolean mipmap) {
-        String title = java.util.ResourceBundle.getBundle("Bundle").getString("JIconCreator.openImageDialogDir.text"); // NOI18N
+        String title = java.util.ResourceBundle.getBundle("Bundle").getString("JIconCreatorGui.openImageDialogDir.text"); // NOI18N
         if (jDirectoryChooser.showDialog(this, title) == JFileChooser.APPROVE_OPTION) {
             saveFilesAction(jTextFieldStatusFileName.getText(), jDirectoryChooser.getSelectedFile().getAbsolutePath(), mipmap);
         }
@@ -183,7 +183,7 @@ public class JIconCreatorGui extends javax.swing.JFrame {
     private void registerStatusTimer() {
         statusTimer = new Timer(DELAY_10S, new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent e) {
-                jLabelStatusBar.setText(java.util.ResourceBundle.getBundle("Bundle").getString("JIconCreator.jLabelStatusBar.text"));
+                jLabelStatusBar.setText(java.util.ResourceBundle.getBundle("Bundle").getString("JIconCreatorGui.jLabelStatusBar.text"));
             }
         });
         statusTimer.setInitialDelay(DELAY_10S); // 10 seconds.
@@ -435,7 +435,7 @@ public class JIconCreatorGui extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         java.util.ResourceBundle bundle = java.util.ResourceBundle.getBundle("Bundle"); // NOI18N
-        setTitle(bundle.getString("JIconCreator.title")); // NOI18N
+        setTitle(bundle.getString("JIconCreatorGui.title")); // NOI18N
         setMaximizedBounds(new java.awt.Rectangle(0, 0, 1024, 768));
         setMaximumSize(new java.awt.Dimension(1024, 768));
         setMinimumSize(new java.awt.Dimension(725, 550));
@@ -447,37 +447,37 @@ public class JIconCreatorGui extends javax.swing.JFrame {
         jPanelPreview.setMinimumSize(new java.awt.Dimension(150, 500));
         jPanelPreview.setLayout(new javax.swing.BoxLayout(jPanelPreview, javax.swing.BoxLayout.PAGE_AXIS));
 
-        jLabelMdpiL.setText(bundle.getString("JIconCreator.jLabelMdpiL.text")); // NOI18N
+        jLabelMdpiL.setText(bundle.getString("JIconCreatorGui.jLabelMdpiL.text")); // NOI18N
         jPanelPreview.add(jLabelMdpiL);
 
-        jLabelMdpiI.setText(bundle.getString("JIconCreator.jLabelMdpiI.text")); // NOI18N
+        jLabelMdpiI.setText(bundle.getString("JIconCreatorGui.jLabelMdpiI.text")); // NOI18N
         jLabelMdpiI.setMaximumSize(new java.awt.Dimension(48, 48));
         jLabelMdpiI.setMinimumSize(new java.awt.Dimension(48, 48));
         jLabelMdpiI.setPreferredSize(new java.awt.Dimension(48, 48));
         jPanelPreview.add(jLabelMdpiI);
 
-        jLabelHdpiL.setText(bundle.getString("JIconCreator.jLabelHdpiL.text")); // NOI18N
+        jLabelHdpiL.setText(bundle.getString("JIconCreatorGui.jLabelHdpiL.text")); // NOI18N
         jPanelPreview.add(jLabelHdpiL);
 
-        jLabelHdpiI.setText(bundle.getString("JIconCreator.jLabelHdpiI.text")); // NOI18N
+        jLabelHdpiI.setText(bundle.getString("JIconCreatorGui.jLabelHdpiI.text")); // NOI18N
         jLabelHdpiI.setMaximumSize(new java.awt.Dimension(72, 72));
         jLabelHdpiI.setMinimumSize(new java.awt.Dimension(72, 72));
         jLabelHdpiI.setPreferredSize(new java.awt.Dimension(72, 72));
         jPanelPreview.add(jLabelHdpiI);
 
-        jLabelXhdpiL.setText(bundle.getString("JIconCreator.jLabelXhdpiL.text")); // NOI18N
+        jLabelXhdpiL.setText(bundle.getString("JIconCreatorGui.jLabelXhdpiL.text")); // NOI18N
         jPanelPreview.add(jLabelXhdpiL);
 
-        jLabelXhdpiI.setText(bundle.getString("JIconCreator.jLabelXhdpiI.text")); // NOI18N
+        jLabelXhdpiI.setText(bundle.getString("JIconCreatorGui.jLabelXhdpiI.text")); // NOI18N
         jLabelXhdpiI.setMaximumSize(new java.awt.Dimension(96, 96));
         jLabelXhdpiI.setMinimumSize(new java.awt.Dimension(96, 96));
         jLabelXhdpiI.setPreferredSize(new java.awt.Dimension(96, 96));
         jPanelPreview.add(jLabelXhdpiI);
 
-        jLabelXxhdpiL.setText(bundle.getString("JIconCreator.jLabelXxhdpiL.text")); // NOI18N
+        jLabelXxhdpiL.setText(bundle.getString("JIconCreatorGui.jLabelXxhdpiL.text")); // NOI18N
         jPanelPreview.add(jLabelXxhdpiL);
 
-        jLabelXxhdpiI.setText(bundle.getString("JIconCreator.jLabelXxhdpiI.text")); // NOI18N
+        jLabelXxhdpiI.setText(bundle.getString("JIconCreatorGui.jLabelXxhdpiI.text")); // NOI18N
         jLabelXxhdpiI.setMaximumSize(new java.awt.Dimension(144, 144));
         jLabelXxhdpiI.setMinimumSize(new java.awt.Dimension(144, 144));
         jLabelXxhdpiI.setPreferredSize(new java.awt.Dimension(144, 144));
@@ -490,7 +490,7 @@ public class JIconCreatorGui extends javax.swing.JFrame {
         jPanelPreviewButton.setLayout(new javax.swing.BoxLayout(jPanelPreviewButton, javax.swing.BoxLayout.LINE_AXIS));
         jPanelPreviewButton.add(fillerLargeH2);
 
-        jButtonPreview.setText(bundle.getString("JIconCreator.jButtonPreview.text")); // NOI18N
+        jButtonPreview.setText(bundle.getString("JIconCreatorGui.jButtonPreview.text")); // NOI18N
         jPanelPreviewButton.add(jButtonPreview);
         jPanelPreviewButton.add(fillerLargeH3);
 
@@ -506,7 +506,7 @@ public class JIconCreatorGui extends javax.swing.JFrame {
             }
         });
 
-        jTextFieldPathImage.setText(bundle.getString("JIconCreator.jTextFieldPathImage.text")); // NOI18N
+        jTextFieldPathImage.setText(bundle.getString("JIconCreatorGui.jTextFieldPathImage.text")); // NOI18N
         jTextFieldPathImage.setMinimumSize(new java.awt.Dimension(237, 25));
         jTextFieldPathImage.setPreferredSize(new java.awt.Dimension(237, 25));
         jTextFieldPathImage.addActionListener(new java.awt.event.ActionListener() {
@@ -515,14 +515,14 @@ public class JIconCreatorGui extends javax.swing.JFrame {
             }
         });
 
-        jButtonBrowseImage.setText(bundle.getString("JIconCreator.jButtonBrowseImage.text")); // NOI18N
+        jButtonBrowseImage.setText(bundle.getString("JIconCreatorGui.jButtonBrowseImage.text")); // NOI18N
         jButtonBrowseImage.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonBrowseImageActionPerformed(evt);
             }
         });
 
-        jButtonResetImage.setText(bundle.getString("JIconCreator.jButtonResetImage.text")); // NOI18N
+        jButtonResetImage.setText(bundle.getString("JIconCreatorGui.jButtonResetImage.text")); // NOI18N
         jButtonResetImage.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonResetImageActionPerformed(evt);
@@ -530,7 +530,7 @@ public class JIconCreatorGui extends javax.swing.JFrame {
         });
 
         jCheckBoxTrimImage.setSelected(true);
-        jCheckBoxTrimImage.setText(bundle.getString("JIconCreator.jCheckBoxTrimImage.text")); // NOI18N
+        jCheckBoxTrimImage.setText(bundle.getString("JIconCreatorGui.jCheckBoxTrimImage.text")); // NOI18N
         jCheckBoxTrimImage.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jCheckBoxTrimImageActionPerformed(evt);
@@ -546,11 +546,11 @@ public class JIconCreatorGui extends javax.swing.JFrame {
             }
         });
 
-        jLabelPercentsImage.setText(bundle.getString("JIconCreator.jLabelPercentsImage.text")); // NOI18N
+        jLabelPercentsImage.setText(bundle.getString("JIconCreatorGui.jLabelPercentsImage.text")); // NOI18N
 
         buttonGroupScalingImage.add(jRadioButtonCropImage);
         jRadioButtonCropImage.setSelected(true);
-        jRadioButtonCropImage.setText(bundle.getString("JIconCreator.jRadioButtonCropImage.text")); // NOI18N
+        jRadioButtonCropImage.setText(bundle.getString("JIconCreatorGui.jRadioButtonCropImage.text")); // NOI18N
         jRadioButtonCropImage.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jRadioButtonCropImageActionPerformed(evt);
@@ -558,7 +558,7 @@ public class JIconCreatorGui extends javax.swing.JFrame {
         });
 
         buttonGroupScalingImage.add(jRadioButtonCenterImage);
-        jRadioButtonCenterImage.setText(bundle.getString("JIconCreator.jRadioButtonCenterImage.text")); // NOI18N
+        jRadioButtonCenterImage.setText(bundle.getString("JIconCreatorGui.jRadioButtonCenterImage.text")); // NOI18N
         jRadioButtonCenterImage.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jRadioButtonCenterImageActionPerformed(evt);
@@ -566,7 +566,7 @@ public class JIconCreatorGui extends javax.swing.JFrame {
         });
 
         buttonGroupShapeImage.add(jRadioButtonNoneImage);
-        jRadioButtonNoneImage.setText(bundle.getString("JIconCreator.jRadioButtonNoneImage.text")); // NOI18N
+        jRadioButtonNoneImage.setText(bundle.getString("JIconCreatorGui.jRadioButtonNoneImage.text")); // NOI18N
         jRadioButtonNoneImage.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jRadioButtonNoneImageActionPerformed(evt);
@@ -575,7 +575,7 @@ public class JIconCreatorGui extends javax.swing.JFrame {
 
         buttonGroupShapeImage.add(jRadioButtonSquareImage);
         jRadioButtonSquareImage.setSelected(true);
-        jRadioButtonSquareImage.setText(bundle.getString("JIconCreator.jRadioButtonSquareImage.text")); // NOI18N
+        jRadioButtonSquareImage.setText(bundle.getString("JIconCreatorGui.jRadioButtonSquareImage.text")); // NOI18N
         jRadioButtonSquareImage.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jRadioButtonSquareImageActionPerformed(evt);
@@ -583,21 +583,21 @@ public class JIconCreatorGui extends javax.swing.JFrame {
         });
 
         buttonGroupShapeImage.add(jRadioButtonCircleImage);
-        jRadioButtonCircleImage.setText(bundle.getString("JIconCreator.jRadioButtonCircleImage.text")); // NOI18N
+        jRadioButtonCircleImage.setText(bundle.getString("JIconCreatorGui.jRadioButtonCircleImage.text")); // NOI18N
         jRadioButtonCircleImage.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jRadioButtonCircleImageActionPerformed(evt);
             }
         });
 
-        jButtonChooseImageL.setText(bundle.getString("JIconCreator.jButtonChooseImageL.text")); // NOI18N
+        jButtonChooseImageL.setText(bundle.getString("JIconCreatorGui.jButtonChooseImageL.text")); // NOI18N
         jButtonChooseImageL.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonChooseImageLActionPerformed(evt);
             }
         });
 
-        jButtonRandomImageL.setText(bundle.getString("JIconCreator.jButtonRandomImageL.text")); // NOI18N
+        jButtonRandomImageL.setText(bundle.getString("JIconCreatorGui.jButtonRandomImageL.text")); // NOI18N
         jButtonRandomImageL.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonRandomImageLActionPerformed(evt);
@@ -605,23 +605,23 @@ public class JIconCreatorGui extends javax.swing.JFrame {
         });
 
         jLabelColorShowImageL.setBackground(new java.awt.Color(255, 204, 0));
-        jLabelColorShowImageL.setText(bundle.getString("JIconCreator.jLabelColorShowImageL.text")); // NOI18N
+        jLabelColorShowImageL.setText(bundle.getString("JIconCreatorGui.jLabelColorShowImageL.text")); // NOI18N
         jLabelColorShowImageL.setMaximumSize(new java.awt.Dimension(25, 25));
         jLabelColorShowImageL.setMinimumSize(new java.awt.Dimension(25, 25));
         jLabelColorShowImageL.setOpaque(true);
         jLabelColorShowImageL.setPreferredSize(new java.awt.Dimension(25, 25));
 
-        jLabelColorImageL.setText(bundle.getString("JIconCreator.jLabelColorImageL.text")); // NOI18N
+        jLabelColorImageL.setText(bundle.getString("JIconCreatorGui.jLabelColorImageL.text")); // NOI18N
 
-        jLabelShapeImage.setText(bundle.getString("JIconCreator.jLabelShapeImage.text")); // NOI18N
+        jLabelShapeImage.setText(bundle.getString("JIconCreatorGui.jLabelShapeImage.text")); // NOI18N
 
-        jLabelScalingImage.setText(bundle.getString("JIconCreator.jLabelScalingImage.text")); // NOI18N
+        jLabelScalingImage.setText(bundle.getString("JIconCreatorGui.jLabelScalingImage.text")); // NOI18N
 
-        jLabelPaddingImage.setText(bundle.getString("JIconCreator.jLabelPaddingImage.text")); // NOI18N
+        jLabelPaddingImage.setText(bundle.getString("JIconCreatorGui.jLabelPaddingImage.text")); // NOI18N
 
-        jLabelOptionsImage.setText(bundle.getString("JIconCreator.jLabelOptionsImage.text")); // NOI18N
+        jLabelOptionsImage.setText(bundle.getString("JIconCreatorGui.jLabelOptionsImage.text")); // NOI18N
 
-        jLabelImage.setText(bundle.getString("JIconCreator.jLabelImage.text")); // NOI18N
+        jLabelImage.setText(bundle.getString("JIconCreatorGui.jLabelImage.text")); // NOI18N
 
         jCheckBoxForeMaskImage.setSelected(true);
         jCheckBoxForeMaskImage.setText(bundle.getString("JIconCreatorGui.jCheckBoxForeMaskImage.text")); // NOI18N
@@ -718,78 +718,78 @@ public class JIconCreatorGui extends javax.swing.JFrame {
                 .addContainerGap(283, Short.MAX_VALUE))
         );
 
-        jTabbedPane.addTab(bundle.getString("JIconCreator.jPanelImage.TabConstraints.tabTitle"), jPanelImage); // NOI18N
+        jTabbedPane.addTab(bundle.getString("JIconCreatorGui.jPanelImage.TabConstraints.tabTitle"), jPanelImage); // NOI18N
 
-        jLabelOptionsClipart.setText(bundle.getString("JIconCreator.jLabelOptionsClipart.text")); // NOI18N
+        jLabelOptionsClipart.setText(bundle.getString("JIconCreatorGui.jLabelOptionsClipart.text")); // NOI18N
 
         jCheckBoxTrimClipart.setSelected(true);
-        jCheckBoxTrimClipart.setText(bundle.getString("JIconCreator.jCheckBoxTrimClipart.text")); // NOI18N
+        jCheckBoxTrimClipart.setText(bundle.getString("JIconCreatorGui.jCheckBoxTrimClipart.text")); // NOI18N
 
-        jLabelPaddingClipart.setText(bundle.getString("JIconCreator.jLabelPaddingClipart.text")); // NOI18N
+        jLabelPaddingClipart.setText(bundle.getString("JIconCreatorGui.jLabelPaddingClipart.text")); // NOI18N
 
         jSliderPaddingClipart.setValue(15);
         jSliderPaddingClipart.setMinimumSize(new java.awt.Dimension(237, 16));
         jSliderPaddingClipart.setPreferredSize(new java.awt.Dimension(237, 16));
 
-        jLabelPercentsClipart.setText(bundle.getString("JIconCreator.jLabelPercentsClipart.text")); // NOI18N
+        jLabelPercentsClipart.setText(bundle.getString("JIconCreatorGui.jLabelPercentsClipart.text")); // NOI18N
 
-        jLabelNameClipart.setText(bundle.getString("JIconCreator.jLabelNameClipart.text")); // NOI18N
+        jLabelNameClipart.setText(bundle.getString("JIconCreatorGui.jLabelNameClipart.text")); // NOI18N
         jLabelNameClipart.setMaximumSize(new java.awt.Dimension(237, 25));
         jLabelNameClipart.setMinimumSize(new java.awt.Dimension(237, 25));
         jLabelNameClipart.setPreferredSize(new java.awt.Dimension(237, 25));
 
-        jLabelScalingClipart.setText(bundle.getString("JIconCreator.jLabelScalingClipart.text")); // NOI18N
+        jLabelScalingClipart.setText(bundle.getString("JIconCreatorGui.jLabelScalingClipart.text")); // NOI18N
 
         buttonGroupScalingClipart.add(jRadioButtonCropClipart);
         jRadioButtonCropClipart.setSelected(true);
-        jRadioButtonCropClipart.setText(bundle.getString("JIconCreator.jRadioButtonCropClipart.text")); // NOI18N
+        jRadioButtonCropClipart.setText(bundle.getString("JIconCreatorGui.jRadioButtonCropClipart.text")); // NOI18N
 
         buttonGroupScalingClipart.add(jRadioButtonCenterClipart);
-        jRadioButtonCenterClipart.setText(bundle.getString("JIconCreator.jRadioButtonCenterClipart.text")); // NOI18N
+        jRadioButtonCenterClipart.setText(bundle.getString("JIconCreatorGui.jRadioButtonCenterClipart.text")); // NOI18N
 
-        jLabelShapeClipart.setText(bundle.getString("JIconCreator.jLabelShapeClipart.text")); // NOI18N
+        jLabelShapeClipart.setText(bundle.getString("JIconCreatorGui.jLabelShapeClipart.text")); // NOI18N
 
         buttonGroupShapeClipart.add(jRadioButtonNoneClipart);
-        jRadioButtonNoneClipart.setText(bundle.getString("JIconCreator.jRadioButtonNoneClipart.text")); // NOI18N
+        jRadioButtonNoneClipart.setText(bundle.getString("JIconCreatorGui.jRadioButtonNoneClipart.text")); // NOI18N
 
         buttonGroupShapeClipart.add(jRadioButtonSquareClipart);
         jRadioButtonSquareClipart.setSelected(true);
-        jRadioButtonSquareClipart.setText(bundle.getString("JIconCreator.jRadioButtonSquareClipart.text")); // NOI18N
+        jRadioButtonSquareClipart.setText(bundle.getString("JIconCreatorGui.jRadioButtonSquareClipart.text")); // NOI18N
 
         buttonGroupShapeClipart.add(jRadioButtonCircleClipart);
-        jRadioButtonCircleClipart.setText(bundle.getString("JIconCreator.jRadioButtonCircleClipart.text")); // NOI18N
+        jRadioButtonCircleClipart.setText(bundle.getString("JIconCreatorGui.jRadioButtonCircleClipart.text")); // NOI18N
 
-        jLabelColorClipartL.setText(bundle.getString("JIconCreator.jLabelColorClipartL.text")); // NOI18N
+        jLabelColorClipartL.setText(bundle.getString("JIconCreatorGui.jLabelColorClipartL.text")); // NOI18N
 
-        jButtonChooseClipartL.setText(bundle.getString("JIconCreator.jButtonChooseClipartL.text")); // NOI18N
+        jButtonChooseClipartL.setText(bundle.getString("JIconCreatorGui.jButtonChooseClipartL.text")); // NOI18N
 
-        jButtonRandomClipartL.setText(bundle.getString("JIconCreator.jButtonRandomClipartL.text")); // NOI18N
+        jButtonRandomClipartL.setText(bundle.getString("JIconCreatorGui.jButtonRandomClipartL.text")); // NOI18N
 
         jLabelColorShowClipartL.setBackground(new java.awt.Color(153, 153, 153));
-        jLabelColorShowClipartL.setText(bundle.getString("JIconCreator.jLabelColorShowClipartL.text")); // NOI18N
+        jLabelColorShowClipartL.setText(bundle.getString("JIconCreatorGui.jLabelColorShowClipartL.text")); // NOI18N
         jLabelColorShowClipartL.setMaximumSize(new java.awt.Dimension(25, 25));
         jLabelColorShowClipartL.setMinimumSize(new java.awt.Dimension(25, 25));
         jLabelColorShowClipartL.setOpaque(true);
         jLabelColorShowClipartL.setPreferredSize(new java.awt.Dimension(25, 25));
 
-        jButtonChooseClipart.setText(bundle.getString("JIconCreator.jButtonChooseClipart.text")); // NOI18N
+        jButtonChooseClipart.setText(bundle.getString("JIconCreatorGui.jButtonChooseClipart.text")); // NOI18N
 
-        jButtonResetClipart.setText(bundle.getString("JIconCreator.jButtonResetClipart.text")); // NOI18N
+        jButtonResetClipart.setText(bundle.getString("JIconCreatorGui.jButtonResetClipart.text")); // NOI18N
 
-        jLabelColorClipartH.setText(bundle.getString("JIconCreator.jLabelColorClipartH.text")); // NOI18N
+        jLabelColorClipartH.setText(bundle.getString("JIconCreatorGui.jLabelColorClipartH.text")); // NOI18N
 
-        jButtonChooseClipartH.setText(bundle.getString("JIconCreator.jButtonChooseClipartH.text")); // NOI18N
+        jButtonChooseClipartH.setText(bundle.getString("JIconCreatorGui.jButtonChooseClipartH.text")); // NOI18N
 
-        jButtonRandomClipartH.setText(bundle.getString("JIconCreator.jButtonRandomClipartH.text")); // NOI18N
+        jButtonRandomClipartH.setText(bundle.getString("JIconCreatorGui.jButtonRandomClipartH.text")); // NOI18N
 
         jLabelColorShowClipartH.setBackground(new java.awt.Color(255, 255, 153));
-        jLabelColorShowClipartH.setText(bundle.getString("JIconCreator.jLabelColorShowClipartH.text")); // NOI18N
+        jLabelColorShowClipartH.setText(bundle.getString("JIconCreatorGui.jLabelColorShowClipartH.text")); // NOI18N
         jLabelColorShowClipartH.setMaximumSize(new java.awt.Dimension(25, 25));
         jLabelColorShowClipartH.setMinimumSize(new java.awt.Dimension(25, 25));
         jLabelColorShowClipartH.setOpaque(true);
         jLabelColorShowClipartH.setPreferredSize(new java.awt.Dimension(25, 25));
 
-        jLabelClipart.setText(bundle.getString("JIconCreator.jLabelClipart.text")); // NOI18N
+        jLabelClipart.setText(bundle.getString("JIconCreatorGui.jLabelClipart.text")); // NOI18N
 
         jCheckBoxForeMaskClipart.setSelected(true);
         jCheckBoxForeMaskClipart.setText(bundle.getString("JIconCreatorGui.jCheckBoxForeMaskClipart.text")); // NOI18N
@@ -897,77 +897,77 @@ public class JIconCreatorGui extends javax.swing.JFrame {
                 .addContainerGap(240, Short.MAX_VALUE))
         );
 
-        jTabbedPane.addTab(bundle.getString("JIconCreator.jPanelClipart.TabConstraints.tabTitle"), jPanelClipart); // NOI18N
+        jTabbedPane.addTab(bundle.getString("JIconCreatorGui.jPanelClipart.TabConstraints.tabTitle"), jPanelClipart); // NOI18N
 
-        jLabelText.setText(bundle.getString("JIconCreator.jLabelText.text")); // NOI18N
+        jLabelText.setText(bundle.getString("JIconCreatorGui.jLabelText.text")); // NOI18N
 
-        jTextFieldText.setText(bundle.getString("JIconCreator.jTextFieldText.text")); // NOI18N
+        jTextFieldText.setText(bundle.getString("JIconCreatorGui.jTextFieldText.text")); // NOI18N
         jTextFieldText.setMinimumSize(new java.awt.Dimension(237, 25));
         jTextFieldText.setPreferredSize(new java.awt.Dimension(237, 25));
 
-        jButtonRestText.setText(bundle.getString("JIconCreator.jButtonRestText.text")); // NOI18N
+        jButtonRestText.setText(bundle.getString("JIconCreatorGui.jButtonRestText.text")); // NOI18N
 
-        jLabelOptionsText.setText(bundle.getString("JIconCreator.jLabelOptionsText.text")); // NOI18N
+        jLabelOptionsText.setText(bundle.getString("JIconCreatorGui.jLabelOptionsText.text")); // NOI18N
 
         jCheckBoxTrimText.setSelected(true);
-        jCheckBoxTrimText.setText(bundle.getString("JIconCreator.jCheckBoxTrimText.text")); // NOI18N
+        jCheckBoxTrimText.setText(bundle.getString("JIconCreatorGui.jCheckBoxTrimText.text")); // NOI18N
 
-        jLabelPaddingText.setText(bundle.getString("JIconCreator.jLabelPaddingText.text")); // NOI18N
+        jLabelPaddingText.setText(bundle.getString("JIconCreatorGui.jLabelPaddingText.text")); // NOI18N
 
         jSliderPaddingText.setValue(15);
         jSliderPaddingText.setMinimumSize(new java.awt.Dimension(237, 16));
         jSliderPaddingText.setPreferredSize(new java.awt.Dimension(237, 16));
 
-        jLabelPercentsText.setText(bundle.getString("JIconCreator.jLabelPercentsText.text")); // NOI18N
+        jLabelPercentsText.setText(bundle.getString("JIconCreatorGui.jLabelPercentsText.text")); // NOI18N
 
-        jLabelScalingText.setText(bundle.getString("JIconCreator.jLabelScalingText.text")); // NOI18N
+        jLabelScalingText.setText(bundle.getString("JIconCreatorGui.jLabelScalingText.text")); // NOI18N
 
         buttonGroupScalingText.add(jRadioButtonCropText);
         jRadioButtonCropText.setSelected(true);
-        jRadioButtonCropText.setText(bundle.getString("JIconCreator.jRadioButtonCropText.text")); // NOI18N
+        jRadioButtonCropText.setText(bundle.getString("JIconCreatorGui.jRadioButtonCropText.text")); // NOI18N
 
         buttonGroupScalingText.add(jRadioButtonCenterText);
-        jRadioButtonCenterText.setText(bundle.getString("JIconCreator.jRadioButtonCenterText.text")); // NOI18N
+        jRadioButtonCenterText.setText(bundle.getString("JIconCreatorGui.jRadioButtonCenterText.text")); // NOI18N
 
-        jLabelShapeText.setText(bundle.getString("JIconCreator.jLabelShapeText.text")); // NOI18N
+        jLabelShapeText.setText(bundle.getString("JIconCreatorGui.jLabelShapeText.text")); // NOI18N
 
         buttonGroupShapeText.add(jRadioButtonNoneText);
-        jRadioButtonNoneText.setText(bundle.getString("JIconCreator.jRadioNoneText.text")); // NOI18N
+        jRadioButtonNoneText.setText(bundle.getString("JIconCreatorGui.jRadioNoneText.text")); // NOI18N
 
         buttonGroupShapeText.add(jRadioButtonSquareText);
         jRadioButtonSquareText.setSelected(true);
-        jRadioButtonSquareText.setText(bundle.getString("JIconCreator.jRadioButtonSquareText.text")); // NOI18N
+        jRadioButtonSquareText.setText(bundle.getString("JIconCreatorGui.jRadioButtonSquareText.text")); // NOI18N
 
         buttonGroupShapeText.add(jRadioButtonCircleText);
-        jRadioButtonCircleText.setText(bundle.getString("JIconCreator.jRadioButtonCircle.text")); // NOI18N
+        jRadioButtonCircleText.setText(bundle.getString("JIconCreatorGui.jRadioButtonCircle.text")); // NOI18N
 
-        jLabelColorTextL.setText(bundle.getString("JIconCreator.jLabelColorTextL.text")); // NOI18N
+        jLabelColorTextL.setText(bundle.getString("JIconCreatorGui.jLabelColorTextL.text")); // NOI18N
 
-        jButtonChooseTextL.setText(bundle.getString("JIconCreator.jButtonChooseTextL.text")); // NOI18N
+        jButtonChooseTextL.setText(bundle.getString("JIconCreatorGui.jButtonChooseTextL.text")); // NOI18N
 
-        jButtonRandomTextL.setText(bundle.getString("JIconCreator.jButtonRandomTextL.text")); // NOI18N
+        jButtonRandomTextL.setText(bundle.getString("JIconCreatorGui.jButtonRandomTextL.text")); // NOI18N
 
         jLabelColorShowTextL.setBackground(new java.awt.Color(0, 51, 51));
-        jLabelColorShowTextL.setText(bundle.getString("JIconCreator.jLabelColorShowTextL.text")); // NOI18N
+        jLabelColorShowTextL.setText(bundle.getString("JIconCreatorGui.jLabelColorShowTextL.text")); // NOI18N
         jLabelColorShowTextL.setMaximumSize(new java.awt.Dimension(25, 25));
         jLabelColorShowTextL.setMinimumSize(new java.awt.Dimension(25, 25));
         jLabelColorShowTextL.setOpaque(true);
         jLabelColorShowTextL.setPreferredSize(new java.awt.Dimension(25, 25));
 
-        jLabelColorTextH.setText(bundle.getString("JIconCreator.jLabelColorTextH.text")); // NOI18N
+        jLabelColorTextH.setText(bundle.getString("JIconCreatorGui.jLabelColorTextH.text")); // NOI18N
 
-        jButtonChooseTextH.setText(bundle.getString("JIconCreator.jButtonChooseTextH.text")); // NOI18N
+        jButtonChooseTextH.setText(bundle.getString("JIconCreatorGui.jButtonChooseTextH.text")); // NOI18N
 
-        jButtonRandomTextH.setText(bundle.getString("JIconCreator.jButtonRandomTextH.text")); // NOI18N
+        jButtonRandomTextH.setText(bundle.getString("JIconCreatorGui.jButtonRandomTextH.text")); // NOI18N
 
         jLabelColorShowTextH.setBackground(new java.awt.Color(255, 51, 51));
-        jLabelColorShowTextH.setText(bundle.getString("JIconCreator.jLabelColorShowTextH.text")); // NOI18N
+        jLabelColorShowTextH.setText(bundle.getString("JIconCreatorGui.jLabelColorShowTextH.text")); // NOI18N
         jLabelColorShowTextH.setMaximumSize(new java.awt.Dimension(25, 25));
         jLabelColorShowTextH.setMinimumSize(new java.awt.Dimension(25, 25));
         jLabelColorShowTextH.setOpaque(true);
         jLabelColorShowTextH.setPreferredSize(new java.awt.Dimension(25, 25));
 
-        jLabelFontText.setText(bundle.getString("JIconCreator.jLabelFontText.text")); // NOI18N
+        jLabelFontText.setText(bundle.getString("JIconCreatorGui.jLabelFontText.text")); // NOI18N
 
         jCheckBoxForeMaskText.setSelected(true);
         jCheckBoxForeMaskText.setText(bundle.getString("JIconCreatorGui.jCheckBoxForeMaskText.text")); // NOI18N
@@ -1085,7 +1085,7 @@ public class JIconCreatorGui extends javax.swing.JFrame {
                 .addContainerGap(198, Short.MAX_VALUE))
         );
 
-        jTabbedPane.addTab(bundle.getString("JIconCreator.jPanelText.TabConstraints.tabTitle"), jPanelText); // NOI18N
+        jTabbedPane.addTab(bundle.getString("JIconCreatorGui.jPanelText.TabConstraints.tabTitle"), jPanelText); // NOI18N
 
         jPanelGeneral.add(jTabbedPane);
 
@@ -1095,7 +1095,7 @@ public class JIconCreatorGui extends javax.swing.JFrame {
         jPanelStatusBar.setLayout(new javax.swing.BoxLayout(jPanelStatusBar, javax.swing.BoxLayout.LINE_AXIS));
         jPanelStatusBar.add(fillerSmallH1);
 
-        jLabelStatusBar.setText(bundle.getString("JIconCreator.jLabelStatusBar.text")); // NOI18N
+        jLabelStatusBar.setText(bundle.getString("JIconCreatorGui.jLabelStatusBar.text")); // NOI18N
         jPanelStatusBar.add(jLabelStatusBar);
         jPanelStatusBar.add(fillerLargeH1);
 
@@ -1110,7 +1110,7 @@ public class JIconCreatorGui extends javax.swing.JFrame {
         jPanelStatusBar.add(jTextFieldStatusFileName);
         jPanelStatusBar.add(fillerSmallH3);
 
-        jButtonSave.setText(bundle.getString("JIconCreator.jButtonSave.text")); // NOI18N
+        jButtonSave.setText(bundle.getString("JIconCreatorGui.jButtonSave.text")); // NOI18N
         jButtonSave.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonSaveActionPerformed(evt);
@@ -1119,7 +1119,7 @@ public class JIconCreatorGui extends javax.swing.JFrame {
         jPanelStatusBar.add(jButtonSave);
         jPanelStatusBar.add(fillerSmallH2);
 
-        jButtonSaveAs.setText(bundle.getString("JIconCreator.jButtonSaveAs.text")); // NOI18N
+        jButtonSaveAs.setText(bundle.getString("JIconCreatorGui.jButtonSaveAs.text")); // NOI18N
         jButtonSaveAs.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonSaveAsActionPerformed(evt);
@@ -1133,15 +1133,15 @@ public class JIconCreatorGui extends javax.swing.JFrame {
 
         getContentPane().add(jSplitPane);
 
-        jMenuFile.setText(bundle.getString("JIconCreator.jMenuFile.text")); // NOI18N
+        jMenuFile.setText(bundle.getString("JIconCreatorGui.jMenuFile.text")); // NOI18N
 
         jMenuItemPreview.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_P, java.awt.event.InputEvent.CTRL_MASK));
-        jMenuItemPreview.setText(bundle.getString("JIconCreator.jMenuItemPreview.text")); // NOI18N
+        jMenuItemPreview.setText(bundle.getString("JIconCreatorGui.jMenuItemPreview.text")); // NOI18N
         jMenuFile.add(jMenuItemPreview);
         jMenuFile.add(jSeparator1);
 
         jMenuItemSave.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_S, java.awt.event.InputEvent.CTRL_MASK));
-        jMenuItemSave.setText(bundle.getString("JIconCreator.jMenuItemSave.text")); // NOI18N
+        jMenuItemSave.setText(bundle.getString("JIconCreatorGui.jMenuItemSave.text")); // NOI18N
         jMenuItemSave.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItemSaveActionPerformed(evt);
@@ -1170,7 +1170,7 @@ public class JIconCreatorGui extends javax.swing.JFrame {
         jMenuFile.add(jMenuSaveAs);
         jMenuFile.add(jSeparator2);
 
-        jMenuItemExit.setText(bundle.getString("JIconCreator.jMenuItemExit.text")); // NOI18N
+        jMenuItemExit.setText(bundle.getString("JIconCreatorGui.jMenuItemExit.text")); // NOI18N
         jMenuItemExit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItemExitActionPerformed(evt);
@@ -1180,7 +1180,7 @@ public class JIconCreatorGui extends javax.swing.JFrame {
 
         jMenuBar.add(jMenuFile);
 
-        jMenuStyle.setText(bundle.getString("JIconCreator.jMenuStyle.text")); // NOI18N
+        jMenuStyle.setText(bundle.getString("JIconCreatorGui.jMenuStyle.text")); // NOI18N
         jMenuBar.add(jMenuStyle);
 
         jMenuScheme.setText(bundle.getString("JIconCreatorGui.jMenuScheme.text")); // NOI18N
@@ -1206,9 +1206,9 @@ public class JIconCreatorGui extends javax.swing.JFrame {
 
         jMenuBar.add(jMenuScheme);
 
-        jMenuHelp.setText(bundle.getString("JIconCreator.jMenuHelp.text")); // NOI18N
+        jMenuHelp.setText(bundle.getString("JIconCreatorGui.jMenuHelp.text")); // NOI18N
 
-        jMenuItemAbout.setText(bundle.getString("JIconCreator.jMenuItemAbout.text")); // NOI18N
+        jMenuItemAbout.setText(bundle.getString("JIconCreatorGui.jMenuItemAbout.text")); // NOI18N
         jMenuHelp.add(jMenuItemAbout);
 
         jMenuBar.add(jMenuHelp);
@@ -1237,7 +1237,7 @@ public class JIconCreatorGui extends javax.swing.JFrame {
     }//GEN-LAST:event_jTabbedPaneStateChanged
 
     private void jButtonChooseImageLActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonChooseImageLActionPerformed
-        String title = java.util.ResourceBundle.getBundle("Bundle").getString("JIconCreator.colorDialogL.text"); // NOI18N
+        String title = java.util.ResourceBundle.getBundle("Bundle").getString("JIconCreatorGui.colorDialogL.text"); // NOI18N
         Color color = JColorChooser.showDialog(this, title, jLabelColorShowImageL.getBackground());
         if (color != null) {
             jLabelColorShowImageL.setBackground(color);
@@ -1276,7 +1276,7 @@ public class JIconCreatorGui extends javax.swing.JFrame {
     }//GEN-LAST:event_jCheckBoxTrimImageActionPerformed
 
     private void jButtonBrowseImageActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonBrowseImageActionPerformed
-        String title = java.util.ResourceBundle.getBundle("Bundle").getString("JIconCreator.openImageDialog.text"); // NOI18N
+        String title = java.util.ResourceBundle.getBundle("Bundle").getString("JIconCreatorGui.openImageDialog.text"); // NOI18N
         if (jFileChooser.showDialog(this, title) == JFileChooser.APPROVE_OPTION) {
             File imageFile = jFileChooser.getSelectedFile();
             jTextFieldPathImage.setText(imageFile.getAbsolutePath());
@@ -1287,7 +1287,7 @@ public class JIconCreatorGui extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonBrowseImageActionPerformed
 
     private void jButtonResetImageActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonResetImageActionPerformed
-        String sign = java.util.ResourceBundle.getBundle("Bundle").getString("JIconCreator.jTextFieldPathImage.text"); // NOI18N
+        String sign = java.util.ResourceBundle.getBundle("Bundle").getString("JIconCreatorGui.jTextFieldPathImage.text"); // NOI18N
         jTextFieldPathImage.setText(sign);
         jIconCreatorOptions.setImageFilePath(sign);
         updatePreviewIcons();

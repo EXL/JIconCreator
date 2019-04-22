@@ -73,6 +73,6 @@ public class ImageFilter extends FileFilter {
     }
 
     public String getDescription() {
-        return ResourceBundle.getBundle("Bundle").getString("JIconCreator.imageFilterDesc.text");
+        return ResourceBundle.getBundle("Bundle").getString("JIconCreatorGui.imageFilterDesc.text");
     }
 }
