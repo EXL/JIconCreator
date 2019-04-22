@@ -29,7 +29,6 @@ import java.util.List;
  * @author exl
  */
 public class JIconCreatorGui extends javax.swing.JFrame {
-
     private final int BIG_SIZE_PIX = 400;
     private final int DELAY_10S = 10000;
 
@@ -107,7 +106,7 @@ public class JIconCreatorGui extends javax.swing.JFrame {
         }
     }
 
-    public boolean isImageBigSize(File imageFile) {
+    private boolean isImageBigSize(File imageFile) {
         try {
             BufferedImage image = ImageIO.read(imageFile);
             return ((image.getHeight() > BIG_SIZE_PIX) || (image.getWidth() > BIG_SIZE_PIX));
@@ -198,7 +197,7 @@ public class JIconCreatorGui extends javax.swing.JFrame {
     // See this for additional information:
     //  https://stackoverflow.com/a/9111327
     //  https://stackoverflow.com/a/13387897
-    public void registerDropOnTextField() {
+    private void registerDropOnTextField() {
         jTextFieldPathImage.setDropTarget(new DropTarget() {
             public synchronized void drop(DropTargetDropEvent event) {
                 try {
@@ -247,7 +246,7 @@ public class JIconCreatorGui extends javax.swing.JFrame {
         jDirectoryChooser.setAcceptAllFileFilterUsed(false);
     }
 
-    public void generateStyleMenuItems() {
+    private void generateStyleMenuItems() {
         HashMap<String, String> installedStyles = new HashMap<>();
         ArrayList<JRadioButtonMenuItem> styleMenuItems = new ArrayList<>();
 
@@ -298,7 +297,7 @@ public class JIconCreatorGui extends javax.swing.JFrame {
         }
     }
 
-    public void setColorToImage(Color color, boolean backColor) {
+    private void setColorToImage(Color color, boolean backColor) {
         if (backColor) {
             jIconCreatorOptions.setBackColor(color);
         } else {
@@ -308,7 +307,7 @@ public class JIconCreatorGui extends javax.swing.JFrame {
         updatePreviewIcons();
     }
 
-    public void setRandomColor(JLabel showColorLabel, boolean backColor) {
+    private void setRandomColor(JLabel showColorLabel, boolean backColor) {
         Color randomColor = new Color(
                 new Random().nextInt(256),
                 new Random().nextInt(256),
@@ -318,7 +317,7 @@ public class JIconCreatorGui extends javax.swing.JFrame {
         setColorToImage(randomColor, backColor);
     }
 
-    public void generateFontComboboxItems() {
+    private void generateFontComboboxItems() {
         GraphicsEnvironment graphicsEnvironment = GraphicsEnvironment.getLocalGraphicsEnvironment();
         String[] fontArray = graphicsEnvironment.getAvailableFontFamilyNames();
         for (String font : fontArray) {
