@@ -155,6 +155,12 @@ public class JIconCreatorGlue {
                 failed++;
             }
         }
+        System.gc();
         return (failed == 0);
+    }
+
+    public BufferedImage[] generatePreviews() {
+        return generateIcons(JIconCreatorOptions.ICON_M, JIconCreatorOptions.ICON_XXH,
+                             imageGenerator.generateSourceImage());
     }
 }

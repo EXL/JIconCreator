@@ -2,10 +2,6 @@ package ru.exlmoto.jiconcreator;
 
 import com.oracle.docs.ImageFilter;
 import com.oracle.docs.ImagePreview;
-//////// REF
-import ru.exlmoto.jiconcreator.unsorted.CreateAssetSetWizardState;
-import ru.exlmoto.jiconcreator.unsorted.JIconCreatorExtrasLibraryHere;
-/////// REF
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
@@ -33,6 +29,7 @@ public class JIconCreatorGui extends javax.swing.JFrame {
     private final int DELAY_10S = 10000;
 
     private JIconCreatorOptions jIconCreatorOptions = null;
+    private JIconCreatorGlue jIconCreatorGlue = null;
 
     private Timer statusTimer = null;
     private JFileChooser jFileChooser = null;
@@ -40,35 +37,16 @@ public class JIconCreatorGui extends javax.swing.JFrame {
 
     private boolean isMipmapScheme = false;
 
-    ////// **** REFACTORING ******** ///////
-    private CreateAssetSetWizardState createAssetSetWizardState = null;
+    private void updatePreviewIcons() {
+        BufferedImage[] previews = jIconCreatorGlue.generatePreviews();
 
-    public void updatePreviewIcons() {
-        int cnt = 0;
-        Map<String, Map<String, BufferedImage>> categories =
-                JIconCreatorExtrasLibraryHere.generateImages(createAssetSetWizardState, jIconCreatorOptions, true);
-        if (JIconCreatorExtrasLibraryHere.wtf(cnt, categories,
-                jLabelMdpiI, jLabelHdpiI, jLabelXhdpiI, jLabelXxhdpiI))
-            return;
-
-        System.out.println("HHHHHHHHHHHHHHHHHH");
-
-        JIconCreatorGlue jIconCreatorGlue = new JIconCreatorGlue(jIconCreatorOptions);
-        jIconCreatorGlue.saveIcons(null, "ic_launcher", false,
-                jIconCreatorGlue.getImageGenerator().generateSourceImage());
+        jLabelMdpiI.setIcon(new ImageIcon(previews[JIconCreatorOptions.ICON_M]));
+        jLabelHdpiI.setIcon(new ImageIcon(previews[JIconCreatorOptions.ICON_H]));
+        jLabelXhdpiI.setIcon(new ImageIcon(previews[JIconCreatorOptions.ICON_XH]));
+        jLabelXxhdpiI.setIcon(new ImageIcon(previews[JIconCreatorOptions.ICON_XXH]));
 
         System.gc();
     }
-
-    public boolean saveImages(String fileName, String path, boolean mipmap) {
-        boolean status = JIconCreatorExtrasLibraryHere.generateIcons(
-                createAssetSetWizardState, jIconCreatorOptions, false, fileName, path, mipmap);
-
-        System.gc();
-
-        return status;
-    }
-    ////////////////////// ***** RECAT **** ////
 
     private void resetImage() {
         String sign = java.util.ResourceBundle.getBundle("Bundle").getString("JIconCreatorGui.jTextFieldPathImage.text"); // NOI18N
@@ -120,7 +98,8 @@ public class JIconCreatorGui extends javax.swing.JFrame {
     }
 
     private void saveFilesAction(String fileName, String path, boolean mipmap) {
-        boolean status = saveImages(fileName, path, mipmap);
+        boolean status = jIconCreatorGlue.saveIcons(path, fileName, mipmap,
+                                                    jIconCreatorGlue.getImageGenerator().generateSourceImage());
         String statusText = java.util.ResourceBundle.getBundle("Bundle").getString("JIconCreatorGui.saveImageStatusBarFail.text");
         if (status) {
             statusText = java.util.ResourceBundle.getBundle("Bundle").getString("JIconCreatorGui.saveImageStatusBar.text");
@@ -332,6 +311,7 @@ public class JIconCreatorGui extends javax.swing.JFrame {
      */
     public JIconCreatorGui() {
         jIconCreatorOptions = new JIconCreatorOptions();
+        jIconCreatorGlue = new JIconCreatorGlue(jIconCreatorOptions);
 
         initComponents();
 
@@ -342,8 +322,6 @@ public class JIconCreatorGui extends javax.swing.JFrame {
 
         generateStyleMenuItems();
         generateFontComboboxItems();
-
-        createAssetSetWizardState = new CreateAssetSetWizardState();
     }
 
     /**
