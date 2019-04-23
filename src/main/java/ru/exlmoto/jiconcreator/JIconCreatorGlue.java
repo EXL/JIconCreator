@@ -128,7 +128,7 @@ public class JIconCreatorGlue {
         for (int i = 0; i < bufferedImages.length; ++i) {
             File file = null;
             if (!saveToPath) {
-                file = new File(fileName + String.valueOf(i) + ".png");
+                file = new File(fileName + i + ".png");
             } else {
                 Path dpiPath = Paths.get(directories[i], fileName + ".png");
                 file = new File(dpiPath.toString());

@@ -9,7 +9,7 @@ public class JIconCreatorOptions {
     public static final int ICON_XXH = 3;
     public static final int ICON_XXXH = 4;
     public static final int ICON_WEB = 5;
-    public static final String[] DPIS = { "mdpi", "hdpi", "xhdpi", "xxdpi", "xxxdpi", "web" };
+    public static final String[] DPIS = { "mdpi", "hdpi", "xhdpi", "xxhdpi", "xxxhdpi", "web" };
 
     public static final String DEFAULT_TEXT = "aA";
 

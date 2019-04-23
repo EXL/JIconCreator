@@ -73,7 +73,6 @@ public class JIconCreatorGenerator {
             foreImage = glue.loadImageResource(L_PATH + shape + "/" + density + "/fore1.png", true);
             maskImage = glue.loadImageResource(L_PATH + shape + "/" + density + "/mask.png", true);
             maskInnerImage = glue.loadImageResource(L_PATH + shape + "/" + density + "/mask_inner.png", true);
-
         }
 
         Rectangle imageRect = PrecomputedRectTables.IMAGE_RECT[iconResolution];
