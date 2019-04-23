@@ -51,11 +51,6 @@ public class JIconCreatorGenerator {
                 new Rectangle(32, 43, 448, 448)
             }
         };
-
-        static {
-            // TODO:
-            System.out.println("Check this!");
-        }
     }
 
     public JIconCreatorGenerator(JIconCreatorOptions jIconCreatorOptions, JIconCreatorGlue jIconCreatorGlue) {
