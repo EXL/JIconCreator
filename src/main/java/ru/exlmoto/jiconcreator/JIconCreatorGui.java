@@ -86,10 +86,7 @@ public class JIconCreatorGui extends javax.swing.JFrame {
         JSlider slider = (JSlider) evt.getSource();
         int percent = slider.getValue();
         percents.setText(percent + "%");
-        if (!imageIsBig) {
-            jIconCreatorOptions.setPadding(percent);
-            updatePreviewIcons();
-        } else if (!slider.getValueIsAdjusting()) {
+        if (!imageIsBig || !slider.getValueIsAdjusting()) {
             jIconCreatorOptions.setPadding(percent);
             updatePreviewIcons();
         }
@@ -280,9 +277,8 @@ public class JIconCreatorGui extends javax.swing.JFrame {
             buttonGroupStyles.add(menuItem);
             jMenuStyle.add(menuItem);
 
-            if (menuItem.getText().equals("Windows") && isWindows) {
-                menuItem.setSelected(true);
-            } else if (UIManager.getLookAndFeel().getName().equals(menuItem.getText())) {
+            if ((menuItem.getText().equals("Windows") && isWindows) ||
+                    UIManager.getLookAndFeel().getName().equals(menuItem.getText())) {
                 menuItem.setSelected(true);
             }
         }
