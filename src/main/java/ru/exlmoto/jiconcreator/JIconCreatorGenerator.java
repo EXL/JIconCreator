@@ -1,8 +1,5 @@
 package ru.exlmoto.jiconcreator;
 
-// TODO: drop this.
-import ru.exlmoto.jiconcreator.unsorted.ImageUtils;
-
 import java.awt.*;
 import java.awt.image.BufferedImage;
 
@@ -135,7 +132,7 @@ public class JIconCreatorGenerator {
                     sourceImage = glue.getImage(path, false);
                     if (sourceImage != null) {
                         if (trim) {
-                            sourceImage = ImageUtils.cropBlank(sourceImage, null, BufferedImage.TYPE_INT_ARGB);
+                            sourceImage = GraphicsUtils.cropBlank(sourceImage, null, BufferedImage.TYPE_INT_ARGB);
                         }
                         if (padding != 0) {
                             sourceImage = GraphicsUtils.paddedImage(sourceImage, padding);
@@ -156,7 +153,7 @@ public class JIconCreatorGenerator {
                 try {
                     sourceImage = glue.getClipartImage(options.getClipartName(), true);
                     if (trim) {
-                        sourceImage = ImageUtils.cropBlank(sourceImage, null, BufferedImage.TYPE_INT_ARGB);
+                        sourceImage = GraphicsUtils.cropBlank(sourceImage, null, BufferedImage.TYPE_INT_ARGB);
                     }
                     sourceImage = GraphicsUtils.filledImage(sourceImage, paint);
                     if (padding != 0) {
@@ -176,7 +173,7 @@ public class JIconCreatorGenerator {
                         padding,
                         paint);
                 if (trim) {
-                    sourceImage = ImageUtils.cropBlank(sourceImage, null, BufferedImage.TYPE_INT_ARGB);
+                    sourceImage = GraphicsUtils.cropBlank(sourceImage, null, BufferedImage.TYPE_INT_ARGB);
                 }
                 if (padding != 0) {
                     sourceImage = GraphicsUtils.paddedImage(sourceImage, padding);
