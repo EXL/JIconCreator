@@ -4,6 +4,7 @@ import com.android.annotations.NonNull;
 import com.android.annotations.Nullable;
 import com.android.assetstudiolib.*;
 import com.android.utils.Pair;
+import ru.exlmoto.jiconcreator.JIconCreatorGlue;
 import ru.exlmoto.jiconcreator.JIconCreatorOptions;
 
 import javax.imageio.ImageIO;
@@ -286,6 +287,11 @@ public class JIconCreatorExtrasLibraryHere {
         /// WHY mVALUES????????????????????????????????????????????????
         generator.generate(null, categoryMap, mValues, options, baseName, previewOnly);
 
+        System.out.println("HHHHHHHHHHHHHHHHHH");
+
+        JIconCreatorGlue jIconCreatorGlue = new JIconCreatorGlue(jIconCreatorOptions);
+        jIconCreatorGlue.saveIcons(null, "ic_launcher", false, sourceImage);
+
         return categoryMap;
     }
 
@@ -298,6 +304,7 @@ public class JIconCreatorExtrasLibraryHere {
      *            the launcher icons won't generate a huge 512x512 web graphic
      *            in preview mode
      */
+    @Deprecated
     public static boolean generateIcons(/*final IProject newProject,*/
                                      @NonNull CreateAssetSetWizardState values,
                                      JIconCreatorOptions jIconCreatorOptions,

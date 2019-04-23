@@ -187,7 +187,9 @@ public class CreateAssetSetWizardState implements GraphicGeneratorContext {
         if (isPluginRelative) {
             image = GraphicGenerator.getStencilImage(path);
         } else {
+            // System.out.println("Is path was: " + path);
             if (path.equals(DEFAULT_LAUNCHER_ICON)) {
+                System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>> Im Here!");
                 File file = new File("test.png");
                 //File file = TemplateManager.getTemplateLocation(
                 //        "projects/NewAndroidApplication/root/res/drawable-xhdpi/ic_launcher.png"); //$NON-NLS-1$

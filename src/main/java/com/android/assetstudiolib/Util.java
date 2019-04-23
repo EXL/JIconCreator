@@ -329,6 +329,7 @@ public class Util {
         final int srcWidth = source.getWidth();
         final int srcHeight = source.getHeight();
         if (srcWidth * 1.0 / srcHeight > dstRect.width * 1.0 / dstRect.height) {
+            // System.out.println("HERE");
             final int scaledWidth = Math.max(1, dstRect.width);
             final int scaledHeight = Math.max(1, dstRect.width * srcHeight / srcWidth);
             Image scaledImage = scaledImage(source, scaledWidth, scaledHeight);
@@ -343,6 +344,7 @@ public class Util {
                     0 + scaledHeight,
                     null);
         } else {
+            // System.out.println("HERE 2");
             final int scaledWidth = Math.max(1, dstRect.height * srcWidth / srcHeight);
             final int scaledHeight = Math.max(1, dstRect.height);
             Image scaledImage = scaledImage(source, scaledWidth, scaledHeight);

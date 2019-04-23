@@ -3,15 +3,15 @@ package ru.exlmoto.jiconcreator;
 import java.awt.Color;
 
 public class JIconCreatorOptions {
-    public static final int PREVIEW_M = 0;
-    public static final int PREVIEW_H = 1;
-    public static final int PREVIEW_XH = 2;
-    public static final int PREVIEW_XXH = 3;
-    public static final int PREVIEW_WEB = 4;
+    public static final int ICON_M = 0;
+    public static final int ICON_H = 1;
+    public static final int ICON_XH = 2;
+    public static final int ICON_XXH = 3;
+    public static final int ICON_XXXH = 4;
+    public static final int ICON_WEB = 5;
+    public static final String[] DPIS = { "mdpi", "hdpi", "xhdpi", "xxdpi", "xxxdpi", "web" };
 
     public static final String DEFAULT_TEXT = "aA";
-
-    public static final String[] DPIS = { "mdpi", "hdpi", "xhdpi", "xxdpi", "xxxdpi", "web" };
 
     private boolean bigImage = false;
 
@@ -22,6 +22,7 @@ public class JIconCreatorOptions {
     public static final int SHAPE_NONE = 0;
     public static final int SHAPE_SQUARE = 1;
     public static final int SHAPE_CIRCLE = 2;
+    public static final String[] SHAPES = { "none", "square", "circle" };
 
     private int iconType = ICON_IMAGE;
 

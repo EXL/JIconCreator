@@ -90,14 +90,19 @@ public class LauncherIconGenerator extends GraphicGenerator {
             imageRect = Util.scaleRectangle(IMAGE_SIZE_MDPI,
                     GraphicGenerator.getMdpiScaleFactor(launcherOptions.density));
         }
+        // System.out.println("Is that const?: " + imageRect.toString());
 
         Rectangle targetRect = TARGET_RECTS.get(
                 Pair.of(launcherOptions.shape, launcherOptions.density));
+        if (targetRect != null) {
+            // System.out.println("Is that const?: " + targetRect.toString());
+        }
         if (targetRect == null) {
             // Scale up from MDPI if no density-specific target rectangle is defined.
             targetRect = Util.scaleRectangle(
                     TARGET_RECTS.get(Pair.of(launcherOptions.shape, Density.MEDIUM)),
                     GraphicGenerator.getMdpiScaleFactor(launcherOptions.density));
+            // System.out.println("Is that const?: " + targetRect.toString());
         }
 
         BufferedImage outImage = Util.newArgbBufferedImage(imageRect.width, imageRect.height);
