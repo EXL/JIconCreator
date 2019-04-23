@@ -51,6 +51,12 @@ public class JIconCreatorGui extends javax.swing.JFrame {
                 jLabelMdpiI, jLabelHdpiI, jLabelXhdpiI, jLabelXxhdpiI))
             return;
 
+        System.out.println("HHHHHHHHHHHHHHHHHH");
+
+        JIconCreatorGlue jIconCreatorGlue = new JIconCreatorGlue(jIconCreatorOptions);
+        jIconCreatorGlue.saveIcons(null, "ic_launcher", false,
+                jIconCreatorGlue.getImageGenerator().generateSourceImage());
+
         System.gc();
     }
 

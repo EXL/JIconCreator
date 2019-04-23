@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2011 The Android Open Source Project
+ * Copyright (C) 2010-2011 The Android Open Source Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -17,6 +17,9 @@
 package ru.exlmoto.jiconcreator;
 
 import java.awt.*;
+import java.awt.font.FontRenderContext;
+import java.awt.font.TextLayout;
+import java.awt.geom.Rectangle2D;
 import java.awt.image.BufferedImage;
 
 public class GraphicsUtils {
@@ -125,5 +128,98 @@ public class GraphicsUtils {
                     0 + (scaledHeight - dstRect.height) / 2 + dstRect.height,
                     null);
         }
+    }
+
+    /**
+     * Pads the given {@link BufferedImage} on all sides by the given padding amount.
+     *
+     * @param source  The source image.
+     * @param padding The amount to pad on all sides, in pixels.
+     * @return A new, padded image, or the source image if no padding is performed.
+     */
+    public static BufferedImage paddedImage(BufferedImage source, int padding) {
+        if (padding == 0) {
+            return source;
+        }
+        BufferedImage newImage = new BufferedImage(source.getWidth() + padding * 2,
+                                                   source.getHeight() + padding * 2,
+                                                   BufferedImage.TYPE_INT_ARGB);
+        Graphics2D g = (Graphics2D) newImage.getGraphics();
+        g.drawImage(source, padding, padding, null);
+        return newImage;
+    }
+
+    /**
+     * Fills the given {@link BufferedImage} with a {@link Paint}, preserving its alpha channel.
+     *
+     * @param source The source image.
+     * @param paint  The paint to fill with.
+     * @return A new, painted/filled image.
+     */
+    public static BufferedImage filledImage(BufferedImage source, Paint paint) {
+        BufferedImage newImage = new BufferedImage(source.getWidth(), source.getHeight(), BufferedImage.TYPE_INT_ARGB);
+        Graphics2D g = (Graphics2D) newImage.getGraphics();
+        g.drawImage(source, 0, 0, null);
+        g.setComposite(AlphaComposite.SrcAtop);
+        g.setPaint(paint);
+        g.fillRect(0, 0, source.getWidth(), source.getHeight());
+        return newImage;
+    }
+
+    /**
+     * Renders the given string to a {@link BufferedImage}.
+     *
+     * @param fontName The font to render.
+     * @param text The text to render.
+     * @param fontStyle The font style: 0 - no style, 1 - bold, 2 - italic.
+     * @param fontSize The font size: default is 512.
+     * @param paddingPercentage If nonzero, a percentage of the width or height
+     *            (whichever is smaller) to add as padding around the text.
+     * @param color The font color.
+     * @return An BufferedImage image, suitable for general use.
+     */
+    public static BufferedImage renderTextImage(String fontName, String text,
+                                                int fontStyle, int fontSize, int paddingPercentage,
+                                                Color color) {
+        if (text == null || text.isEmpty()) {
+            return null;
+        }
+
+        BufferedImage tempImage = new BufferedImage(1, 1, BufferedImage.TYPE_INT_ARGB);
+        Graphics2D tempG = (Graphics2D) tempImage.getGraphics();
+
+        Font font = new Font(fontName, fontStyle, fontSize);
+
+        FontRenderContext frc = tempG.getFontRenderContext();
+
+        TextLayout layout = new TextLayout(text, font, frc);
+        Rectangle2D bounds = layout.getBounds();
+
+        // The padding is a percentage relative to the overall minimum of the width or height.
+        if (paddingPercentage != 0) {
+            double minDimension = Math.min(bounds.getWidth(), bounds.getHeight());
+            double delta = minDimension * paddingPercentage / 100;
+            bounds.setRect(bounds.getMinX() - delta,
+                           bounds.getMinY() - delta,
+                           bounds.getWidth() + 2 * delta,
+                           bounds.getHeight() + 2 * delta);
+        }
+
+        BufferedImage image = new BufferedImage(Math.max(1, (int) bounds.getWidth()),
+                                                Math.max(1, (int) bounds.getHeight()),
+                                                BufferedImage.TYPE_INT_ARGB);
+        Graphics2D g = (Graphics2D) image.getGraphics();
+        g.setColor(new Color(color.getRGB(), true));
+        g.setFont(font);
+
+        g.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
+        g.setRenderingHint(RenderingHints.KEY_TEXT_ANTIALIASING, RenderingHints.VALUE_TEXT_ANTIALIAS_ON);
+
+        g.drawString(text, (float) -bounds.getX(), (float) -bounds.getY());
+
+        g.dispose();
+        tempG.dispose();
+
+        return image;
     }
 }

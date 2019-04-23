@@ -6,6 +6,7 @@ import java.io.*;
 
 import java.nio.file.Path;
 import java.nio.file.Paths;
+
 import java.util.HashMap;
 
 import javax.imageio.ImageIO;
@@ -19,6 +20,10 @@ public class JIconCreatorGlue {
     public JIconCreatorGlue(JIconCreatorOptions jIconCreatorOptions) {
         options = jIconCreatorOptions;
         imageGenerator = new JIconCreatorGenerator(options, this);
+    }
+
+    public JIconCreatorGenerator getImageGenerator() {
+        return imageGenerator;
     }
 
     public BufferedImage loadImageResource(String path, boolean innerImage) {
@@ -38,7 +43,7 @@ public class JIconCreatorGlue {
         }
     }
 
-    private BufferedImage getImage(String path, boolean innerImage) throws IOException {
+    public BufferedImage getImage(String path, boolean innerImage) throws IOException {
         BufferedImage image = null;
         if (innerImage) {
             image = getInnerImage(path);
@@ -58,6 +63,13 @@ public class JIconCreatorGlue {
             return null;
         }
         return ImageIO.read(inputStream);
+    }
+
+    public BufferedImage getClipartImage(String clipartName, boolean big) throws IOException {
+        String path = "/images/clipart/";
+        path += (big) ? "big/" : "small/";
+        path += clipartName;
+        return getInnerImage(path);
     }
 
     public BufferedImage[] generateIcons(int start, int stop, BufferedImage sourceImage) {
@@ -145,53 +157,4 @@ public class JIconCreatorGlue {
         }
         return (failed == 0);
     }
-
-/*
-    public BufferedImage loadImageResource(String relativeName) {
-        try {
-            return getCachedImage(relativeName, true);
-        } catch (IOException e) {
-            //AdtPlugin.log(e, null);
-            return null;
-        }
-    }
-
-    @NonNull
-    static BufferedImage getImage(@NonNull String path, boolean isPluginRelative)
-            throws IOException {
-        BufferedImage image = null;
-        if (isPluginRelative) {
-            image = GraphicGenerator.getStencilImage(path);
-        } else {
-            /*
-            if (path.equals(DEFAULT_LAUNCHER_ICON)) {
-                File file = new File("test.png");
-                //File file = TemplateManager.getTemplateLocation(
-                //        "projects/NewAndroidApplication/root/res/drawable-xhdpi/ic_launcher.png"); //$NON-NLS-1$
-                if (file != null) {
-                    path = file.getPath();
-                } else {
-                    image = GraphicGenerator.getStencilImage("user.png");
-                }
-            }
-
-            File file = new File(path);
-
-            // Requires Batik
-            //if (file.getName().endsWith(DOT_SVG)) {
-            //    image = loadSvgImage(file);
-            //}
-
-            if (image == null) {
-                image = ImageIO.read(file);
-            }
-        }
-
-        if (image == null) {
-            image = new BufferedImage(1,1, BufferedImage.TYPE_INT_ARGB);
-        }
-
-        return image;
-    }
-*/
 }

@@ -1,7 +1,12 @@
 package ru.exlmoto.jiconcreator;
 
+// TODO: drop this.
+import ru.exlmoto.jiconcreator.unsorted.ImageUtils;
+
 import java.awt.*;
 import java.awt.image.BufferedImage;
+
+import java.io.IOException;
 
 public class JIconCreatorGenerator {
     private static final String L_PATH = "/images/launcher_stencil/";
@@ -118,5 +123,76 @@ public class JIconCreatorGenerator {
             graphics.setPaint(options.getBackColor());
             graphics.fillRect(0, 0, rectangle.width, rectangle.height);
         }
+    }
+
+    public BufferedImage generateSourceImage() {
+        BufferedImage sourceImage = null;
+
+        boolean trim = options.isTrim();
+        int padding = options.getPadding();
+        Color paint = options.getForeColor();
+
+        switch (options.getIconType()) {
+            default:
+            case JIconCreatorOptions.ICON_IMAGE: {
+                String path = options.getImageFilePath();
+                try {
+                    sourceImage = glue.getImage(path, false);
+                    if (sourceImage != null) {
+                        if (trim) {
+                            sourceImage = ImageUtils.cropBlank(sourceImage, null, BufferedImage.TYPE_INT_ARGB);
+                        }
+                        if (padding != 0) {
+                            sourceImage = GraphicsUtils.paddedImage(sourceImage, padding);
+                        }
+                    }
+                } catch (IOException ioe) {
+                    // Fallback to the ClipArt image.
+                    options.setBigImage(true);
+                    try {
+                        sourceImage = glue.getClipartImage("android.png", true);
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                }
+                break;
+            }
+            case JIconCreatorOptions.ICON_CLIPART: {
+                try {
+                    sourceImage = glue.getClipartImage(options.getClipartName(), true);
+                    if (trim) {
+                        sourceImage = ImageUtils.cropBlank(sourceImage, null, BufferedImage.TYPE_INT_ARGB);
+                    }
+                    sourceImage = GraphicsUtils.filledImage(sourceImage, paint);
+                    if (padding != 0) {
+                        sourceImage = GraphicsUtils.paddedImage(sourceImage, padding);
+                    }
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+                break;
+            }
+            case JIconCreatorOptions.ICON_TEXT: {
+                String text = options.getTextString();
+                sourceImage = GraphicsUtils.renderTextImage(options.getFont(),
+                        options.getTextString(),
+                        JIconCreatorOptions.FONT_BOLD,
+                        JIconCreatorOptions.DEFAULT_FONT_SIZE,
+                        padding,
+                        paint);
+                if (trim) {
+                    sourceImage = ImageUtils.cropBlank(sourceImage, null, BufferedImage.TYPE_INT_ARGB);
+                }
+                if (padding != 0) {
+                    sourceImage = GraphicsUtils.paddedImage(sourceImage, padding);
+                }
+                break;
+            }
+        }
+
+        if (sourceImage == null) {
+            return new BufferedImage(1, 1, BufferedImage.TYPE_INT_ARGB);
+        }
+        return sourceImage;
     }
 }

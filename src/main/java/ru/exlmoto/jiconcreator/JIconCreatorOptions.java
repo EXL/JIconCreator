@@ -24,6 +24,11 @@ public class JIconCreatorOptions {
     public static final int SHAPE_CIRCLE = 2;
     public static final String[] SHAPES = { "none", "square", "circle" };
 
+    public static final int FONT_NORMAL = 0;
+    public static final int FONT_BOLD = 1;
+    public static final int FONT_ITALIC = 2;
+    public static final int DEFAULT_FONT_SIZE = 512;
+
     private int iconType = ICON_IMAGE;
 
     /// Todo: ??????????
