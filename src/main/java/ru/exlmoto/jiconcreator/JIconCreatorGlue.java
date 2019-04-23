@@ -163,4 +163,9 @@ public class JIconCreatorGlue {
         return generateIcons(JIconCreatorOptions.ICON_M, JIconCreatorOptions.ICON_XXH,
                              imageGenerator.generateSourceImage());
     }
+
+    public BufferedImage[] generateBigPreviews() {
+        return generateIcons(JIconCreatorOptions.ICON_XXXH, JIconCreatorOptions.ICON_WEB,
+                imageGenerator.generateSourceImage());
+    }
 }

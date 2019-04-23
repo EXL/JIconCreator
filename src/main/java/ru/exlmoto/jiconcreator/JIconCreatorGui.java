@@ -1657,6 +1657,8 @@ public class JIconCreatorGui extends javax.swing.JFrame {
     private void jButtonPreviewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonPreviewActionPerformed
         // TODO add your handling code here:
         System.out.println("STUB!");
+        JIconCreatorPreview jIconCreatorPreview = new JIconCreatorPreview(this, true, jIconCreatorGlue.generateBigPreviews());
+        jIconCreatorPreview.showPreviewDialog();
     }//GEN-LAST:event_jButtonPreviewActionPerformed
 
     private void jMenuItemPreviewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemPreviewActionPerformed
