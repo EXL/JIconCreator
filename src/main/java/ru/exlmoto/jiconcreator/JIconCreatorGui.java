@@ -37,6 +37,11 @@ public class JIconCreatorGui extends javax.swing.JFrame {
 
     private boolean isMipmapScheme = false;
 
+    private void showPreviewDialog() {
+        JIconCreatorPreview jIconCreatorPreview = new JIconCreatorPreview(this, true, jIconCreatorGlue.generateBigPreviews());
+        jIconCreatorPreview.showPreviewDialog();
+    }
+
     private void updatePreviewIcons() {
         BufferedImage[] previews = jIconCreatorGlue.generatePreviews();
 
@@ -1655,15 +1660,11 @@ public class JIconCreatorGui extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonSetTextActionPerformed
 
     private void jButtonPreviewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonPreviewActionPerformed
-        // TODO add your handling code here:
-        System.out.println("STUB!");
-        JIconCreatorPreview jIconCreatorPreview = new JIconCreatorPreview(this, true, jIconCreatorGlue.generateBigPreviews());
-        jIconCreatorPreview.showPreviewDialog();
+        showPreviewDialog();
     }//GEN-LAST:event_jButtonPreviewActionPerformed
 
     private void jMenuItemPreviewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemPreviewActionPerformed
-        // TODO add your handling code here:
-        System.out.println("STUB!");
+        showPreviewDialog();
     }//GEN-LAST:event_jMenuItemPreviewActionPerformed
 
     private void jMenuItemAboutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemAboutActionPerformed

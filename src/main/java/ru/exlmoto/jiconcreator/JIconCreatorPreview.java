@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package ru.exlmoto.jiconcreator;
 
 import javax.swing.*;
@@ -21,8 +16,8 @@ public class JIconCreatorPreview extends javax.swing.JDialog {
         super(parent, modal);
         initComponents();
 
-        jLabel3.setIcon(new ImageIcon(previews[1]));
-        jLabel4.setIcon(new ImageIcon(previews[0]));
+        jLabelPreviewWebI.setIcon(new ImageIcon(previews[1]));
+        jLabelPreviewHdpiI.setIcon(new ImageIcon(previews[0]));
     }
 
     /**
@@ -33,31 +28,69 @@ public class JIconCreatorPreview extends javax.swing.JDialog {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
+        java.awt.GridBagConstraints gridBagConstraints;
 
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
+        jLabelPreviewHidpiL = new javax.swing.JLabel();
+        jLabelPreviewWebL = new javax.swing.JLabel();
+        jLabelPreviewHdpiI = new javax.swing.JLabel();
+        jLabelPreviewWebI = new javax.swing.JLabel();
+        jButtonClosePreview = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         java.util.ResourceBundle bundle = java.util.ResourceBundle.getBundle("Bundle"); // NOI18N
         setTitle(bundle.getString("JIconCreatorPreview.title")); // NOI18N
-        getContentPane().setLayout(new java.awt.GridLayout(2, 2, 2, 2));
+        setBounds(new java.awt.Rectangle(0, 0, 1024, 600));
+        setMaximumSize(new java.awt.Dimension(1024, 600));
+        setMinimumSize(new java.awt.Dimension(700, 600));
+        setPreferredSize(new java.awt.Dimension(700, 600));
+        getContentPane().setLayout(new java.awt.GridBagLayout());
 
-        jLabel1.setText(bundle.getString("JIconCreatorPreview.jLabel1.text")); // NOI18N
-        getContentPane().add(jLabel1);
+        jLabelPreviewHidpiL.setText(bundle.getString("JIconCreatorPreview.jLabelPreviewHidpiL.text")); // NOI18N
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(0, 15, 0, 0);
+        getContentPane().add(jLabelPreviewHidpiL, gridBagConstraints);
 
-        jLabel2.setText(bundle.getString("JIconCreatorPreview.jLabel2.text")); // NOI18N
-        getContentPane().add(jLabel2);
+        jLabelPreviewWebL.setText(bundle.getString("JIconCreatorPreview.jLabelPreviewWebL.text")); // NOI18N
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
+        gridBagConstraints.insets = new java.awt.Insets(0, 30, 0, 0);
+        getContentPane().add(jLabelPreviewWebL, gridBagConstraints);
 
-        jLabel3.setText(bundle.getString("JIconCreatorPreview.jLabel3.text")); // NOI18N
-        getContentPane().add(jLabel3);
+        jLabelPreviewHdpiI.setText(bundle.getString("JIconCreatorPreview.jLabelPreviewHdpiI.text")); // NOI18N
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 1;
+        getContentPane().add(jLabelPreviewHdpiI, gridBagConstraints);
 
-        jLabel4.setText(bundle.getString("JIconCreatorPreview.jLabel4.text")); // NOI18N
-        getContentPane().add(jLabel4);
+        jLabelPreviewWebI.setText(bundle.getString("JIconCreatorPreview.jLabelPreviewWebI.text")); // NOI18N
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 1;
+        getContentPane().add(jLabelPreviewWebI, gridBagConstraints);
+
+        jButtonClosePreview.setText(bundle.getString("JIconCreatorPreview.jButtonClosePreview.text")); // NOI18N
+        jButtonClosePreview.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonClosePreviewActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_END;
+        gridBagConstraints.insets = new java.awt.Insets(0, 0, 0, 30);
+        getContentPane().add(jButtonClosePreview, gridBagConstraints);
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButtonClosePreviewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonClosePreviewActionPerformed
+        JIconCreatorPreview.this.processWindowEvent(
+                new java.awt.event.WindowEvent(JIconCreatorPreview.this,java.awt.event.WindowEvent.WINDOW_CLOSING));
+    }//GEN-LAST:event_jButtonClosePreviewActionPerformed
 
     public void showPreviewDialog() {
         /* Create and display the dialog */
@@ -76,9 +109,10 @@ public class JIconCreatorPreview extends javax.swing.JDialog {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
+    private javax.swing.JButton jButtonClosePreview;
+    private javax.swing.JLabel jLabelPreviewHdpiI;
+    private javax.swing.JLabel jLabelPreviewHidpiL;
+    private javax.swing.JLabel jLabelPreviewWebI;
+    private javax.swing.JLabel jLabelPreviewWebL;
     // End of variables declaration//GEN-END:variables
 }
