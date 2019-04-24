@@ -98,6 +98,7 @@ public class JIconCreatorClipart extends javax.swing.JDialog {
         setMaximumSize(new java.awt.Dimension(350, 325));
         setMinimumSize(new java.awt.Dimension(350, 325));
         setPreferredSize(new java.awt.Dimension(350, 325));
+        setResizable(false);
         getContentPane().setLayout(new java.awt.GridBagLayout());
 
         jPanelClipart.setMaximumSize(new java.awt.Dimension(330, 330));

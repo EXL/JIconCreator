@@ -44,6 +44,7 @@ public class JIconCreatorPreview extends javax.swing.JDialog {
         setMaximumSize(new java.awt.Dimension(1024, 600));
         setMinimumSize(new java.awt.Dimension(700, 600));
         setPreferredSize(new java.awt.Dimension(700, 600));
+        setResizable(false);
         getContentPane().setLayout(new java.awt.GridBagLayout());
 
         jLabelPreviewHidpiL.setText(bundle.getString("JIconCreatorPreview.jLabelPreviewHidpiL.text")); // NOI18N
