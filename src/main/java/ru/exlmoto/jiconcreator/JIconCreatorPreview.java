@@ -93,7 +93,7 @@ public class JIconCreatorPreview extends javax.swing.JDialog {
     }//GEN-LAST:event_jButtonClosePreviewActionPerformed
 
     public void showPreviewDialog() {
-        /* Create and display the dialog */
+        /* Display the dialog */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 addWindowListener(new java.awt.event.WindowAdapter() {

@@ -42,7 +42,7 @@ public class JIconCreatorGui extends javax.swing.JFrame {
         jIconCreatorPreview.showPreviewDialog();
     }
 
-    private void updatePreviewIcons() {
+    public void updatePreviewIcons() {
         BufferedImage[] previews = jIconCreatorGlue.generatePreviews();
 
         jLabelMdpiI.setIcon(new ImageIcon(previews[JIconCreatorOptions.ICON_M]));
@@ -1581,6 +1581,9 @@ public class JIconCreatorGui extends javax.swing.JFrame {
     private void jButtonChooseClipartActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonChooseClipartActionPerformed
         // TODO add your handling code here:
         System.out.println("STUB!");
+        JIconCreatorClipart jIconCreatorClipart = new JIconCreatorClipart(this, true,
+                jIconCreatorGlue, jIconCreatorOptions);
+        jIconCreatorClipart.showCliparDialog();
     }//GEN-LAST:event_jButtonChooseClipartActionPerformed
 
     private void jButtonResetClipartActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonResetClipartActionPerformed
