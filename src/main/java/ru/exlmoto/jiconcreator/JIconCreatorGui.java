@@ -1590,8 +1590,7 @@ public class JIconCreatorGui extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonChooseClipartActionPerformed
 
     private void jButtonResetClipartActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonResetClipartActionPerformed
-        // TODO add your handling code here:
-        System.out.println("STUB!");
+        setClipartNameOnForm(JIconCreatorOptions.DEFAULT_CLIPART);
     }//GEN-LAST:event_jButtonResetClipartActionPerformed
 
     private void jCheckBoxTrimTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBoxTrimTextActionPerformed

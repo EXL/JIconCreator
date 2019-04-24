@@ -12,6 +12,8 @@ public class JIconCreatorOptions {
     public static final String[] DPIS = { "mdpi", "hdpi", "xhdpi", "xxhdpi", "xxxhdpi", "web" };
 
     public static final String DEFAULT_TEXT = "aA";
+    public static final String DEFAULT_CLIPART = "12-hardware-headphones.png";
+    public static final String DEFAULT_IMAGE = "Please choose the image file.";
 
     private boolean bigImage = false;
 
@@ -31,12 +33,9 @@ public class JIconCreatorOptions {
 
     private int iconType = ICON_IMAGE;
 
-    /// Todo: ??????????
-    private String clipartName = "android.png";
-    /// TODO: ????
-    private String imageFilePath = "";
-
-    private String textString = "aA";
+    private String clipartName = DEFAULT_CLIPART;
+    private String imageFilePath = DEFAULT_CLIPART;
+    private String textString = DEFAULT_TEXT;
 
     private boolean trim = true;
 
