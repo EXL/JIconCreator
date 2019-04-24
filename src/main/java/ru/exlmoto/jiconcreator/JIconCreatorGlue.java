@@ -91,16 +91,8 @@ public class JIconCreatorGlue {
     // TODO: See this, optimize, remove warinings.
     @SuppressWarnings("Duplicates")
     public boolean saveIconAux(File file, BufferedImage image) {
-        ByteArrayOutputStream stream = new ByteArrayOutputStream();
         try {
-            ImageIO.write(image, "PNG", stream);
-            byte[] bytes = stream.toByteArray();
-            InputStream is = new ByteArrayInputStream(bytes);
-
-            byte[] buffer = new byte[is.available()];
-            is.read(buffer);
-            OutputStream outStream = new FileOutputStream(file);
-            outStream.write(buffer);
+            ImageIO.write(image, "PNG", file);
             return true;
         } catch (IOException e) {
             System.out.println("IOException: " + e.getMessage());
@@ -137,6 +129,7 @@ public class JIconCreatorGlue {
         // Generate all size of icons.
         BufferedImage[] bufferedImages = generateIcons(JIconCreatorOptions.ICON_M, JIconCreatorOptions.ICON_WEB, sourceImage);
         int failed = 0;
+        boolean delete = true;
         for (int i = 0; i < bufferedImages.length; ++i) {
             File file = null;
             if (!saveToPath) {
@@ -147,11 +140,11 @@ public class JIconCreatorGlue {
             }
 
             if (file.exists()) {
-                // TODO: Remove file?
+                delete = file.delete();
             }
 
             boolean res = saveIconAux(file, bufferedImages[i]);
-            if (!res) {
+            if (!res || !delete) {
                 failed++;
             }
         }
