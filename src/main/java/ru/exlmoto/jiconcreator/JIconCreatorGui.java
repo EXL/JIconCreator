@@ -37,6 +37,12 @@ public class JIconCreatorGui extends javax.swing.JFrame {
 
     private boolean isMipmapScheme = false;
 
+    public void setClipartNameOnForm(String clipartName) {
+        jLabelNameClipart.setText(clipartName);
+        jIconCreatorOptions.setClipartName(clipartName);
+        updatePreviewIcons();
+    }
+
     private void showPreviewDialog() {
         JIconCreatorPreview jIconCreatorPreview = new JIconCreatorPreview(this, true, jIconCreatorGlue.generateBigPreviews());
         jIconCreatorPreview.showPreviewDialog();
@@ -1579,10 +1585,7 @@ public class JIconCreatorGui extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonRandomClipartHActionPerformed
 
     private void jButtonChooseClipartActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonChooseClipartActionPerformed
-        // TODO add your handling code here:
-        System.out.println("STUB!");
-        JIconCreatorClipart jIconCreatorClipart = new JIconCreatorClipart(this, true,
-                jIconCreatorGlue, jIconCreatorOptions);
+        JIconCreatorClipart jIconCreatorClipart = new JIconCreatorClipart(this, true, jIconCreatorGlue, jIconCreatorOptions);
         jIconCreatorClipart.showCliparDialog();
     }//GEN-LAST:event_jButtonChooseClipartActionPerformed
 

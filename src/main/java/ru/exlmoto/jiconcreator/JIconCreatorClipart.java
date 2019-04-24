@@ -5,15 +5,12 @@
  */
 package ru.exlmoto.jiconcreator;
 
-import com.android.assetstudiolib.GraphicGenerator;
-
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowEvent;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
-import java.util.Iterator;
 
 /**
  *
@@ -21,33 +18,58 @@ import java.util.Iterator;
  */
 public class JIconCreatorClipart extends javax.swing.JDialog {
 
+    private final static String[] clipartNames = {
+        "3-rating-important.png",
+        "4-collections-cloud.png",
+        "4-collections-collection.png",
+        "5-content-discard.png",
+        "5-content-edit.png",
+        "5-content-email.png",
+        "6-social-send-now.png",
+        "7-location-web-site.png",
+        "9-av-make-available-offline.png",
+        "9-av-play.png",
+        "10-device-access-accounts.png",
+        "10-device-access-alarms.png",
+        "10-device-access-bightness-low.png",
+        "10-device-access-camera.png",
+        "10-device-access-data-usage.png",
+        "10-device-access-flash-on.png",
+        "10-device-access-mic.png",
+        "10-device-access-network-wifi.png",
+        "10-device-access-not-secure.png",
+        "10-device-access-ring-volume.png",
+        "10-device-access-time.png",
+        "10-device-access-volume-on.png",
+        "12-hardware-gamepad.png",
+        "12-hardware-headphones.png",
+        "12-hardware-mouse.png"
+    };
+
     /**
      * Creates new form JIconCreatorClipart
      */
     public JIconCreatorClipart(JIconCreatorGui parent, boolean modal,
                                JIconCreatorGlue glue, JIconCreatorOptions options) {
         super(parent, modal);
+
         initComponents();
 
         try {
-            Iterator<String> clipartNames = GraphicGenerator.getClipartNames();
-            while (clipartNames.hasNext()) {
-                String name = clipartNames.next();
-                BufferedImage buttonIcon = glue.getClipartImage(name, false);
+            for (String clipartName : clipartNames) {
+                BufferedImage buttonIcon = glue.getClipartImage(clipartName, false);
                 JButton button = new JButton(new ImageIcon(buttonIcon));
                 button.setBorderPainted(false);
                 button.setContentAreaFilled(false);
                 button.addActionListener(new ActionListener() {
                     @Override
                     public void actionPerformed(ActionEvent e) {
-                        options.setClipartName(name);
-                        parent.updatePreviewIcons();
-
+                        parent.setClipartNameOnForm(clipartName);
                         processWindowEvent(new WindowEvent(JIconCreatorClipart.this, WindowEvent.WINDOW_CLOSING));
                     }
                 });
                 jPanelClipart.add(button);
-                if (options.getClipartName().equals(name)) {
+                if (options.getClipartName().equals(clipartName)) {
                     button.requestFocus();
                 }
             }
@@ -70,25 +92,40 @@ public class JIconCreatorClipart extends javax.swing.JDialog {
         jButtonClipartClose = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setMinimumSize(new java.awt.Dimension(800, 600));
-        setPreferredSize(new java.awt.Dimension(800, 600));
+        java.util.ResourceBundle bundle = java.util.ResourceBundle.getBundle("Bundle"); // NOI18N
+        setTitle(bundle.getString("JIconCreatorClipart.title")); // NOI18N
+        setBounds(new java.awt.Rectangle(0, 0, 350, 325));
+        setMaximumSize(new java.awt.Dimension(350, 325));
+        setMinimumSize(new java.awt.Dimension(350, 325));
+        setPreferredSize(new java.awt.Dimension(350, 325));
         getContentPane().setLayout(new java.awt.GridBagLayout());
 
-        jPanelClipart.setMaximumSize(new java.awt.Dimension(800, 600));
-        jPanelClipart.setMinimumSize(new java.awt.Dimension(800, 600));
-        jPanelClipart.setPreferredSize(new java.awt.Dimension(800, 600));
+        jPanelClipart.setMaximumSize(new java.awt.Dimension(330, 330));
+        jPanelClipart.setMinimumSize(new java.awt.Dimension(330, 260));
+        jPanelClipart.setPreferredSize(new java.awt.Dimension(330, 260));
         jPanelClipart.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 0, 0));
         getContentPane().add(jPanelClipart, new java.awt.GridBagConstraints());
 
-        jButtonClipartClose.setText("Close");
+        jButtonClipartClose.setText(bundle.getString("JIconCreatorClipart.jButtonClipartClose.text")); // NOI18N
+        jButtonClipartClose.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonClipartCloseActionPerformed(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 1;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_END;
+        gridBagConstraints.insets = new java.awt.Insets(10, 0, 0, 0);
         getContentPane().add(jButtonClipartClose, gridBagConstraints);
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButtonClipartCloseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonClipartCloseActionPerformed
+        processWindowEvent(new WindowEvent(JIconCreatorClipart.this, WindowEvent.WINDOW_CLOSING));
+    }//GEN-LAST:event_jButtonClipartCloseActionPerformed
 
     public void showCliparDialog() {
         /* Display the dialog */
