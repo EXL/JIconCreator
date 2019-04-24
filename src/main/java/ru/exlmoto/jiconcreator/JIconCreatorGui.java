@@ -49,7 +49,7 @@ public class JIconCreatorGui extends javax.swing.JFrame {
         jIconCreatorPreview.showPreviewDialog();
     }
 
-    public void updatePreviewIcons() {
+    private void updatePreviewIcons() {
         BufferedImage[] previews = jIconCreatorGlue.generatePreviews();
 
         jLabelMdpiI.setIcon(new ImageIcon(previews[JIconCreatorOptions.ICON_M]));
@@ -649,7 +649,7 @@ public class JIconCreatorGui extends javax.swing.JFrame {
             }
         });
 
-        jLabelColorShowImageL.setBackground(new java.awt.Color(255, 204, 0));
+        jLabelColorShowImageL.setBackground(new java.awt.Color(65, 71, 81));
         jLabelColorShowImageL.setText(bundle.getString("JIconCreatorGui.jLabelColorShowImageL.text")); // NOI18N
         jLabelColorShowImageL.setMaximumSize(new java.awt.Dimension(25, 25));
         jLabelColorShowImageL.setMinimumSize(new java.awt.Dimension(25, 25));
@@ -855,7 +855,7 @@ public class JIconCreatorGui extends javax.swing.JFrame {
             }
         });
 
-        jLabelColorShowClipartL.setBackground(new java.awt.Color(153, 153, 153));
+        jLabelColorShowClipartL.setBackground(new java.awt.Color(205, 17, 5));
         jLabelColorShowClipartL.setText(bundle.getString("JIconCreatorGui.jLabelColorShowClipartL.text")); // NOI18N
         jLabelColorShowClipartL.setMaximumSize(new java.awt.Dimension(25, 25));
         jLabelColorShowClipartL.setMinimumSize(new java.awt.Dimension(25, 25));
@@ -892,7 +892,7 @@ public class JIconCreatorGui extends javax.swing.JFrame {
             }
         });
 
-        jLabelColorShowClipartH.setBackground(new java.awt.Color(255, 255, 153));
+        jLabelColorShowClipartH.setBackground(new java.awt.Color(254, 254, 239));
         jLabelColorShowClipartH.setText(bundle.getString("JIconCreatorGui.jLabelColorShowClipartH.text")); // NOI18N
         jLabelColorShowClipartH.setMaximumSize(new java.awt.Dimension(25, 25));
         jLabelColorShowClipartH.setMinimumSize(new java.awt.Dimension(25, 25));
@@ -1117,7 +1117,7 @@ public class JIconCreatorGui extends javax.swing.JFrame {
             }
         });
 
-        jLabelColorShowTextL.setBackground(new java.awt.Color(0, 51, 51));
+        jLabelColorShowTextL.setBackground(new java.awt.Color(237, 209, 157));
         jLabelColorShowTextL.setText(bundle.getString("JIconCreatorGui.jLabelColorShowTextL.text")); // NOI18N
         jLabelColorShowTextL.setMaximumSize(new java.awt.Dimension(25, 25));
         jLabelColorShowTextL.setMinimumSize(new java.awt.Dimension(25, 25));
@@ -1140,7 +1140,7 @@ public class JIconCreatorGui extends javax.swing.JFrame {
             }
         });
 
-        jLabelColorShowTextH.setBackground(new java.awt.Color(255, 51, 51));
+        jLabelColorShowTextH.setBackground(new java.awt.Color(81, 5, 67));
         jLabelColorShowTextH.setText(bundle.getString("JIconCreatorGui.jLabelColorShowTextH.text")); // NOI18N
         jLabelColorShowTextH.setMaximumSize(new java.awt.Dimension(25, 25));
         jLabelColorShowTextH.setMinimumSize(new java.awt.Dimension(25, 25));
