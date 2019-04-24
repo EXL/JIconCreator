@@ -34,7 +34,7 @@ public class JIconCreatorOptions {
     private int iconType = ICON_IMAGE;
 
     private String clipartName = DEFAULT_CLIPART;
-    private String imageFilePath = DEFAULT_CLIPART;
+    private String imageFilePath = DEFAULT_IMAGE;
     private String textString = DEFAULT_TEXT;
 
     private boolean trim = true;

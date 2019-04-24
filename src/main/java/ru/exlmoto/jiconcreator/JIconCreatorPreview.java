@@ -1,6 +1,7 @@
 package ru.exlmoto.jiconcreator;
 
 import javax.swing.*;
+import java.awt.event.WindowEvent;
 import java.awt.image.BufferedImage;
 
 /**
@@ -88,8 +89,7 @@ public class JIconCreatorPreview extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButtonClosePreviewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonClosePreviewActionPerformed
-        JIconCreatorPreview.this.processWindowEvent(
-                new java.awt.event.WindowEvent(JIconCreatorPreview.this,java.awt.event.WindowEvent.WINDOW_CLOSING));
+        processWindowEvent(new WindowEvent(JIconCreatorPreview.this, WindowEvent.WINDOW_CLOSING));
     }//GEN-LAST:event_jButtonClosePreviewActionPerformed
 
     public void showPreviewDialog() {
