@@ -1,17 +1,18 @@
 /*
  * Copyright (C) 2010-2011 The Android Open Source Project
  *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
+ * Licensed under the Apache License, Version 2.0 and Eclipse Public License,
+ * Version 1.0 (the "Licenses"); you may not use this file except in
+ * compliance with the Licenses. You may obtain a copy of the Licenses at
  *
  *      http://www.apache.org/licenses/LICENSE-2.0
+ *      http://www.eclipse.org/org/documents/epl-v10.php
  *
  * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
+ * distributed under the Licenses is distributed on an "AS IS" BASIS,
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+ * See the Licenses for the specific language governing permissions and
+ * limitations under the Licenses.
  */
 
 package ru.exlmoto.jiconcreator;
@@ -22,6 +23,10 @@ import java.awt.font.TextLayout;
 import java.awt.geom.Rectangle2D;
 import java.awt.image.BufferedImage;
 
+// Extracted from:
+//  1. com/android/assetstudiolib/Util.java
+//  2. com/android/assetstudiolib/TextRenderUtil.java
+//  3. com/android/ide/eclipse/adt/internal/editors/layout/gle2/ImageUtils.java
 public class GraphicsUtils {
     /**
      * Smoothly scales the given {@link BufferedImage} to the given width and height using the
@@ -34,8 +39,7 @@ public class GraphicsUtils {
      */
     public static BufferedImage scaledImage(BufferedImage source, int width, int height) {
         Image scaledImage = source.getScaledInstance(width, height, Image.SCALE_SMOOTH);
-        BufferedImage scaledBufImage = new BufferedImage(width, height,
-                BufferedImage.TYPE_INT_ARGB);
+        BufferedImage scaledBufImage = new BufferedImage(width, height, BufferedImage.TYPE_INT_ARGB);
         Graphics g = scaledBufImage.createGraphics();
         g.drawImage(scaledImage, 0, 0, null);
         g.dispose();
@@ -55,7 +59,6 @@ public class GraphicsUtils {
         final int srcWidth = source.getWidth();
         final int srcHeight = source.getHeight();
         if (srcWidth * 1.0 / srcHeight > dstRect.width * 1.0 / dstRect.height) {
-            // System.out.println("HERE");
             final int scaledWidth = Math.max(1, dstRect.width);
             final int scaledHeight = Math.max(1, dstRect.width * srcHeight / srcWidth);
             Image scaledImage = scaledImage(source, scaledWidth, scaledHeight);
@@ -70,7 +73,6 @@ public class GraphicsUtils {
                     0 + scaledHeight,
                     null);
         } else {
-            // System.out.println("HERE 2");
             final int scaledWidth = Math.max(1, dstRect.height * srcWidth / srcHeight);
             final int scaledHeight = Math.max(1, dstRect.height);
             Image scaledImage = scaledImage(source, scaledWidth, scaledHeight);
