@@ -334,6 +334,12 @@ public class JIconCreatorGui extends javax.swing.JFrame {
 
         generateStyleMenuItems();
         generateFontComboboxItems();
+
+        try {
+            setIconImage(jIconCreatorGlue.getResourceImage("app_icon.png"));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     /**
