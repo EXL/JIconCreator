@@ -69,8 +69,8 @@ public class GraphicsUtils {
                     dstRect.y + (dstRect.height - scaledHeight) / 2 + scaledHeight,
                     0,
                     0,
-                    0 + scaledWidth,
-                    0 + scaledHeight,
+                    scaledWidth,
+                    scaledHeight,
                     null);
         } else {
             final int scaledWidth = Math.max(1, dstRect.height * srcWidth / srcHeight);
@@ -83,8 +83,8 @@ public class GraphicsUtils {
                     dstRect.y + dstRect.height,
                     0,
                     0,
-                    0 + scaledWidth,
-                    0 + scaledHeight,
+                    scaledWidth,
+                    scaledHeight,
                     null);
         }
     }
@@ -110,10 +110,10 @@ public class GraphicsUtils {
                     dstRect.y,
                     dstRect.x + dstRect.width,
                     dstRect.y + dstRect.height,
-                    0 + (scaledWidth - dstRect.width) / 2,
+                    (scaledWidth - dstRect.width) / 2,
                     0,
-                    0 + (scaledWidth - dstRect.width) / 2 + dstRect.width,
-                    0 + dstRect.height,
+                    (scaledWidth - dstRect.width) / 2 + dstRect.width,
+                    dstRect.height,
                     null);
         } else {
             final int scaledWidth = dstRect.width;
@@ -125,9 +125,9 @@ public class GraphicsUtils {
                     dstRect.x + dstRect.width,
                     dstRect.y + dstRect.height,
                     0,
-                    0 + (scaledHeight - dstRect.height) / 2,
-                    0 + dstRect.width,
-                    0 + (scaledHeight - dstRect.height) / 2 + dstRect.height,
+                    (scaledHeight - dstRect.height) / 2,
+                    dstRect.width,
+                    (scaledHeight - dstRect.height) / 2 + dstRect.height,
                     null);
         }
     }
@@ -278,7 +278,7 @@ public class GraphicsUtils {
         // First determine top edge
         topEdge: for (; y1 < y2; y1++) {
             for (int x = x1; x < x2; x++) {
-                if (!cropPixel(image, x, y1)) {
+                if (cropPixel(image, x, y1)) {
                     break topEdge;
                 }
             }
@@ -292,7 +292,7 @@ public class GraphicsUtils {
         // Next determine left edge
         leftEdge: for (; x1 < x2; x1++) {
             for (int y = y1; y < y2; y++) {
-                if (!cropPixel(image, x1, y)) {
+                if (cropPixel(image, x1, y)) {
                     break leftEdge;
                 }
             }
@@ -301,7 +301,7 @@ public class GraphicsUtils {
         // Next determine right edge
         rightEdge: for (; x2 > x1; x2--) {
             for (int y = y1; y < y2; y++) {
-                if (!cropPixel(image, x2 - 1, y)) {
+                if (cropPixel(image, x2 - 1, y)) {
                     break rightEdge;
                 }
             }
@@ -310,7 +310,7 @@ public class GraphicsUtils {
         // Finally determine bottom edge
         bottomEdge: for (; y2 > y1; y2--) {
             for (int x = x1; x < x2; x++) {
-                if (!cropPixel(image, x, y2 - 1)) {
+                if (cropPixel(image, x, y2 - 1)) {
                     break bottomEdge;
                 }
             }
@@ -355,7 +355,7 @@ public class GraphicsUtils {
      */
     public static boolean cropPixel(BufferedImage bufferedImage, int x, int y) {
         int rgb = bufferedImage.getRGB(x, y);
-        return (rgb & 0xFF000000) == 0x00000000;
+        return (rgb & 0xFF000000) != 0x00000000;
         // TODO: Do a threshold of 80 instead of just 0? Might give better
         // visual results -- e.g. check <= 0x80000000
     }

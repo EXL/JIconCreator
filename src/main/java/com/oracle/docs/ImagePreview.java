@@ -31,10 +31,13 @@
 
 package com.oracle.docs;
 
-import javax.swing.*;
 import java.beans.*;
+
 import java.awt.*;
+
 import java.io.File;
+
+import javax.swing.*;
 
 /* ImagePreview.java by FileChooserDemo2.java. */
 /* https://docs.oracle.com/javase/tutorial/uiswing/components/filechooser.html */
@@ -58,14 +61,12 @@ public class ImagePreview extends JComponent
         //because the image we're trying to load is probably not one
         //of this program's own resources.
         ImageIcon tmpIcon = new ImageIcon(file.getPath());
-        if (tmpIcon != null) {
-            if (tmpIcon.getIconWidth() > 90) {
-                thumbnail = new ImageIcon(tmpIcon.getImage().
-                                          getScaledInstance(90, -1,
-                                                      Image.SCALE_DEFAULT));
-            } else { //no need to miniaturize
-                thumbnail = tmpIcon;
-            }
+        if (tmpIcon.getIconWidth() > 90) {
+            thumbnail = new ImageIcon(tmpIcon.getImage().
+                                      getScaledInstance(90, -1,
+                                                  Image.SCALE_DEFAULT));
+        } else { //no need to miniaturize
+            thumbnail = tmpIcon;
         }
     }
 

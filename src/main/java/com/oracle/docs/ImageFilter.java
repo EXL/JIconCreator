@@ -32,7 +32,9 @@
 package com.oracle.docs;
 
 import java.io.File;
+
 import java.util.ResourceBundle;
+
 import javax.swing.filechooser.*;
 
 /* ImageFilter.java is used by FileChooserDemo2.java. */
