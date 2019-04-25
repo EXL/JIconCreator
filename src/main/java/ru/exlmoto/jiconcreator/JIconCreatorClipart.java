@@ -92,6 +92,7 @@ public class JIconCreatorClipart extends javax.swing.JDialog {
         setBounds(new java.awt.Rectangle(0, 0, 350, 325));
         setMaximumSize(new java.awt.Dimension(350, 325));
         setMinimumSize(new java.awt.Dimension(350, 325));
+        setName("clipartDialog"); // NOI18N
         setPreferredSize(new java.awt.Dimension(350, 325));
         setResizable(false);
         getContentPane().setLayout(new java.awt.GridBagLayout());

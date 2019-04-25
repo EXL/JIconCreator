@@ -43,6 +43,7 @@ public class JIconCreatorPreview extends javax.swing.JDialog {
         setBounds(new java.awt.Rectangle(0, 0, 1024, 600));
         setMaximumSize(new java.awt.Dimension(1024, 600));
         setMinimumSize(new java.awt.Dimension(700, 600));
+        setName("previewDialog"); // NOI18N
         setPreferredSize(new java.awt.Dimension(700, 600));
         setResizable(false);
         getContentPane().setLayout(new java.awt.GridBagLayout());

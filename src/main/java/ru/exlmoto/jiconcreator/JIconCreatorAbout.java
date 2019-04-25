@@ -41,11 +41,12 @@ public class JIconCreatorAbout extends javax.swing.JDialog {
         jButtonGithub = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setMaximumSize(new java.awt.Dimension(245, 330));
-        setMinimumSize(new java.awt.Dimension(245, 330));
-        setName("dialogAbout"); // NOI18N
-        setPreferredSize(new java.awt.Dimension(245, 330));
-        setResizable(false);
+        java.util.ResourceBundle bundle = java.util.ResourceBundle.getBundle("Bundle"); // NOI18N
+        setTitle(bundle.getString("JIconCreatorAbout.title")); // NOI18N
+        setMaximumSize(new java.awt.Dimension(265, 345));
+        setMinimumSize(new java.awt.Dimension(265, 345));
+        setName("aboutDialog"); // NOI18N
+        setPreferredSize(new java.awt.Dimension(265, 345));
         getContentPane().setLayout(new java.awt.GridBagLayout());
 
         jLabelAboutIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/app_icon.png"))); // NOI18N
@@ -55,7 +56,6 @@ public class JIconCreatorAbout extends javax.swing.JDialog {
         getContentPane().add(jLabelAboutIcon, gridBagConstraints);
 
         jLabelNameA.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        java.util.ResourceBundle bundle = java.util.ResourceBundle.getBundle("Bundle"); // NOI18N
         jLabelNameA.setText(bundle.getString("JIconCreatorAbout.jLabelNameA.text")); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -75,14 +75,14 @@ public class JIconCreatorAbout extends javax.swing.JDialog {
         gridBagConstraints.insets = new java.awt.Insets(15, 0, 15, 0);
         getContentPane().add(jLabelDescA, gridBagConstraints);
 
-        jLabelCopyrightSignA.setFont(new java.awt.Font("Dialog", 3, 12)); // NOI18N
+        jLabelCopyrightSignA.setFont(new java.awt.Font("Dialog", 2, 12)); // NOI18N
         jLabelCopyrightSignA.setText(bundle.getString("JIconCreatorAbout.jLabelCopyrightSignA.text")); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 4;
         getContentPane().add(jLabelCopyrightSignA, gridBagConstraints);
 
-        jLabelLicenseA.setFont(new java.awt.Font("Dialog", 3, 12)); // NOI18N
+        jLabelLicenseA.setFont(new java.awt.Font("Dialog", 2, 12)); // NOI18N
         jLabelLicenseA.setText(bundle.getString("JIconCreatorAbout.jLabelLicenseA.text")); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;

@@ -479,6 +479,7 @@ public class JIconCreatorGui extends javax.swing.JFrame {
         setMaximizedBounds(new java.awt.Rectangle(0, 0, 1024, 768));
         setMaximumSize(new java.awt.Dimension(1024, 768));
         setMinimumSize(new java.awt.Dimension(725, 550));
+        setName("mainWindow"); // NOI18N
         setPreferredSize(new java.awt.Dimension(800, 600));
         getContentPane().setLayout(new javax.swing.BoxLayout(getContentPane(), javax.swing.BoxLayout.LINE_AXIS));
 
