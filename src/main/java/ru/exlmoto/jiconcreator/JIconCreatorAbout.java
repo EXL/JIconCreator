@@ -44,7 +44,10 @@ public class JIconCreatorAbout extends javax.swing.JDialog {
      */
     public JIconCreatorAbout(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
+
         initComponents();
+
+        jButtonAboutClose.requestFocus();
     }
 
     /**
@@ -144,7 +147,6 @@ public class JIconCreatorAbout extends javax.swing.JDialog {
         jButtonExlmoto.setToolTipText(bundle.getString("JIconCreatorAbout.jButtonExlmoto.toolTipText")); // NOI18N
         jButtonExlmoto.setBorderPainted(false);
         jButtonExlmoto.setContentAreaFilled(false);
-        jButtonExlmoto.setFocusPainted(false);
         jButtonExlmoto.setMargin(new java.awt.Insets(2, 0, 2, 0));
         jButtonExlmoto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -162,7 +164,6 @@ public class JIconCreatorAbout extends javax.swing.JDialog {
         jButtonGithub.setToolTipText(bundle.getString("JIconCreatorAbout.jButtonGithub.toolTipText")); // NOI18N
         jButtonGithub.setBorderPainted(false);
         jButtonGithub.setContentAreaFilled(false);
-        jButtonGithub.setFocusPainted(false);
         jButtonGithub.setMargin(new java.awt.Insets(2, 0, 2, 0));
         jButtonGithub.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
