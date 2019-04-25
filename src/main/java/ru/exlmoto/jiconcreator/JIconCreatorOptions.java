@@ -12,7 +12,7 @@ public class JIconCreatorOptions {
     public static final String[] DPIS = { "mdpi", "hdpi", "xhdpi", "xxhdpi", "xxxhdpi", "web" };
 
     public static final String DEFAULT_TEXT = "aA";
-    public static final String DEFAULT_CLIPART = "12-hardware-headphones.png";
+    public static final String DEFAULT_CLIPART = "hardware-headphones.png";
     public static final String DEFAULT_IMAGE = "Please choose the image file.";
 
     private boolean bigImage = false;
