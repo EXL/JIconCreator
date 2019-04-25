@@ -1,15 +1,43 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package ru.exlmoto.jiconcreator;
+
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.WindowEvent;
+import java.net.URI;
+import java.util.ResourceBundle;
 
 /**
  *
  * @author exl
  */
 public class JIconCreatorAbout extends javax.swing.JDialog {
+
+    private boolean openUrl(String url) {
+        ResourceBundle bundle = ResourceBundle.getBundle("Bundle");
+        if (Desktop.isDesktopSupported()) {
+            Desktop desktop = Desktop.getDesktop();
+            try {
+                desktop.browse(URI.create(url));
+                return true;
+            } catch (Exception e) {
+                e.printStackTrace();
+                JOptionPane.showMessageDialog(null,
+                        bundle.getString("JIconCreatorAbout.errorLink.text"),
+                        bundle.getString("JIconCreatorAbout.errorLink.title"),
+                        JOptionPane.ERROR_MESSAGE);
+            }
+        } else {
+            JOptionPane.showMessageDialog(null,
+                    bundle.getString("JIconCreatorAbout.errorLink.text"),
+                    bundle.getString("JIconCreatorAbout.errorLink.title"),
+                    JOptionPane.ERROR_MESSAGE);
+        }
+        return false;
+    }
+
+    private void closeDialogWindow() {
+        processWindowEvent(new WindowEvent(JIconCreatorAbout.this, WindowEvent.WINDOW_CLOSING));
+    }
 
     /**
      * Creates new form JIconCreatorAbout
@@ -99,6 +127,11 @@ public class JIconCreatorAbout extends javax.swing.JDialog {
         getContentPane().add(jLabelLinksA, gridBagConstraints);
 
         jButtonAboutClose.setText(bundle.getString("JIconCreatorAbout.jButtonAboutClose.text")); // NOI18N
+        jButtonAboutClose.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonAboutCloseActionPerformed(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 7;
@@ -113,6 +146,11 @@ public class JIconCreatorAbout extends javax.swing.JDialog {
         jButtonExlmoto.setContentAreaFilled(false);
         jButtonExlmoto.setFocusPainted(false);
         jButtonExlmoto.setMargin(new java.awt.Insets(2, 0, 2, 0));
+        jButtonExlmoto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonExlmotoActionPerformed(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 7;
@@ -126,6 +164,11 @@ public class JIconCreatorAbout extends javax.swing.JDialog {
         jButtonGithub.setContentAreaFilled(false);
         jButtonGithub.setFocusPainted(false);
         jButtonGithub.setMargin(new java.awt.Insets(2, 0, 2, 0));
+        jButtonGithub.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonGithubActionPerformed(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 8;
@@ -135,6 +178,22 @@ public class JIconCreatorAbout extends javax.swing.JDialog {
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButtonExlmotoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonExlmotoActionPerformed
+        if (openUrl(jButtonExlmoto.getToolTipText())) {
+            closeDialogWindow();
+        }
+    }//GEN-LAST:event_jButtonExlmotoActionPerformed
+
+    private void jButtonGithubActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonGithubActionPerformed
+        if (openUrl(jButtonGithub.getToolTipText())) {
+            closeDialogWindow();
+        }
+    }//GEN-LAST:event_jButtonGithubActionPerformed
+
+    private void jButtonAboutCloseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAboutCloseActionPerformed
+        closeDialogWindow();
+    }//GEN-LAST:event_jButtonAboutCloseActionPerformed
 
     public void showAboutDialog() {
         /* Display the dialog */
