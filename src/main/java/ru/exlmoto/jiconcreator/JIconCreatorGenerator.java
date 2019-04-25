@@ -142,7 +142,7 @@ public class JIconCreatorGenerator {
                     // Fallback to the ClipArt image.
                     options.setBigImage(true);
                     try {
-                        sourceImage = glue.getClipartImage("android.png", true);
+                        sourceImage = glue.getResourceImage("android.png");
                     } catch (IOException e) {
                         e.printStackTrace();
                     }

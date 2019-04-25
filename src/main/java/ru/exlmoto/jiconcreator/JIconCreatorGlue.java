@@ -65,6 +65,10 @@ public class JIconCreatorGlue {
         return ImageIO.read(inputStream);
     }
 
+    public BufferedImage getResourceImage(String fileName) throws IOException {
+        return getInnerImage("/images/" + fileName);
+    }
+
     public BufferedImage getClipartImage(String clipartName, boolean big) throws IOException {
         String path = "/images/clipart/";
         path += (big) ? "big/" : "small/";
