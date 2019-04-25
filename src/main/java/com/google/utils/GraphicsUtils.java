@@ -15,7 +15,7 @@
  * limitations under the Licenses.
  */
 
-package ru.exlmoto.jiconcreator;
+package com.google.utils;
 
 import java.awt.*;
 import java.awt.font.FontRenderContext;

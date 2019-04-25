@@ -1,5 +1,7 @@
 package ru.exlmoto.jiconcreator;
 
+import com.google.utils.GraphicsUtils;
+
 import java.awt.*;
 import java.awt.image.BufferedImage;
 
