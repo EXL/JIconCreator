@@ -1673,8 +1673,8 @@ public class JIconCreatorGui extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItemPreviewActionPerformed
 
     private void jMenuItemAboutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemAboutActionPerformed
-        // TODO add your handling code here:
-        System.out.println("STUB!");
+        JIconCreatorAbout jIconCreatorAbout = new JIconCreatorAbout(this, true);
+        jIconCreatorAbout.showAboutDialog();
     }//GEN-LAST:event_jMenuItemAboutActionPerformed
 
     /**

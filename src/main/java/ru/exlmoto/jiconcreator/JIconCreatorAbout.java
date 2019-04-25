@@ -43,7 +43,9 @@ public class JIconCreatorAbout extends javax.swing.JDialog {
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setMaximumSize(new java.awt.Dimension(245, 330));
         setMinimumSize(new java.awt.Dimension(245, 330));
+        setName("dialogAbout"); // NOI18N
         setPreferredSize(new java.awt.Dimension(245, 330));
+        setResizable(false);
         getContentPane().setLayout(new java.awt.GridBagLayout());
 
         jLabelAboutIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/app_icon.png"))); // NOI18N
@@ -53,19 +55,20 @@ public class JIconCreatorAbout extends javax.swing.JDialog {
         getContentPane().add(jLabelAboutIcon, gridBagConstraints);
 
         jLabelNameA.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        jLabelNameA.setText("JIconCreator");
+        java.util.ResourceBundle bundle = java.util.ResourceBundle.getBundle("Bundle"); // NOI18N
+        jLabelNameA.setText(bundle.getString("JIconCreatorAbout.jLabelNameA.text")); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 1;
         getContentPane().add(jLabelNameA, gridBagConstraints);
 
-        jLabelVersionA.setText("v1.0 | 25-APR-2019");
+        jLabelVersionA.setText(bundle.getString("JIconCreatorAbout.jLabelVersionA.text")); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 2;
         getContentPane().add(jLabelVersionA, gridBagConstraints);
 
-        jLabelDescA.setText("<html><body><center>Improved icon-making program<br>that was used in the<br>Android ADT plugin for Eclipse.</center></body></html>");
+        jLabelDescA.setText(bundle.getString("JIconCreatorAbout.jLabelDescA.text")); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 3;
@@ -73,21 +76,21 @@ public class JIconCreatorAbout extends javax.swing.JDialog {
         getContentPane().add(jLabelDescA, gridBagConstraints);
 
         jLabelCopyrightSignA.setFont(new java.awt.Font("Dialog", 3, 12)); // NOI18N
-        jLabelCopyrightSignA.setText("(C) EXL, 2019");
+        jLabelCopyrightSignA.setText(bundle.getString("JIconCreatorAbout.jLabelCopyrightSignA.text")); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 4;
         getContentPane().add(jLabelCopyrightSignA, gridBagConstraints);
 
         jLabelLicenseA.setFont(new java.awt.Font("Dialog", 3, 12)); // NOI18N
-        jLabelLicenseA.setText("License: Apache 2.0");
+        jLabelLicenseA.setText(bundle.getString("JIconCreatorAbout.jLabelLicenseA.text")); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 5;
         gridBagConstraints.insets = new java.awt.Insets(0, 0, 15, 0);
         getContentPane().add(jLabelLicenseA, gridBagConstraints);
 
-        jLabelLinksA.setText("Links:");
+        jLabelLinksA.setText(bundle.getString("JIconCreatorAbout.jLabelLinksA.text")); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 6;
@@ -95,7 +98,7 @@ public class JIconCreatorAbout extends javax.swing.JDialog {
         gridBagConstraints.insets = new java.awt.Insets(0, 3, 0, 3);
         getContentPane().add(jLabelLinksA, gridBagConstraints);
 
-        jButtonAboutClose.setText("Close");
+        jButtonAboutClose.setText(bundle.getString("JIconCreatorAbout.jButtonAboutClose.text")); // NOI18N
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 7;
@@ -104,8 +107,8 @@ public class JIconCreatorAbout extends javax.swing.JDialog {
         getContentPane().add(jButtonAboutClose, gridBagConstraints);
 
         jButtonExlmoto.setForeground(new java.awt.Color(0, 0, 204));
-        jButtonExlmoto.setText("exlmoto.ru");
-        jButtonExlmoto.setToolTipText("https://exlmoto.ru/new-updates-and-tools-2/#jiconcreator");
+        jButtonExlmoto.setText(bundle.getString("JIconCreatorAbout.jButtonExlmoto.text")); // NOI18N
+        jButtonExlmoto.setToolTipText(bundle.getString("JIconCreatorAbout.jButtonExlmoto.toolTipText")); // NOI18N
         jButtonExlmoto.setBorderPainted(false);
         jButtonExlmoto.setContentAreaFilled(false);
         jButtonExlmoto.setFocusPainted(false);
@@ -117,8 +120,8 @@ public class JIconCreatorAbout extends javax.swing.JDialog {
         getContentPane().add(jButtonExlmoto, gridBagConstraints);
 
         jButtonGithub.setForeground(new java.awt.Color(0, 0, 204));
-        jButtonGithub.setText("github.com");
-        jButtonGithub.setToolTipText("https://github.com/EXL/JIconCreator");
+        jButtonGithub.setText(bundle.getString("JIconCreatorAbout.jButtonGithub.text")); // NOI18N
+        jButtonGithub.setToolTipText(bundle.getString("JIconCreatorAbout.jButtonGithub.toolTipText")); // NOI18N
         jButtonGithub.setBorderPainted(false);
         jButtonGithub.setContentAreaFilled(false);
         jButtonGithub.setFocusPainted(false);
@@ -130,6 +133,7 @@ public class JIconCreatorAbout extends javax.swing.JDialog {
         getContentPane().add(jButtonGithub, gridBagConstraints);
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     public void showAboutDialog() {
