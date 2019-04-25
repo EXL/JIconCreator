@@ -3,7 +3,7 @@ plugins {
 }
 
 group 'ru.exlmoto.jiconcreator'
-version '1.0-ALPHA'
+version '1.0-BETA'
 
 sourceCompatibility = 1.8
 
@@ -20,9 +20,4 @@ jar {
     from {
         configurations.compile.collect { it.isDirectory() ? it : zipTree(it) }
     }
-}
-
-dependencies {
-    compile group: 'com.google.guava', name: 'guava', version: '15.0'
-    compile group: 'com.intellij', name: 'forms_rt', version: '7.0.3'
 }
