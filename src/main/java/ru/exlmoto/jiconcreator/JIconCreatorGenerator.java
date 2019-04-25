@@ -167,7 +167,6 @@ public class JIconCreatorGenerator {
                 break;
             }
             case JIconCreatorOptions.ICON_TEXT: {
-                String text = options.getTextString();
                 sourceImage = GraphicsUtils.renderTextImage(options.getFont(),
                         options.getTextString(),
                         JIconCreatorOptions.FONT_BOLD,

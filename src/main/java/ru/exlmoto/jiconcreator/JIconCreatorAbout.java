@@ -1,9 +1,12 @@
 package ru.exlmoto.jiconcreator;
 
 import javax.swing.*;
+
 import java.awt.*;
 import java.awt.event.WindowEvent;
+
 import java.net.URI;
+
 import java.util.ResourceBundle;
 
 /**

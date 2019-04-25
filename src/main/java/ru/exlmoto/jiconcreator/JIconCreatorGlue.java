@@ -12,14 +12,12 @@ import java.util.HashMap;
 import javax.imageio.ImageIO;
 
 public class JIconCreatorGlue {
-    private JIconCreatorOptions options = null;
     private JIconCreatorGenerator imageGenerator = null;
 
     private HashMap<String, BufferedImage> imageCache = null;
 
     public JIconCreatorGlue(JIconCreatorOptions jIconCreatorOptions) {
-        options = jIconCreatorOptions;
-        imageGenerator = new JIconCreatorGenerator(options, this);
+        imageGenerator = new JIconCreatorGenerator(jIconCreatorOptions, this);
     }
 
     public JIconCreatorGenerator getImageGenerator() {
@@ -76,7 +74,7 @@ public class JIconCreatorGlue {
         return getInnerImage(path);
     }
 
-    public BufferedImage[] generateIcons(int start, int stop, BufferedImage sourceImage) {
+    private BufferedImage[] generateIcons(int start, int stop, BufferedImage sourceImage) {
         if (start > stop) {
             return null;
         }
@@ -92,9 +90,7 @@ public class JIconCreatorGlue {
         return bufferedImages;
     }
 
-    // TODO: See this, optimize, remove warinings.
-    @SuppressWarnings("Duplicates")
-    public boolean saveIconAux(File file, BufferedImage image) {
+    private boolean saveIconAux(File file, BufferedImage image) {
         try {
             ImageIO.write(image, "PNG", file);
             return true;
@@ -104,9 +100,6 @@ public class JIconCreatorGlue {
         }
     }
 
-    // TODO: See this, optimize, remove warinings.
-    // Delete Source Image link
-    @SuppressWarnings("Duplicates")
     public boolean saveIcons(String path, String fileName, boolean mipmap, BufferedImage sourceImage) {
         // Create some directories if needed.
         boolean saveToPath = false;
@@ -134,25 +127,27 @@ public class JIconCreatorGlue {
         BufferedImage[] bufferedImages = generateIcons(JIconCreatorOptions.ICON_M, JIconCreatorOptions.ICON_WEB, sourceImage);
         int failed = 0;
         boolean delete = true;
-        for (int i = 0; i < bufferedImages.length; ++i) {
-            File file = null;
-            if (!saveToPath) {
-                file = new File(fileName + i + ".png");
-            } else {
-                Path dpiPath = Paths.get(directories[i], fileName + ".png");
-                file = new File(dpiPath.toString());
-            }
+        if (bufferedImages != null) {
+            for (int i = 0; i < bufferedImages.length; ++i) {
+                File file = null;
+                if (!saveToPath) {
+                    file = new File(fileName + i + ".png");
+                } else {
+                    Path dpiPath = Paths.get(directories[i], fileName + ".png");
+                    file = new File(dpiPath.toString());
+                }
 
-            if (file.exists()) {
-                delete = file.delete();
-            }
+                if (file.exists()) {
+                    delete = file.delete();
+                }
 
-            boolean res = saveIconAux(file, bufferedImages[i]);
-            if (!res || !delete) {
-                failed++;
+                boolean res = saveIconAux(file, bufferedImages[i]);
+                if (!res || !delete) {
+                    failed++;
+                }
             }
+            System.gc();
         }
-        System.gc();
         return (failed == 0);
     }
 

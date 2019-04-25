@@ -1,6 +1,7 @@
 package ru.exlmoto.jiconcreator;
 
 import javax.swing.*;
+
 import java.awt.event.WindowEvent;
 import java.awt.image.BufferedImage;
 

@@ -3,10 +3,6 @@ package ru.exlmoto.jiconcreator;
 import com.oracle.docs.ImageFilter;
 import com.oracle.docs.ImagePreview;
 
-import javax.imageio.ImageIO;
-import javax.swing.*;
-import javax.swing.Timer;
-import javax.swing.event.ChangeEvent;
 import java.awt.*;
 import java.awt.datatransfer.DataFlavor;
 import java.awt.dnd.DnDConstants;
@@ -16,10 +12,18 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowEvent;
 import java.awt.image.BufferedImage;
+
 import java.io.File;
 import java.io.IOException;
+
 import java.util.*;
 import java.util.List;
+
+import javax.imageio.ImageIO;
+
+import javax.swing.*;
+import javax.swing.Timer;
+import javax.swing.event.ChangeEvent;
 
 /**
  *
