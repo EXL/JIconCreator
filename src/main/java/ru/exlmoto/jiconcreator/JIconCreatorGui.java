@@ -54,8 +54,6 @@ public class JIconCreatorGui extends javax.swing.JFrame {
     private JIconCreatorGlue jIconCreatorGlue = null;
 
     private Timer statusTimer = null;
-    private JFileChooser jFileChooser = null;
-    private JFileChooser jDirectoryChooser = null;
 
     private boolean isMipmapScheme = false;
 
@@ -94,6 +92,10 @@ public class JIconCreatorGui extends javax.swing.JFrame {
     }
 
     private void browseImage() {
+        JFileChooser jFileChooser = new JFileChooser();
+        jFileChooser.setFileFilter(new ImageFilter());
+        jFileChooser.setAccessory(new ImagePreview(jFileChooser));
+        jFileChooser.setAcceptAllFileFilterUsed(false);
         String title = java.util.ResourceBundle.getBundle("Bundle").getString("JIconCreatorGui.openImageDialog.text"); // NOI18N
         if (jFileChooser.showDialog(this, title) == JFileChooser.APPROVE_OPTION) {
             File imageFile = jFileChooser.getSelectedFile();
@@ -151,6 +153,9 @@ public class JIconCreatorGui extends javax.swing.JFrame {
     }
 
     private void saveFilesToDirectory(boolean mipmap) {
+        JFileChooser jDirectoryChooser = new JFileChooser();
+        jDirectoryChooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
+        jDirectoryChooser.setAcceptAllFileFilterUsed(false);
         String title = java.util.ResourceBundle.getBundle("Bundle").getString("JIconCreatorGui.openImageDialogDir.text"); // NOI18N
         if (jDirectoryChooser.showDialog(this, title) == JFileChooser.APPROVE_OPTION) {
             saveFilesAction(jTextFieldStatusFileName.getText(), jDirectoryChooser.getSelectedFile().getAbsolutePath(), mipmap);
@@ -253,19 +258,6 @@ public class JIconCreatorGui extends javax.swing.JFrame {
         statusTimer.setRepeats(false);
     }
 
-    private void registerOpenFileDialog() {
-        jFileChooser = new JFileChooser();
-        jFileChooser.setFileFilter(new ImageFilter());
-        jFileChooser.setAccessory(new ImagePreview(jFileChooser));
-        jFileChooser.setAcceptAllFileFilterUsed(false);
-    }
-
-    private void registerOpenDirectoryDialog() {
-        jDirectoryChooser = new JFileChooser();
-        jDirectoryChooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
-        jDirectoryChooser.setAcceptAllFileFilterUsed(false);
-    }
-
     private void generateStyleMenuItems() {
         HashMap<String, String> installedStyles = new HashMap<>();
         ArrayList<JRadioButtonMenuItem> styleMenuItems = new ArrayList<>();
@@ -355,8 +347,6 @@ public class JIconCreatorGui extends javax.swing.JFrame {
 
         registerDropOnTextField();
         registerStatusTimer();
-        registerOpenFileDialog();
-        registerOpenDirectoryDialog();
 
         generateStyleMenuItems();
         generateFontComboboxItems();
