@@ -94,10 +94,11 @@ public class JIconCreatorAbout extends javax.swing.JDialog {
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         java.util.ResourceBundle bundle = java.util.ResourceBundle.getBundle("Bundle"); // NOI18N
         setTitle(bundle.getString("JIconCreatorAbout.title")); // NOI18N
-        setMaximumSize(new java.awt.Dimension(265, 345));
-        setMinimumSize(new java.awt.Dimension(265, 345));
+        setMaximumSize(new java.awt.Dimension(255, 370));
+        setMinimumSize(new java.awt.Dimension(255, 370));
         setName("aboutDialog"); // NOI18N
-        setPreferredSize(new java.awt.Dimension(265, 345));
+        setPreferredSize(new java.awt.Dimension(255, 370));
+        setResizable(false);
         getContentPane().setLayout(new java.awt.GridBagLayout());
 
         jLabelAboutIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/app_icon.png"))); // NOI18N

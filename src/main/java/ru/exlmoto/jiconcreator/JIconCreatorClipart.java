@@ -136,7 +136,7 @@ public class JIconCreatorClipart extends javax.swing.JDialog {
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 1;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_END;
-        gridBagConstraints.insets = new java.awt.Insets(10, 0, 0, 5);
+        gridBagConstraints.insets = new java.awt.Insets(3, 0, 0, 5);
         getContentPane().add(jButtonClipartClose, gridBagConstraints);
 
         pack();

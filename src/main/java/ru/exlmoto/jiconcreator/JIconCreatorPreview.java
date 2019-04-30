@@ -101,7 +101,7 @@ public class JIconCreatorPreview extends javax.swing.JDialog {
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_END;
-        gridBagConstraints.insets = new java.awt.Insets(0, 0, 0, 30);
+        gridBagConstraints.insets = new java.awt.Insets(0, 0, 5, 30);
         getContentPane().add(jButtonClosePreview, gridBagConstraints);
 
         pack();
