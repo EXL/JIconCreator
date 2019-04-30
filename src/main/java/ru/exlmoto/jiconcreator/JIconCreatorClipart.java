@@ -19,6 +19,7 @@ package ru.exlmoto.jiconcreator;
 
 import javax.swing.*;
 
+import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowEvent;
@@ -73,8 +74,11 @@ public class JIconCreatorClipart extends javax.swing.JDialog {
             for (String clipartName : clipartNames) {
                 BufferedImage buttonIcon = glue.getClipartImage(clipartName, false);
                 JButton button = new JButton(new ImageIcon(buttonIcon));
-                button.setBorderPainted(false);
-                button.setContentAreaFilled(false);
+                if (UIManager.getLookAndFeel().getName().equals("Metal")) {
+                    button.setBorderPainted(false);
+                    button.setContentAreaFilled(false);
+                }
+                button.setPreferredSize(new Dimension(50, 50));
                 button.addActionListener(new ActionListener() {
                     @Override
                     public void actionPerformed(ActionEvent e) {
@@ -108,17 +112,17 @@ public class JIconCreatorClipart extends javax.swing.JDialog {
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         java.util.ResourceBundle bundle = java.util.ResourceBundle.getBundle("Bundle"); // NOI18N
         setTitle(bundle.getString("JIconCreatorClipart.title")); // NOI18N
-        setBounds(new java.awt.Rectangle(0, 0, 350, 325));
-        setMaximumSize(new java.awt.Dimension(350, 325));
-        setMinimumSize(new java.awt.Dimension(350, 325));
+        setBounds(new java.awt.Rectangle(0, 0, 280, 340));
+        setMaximumSize(new java.awt.Dimension(280, 340));
+        setMinimumSize(new java.awt.Dimension(280, 340));
         setName("clipartDialog"); // NOI18N
-        setPreferredSize(new java.awt.Dimension(350, 325));
+        setPreferredSize(new java.awt.Dimension(280, 340));
         setResizable(false);
         getContentPane().setLayout(new java.awt.GridBagLayout());
 
-        jPanelClipart.setMaximumSize(new java.awt.Dimension(330, 330));
-        jPanelClipart.setMinimumSize(new java.awt.Dimension(330, 260));
-        jPanelClipart.setPreferredSize(new java.awt.Dimension(330, 260));
+        jPanelClipart.setMaximumSize(new java.awt.Dimension(260, 260));
+        jPanelClipart.setMinimumSize(new java.awt.Dimension(260, 260));
+        jPanelClipart.setPreferredSize(new java.awt.Dimension(260, 260));
         jPanelClipart.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 0, 0));
         getContentPane().add(jPanelClipart, new java.awt.GridBagConstraints());
 
@@ -132,7 +136,7 @@ public class JIconCreatorClipart extends javax.swing.JDialog {
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 1;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_END;
-        gridBagConstraints.insets = new java.awt.Insets(10, 0, 0, 0);
+        gridBagConstraints.insets = new java.awt.Insets(10, 0, 0, 5);
         getContentPane().add(jButtonClipartClose, gridBagConstraints);
 
         pack();
