@@ -1,11 +1,11 @@
 JIconCreator
 ============
 
-JIconCreator is a improved icon-making program that was used in the Android ADT plugin for Eclipse. I have added some options regarding the random selection of colors and disabling the overlay mask.
+JIconCreator is an improved icon-making program that was used in the Android ADT plugin for Eclipse. I have added some options regarding the random selection of colors and disabling the overlay mask.
 
 ![JIconCreator running on Windows 10](images/jiconcreator_windows10.png)
 
-The icon generator was rewritten from the scratch. Therefore, dependencies of various big Java-libraries, including: SWT, Guav, and Android SDK, have been removed from the application. The standard Swing/AWT libraries from the JDK set were used for creating GUI. The JIconCreator application has been tested on JRE 8.
+The icon generator was rewritten from the scratch. Therefore, dependencies of various big Java-libraries, including: SWT, Guava and Android SDK, have been removed from the application. The standard Swing/AWT libraries from the JDK were used for creating GUI. The JIconCreator application has been tested on JRE 8.
 
 ## Download
 
