@@ -193,7 +193,7 @@ public class JIconCreatorGenerator {
                 if (trim) {
                     sourceImage = GraphicsUtils.cropBlank(sourceImage, null, BufferedImage.TYPE_INT_ARGB);
                 }
-                if (padding != 0) {
+                if (padding != 0 && sourceImage != null) {
                     sourceImage = GraphicsUtils.paddedImage(sourceImage, padding);
                 }
                 break;
