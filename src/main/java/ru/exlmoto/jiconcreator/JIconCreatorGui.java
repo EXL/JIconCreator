@@ -699,6 +699,7 @@ public class JIconCreatorGui extends javax.swing.JFrame {
 
         jLabelOptionsImage.setText(bundle.getString("JIconCreatorGui.jLabelOptionsImage.text")); // NOI18N
 
+        jLabelImage.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabelImage.setText(bundle.getString("JIconCreatorGui.jLabelImage.text")); // NOI18N
         jLabelImage.setMaximumSize(new java.awt.Dimension(55, 32));
         jLabelImage.setMinimumSize(new java.awt.Dimension(55, 32));
@@ -936,6 +937,7 @@ public class JIconCreatorGui extends javax.swing.JFrame {
         jLabelColorShowClipartH.setOpaque(true);
         jLabelColorShowClipartH.setPreferredSize(new java.awt.Dimension(25, 25));
 
+        jLabelClipart.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabelClipart.setText(bundle.getString("JIconCreatorGui.jLabelClipart.text")); // NOI18N
         jLabelClipart.setMaximumSize(new java.awt.Dimension(52, 32));
         jLabelClipart.setMinimumSize(new java.awt.Dimension(52, 32));
@@ -1054,6 +1056,7 @@ public class JIconCreatorGui extends javax.swing.JFrame {
 
         jTabbedPane.addTab(bundle.getString("JIconCreatorGui.jPanelClipart.TabConstraints.tabTitle"), jPanelClipart); // NOI18N
 
+        jLabelText.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabelText.setText(bundle.getString("JIconCreatorGui.jLabelText.text")); // NOI18N
         jLabelText.setMaximumSize(new java.awt.Dimension(35, 32));
         jLabelText.setMinimumSize(new java.awt.Dimension(35, 32));
