@@ -1,23 +1,22 @@
 plugins {
     id 'java'
+    id 'application'
 }
 
-group 'ru.exlmoto.jiconcreator'
-version '1.0'
-
-sourceCompatibility = 1.8
+group = 'ru.exlmoto.jiconcreator'
+version = '1.0'
+sourceCompatibility = '1.8'
 
 repositories {
     jcenter()
     google()
+    mavenCentral()
 }
 
-// Create the "fat" JAR-package with all dependencies
+mainClassName = 'ru.exlmoto.jiconcreator.JIconCreatorGui'
+
 jar {
     manifest {
-        attributes 'Main-Class': 'ru.exlmoto.jiconcreator.JIconCreatorGui'
-    }
-    from {
-        configurations.compile.collect { it.isDirectory() ? it : zipTree(it) }
+        attributes 'Main-Class': mainClassName
     }
 }
