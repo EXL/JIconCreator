@@ -31,7 +31,11 @@ cd C:\Dev\Deploy\JIconCreator\
 gradlew.bat build
 ```
 
-* Get cooked JAR-package from the `build\libs\` directory.
+* Get cooked JAR-package from the `build\libs\` directory and run it.
+
+```bat
+java -jar build\libs\JIconCreator-<version>.jar
+```
 
 You can also open this project in IntelliJ IDEA IDE and build the JAR-package by using this program.
 
