@@ -17,6 +17,8 @@
 
 package ru.exlmoto.jiconcreator;
 
+import com.formdev.flatlaf.*;
+
 import com.oracle.docs.ImageFilter;
 import com.oracle.docs.ImagePreview;
 
@@ -277,6 +279,20 @@ public class JIconCreatorGui extends javax.swing.JFrame {
             }
         }
 
+        LookAndFeel[] auxStyles = {
+            new FlatLightLaf(),
+            new FlatDarkLaf(),
+            new FlatIntelliJLaf(),
+            new FlatDarculaLaf()
+        };
+        if (auxStyles != null) {
+            for (LookAndFeel style : auxStyles) {
+                String styleName = style.getName();
+                styleMenuItems.add(new JRadioButtonMenuItem(styleName));
+                installedStyles.put(styleName, style.getClass().getName());
+            }
+        }
+
         for (final JRadioButtonMenuItem menuItem : styleMenuItems) {
             menuItem.addActionListener(new ActionListener() {
                 public void actionPerformed(ActionEvent event) {
@@ -342,6 +358,8 @@ public class JIconCreatorGui extends javax.swing.JFrame {
     public JIconCreatorGui() {
         jIconCreatorOptions = new JIconCreatorOptions();
         jIconCreatorGlue = new JIconCreatorGlue(jIconCreatorOptions);
+
+        FlatIntelliJLaf.install();
 
         initComponents();
 

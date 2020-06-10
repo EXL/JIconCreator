@@ -19,4 +19,12 @@ jar {
     manifest {
         attributes 'Main-Class': mainClassName
     }
+
+    from {
+        configurations.compileClasspath.collect { it.isDirectory() ? it : zipTree(it) }
+    }
+}
+
+dependencies {
+    implementation 'com.formdev:flatlaf:0.36'
 }
