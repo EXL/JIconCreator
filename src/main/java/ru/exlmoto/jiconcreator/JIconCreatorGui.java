@@ -1366,7 +1366,7 @@ public class JIconCreatorGui extends javax.swing.JFrame {
 
         jMenuFile.setText(bundle.getString("JIconCreatorGui.jMenuFile.text")); // NOI18N
 
-        jMenuItemPreview.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_P, java.awt.event.InputEvent.CTRL_MASK));
+        jMenuItemPreview.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_P, java.awt.event.InputEvent.CTRL_DOWN_MASK));
         jMenuItemPreview.setText(bundle.getString("JIconCreatorGui.jMenuItemPreview.text")); // NOI18N
         jMenuItemPreview.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1376,7 +1376,7 @@ public class JIconCreatorGui extends javax.swing.JFrame {
         jMenuFile.add(jMenuItemPreview);
         jMenuFile.add(jSeparator1);
 
-        jMenuItemSave.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_S, java.awt.event.InputEvent.CTRL_MASK));
+        jMenuItemSave.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_S, java.awt.event.InputEvent.CTRL_DOWN_MASK));
         jMenuItemSave.setText(bundle.getString("JIconCreatorGui.jMenuItemSave.text")); // NOI18N
         jMenuItemSave.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
