@@ -1,7 +1,7 @@
 1. Имеется два больших репозитория:
 
-platform/sdk -- Wizard
-platform/tools/base -- Library assets-studio
+platform/sdk -- Wizard (https://android.googlesource.com/platform/sdk)
+platform/tools/base -- Library assets-studio (https://android.googlesource.com/platform/tools/base)
 
 Ветка studio-1.1-release и studio-1.1-release на обоих.
 
